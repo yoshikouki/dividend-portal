@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: password
   app:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 --binding=0.0.0.0"
     volumes:
       - .:/app
     ports:
