@@ -1,0 +1,142 @@
+require: rubocop-performance
+
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "node_modules/**/*"
+    - "vendor/**/*"
+
+# ##########################################
+# Layout
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Exclude:
+    - "db/migrate/*.rb"
+
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Layout/IndentationStyle:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/CaseIndentation:
+  Enabled: true
+
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+
+# ##########################################
+# Lint
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*_spec.rb"
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/DuplicateRequire:
+  Enabled: true
+
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
+Lint/EmptyFile:
+  Enabled: true
+
+# ##########################################
+# Metrics
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# ##########################################
+# Style
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/HashSyntax:
+  Enabled: true
+  Exclude:
+    - "**/*.rake"
+    - "Rakefile"
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/YodaCondition:
+  EnforcedStyle: forbid_for_equality_operators_only
+
+Style/ZeroLengthPredicate:
+  Enabled: false
+
+Style/MultilineIfThen:
+  Enabled: true
