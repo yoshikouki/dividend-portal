@@ -9,16 +9,16 @@ lint-a:
 	@bundle exec rubocop -A
 
 test:
-	@bundle exec rspec -c .rubocop.yml
+	@bundle exec rspec -c .rspec
 
 docker/connect:
 	@docker compose exec app bash
 
 docker/lint:
-	@docker compose run --rm app bundle exec rubocop
+	@docker compose run --rm app make lint
 
 docker/lint-a:
-	@docker compose run --rm app bundle exec rubocop -A
+	@docker compose run --rm app make lint-a
 
-docker/lint-a:
+docker/test:
 	@docker compose run --rm app make test
