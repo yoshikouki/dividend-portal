@@ -2,7 +2,8 @@ FROM rubylang/ruby:3.0-focal
 
 ENV LANG=C.UTF-8 \
     TZ=Asia/Tokyo \
-    BUNDLE_JOBS=4
+    BUNDLE_JOBS=4 \
+    BUNDLE_PATH=/app/vendor/bundle
 
 RUN apt-get update -qq \
  && apt-get install -y \
@@ -15,5 +16,3 @@ RUN apt-get update -qq \
  && rm -rf /src/*.deb
 
 WORKDIR /app
-
-RUN bundle config set path /app/vendor/bundle
