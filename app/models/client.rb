@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module CompaniesHelper
+class Client < ApplicationRecord
 end
