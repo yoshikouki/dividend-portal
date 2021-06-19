@@ -3,6 +3,8 @@ on: [push]
 
 jobs:
   build:
+    runs-on: ubuntu-latest
+    container: yoshikouki/dividend-portal
     services:
       db:
         image: postgres:latest
@@ -13,7 +15,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-    container: yoshikouki/dividend-portal
     steps:
       - uses: actions/checkout@v2
       - name: Setup
