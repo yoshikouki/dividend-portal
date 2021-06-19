@@ -9,7 +9,7 @@ lint-a:
 	@bundle exec rubocop -A
 
 test:
-	@bundle exec rspec -c .rspec
+	@bundle exec rspec
 
 docker/connect:
 	@docker compose exec app bash
