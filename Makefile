@@ -21,6 +21,12 @@ lint-a:
 test:
 	@bundle exec rspec $(P)
 
+cron-ls:
+	@bundle exec whenever
+
+cron-update:
+	@bundle exec whenever --update-crontab
+
 docker/connect:
 	@docker compose exec app bash
 
