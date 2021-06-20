@@ -25,14 +25,6 @@ RSpec.describe "/companies", type: :request do
     }
   end
 
-  let(:invalid_attributes) do
-    {
-      symbol: "",
-      name: "",
-      exchange: "",
-    }
-  end
-
   describe "GET /index" do
     it "renders a successful response" do
       Company.create! valid_attributes

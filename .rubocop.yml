@@ -153,3 +153,10 @@ Style/StringLiterals:
 
 Style/Documentation:
   Enabled: false
+
+# ##########################################
+# Style
+
+Naming/AccessorMethodName:
+  Exclude:
+    - "app/models/client/**/*"    # GET するメソッドは get_ と命名したい
