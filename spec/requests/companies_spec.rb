@@ -18,11 +18,20 @@ RSpec.describe "/companies", type: :request do
   # Company. As you add validations to Company, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip("Add a hash of attributes valid for your model")
+    {
+      symbol: "TEST",
+      name: "Test Company",
+      exchange: "NYSE Arca",
+    }
   end
 
   let(:invalid_attributes) do
-    skip("Add a hash of attributes invalid for your model")
+    {
+      symbol: "",
+      name: "",
+      exchange: "",
+    }
+
   end
 
   describe "GET /index" do
