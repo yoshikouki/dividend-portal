@@ -2,11 +2,11 @@
 
 class Company < ApplicationRecord
   validates :symbol,
-           presence: true
+            presence: true
   validates :name,
-           presence: true
+            presence: true
   validates :exchange,
-           presence: true
+            presence: true
 
   def self.all
     Client::Fmp.get_symbols_list

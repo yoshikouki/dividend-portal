@@ -9,9 +9,9 @@ class Client < ApplicationRecord
       use_ssl: uri.scheme == "https",
     }
 
-    res = Net::HTTP.start(uri.host, uri.port, options) {|http|
+    res = Net::HTTP.start(uri.host, uri.port, options) do |http|
       http.request(req)
-    }
+    end
 
     if res["content-type"].include?("application/json")
       JSON.parse res.body

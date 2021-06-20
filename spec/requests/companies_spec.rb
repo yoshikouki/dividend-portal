@@ -31,7 +31,6 @@ RSpec.describe "/companies", type: :request do
       name: "",
       exchange: "",
     }
-
   end
 
   describe "GET /index" do
