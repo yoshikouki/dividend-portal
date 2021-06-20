@@ -6,14 +6,7 @@ module Client
     API_KEY = ENV["API_KEY_FMP"]
 
     def self.get_symbols_list
-      res = Client.get url("/api/v3/stock/list")
-      res.map do |d|
-        Company.new(
-          symbol: d["symbol"],
-          name: d["name"],
-          exchange: d["exchange"],
-        )
-      end
+      Client.get url("/api/v3/stock/list")
     end
 
     def self.url(path)
