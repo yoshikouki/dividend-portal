@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Client < ApplicationRecord
+module Client
   def self.get(url)
     uri = URI.parse(url)
     req = Net::HTTP::Get.new(uri)
