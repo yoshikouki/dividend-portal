@@ -18,3 +18,5 @@ services:
       - db
     environment:
       TZ: "Asia/Tokyo"
+    stdin_open: true
+    tty: true
