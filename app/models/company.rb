@@ -9,7 +9,7 @@ class Company < ApplicationRecord
             presence: true
 
   def self.update_all_to_latest
-    current_all = Company.all
+    current_all = Company.all.to_a
     latest_all = Client::Fmp.get_symbols_list
     new_coming = []
     needs_updating = []
@@ -20,11 +20,10 @@ class Company < ApplicationRecord
         name: raw["name"],
         exchange: raw["exchange"],
       }
-      current = current_all.select { |cc| cc.symbol == latest["symbol"] }.first
+      target = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
 
       # 未知の企業ならインサートする
-      if current.nil?
-        puts latest
+      if target.nil?
         new_coming << {
           **latest,
           created_at: Time.current,
@@ -33,10 +32,9 @@ class Company < ApplicationRecord
         next
       end
 
+      current = current_all.slice!(target)
       # 情報を比較して差異があれば更新
       if current.has_diff?(latest, [:name, :exchange])
-        puts latest
-
         needs_updating << {
           **current.attributes.symbolize_keys,
           **latest
