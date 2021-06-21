@@ -4,6 +4,6 @@ namespace :company do
     puts "Start"
     result = Company.update_all_to_latest
     puts "Done"
-    puts "inserted: #{result.inserted.count} \nupdated: #{result.updated.count}"
+    puts "inserted: #{result[:inserted].count} \nupdated: #{result[:updated].count}"
   end
 end
