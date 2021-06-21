@@ -7,13 +7,15 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+    ports:
+      - "3334:5432"
   app:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 --binding=0.0.0.0"
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
+      - "3333:3000"
     depends_on:
       - db
     environment:
