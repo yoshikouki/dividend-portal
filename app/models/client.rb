@@ -13,10 +13,12 @@ module Client
       http.request(req)
     end
 
-    if res["content-type"].include?("application/json")
-      JSON.parse res.body
-    else
-      res.body
-    end
+    parse_response_body res
+  end
+
+  def self.parse_response_body(response)
+    body = response.body
+    body = JSON.parse body if response["content-type"].include?("application/json")
+    body
   end
 end

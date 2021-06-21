@@ -8,7 +8,10 @@ class Company < ApplicationRecord
   validates :exchange,
             presence: true
 
-  def self.all
-    Client::Fmp.get_symbols_list
+  def diff?(target, check_list)
+    check_list.each do |c|
+      return true unless self[c] == target[c]
+    end
+    false
   end
 end
