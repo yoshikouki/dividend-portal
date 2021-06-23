@@ -21,4 +21,12 @@ module Client
     body = JSON.parse body if response["content-type"].include?("application/json")
     body
   end
+
+  def self.value_to_time(hash)
+    hash.each do |key, value|
+      next if value.instance_of? Time
+
+      hash[key] = Time.parse(value).strftime("%Y-%m-%d")
+    end
+  end
 end
