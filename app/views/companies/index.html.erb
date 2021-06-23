@@ -13,13 +13,17 @@
 
   <tbody>
     <% @companies.each do |company| %>
-      <tr>
-        <%= link_to company do %>
-          <td><%= company.symbol %></td>
+        <tr>
+          <td>
+            <%= link_to company do %>
+              <%= company.symbol %>
+            <% end %>
+          </td>
           <td><%= company.name %></td>
           <td><%= company.exchange %></td>
-        <% end %>
-      </tr>
+        </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @companies %>
