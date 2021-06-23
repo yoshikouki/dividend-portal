@@ -1,6 +1,7 @@
 IMAGE_BASE_PATH =
 CI_IMAGE_NAME := $(IMAGE_BASE_PATH)yoshikouki/dividend-portal
 IMAGE_TAG = latest
+APP_CONTAINER_NAME=$(shell docker compose ps | grep -o -e "dividend-portal_app\w*")
 
 INFO_COLOR=\033[1;34m
 RESET=\033[0m
@@ -11,6 +12,9 @@ USER_NAME := $(shell git config --get user.name)
 setup:
 	docker compose build
 	docker compose run --rm app bin/setup
+
+run:
+	docker compose up -d && docker attach $(APP_CONTAINER_NAME)
 
 lint:
 	@bundle exec rubocop
