@@ -9,6 +9,6 @@
 
 set :output, "log/cron.log"
 
-every 1.day, at: '9am' do
+every 1.day, at: "9am" do
   rake "company:update_to_latest"
 end
