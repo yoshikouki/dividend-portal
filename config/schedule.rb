@@ -7,8 +7,8 @@
 #
 # Learn more: http://github.com/javan/whenever
 
-set :output, "/path/to/my/cron_log.log"
+set :output, "log/cron.log"
 
-every 1.day do
+every 1.day, at: '9am' do
   rake "company:update_to_latest"
 end
