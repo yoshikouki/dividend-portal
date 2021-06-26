@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DividendController < ApplicationController
+class DividendsController < ApplicationController
   def index
   end
 

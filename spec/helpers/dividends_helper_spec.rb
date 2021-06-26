@@ -12,5 +12,5 @@ require "rails_helper"
 #     end
 #   end
 # end
-RSpec.describe DividendHelper, type: :helper do
+RSpec.describe DividendsHelper, type: :helper do
 end
