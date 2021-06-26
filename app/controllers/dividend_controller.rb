@@ -3,5 +3,6 @@ class DividendController < ApplicationController
   end
 
   def recent
+    @dividends = Dividend.recent
   end
 end

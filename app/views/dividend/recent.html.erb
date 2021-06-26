@@ -1,2 +1,20 @@
-<h1>Dividend#recent</h1>
-<p>Find me in app/views/dividend/recent.html.erb</p>
+<h2>Dividend#recent</h2>
+
+<table>
+  <tr>
+    <% @dividends.first.keys.each do |key| %>
+      <th>
+        <%= key %>
+      </th>
+    <% end %>
+  </tr>
+  <% @dividends.each do |dividend| %>
+    <tr>
+      <% dividend.each do |key, value| %>
+      <td>
+        <%= value %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
