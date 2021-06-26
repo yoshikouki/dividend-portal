@@ -1,7 +1,8 @@
 module Dividend
-  def self.recent
+  def self.recent(from: nil, to: nil)
     Client::Fmp.get_dividend_calendar(
-      from: Time.at(2.days.ago),
+      from: from || Time.at(2.days.ago),
+      to: to || Time.now,
     )
   end
 end
