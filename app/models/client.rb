@@ -24,9 +24,11 @@ module Client
 
   def self.value_to_time(hash)
     hash.each do |key, value|
-      next if value.instance_of? Time
-
-      hash[key] = Time.parse(value).strftime("%Y-%m-%d")
+      hash[key] = if value.instance_of? Time
+        value.strftime("%Y-%m-%d")
+      else
+        Time.parse(value).strftime("%Y-%m-%d")
+      end
     end
   end
 end
