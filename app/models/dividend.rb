@@ -25,4 +25,10 @@ class Dividend
       to: to || Time.now,
     )
   end
+
+  def self.declared_on_today
+    dividends = Client::Fmp.get_dividend_calendar(from: Time.at(1.month.ago))
+    dividends.delete_if { |dividend| dividend[:declaration_date] != Time.at(3.days.ago).strftime("%Y-%m-%d") }
+    dividends.map { |dividend| self.new(dividend) }
+  end
 end
