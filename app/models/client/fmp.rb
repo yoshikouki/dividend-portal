@@ -5,18 +5,18 @@ module Client
     API_HOST = "financialmodelingprep.com"
     API_KEY = ENV["API_KEY_FMP"]
 
-    START_DATE_OF_RECENT_DIVIDEND= Time.now.ago(3.days)
+    START_DATE_OF_RECENT_DIVIDEND = Time.now.ago(3.days)
 
     DIVIDEND_CALENDAR_CONVERSION = {
-      date: "ex-dividend date",    # "権利落ち日"
-      label: "label",    # "権利落ち日(英語表記)"
-      record_date: "record date",    # "権利確定日"
-      payment_date: "payment date",    # "支払日"
-      declaration_date: "declaration date",    # "発表日"
-      symbol: "symbol",    # "ティッカーシンボル"
-      dividend: "dividend",    # "配当金"
+      date: "ex-dividend date", # "権利落ち日"
+      label: "label", # "権利落ち日(英語表記)"
+      record_date: "record date", # "権利確定日"
+      payment_date: "payment date", # "支払日"
+      declaration_date: "declaration date", # "発表日"
+      symbol: "symbol", # "ティッカーシンボル"
+      dividend: "dividend", # "配当金"
       adj_dividend: "adjusted dividend",    # "調整後配当金"
-    }
+    }.freeze
 
     def self.get_symbols_list
       Client.get url("/api/v3/stock/list")

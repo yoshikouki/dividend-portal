@@ -18,7 +18,7 @@ RSpec.describe Client, type: :model do
           {
             from: "210101",
             to: "211231",
-          }
+          },
         ]
         expect = {
           from: "2021-01-01",

@@ -1,4 +1,6 @@
 module Dividend
+# frozen_string_literal: true
+
   def self.recent(from: nil, to: nil)
     Client::Fmp.get_dividend_calendar(
       from: from || Time.at(2.days.ago),

@@ -19,7 +19,7 @@ RSpec.describe Client::Fmp, type: :model do
       it "URLの最後にクエリを生成する" do
         query_hash = {
           from: "test-from",
-          to: "test-to"
+          to: "test-to",
         }
         url = Client::Fmp.url("test", query_hash)
         expect = "&from=test-from&to=test-to"

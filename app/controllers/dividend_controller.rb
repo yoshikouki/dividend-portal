@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DividendController < ApplicationController
   def index
   end
