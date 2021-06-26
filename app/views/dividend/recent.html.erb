@@ -4,7 +4,7 @@
   <tr>
     <% @dividends.first.keys.each do |key| %>
       <th>
-        <%= Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key.underscore.to_sym] %>
+        <%= Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key] %>
       </th>
     <% end %>
   </tr>
