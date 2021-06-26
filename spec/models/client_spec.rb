@@ -8,14 +8,14 @@ RSpec.describe Client, type: :model do
       it "key がスネークケースに変換されたJSONを返す" do
         body = '[{"date" : "2021-07-09", "label" : "July 09, 21", "adjDividend" : 0.4025, "symbol" : "OGE", "dividend" : 0.4025, "recordDate" : "2021-07-12", "paymentDate" : "2021-07-30", "declarationDate" : "2021-05-20"}]'
         expect = [{
-        adj_dividend: 0.4025,
-        date: "2021-07-09",
-        declaration_date: "2021-05-20",
-        dividend: 0.4025,
-        label: "July 09, 21",
-        payment_date: "2021-07-30",
-        record_date: "2021-07-12",
-        symbol: "OGE",
+          adj_dividend: 0.4025,
+          date: "2021-07-09",
+          declaration_date: "2021-05-20",
+          dividend: 0.4025,
+          label: "July 09, 21",
+          payment_date: "2021-07-30",
+          record_date: "2021-07-12",
+          symbol: "OGE",
         }]
         got = Client.parse_response_body(body: body, content_type: "application/json;charset=UTF-8")
         expect(got).to eq(expect)
