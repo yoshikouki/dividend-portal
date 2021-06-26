@@ -28,9 +28,8 @@ module Client
 
       query = ""
       unless query_hash.empty?
-        query += "&"
         query_hash.each do |key, value|
-          query += "#{key.to_s}=#{value.to_s}"
+          query += "&#{key.to_s}=#{value.to_s}"
         end
       end
 
