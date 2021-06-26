@@ -19,7 +19,8 @@ module Client
     }.freeze
 
     def self.get_symbols_list
-      Client.get url("/api/v3/stock/list")
+      res = Client.get url("/api/v3/stock/list")
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.get_dividend_calendar(from: nil, to: nil)
@@ -30,7 +31,8 @@ module Client
       query[:to] = to if to
       query = Client.value_to_time query
 
-      Client.get url(path, query)
+      res = Client.get url(path, query)
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.url(path, query_hash = {})
