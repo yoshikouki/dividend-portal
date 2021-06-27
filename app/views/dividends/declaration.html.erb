@@ -1,0 +1,24 @@
+<h2>最近の配当発表</h2>
+
+<% if @dividends.empty? %>
+  <p>一週間の最新情報はありません。</p>
+<% else %>
+  <table>
+    <tr>
+      <% JSON.parse(@dividends.to_json).first.keys.each do |key| %>
+        <th>
+          <%= Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key.to_sym] %>
+        </th>
+      <% end %>
+    </tr>
+    <% JSON.parse(@dividends.to_json).each do |dividend| %>
+      <tr>
+        <% dividend.each do |key, value| %>
+          <td>
+            <%= dividend[key] %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

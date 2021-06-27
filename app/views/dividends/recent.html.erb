@@ -1,0 +1,20 @@
+<h2>権利落ち日が近い銘柄</h2>
+
+<table>
+  <tr>
+    <% @dividends.first.keys.each do |key| %>
+      <th>
+        <%= key %>
+      </th>
+    <% end %>
+  </tr>
+  <% @dividends.each do |dividend| %>
+    <tr>
+      <% dividend.each do |key, value| %>
+      <td>
+        <%= value %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
