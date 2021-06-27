@@ -20,10 +20,11 @@ class Dividend
   end
 
   def self.recent(from: nil, to: nil)
-    Client::Fmp.get_dividend_calendar(
-      from: from || Time.at(2.days.ago),
-      to: to || Time.now,
+    from ||= Time.at(2.days.ago)
+    dividends = Client::Fmp.get_dividend_calendar(
+      from: from,
     )
+    convert_calendar_for_visual(dividends)
   end
 
   def self.declared_on_today
@@ -31,4 +32,16 @@ class Dividend
     dividends.delete_if { |dividend| dividend[:declaration_date] != Time.now.strftime("%Y-%m-%d") }
     dividends.map { |dividend| new(dividend) }
   end
+
+  private
+
+    def self.convert_calendar_for_visual(dividends)
+      dividends.map do |dividend|
+        dividend.delete(:label)
+
+        dividend.map do |key, value|
+          [Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key], value]
+        end.to_h
+      end
+    end
 end
