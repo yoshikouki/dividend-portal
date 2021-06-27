@@ -6,7 +6,16 @@ RSpec.describe Client, type: :model do
   describe "parse_response_body" do
     context "response body がJSONかつkeyがキャメルケースの場合" do
       it "key がスネークケースに変換されたJSONを返す" do
-        body = '[{"date" : "2021-07-09", "label" : "July 09, 21", "adjDividend" : 0.4025, "symbol" : "OGE", "dividend" : 0.4025, "recordDate" : "2021-07-12", "paymentDate" : "2021-07-30", "declarationDate" : "2021-05-20"}]'
+        body = [{
+          "date" => "2021-07-09",
+          "label" => "July 09, 21",
+          "adjDividend" => 0.4025,
+          "symbol" => "OGE",
+          "dividend" => 0.4025,
+          "recordDate" => "2021-07-12",
+          "paymentDate" => "2021-07-30",
+          "declarationDate" => "2021-05-20",
+        }].to_json
         expect = [{
           adj_dividend: 0.4025,
           date: "2021-07-09",
