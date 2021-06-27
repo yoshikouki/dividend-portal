@@ -17,9 +17,9 @@ RSpec.describe "Dividends", type: :request do
     end
   end
 
-  describe "GET /today" do
+  describe "GET /declaration" do
     it "returns http success" do
-      get "/dividends/today"
+      get "/dividends/declaration"
       expect(response).to have_http_status(:success)
     end
   end

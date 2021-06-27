@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   get "/dividends", to: "dividends#index"
   get "/dividends/recent"
-  get "/dividends/today"
+  get "/dividends/declaration"
   root "home#index"
 
   resources :companies

@@ -8,7 +8,7 @@ class DividendsController < ApplicationController
     @dividends = Dividend.recent
   end
 
-  def today
-    @dividends = Dividend.declared_on_today
+  def declaration
+    @dividends = Dividend.declared_from(Time.at(1.week.ago))
   end
 end
