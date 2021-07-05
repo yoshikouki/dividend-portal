@@ -10,77 +10,18 @@ module Client
     ACCESS_TOKEN = ENV["TWITTER_ACCESS_TOKEN"]
     ACCESS_SECRET = ENV["TWITTER_ACCESS_SECRET"]
 
-    SIGNATURE_METHOD    = "HMAC-SHA1"
-    OAUTH_VERSION       = "1.0"
-
     def self.tweet(text)
       url = TWEET_END_POINT
       uri = URI.parse(url)
-      http_method = "POST"
 
-      request = Net::HTTP::Post.new(uri)
-      # request header 設定
-      request.content_type = "application/json"
-      request["Authorization"] = authorization_value_of_oauth(http_method, url)
-      # request body 設定
-      request.body = generate_request_body(text)
+      consumer = OAuth::Consumer.new(
+        CONSUMER_KEY,
+        CONSUMER_SECRET,
+        site: "https://#{API_HOST}/"
+      )
+      endpoint = OAuth::AccessToken.new(consumer, ACCESS_TOKEN, ACCESS_SECRET)
 
-      options = {
-        use_ssl: uri.scheme == "https",
-      }
-
-      Net::HTTP.start(uri.host, uri.port, options) do |http|
-        http.request(request)
-      end
-    end
-
-    def self.authorization_value_of_oauth(http_method, url)
-      oauth_signature = generate_oauth_signature(http_method, url)
-      params = oauth_params(oauth_signature)
-      convert_to_authorization_value(params)
-    end
-
-    def self.generate_oauth_signature(http_method, url)
-      before_encoding = OpenSSL::HMAC.digest(OpenSSL::Digest::SHA1.new, signature_signing_key, signature_base_string(http_method, url))
-      ERB::Util.url_encode(Base64.strict_encode64(before_encoding))
-    end
-
-    def self.signature_signing_key
-      ERB::Util.url_encode("#{CONSUMER_SECRET}&#{ACCESS_SECRET}")
-    end
-    
-    def self.signature_base_string(http_method, url)
-      oauth_params_array = initial_oauth_params.sort.map { |k, v| "#{k}=#{v}" }
-      before_encoding = [http_method, url, *oauth_params_array].join("&")
-      ERB::Util.url_encode(before_encoding)
-    end
-
-    def self.oauth_params(oauth_signature)
-      initial_oauth_params.merge ({
-        oauth_signature: oauth_signature
-      })
-    end
-
-    def self.initial_oauth_params
-      {
-        oauth_consumer_key: CONSUMER_KEY,
-        oauth_nonce: SecureRandom.uuid,
-        oauth_signature_method: SIGNATURE_METHOD,
-        oauth_timestamp: Time.zone.now.to_i,
-        oauth_token: ACCESS_TOKEN,
-        oauth_version: OAUTH_VERSION,
-      }
-    end
-
-    def self.convert_to_authorization_value(params)
-      value = params.sort.map { |k, v| "#{k}=\"#{v}\"" }.join(",")
-      "OAuth #{value}"
-    end
-
-    def self.generate_request_body(text)
-      JSON.generate({
-        status: text.to_s
-      })
+      endpoint.post(TWEET_END_POINT, status: text.to_s)
     end
   end
 end
