@@ -3,6 +3,8 @@
 module Client
   module Twitter
     API_HOST = "api.twitter.com"
+    TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"
+
     CONSUMER_KEY = ENV["TWITTER_CONSUMER_KEY"]
     CONSUMER_SECRET = ENV["TWITTER_CONSUMER_SECRET"]
     ACCESS_TOKEN = ENV["TWITTER_ACCESS_TOKEN"]
@@ -11,17 +13,8 @@ module Client
     SIGNATURE_METHOD    = "HMAC-SHA1"
     OAUTH_VERSION       = "1.0"
 
-    INITIAL_OAUTH_PARAMS = {
-      oauth_consumer_key: CONSUMER_KEY,
-      oauth_nonce: SecureRandom.uuid,
-      oauth_signature_method: SIGNATURE_METHOD,
-      oauth_timestamp: Time.zone.now.to_i,
-      oauth_token: ACCESS_TOKEN,
-      oauth_version: OAUTH_VERSION,
-    }
-
     def self.tweet(text)
-      url = "https://#{API_HOST}/1.1/statuses/update.json"
+      url = TWEET_END_POINT
       uri = URI.parse(url)
       http_method = "POST"
 
@@ -57,15 +50,26 @@ module Client
     end
     
     def self.signature_base_string(http_method, url)
-      oauth_params_array = INITIAL_OAUTH_PARAMS.sort.map { |k, v| "#{k}=#{v}" }
+      oauth_params_array = initial_oauth_params.sort.map { |k, v| "#{k}=#{v}" }
       before_encoding = [http_method, url, *oauth_params_array].join("&")
       ERB::Util.url_encode(before_encoding)
     end
 
     def self.oauth_params(oauth_signature)
-      INITIAL_OAUTH_PARAMS.merge ({
+      initial_oauth_params.merge ({
         oauth_signature: oauth_signature
       })
+    end
+
+    def self.initial_oauth_params
+      {
+        oauth_consumer_key: CONSUMER_KEY,
+        oauth_nonce: SecureRandom.uuid,
+        oauth_signature_method: SIGNATURE_METHOD,
+        oauth_timestamp: Time.zone.now.to_i,
+        oauth_token: ACCESS_TOKEN,
+        oauth_version: OAUTH_VERSION,
+      }
     end
 
     def self.convert_to_authorization_value(params)
