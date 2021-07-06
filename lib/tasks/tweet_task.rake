@@ -9,7 +9,7 @@ namespace :tweet do
     symbols_text = dividends.map { |dividend| "$#{dividend[:symbol]}" }.sort.join(" ")
 
     tweet_text = <<~TWEET
-      明日が配当落ち日の米国株は「#{dividends.count}件」です。
+      今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)
       #{symbols_text}
     TWEET
     Client::TwitterWrapper.tweet(tweet_text)
