@@ -51,3 +51,7 @@ docker/push-ci:
 	$(MAKE) docker/build-ci
 	@echo "$(INFO_COLOR)==> $(RESET)$(BOLD)Push Docker image$(RESET)"
 	docker push $(CI_IMAGE_NAME):$(IMAGE_TAG)
+
+BRANCH=main
+deploy:
+	git push heroku $(BRANCH)
