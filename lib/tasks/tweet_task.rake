@@ -2,7 +2,7 @@
 
 namespace :tweet do
   desc "権利落ち前日の米国株を配信する"
-  task :ex_dividend_previous_date do
+  task ex_dividend_previous_date: :environment do
     tomorrow = Time.at(1.day.since).strftime("%Y-%m-%d")
     dividends = Client::Fmp.get_dividend_calendar(from: tomorrow, to: tomorrow)
 
