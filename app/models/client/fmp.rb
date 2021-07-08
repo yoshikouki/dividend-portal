@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Client
-  class Fmp < ApplicationRecord
+  module Fmp
     API_HOST = "financialmodelingprep.com"
     API_KEY = ENV["API_KEY_FMP"]
 
