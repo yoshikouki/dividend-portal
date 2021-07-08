@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "../../app/models/client"
 
 namespace :tweet do
   desc "権利落ち前日の米国株を配信する"
