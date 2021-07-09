@@ -7,6 +7,7 @@ module Tweet
   end
 
   def self.ex_dividend_previous_date
+    # TODO NY市場の翌営業日を取得する
     tomorrow = Time.at(1.day.since)
     dividends = Dividend.filter_by_ex_dividend_date(tomorrow)
 
