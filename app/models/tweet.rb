@@ -7,11 +7,12 @@ module Tweet
   end
 
   def self.ex_dividend_previous_date
-    tomorrow = Time.at(1.day.since).strftime("%Y-%m-%d")
-    dividends = Client::Fmp.get_dividend_calendar(from: tomorrow, to: tomorrow)
+    tomorrow = Time.at(1.day.since)
+    dividends = Dividend.filter_by_ex_dividend_date(tomorrow)
 
     # ツイート文面を作成
     symbols_text = dividends.map { |dividend| "$#{dividend[:symbol]}" }.sort.join(" ")
+      symbols_text.length
 
     # ツイート
     tweet_text = render_ex_dividend_previous_date(dividends.count, symbols_text)
