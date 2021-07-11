@@ -60,4 +60,7 @@ RSpec.describe Workday, type: :model do
       end
     end
   end
+
+  describe ".next_workday" do
+  end
 end

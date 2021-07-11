@@ -15,4 +15,7 @@ class Workday < Date
   def workday?(country = :us)
     on_weekday? && !holiday?(country)
   end
+
+  def self.next_workday(country = :us)
+  end
 end
