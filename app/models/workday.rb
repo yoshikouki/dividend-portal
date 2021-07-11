@@ -9,7 +9,7 @@ class Workday < Date
   end
 
   def holiday(country = [])
-    Holidays.on(self, country)
+    Holidays.on(self, country, :observed)
   end
 
   def workday?(country = :us)
