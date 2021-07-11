@@ -11,8 +11,8 @@ module Tweet
     tomorrow = Time.at(1.day.since)
     dividends = Dividend.filter_by_ex_dividend_date(tomorrow)
 
-    tweet_text = render_ex_dividend_previous_date(dividends)
-    tweet(tweet_text)
+    tweet_content = render_ex_dividend_previous_date(dividends)
+    tweet(tweet_content)
   end
 
   def self.render_ex_dividend_previous_date(dividends = [])
