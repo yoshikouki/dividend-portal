@@ -6,6 +6,12 @@ module Tweet
     client.update(text)
   end
 
+  def self.holiday(_country = :us, workday = Workday.today)
+    holiday = workday.holiday(:us).first[:name]
+    content = "今日は「#{holiday}」の祝日なので、NY市場はお休みかも知れませんね"
+    tweet(content)
+  end
+
   def self.ex_dividend_previous_date
     # TODO: NY市場の翌営業日を取得する
     tomorrow = Time.at(1.day.since)
