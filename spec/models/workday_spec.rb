@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Workday, type: :model do
-  describe "holiday?" do
+  describe "#holiday?" do
     context "引数が空の場合" do
       it "登録されている全ての国で祝日を判定する" do
         actual = Workday.new(2021, 1, 1).holiday?
@@ -20,7 +20,7 @@ RSpec.describe Workday, type: :model do
     end
   end
 
-  describe "holiday" do
+  describe "#holiday" do
     context "引数が空の場合" do
       it "登録されている全ての国で祝日を判定する" do
         actual = Workday.new(2021, 1, 1).holiday
@@ -37,7 +37,7 @@ RSpec.describe Workday, type: :model do
     end
   end
 
-  describe "workday?" do
+  describe "#workday?" do
     context "引数が空の場合" do
       it "国はUSとして営業日だったら true を返す" do
         independence_day = Workday.new(2021, 7, 4)
