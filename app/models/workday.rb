@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Workday < Date
+  YEAR = 365 * 24 * 60 * 60
+  HOLIDAYS_CACHE_END_DATE = Time.now + YEAR
+
   def holiday?(country = [])
     holiday(country).present?
   end
