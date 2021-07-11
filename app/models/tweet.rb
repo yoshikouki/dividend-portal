@@ -16,11 +16,15 @@ module Tweet
   end
 
   def self.render_ex_dividend_previous_date(dividends = [])
-    symbols_text = dividends.map { |dividend| "$#{dividend[:symbol]}" }.sort.join(" ")
+    tweet_content = template_for_ex_dividend_previous_date(dividends.length)
 
-    <<~TWEET
-      今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)
-      #{symbols_text}
-    TWEET
+    dividends.each do |dividend|
+      tweet_content += "$#{dividend[:symbol]} "
+    end
+    tweet_content
+  end
+
+  def self.template_for_ex_dividend_previous_date(count)
+    "今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)\n"
   end
 end
