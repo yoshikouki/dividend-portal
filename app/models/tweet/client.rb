@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tweet
   module Client
     API_HOST = "api.twitter.com"

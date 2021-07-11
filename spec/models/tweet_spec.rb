@@ -16,9 +16,9 @@ RSpec.describe Tweet, type: :model do
     context "引数に:symbolのキーを持つオブジェクトを渡された場合" do
       it "オブジェクトの個数と:symbolの値からツイート本文を作成して返す" do
         dividends = [
-          {symbol: "test"},
-          {symbol: "dividend"},
-          {symbol: "portal"},
+          { symbol: "test" },
+          { symbol: "dividend" },
+          { symbol: "portal" },
         ]
         symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
         expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text} "
