@@ -11,8 +11,9 @@ RUN apt-get update -qq \
     npm \
     postgresql-client \
     libpq-dev \
- && npm i -g yarn \
- && rm -rf /var/lib/apt/lists/* \
+    libidn11-dev
+RUN npm i -g yarn
+RUN rm -rf /var/lib/apt/lists/* \
  && rm -rf /src/*.deb
 
 WORKDIR /app

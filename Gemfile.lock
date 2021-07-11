@@ -109,6 +109,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    idn-ruby (0.1.2)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     kaminari (1.2.1)
@@ -259,6 +260,9 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-text (3.1.0)
+      idn-ruby
+      unf (~> 0.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -312,6 +316,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   twitter
+  twitter-text
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
