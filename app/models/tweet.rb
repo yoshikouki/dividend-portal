@@ -21,11 +21,9 @@ module Tweet
 
     dividends.each do |dividend|
       content_for_calculation += "$#{dividend[:symbol]} "
-      if Twitter::TwitterText::Validation.parse_tweet(content_for_calculation)[:weighted_length] < 240
-        tweet_symbols << dividend[:symbol]
-      else
-        break
-      end
+      break if Twitter::TwitterText::Validation.parse_tweet(content_for_calculation)[:weighted_length] > 240
+
+      tweet_symbols << dividend[:symbol]
     end
     remaining_count = dividends.count - tweet_symbols.count
     template_for_ex_dividend_previous_date(dividends.count, tweet_symbols, remaining_count)
