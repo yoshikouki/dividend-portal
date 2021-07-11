@@ -16,15 +16,31 @@ module Tweet
   end
 
   def self.render_ex_dividend_previous_date(dividends = [])
-    tweet_content = template_for_ex_dividend_previous_date(dividends.length)
+    content_for_calculation = template_for_ex_dividend_previous_date(dividends.count)
+    tweet_symbols = []
 
-    dividends.each do |dividend|
-      tweet_content += "$#{dividend[:symbol]} "
+    dividends.each_with_index do |dividend, i|
+      content_for_calculation += "$#{dividend[:symbol]} "
+      if Twitter::TwitterText::Validation.parse_tweet(content_for_calculation)[:weighted_length] < 240
+        tweet_symbols << dividend[:symbol]
+      else
+        break
+      end
     end
-    tweet_content
+    remaining_count = dividends.count - tweet_symbols.count
+    template_for_ex_dividend_previous_date(dividends.count, tweet_symbols, remaining_count )
   end
 
-  def self.template_for_ex_dividend_previous_date(count)
-    "今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)\n"
+  def self.template_for_ex_dividend_previous_date(dividends_count = 0, tweet_symbols = [], remaining_count = 0)
+    front_part = "今日までの購入で配当金が受け取れる米国株は「#{dividends_count}件」です (配当落ち前日)"
+    return front_part if dividends_count.zero?
+
+    symbols_part = tweet_symbols.map { |s| "$#{s}" }.join(" ")
+    symbols_part += "...他#{remaining_count}件" if remaining_count > 0
+
+    <<~TWEET
+      #{ front_part }
+      #{ symbols_part }
+    TWEET
   end
 end
