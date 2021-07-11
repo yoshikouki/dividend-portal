@@ -19,7 +19,7 @@ module Tweet
     content_for_calculation = template_for_ex_dividend_previous_date(dividends.count)
     tweet_symbols = []
 
-    dividends.each_with_index do |dividend, i|
+    dividends.each do |dividend|
       content_for_calculation += "$#{dividend[:symbol]} "
       if Twitter::TwitterText::Validation.parse_tweet(content_for_calculation)[:weighted_length] < 240
         tweet_symbols << dividend[:symbol]
@@ -28,7 +28,7 @@ module Tweet
       end
     end
     remaining_count = dividends.count - tweet_symbols.count
-    template_for_ex_dividend_previous_date(dividends.count, tweet_symbols, remaining_count )
+    template_for_ex_dividend_previous_date(dividends.count, tweet_symbols, remaining_count)
   end
 
   def self.template_for_ex_dividend_previous_date(dividends_count = 0, tweet_symbols = [], remaining_count = 0)
@@ -36,11 +36,11 @@ module Tweet
     return front_part if dividends_count.zero?
 
     symbols_part = tweet_symbols.map { |s| "$#{s}" }.join(" ")
-    symbols_part += "...他#{remaining_count}件" if remaining_count > 0
+    symbols_part += "...他#{remaining_count}件" if remaining_count.positive?
 
     <<~TWEET
-      #{ front_part }
-      #{ symbols_part }
+      #{front_part}
+      #{symbols_part}
     TWEET
   end
 end
