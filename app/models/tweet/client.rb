@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Client
-  module TwitterWrapper
+module Tweet
+  module Client
     API_HOST = "api.twitter.com"
     TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"
 
@@ -17,11 +17,6 @@ module Client
         config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
         config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
       end
-    end
-
-    def self.tweet(text)
-      client = new
-      client.update(text)
     end
   end
 end

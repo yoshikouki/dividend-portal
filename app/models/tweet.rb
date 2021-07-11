@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+module Tweet
+  def self.tweet(text)
+    client = Client.new
+    client.update(text)
+  end
+
+  def self.ex_dividend_previous_date
+    # TODO: NY市場の翌営業日を取得する
+    tomorrow = Time.at(1.day.since)
+    dividends = Dividend.filter_by_ex_dividend_date(tomorrow)
+
+    tweet_content = render_ex_dividend_previous_date(dividends)
+    tweet(tweet_content)
+  end
+
+  def self.render_ex_dividend_previous_date(dividends = [])
+    tweet_content = template_for_ex_dividend_previous_date(dividends.length)
+
+    dividends.each do |dividend|
+      tweet_content += "$#{dividend[:symbol]} "
+    end
+    tweet_content
+  end
+
+  def self.template_for_ex_dividend_previous_date(count)
+    "今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)\n"
+  end
+end
