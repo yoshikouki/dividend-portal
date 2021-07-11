@@ -61,20 +61,27 @@ RSpec.describe Workday, type: :model do
     end
   end
 
-  describe ".next_workday" do
+  describe "#next_workday" do
     context "翌日が営業日の場合" do
       it "翌日=営業日をWorkdayクラスで返す" do
-        expected = Workday.new(2021, 7, 5)        # 月曜日。祝日ではない
-        reference_day = Workday.new(2021, 7, 3)   # 土曜日
-        actual = Workday.next_workday(:jp, reference_day)
+        actual = Workday.new(2021, 7, 12).next(:us) # 2021/7/12は月曜日
+        expected = Workday.new(2021, 7, 13)   # 火曜日。祝日ではない
         expect(actual).to eq(expected)
       end
     end
-    context "翌日が休日の場合" do
+
+    context "翌日が週末の場合" do
       it "休日明けの営業日をWorkdayクラスで返す" do
-        expected = Workday.new(2021, 7, 5)        # 月曜日。祝日ではない
-        reference_day = Workday.new(2021, 7, 3)   # 土曜日
-        actual = Workday.next_workday(:jp, reference_day)
+        actual = Workday.new(2021, 7, 3).next(:us) # 2021/7/3は土曜日
+        expected = Workday.new(2021, 7, 5)   # 月曜日。祝日ではない
+        expect(actual).to eq(expected)
+      end
+    end
+
+    context "翌日が祝日の場合" do
+      it "祝日明けの営業日をWorkdayクラスで返す" do
+        actual = Workday.new(2021, 7, 10).next(:us) # 2021/11/11は"Veterans Day"で木曜日
+        expected = Workday.new(2021, 11, 12) # 金曜日
         expect(actual).to eq(expected)
       end
     end
