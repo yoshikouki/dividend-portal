@@ -11,4 +11,8 @@ class Workday < Date
   def holiday(country = [])
     Holidays.on(self, country)
   end
+
+  def workday?(country = :us)
+    on_weekday? && !holiday?(country)
+  end
 end

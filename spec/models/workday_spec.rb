@@ -36,4 +36,28 @@ RSpec.describe Workday, type: :model do
       end
     end
   end
+
+  describe "workday?" do
+    context "引数が空の場合" do
+      it "国はUSとして営業日だったら true を返す" do
+        independence_day = Workday.new(2021, 7, 4)
+        actual = independence_day.workday?
+        expect(actual).to be false
+      end
+    end
+
+    context "引数に国のシンボルが渡された場合" do
+      it "その国の祝日で判定する" do
+        king_jr_day = Workday.new(2021, 1, 18)
+        expect(king_jr_day.workday?(:us)).to be false
+        expect(king_jr_day.workday?(:jp)).to be true
+      end
+
+      it "週末じゃなくても祝日なら false" do
+        new_year_day = Workday.new(2021, 1, 1)
+        expect(new_year_day.on_weekday?).to be true
+        expect(new_year_day.workday?(:us)).to be false
+      end
+    end
+  end
 end
