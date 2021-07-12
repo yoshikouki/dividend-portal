@@ -61,9 +61,9 @@ class Dividend
   end
 
   def self.filter_by_ex_dividend_date(from_time = Time.now, _to_time = nil)
-    return [] unless from_time.instance_of?(Time)
+    return [] unless from_time.respond_to?(:strftime)
 
-    from_date = time.strftime("%Y-%m-%d")
+    from_date = from_time.strftime("%Y-%m-%d")
     to_date ||= from_date
 
     Client::Fmp.get_dividend_calendar(from: from_date, to: to_date)
