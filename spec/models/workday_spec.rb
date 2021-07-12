@@ -64,7 +64,7 @@ RSpec.describe Workday, type: :model do
   describe "#next_workday" do
     context "翌日が営業日の場合" do
       it "翌日=営業日をWorkdayクラスで返す" do
-        actual = Workday.new(2021, 7, 12).next(:us) # 2021/7/12は月曜日
+        actual = Workday.new(2021, 7, 12).next_workday(:us) # 2021/7/12は月曜日
         expected = Workday.new(2021, 7, 13) # 火曜日。祝日ではない
         expect(actual).to eq(expected)
       end
@@ -72,7 +72,7 @@ RSpec.describe Workday, type: :model do
 
     context "翌日が週末の場合" do
       it "休日明けの営業日をWorkdayクラスで返す" do
-        actual = Workday.new(2021, 7, 3).next(:us) # 2021/7/3は土曜日
+        actual = Workday.new(2021, 7, 3).next_workday(:us) # 2021/7/3は土曜日
         expected = Workday.new(2021, 7, 5) # 月曜日。祝日ではない
         expect(actual).to eq(expected)
       end
@@ -80,7 +80,7 @@ RSpec.describe Workday, type: :model do
 
     context "翌日が祝日の場合" do
       it "祝日明けの営業日をWorkdayクラスで返す" do
-        actual = Workday.new(2021, 11, 10).next(:us) # 2021/11/11木曜日は"Veterans Day"で祝日
+        actual = Workday.new(2021, 11, 10).next_workday(:us) # 2021/11/11木曜日は"Veterans Day"で祝日
         expected = Workday.new(2021, 11, 12) # 金曜日
         expect(actual).to eq(expected)
       end
@@ -88,7 +88,7 @@ RSpec.describe Workday, type: :model do
 
     context "休日と祝日が複合している場合" do
       it "翌営業日をWorkdayクラスで返す" do
-        actual = Workday.new(2021, 1, 15).next(:us) # 2021/1/18月曜は"Martin Luther King, Jr. Day"で祝日
+        actual = Workday.new(2021, 1, 15).next_workday(:us) # 2021/1/18月曜は"Martin Luther King, Jr. Day"で祝日
         expected = Workday.new(2021, 1, 19) # 火曜日
         expect(actual).to eq(expected)
       end

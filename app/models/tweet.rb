@@ -13,7 +13,7 @@ module Tweet
   end
 
   def self.ex_dividend_previous_date
-    next_workday = Workday.next_workday
+    next_workday = Workday.today.next_workday
     dividends = Dividend.filter_by_ex_dividend_date(next_workday)
 
     tweet_content = render_ex_dividend_previous_date(dividends)
