@@ -7,7 +7,7 @@ namespace :tweet do
     if today.holiday?(:us)
       Tweet.holiday(:us)
     elsif today.workday?(:us)
-      Tweet.ex_dividend_previous_date
+      Tweet.ex_dividend_previous_date(today)
     end
   end
 end
