@@ -36,5 +36,9 @@ module DividendPortal
     config.time_zone = "Asia/Tokyo"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.after_initialize do
+      Holidays.cache_between(Time.now, Workday::HOLIDAYS_CACHE_END_DATE, :us, :jp)
+    end
   end
 end
