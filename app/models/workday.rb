@@ -17,5 +17,8 @@ class Workday < Date
   end
 
   def next(country = :us)
+    next_workday = next_day
+    next_workday = next_workday.next_day while next_workday.on_weekend? || next_workday.holiday?(country)
+    next_workday
   end
 end
