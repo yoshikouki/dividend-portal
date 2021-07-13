@@ -23,6 +23,9 @@ module Client
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
+    # to の最長期間は from から3ヶ月
+    # https://financialmodelingprep.com/developer/docs#Dividend-Calendar
+    # https://financialmodelingprep.com/developer/docs/dividend-calendar
     def self.get_dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
 
