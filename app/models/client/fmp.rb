@@ -15,7 +15,7 @@ module Client
       declaration_date: "declaration date", # "発表日"
       symbol: "symbol", # "ティッカーシンボル"
       dividend: "dividend", # "配当金"
-      adj_dividend: "adjusted dividend",    # "調整後配当金"
+      adj_dividend: "adjusted dividend", # "調整後配当金"
     }.freeze
 
     def self.get_symbols_list

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRecentDividends < ActiveRecord::Migration[6.1]
   def change
     create_table :recent_dividends do |t|
