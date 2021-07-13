@@ -43,11 +43,12 @@ class Dividend
   end
 
   def self.declared_from(time = Time.at(1.week.ago))
+    # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
     # 念の為四半期のデータを持ってくる
-    dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
+    row_dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
 
     # 選択
-    dividends = filter_by_condition(dividends, :declares_on, time)
+    dividends = filter_by_condition(to_instances(row_dividends), :declares_on, time)
 
     # View 用に変換
     dividends.map { |dividend| new(dividend) }
@@ -56,7 +57,7 @@ class Dividend
   def self.filter_by_condition(dividends, condition, time)
     dividends.delete_if do |dividend|
       if dividend[condition].present?
-        Time.parse(dividend[:declares_on]) < time
+        Time.parse(dividend[:declaration_date]) < time
       else
         true
       end
