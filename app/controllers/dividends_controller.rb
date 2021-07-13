@@ -5,7 +5,7 @@ class DividendsController < ApplicationController
   end
 
   def recent
-    @dividends = Dividend.recent
+    @dividends = Dividend.convert_calendar_for_visual(Dividend.recent)
   end
 
   def declaration

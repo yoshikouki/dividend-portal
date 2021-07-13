@@ -25,7 +25,6 @@ class Dividend
       from: from,
       to: to,
     )
-    convert_calendar_for_visual(dividends)
   end
 
   def self.declared_from(time = Time.at(1.week.ago))
