@@ -1,7 +1,8 @@
 class Dividend
   module Api
-    def self.recent(from: nil, to: nil)
-      from ||= Time.at(2.days.ago)
+    RECENT_REFERENCE_START_DATE = Time.at(2.days.ago)
+
+    def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
       row_dividends = Client::Fmp.get_dividend_calendar(
         from: from,
         to: to,
