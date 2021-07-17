@@ -36,17 +36,4 @@ ActiveRecord::Schema.define(version: 2021_07_17_102126) do
     t.index ["symbol"], name: "index_dividends_on_symbol"
   end
 
-  create_table "recent_dividends", force: :cascade do |t|
-    t.date "ex_dividend_on"
-    t.date "records_on"
-    t.date "pays_on"
-    t.date "declares_on"
-    t.string "symbol"
-    t.decimal "dividend", precision: 30, scale: 25
-    t.decimal "adjusted_dividend", precision: 30, scale: 25
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["symbol"], name: "index_recent_dividends_on_symbol"
-  end
-
 end
