@@ -1,24 +1,6 @@
 # frozen_string_literal: true
 
-class Dividend
-  attr_accessor :symbol, # ティッカーシンボル
-                :ex_dividend_on, # 権利落ち日
-                :records_on, # 権利確定日
-                :pays_on, # 支払日
-                :declares_on, # 発表日
-                :dividend, # 配当金
-                :adjusted_dividend # 調整後配当金
-
-  def initialize(arg)
-    @symbol = arg[:symbol]
-    @ex_dividend_on = arg[:ex_dividend_on]
-    @records_on = arg[:records_on]
-    @pays_on = arg[:pays_on]
-    @declares_on = arg[:declares_on]
-    @dividend = arg[:dividend]
-    @adjusted_dividend = arg[:adjusted_dividend]
-  end
-
+class Dividend < ApplicationRecord
   def self.recent(from: nil, to: nil)
     from ||= Time.at(2.days.ago)
     row_dividends = Client::Fmp.get_dividend_calendar(

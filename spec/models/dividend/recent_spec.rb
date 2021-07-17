@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe RecentDividend, type: :model do
+RSpec.describe Dividend::Recent, type: :model do
   valid_params = {
     ex_dividend_on: "2020-08-07",
     records_on: "2020-08-10",
@@ -15,7 +15,7 @@ RSpec.describe RecentDividend, type: :model do
 
   describe "validates" do
     it "正しい" do
-      dividend = RecentDividend.new(valid_params)
+      dividend = Dividend::Recent.new(valid_params)
       expect(dividend.valid?).to be true
     end
   end
