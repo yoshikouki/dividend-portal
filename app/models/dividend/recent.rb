@@ -14,4 +14,11 @@ class Dividend::Recent < ApplicationRecord
         )
     end
   end
+
+  def self.destroy_outdated
+    outdated = Time.at(3.days.ago)
+    Dividend.where(
+      ex_dividend_on: ..outdated
+    )
+  end
 end
