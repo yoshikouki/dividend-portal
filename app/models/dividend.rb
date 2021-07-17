@@ -26,7 +26,7 @@ class Dividend < ApplicationRecord
 
   def self.declared_from(time = Time.at(1.week.ago))
     # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
-    # 念の為四半期のデータを持ってくる
+    # 期間は念の為四半期分
     row_dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
 
     # 選択
