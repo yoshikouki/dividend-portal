@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Dividend
   module Api
     RECENT_REFERENCE_START_DATE = Time.at(2.days.ago)
@@ -6,7 +8,7 @@ class Dividend
       row_dividends = Client::Fmp.get_dividend_calendar(
         from: from,
         to: to,
-        )
+      )
       to_instances(row_dividends)
     end
 
@@ -20,7 +22,7 @@ class Dividend
           symbol: dividend[:symbol],
           dividend: dividend[:dividend],
           adjusted_dividend: dividend[:adj_dividend],
-          )
+        )
       end
     end
   end

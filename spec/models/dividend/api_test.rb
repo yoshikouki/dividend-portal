@@ -14,7 +14,7 @@ RSpec.describe Dividend::Api, type: :model do
           symbol: "IBM",
           dividend: 1.63,
           adjusted_dividend: 1.63,
-          ),
+        ),
       ]
       dividends = [
         { date: "2020-08-07",
@@ -32,4 +32,3 @@ RSpec.describe Dividend::Api, type: :model do
     end
   end
 end
-

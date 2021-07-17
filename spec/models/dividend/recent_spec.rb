@@ -36,7 +36,7 @@ RSpec.describe Dividend::Recent, type: :model do
           adjusted_dividend: 0.17e0,
         ),
       ]
-      expect { Dividend::Recent.update_to_latest(latest_dividends)}.to change {Dividend.count}.by(1)
+      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(1)
     end
   end
 end
