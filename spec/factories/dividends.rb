@@ -3,9 +3,9 @@
 FactoryBot.define do
   factory :dividend do
     ex_dividend_on { Date.today }
-    records_on { Date.at(1.day.since) }
-    pays_on { Date.at(1.week.since) }
-    declares_on { Date.at(1.month.ago) }
+    records_on { Date.tomorrow }
+    pays_on { Date.today.next_month }
+    declares_on { Date.today.last_month }
     symbol { "TST" }
     dividend { 0.1 }
     adjusted_dividend { 0.1 }
