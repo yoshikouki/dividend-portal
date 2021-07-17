@@ -19,4 +19,24 @@ RSpec.describe Dividend::Recent, type: :model do
       expect(dividend.valid?).to be true
     end
   end
+
+  describe ".update_to_latest" do
+    let!(:dividend) { FactoryBot.create(:dividend) }
+
+    it "新しいデータが追加される" do
+      latest_dividends = [
+        dividend,
+        Dividend.new(
+          ex_dividend_on: Date.today,
+          records_on: Date.tomorrow,
+          pays_on: Date.today.next_month,
+          declares_on: Date.today.last_month,
+          symbol: "AZZ",
+          dividend: 0.17e0,
+          adjusted_dividend: 0.17e0,
+        ),
+      ]
+      expect { Dividend::Recent.update_to_latest(latest_dividends)}.to change {Dividend.count}.by(1)
+    end
+  end
 end
