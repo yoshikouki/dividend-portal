@@ -10,4 +10,11 @@ namespace :tweet do
       Tweet.ex_dividend_previous_date(today)
     end
   end
+
+  desc "新着の配当金情報を配信する"
+  task latest_dividend_with_update: :environment do
+    Dividend::Recent.destroy_outdated
+    Dividend::Recent.update_to_latest
+    Tweet.latest_dividend
+  end
 end

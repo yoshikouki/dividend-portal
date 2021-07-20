@@ -47,4 +47,11 @@ module Tweet
       #{symbols_part}
     TWEET
   end
+
+  def self.latest_dividend
+    dividends = Dividend.not_notified
+    tweet_content = Content.latest_dividend(dividends)
+    tweet(tweet_content)
+    dividends.update_all(notified: true)
+  end
 end

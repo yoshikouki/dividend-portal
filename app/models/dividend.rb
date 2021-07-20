@@ -1,39 +1,15 @@
 # frozen_string_literal: true
 
-class Dividend
-  attr_accessor :symbol,            # ティッカーシンボル
-                :ex_dividend_date,  # 権利落ち日
-                :record_date,       # 権利確定日
-                :payment_date,      # 支払日
-                :declaration_date,  # 発表日
-                :dividend,          # 配当金
-                :adjusted_dividend  # 調整後配当金
-
-  def initialize(arg)
-    @symbol = arg[:symbol]
-    @ex_dividend_date = arg[:ex_dividend_date]
-    @record_date = arg[:record_date]
-    @payment_date = arg[:payment_date]
-    @declaration_date = arg[:declaration_date]
-    @dividend = arg[:dividend]
-    @adjusted_dividend = arg[:adjusted_dividend]
-  end
-
-  def self.recent(from: nil, to: nil)
-    from ||= Time.at(2.days.ago)
-    dividends = Client::Fmp.get_dividend_calendar(
-      from: from,
-      to: to,
-    )
-    convert_calendar_for_visual(dividends)
-  end
+class Dividend < ApplicationRecord
+  scope :not_notified, -> { where(notified: false) }
 
   def self.declared_from(time = Time.at(1.week.ago))
-    # 念の為四半期のデータを持ってくる
-    dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
+    # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
+    # 期間は念の為四半期分
+    row_dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
 
     # 選択
-    dividends = filter_by_condition(dividends, :declaration_date, time)
+    dividends = filter_by_condition(to_instances(row_dividends), :declares_on, time)
 
     # View 用に変換
     dividends.map { |dividend| new(dividend) }
