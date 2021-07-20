@@ -39,4 +39,19 @@ RSpec.describe Dividend::Recent, type: :model do
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(1)
     end
   end
+
+  describe ".destroy_outdated" do
+    it "権利落ち日が3日以前の配当金は削除する" do
+      FactoryBot.create(
+        :dividend,
+        ex_dividend_on: Date.today.prev_day(3),
+      )
+      FactoryBot.create(
+        :dividend,
+        ex_dividend_on: Date.today.prev_day(2),
+      )
+      expect { Dividend::Recent.destroy_outdated }.to change { Dividend.count }.by(-1)
+      expect(Dividend.all.count).to eq 1
+    end
+  end
 end
