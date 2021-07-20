@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Dividend
+class Dividend
   class Recent < ApplicationRecord
     self.table_name = "dividends"
 
