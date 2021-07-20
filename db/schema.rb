@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_717_102_126) do
+ActiveRecord::Schema.define(version: 2021_07_20_131650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20_210_717_102_126) do
     t.decimal "adjusted_dividend", precision: 30, scale: 25
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "notified", default: false
     t.index ["symbol"], name: "index_dividends_on_symbol"
   end
 end
