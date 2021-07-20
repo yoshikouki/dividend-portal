@@ -16,9 +16,7 @@ class Dividend
 
     def self.destroy_outdated
       outdated = Time.at(3.days.ago)
-      Dividend.where(
-        ex_dividend_on: ..outdated,
-      )
+      Dividend.where(ex_dividend_on: ..outdated).destroy_all
     end
   end
 end
