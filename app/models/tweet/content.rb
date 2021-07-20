@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tweet
   module Content
     def self.latest_dividend(dividends = [])
@@ -7,12 +9,12 @@ module Tweet
       symbols_part = render_symbols_part(dividends, front_part, 240)
 
       <<~TWEET
-      #{front_part}
-      #{symbols_part}
+        #{front_part}
+        #{symbols_part}
       TWEET
     end
 
-    def self.render_symbols_part(dividends = [], other_content = "", limited = 240)
+    def self.render_symbols_part(dividends = [], other_content = "", _limited = 240)
       symbols = symbols_in_number_of_characters(dividends, other_content, 240)
       symbols_part = symbols.join(" ")
 
