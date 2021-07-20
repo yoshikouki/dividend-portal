@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Dividend < ApplicationRecord
+  scope :not_notified, -> { where(notified: false) }
+
   def self.declared_from(time = Time.at(1.week.ago))
     # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
     # 期間は念の為四半期分
