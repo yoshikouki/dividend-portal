@@ -3,7 +3,7 @@
 module Tweet
   module Content
     def self.latest_dividend(dividends = [])
-      front_part = "新着の配当金情報は#{dividends.count}件です"
+      front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
       return front_part if dividends.count.zero?
 
       symbols_part = render_symbols_part(dividends, front_part, 240)
