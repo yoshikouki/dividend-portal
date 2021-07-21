@@ -12,6 +12,16 @@ class Dividend
       to_instances(row_dividends)
     end
 
+    def self.filter_by_ex_dividend_date(from_time = Time.now, _to_time = nil)
+      return [] unless from_time.respond_to?(:strftime)
+
+      from_date = from_time.strftime("%Y-%m-%d")
+      to_date ||= from_date
+
+      row_dividends = Client::Fmp.get_dividend_calendar(from: from_date, to: to_date)
+      to_instances(row_dividends)
+    end
+
     def self.to_instances(row_dividends = [])
       row_dividends.map do |dividend|
         Dividend.new(
