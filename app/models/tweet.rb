@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 module Tweet
-  def self.tweet(text)
+  # reply_to: Twitter::Tweet
+  def self.tweet(text, reply_to = nil)
     client = Client.new
-    client.update(text)
+    option = reply_to ? { in_reply_to_status: reply_to } : {}
+    client.update(text, option)
   end
 
   def self.holiday(_country = :us, workday = Workday.today)
