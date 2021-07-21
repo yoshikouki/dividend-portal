@@ -19,9 +19,9 @@ module Tweet
       symbols_part = symbols.join(" ")
 
       remaining_count = dividends.count - symbols.count
-      remaining_part += "...他#{remaining_count}件" if remaining_count.positive?
+      remaining_part = remaining_count.positive? ? " ...他#{remaining_count}件" : ""
 
-      "#{symbols_part} #{remaining_part}"
+      "#{symbols_part}#{remaining_part}"
     end
 
     def self.symbols_in_number_of_characters(dividends, other_content, limited)
