@@ -8,7 +8,8 @@ RSpec.describe Tweet::Content, type: :model do
       it "0件でツイート内容を作成して返す" do
         dividends = []
         expected = "今日までの購入で配当金が受け取れる米国株は「0件」です (配当落ち前日)"
-        actual = Tweet::Content.ex_dividend_previous_date(dividends)
+        content = Tweet::Content.new(dividends: dividends)
+        actual = content.ex_dividend_previous_date
         expect(actual).to eq(expected)
       end
     end
@@ -22,7 +23,8 @@ RSpec.describe Tweet::Content, type: :model do
         ]
         symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
         expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}\n"
-        actual = Tweet::Content.ex_dividend_previous_date(dividends)
+        content = Tweet::Content.new(dividends: dividends)
+        actual = content.ex_dividend_previous_date
         expect(actual).to eq(expected)
       end
     end
@@ -37,7 +39,8 @@ RSpec.describe Tweet::Content, type: :model do
           今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)
           #{symbols_text}
         TWEET
-        actual = Tweet::Content.ex_dividend_previous_date(dividends)
+        content = Tweet::Content.new(dividends: dividends)
+        actual = content.ex_dividend_previous_date
         expect(actual).to eq(expected)
         expect(Twitter::TwitterText::Validation.parse_tweet(actual)[:valid]).to be true
       end

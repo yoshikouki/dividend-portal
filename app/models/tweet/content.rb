@@ -12,7 +12,7 @@ module Tweet
       !remaining_dividends.nil? && remaining_dividends.count.positive?
     end
 
-    def self.ex_dividend_previous_date(dividends = [])
+    def ex_dividend_previous_date(dividends = [])
       content_for_calculation = template_for_ex_dividend_previous_date(dividends.count)
       tweet_symbols = []
 
@@ -26,7 +26,7 @@ module Tweet
       template_for_ex_dividend_previous_date(dividends.count, tweet_symbols, remaining_count)
     end
 
-    def self.template_for_ex_dividend_previous_date(dividends_count = 0, tweet_symbols = [], remaining_count = 0)
+    def template_for_ex_dividend_previous_date(dividends_count = 0, tweet_symbols = [], remaining_count = 0)
       front_part = "今日までの購入で配当金が受け取れる米国株は「#{dividends_count}件」です (配当落ち前日)"
       return front_part if dividends_count.zero?
 
