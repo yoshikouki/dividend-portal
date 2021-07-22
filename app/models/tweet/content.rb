@@ -2,14 +2,14 @@
 
 module Tweet
   class Content
-    attr_reader :dividends, :remaining_dividends
+    attr_reader :dividends, :remained_dividends
 
     def initialize(dividends: [])
       @dividends = dividends
     end
 
     def remained?
-      !remaining_dividends.nil? && remaining_dividends.count.positive?
+      !remained_dividends.nil? && remained_dividends.count.positive?
     end
 
     def ex_dividend_previous_date
