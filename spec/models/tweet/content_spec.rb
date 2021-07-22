@@ -52,7 +52,8 @@ RSpec.describe Tweet::Content, type: :model do
       it "先頭に$を付けたシンボル文字列の配列を返す" do
         dividends = (1..5).map { |i| Dividend.new(symbol: "TEST#{i}") }
         expected = %w[$TEST1 $TEST2 $TEST3 $TEST4 $TEST5]
-        actual = Tweet::Content.symbols_in_number_of_characters(dividends, "", 250)
+        content = Tweet::Content.new(dividends: dividends)
+        actual = content.symbols_in_number_of_characters("", 250)
         expect(actual).to eq expected
       end
     end
@@ -61,7 +62,8 @@ RSpec.describe Tweet::Content, type: :model do
       it "先頭に$を付けたシンボル文字列の配列を規定文字数を超えない範囲で返す" do
         dividends = (1..5).map { |i| Dividend.new(symbol: "TEST#{i}") }
         expected = %w[$TEST1 $TEST2 $TEST3 $TEST4]
-        actual = Tweet::Content.symbols_in_number_of_characters(dividends, "", 30)
+        content = Tweet::Content.new(dividends: dividends)
+        actual = content.symbols_in_number_of_characters("", 30)
         expect(actual).to eq expected
       end
     end

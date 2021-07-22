@@ -39,7 +39,7 @@ module Tweet
       TWEET
     end
 
-    def self.latest_dividend(dividends = [])
+    def latest_dividend
       front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
       return front_part if dividends.count.zero?
 
@@ -51,7 +51,7 @@ module Tweet
       TWEET
     end
 
-    def self.render_symbols_part(dividends = [], other_content = "", _limited = 240)
+    def render_symbols_part(other_content = "", _limited = 240)
       symbols = symbols_in_number_of_characters(dividends, other_content, 240)
       symbols_part = symbols.join(" ")
 
@@ -65,7 +65,7 @@ module Tweet
       #  WIP
     end
 
-    def self.symbols_in_number_of_characters(dividends, other_content, limited)
+    def symbols_in_number_of_characters(other_content, limited)
       content_for_calculation = "#{other_content}\n"
       symbols = dividends.map do |dividend|
         symbol = "$#{dividend.symbol}"
