@@ -34,8 +34,8 @@ module Tweet
       symbols_part += "...他#{remaining_count}件" if remaining_count.positive?
 
       <<~TWEET
-      #{front_part}
-      #{symbols_part}
+        #{front_part}
+        #{symbols_part}
       TWEET
     end
 
