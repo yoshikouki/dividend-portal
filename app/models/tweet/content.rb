@@ -1,7 +1,17 @@
 # frozen_string_literal: true
 
 module Tweet
-  module Content
+  class Content
+    attr_reader :dividends, :remaining_dividends
+
+    def initialize(dividends: [])
+      @dividends = dividends
+    end
+
+    def remained?
+      !remaining_dividends.nil? && remaining_dividends.count.positive?
+    end
+
     def self.ex_dividend_previous_date(dividends = [])
       content_for_calculation = template_for_ex_dividend_previous_date(dividends.count)
       tweet_symbols = []
@@ -49,6 +59,10 @@ module Tweet
       remaining_part = remaining_count.positive? ? " ...他#{remaining_count}件" : ""
 
       "#{symbols_part}#{remaining_part}"
+    end
+
+    def remained_symbols
+      #  WIP
     end
 
     def self.symbols_in_number_of_characters(dividends, other_content, limited)
