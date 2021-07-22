@@ -43,7 +43,7 @@ module Tweet
       front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
       return front_part if dividends.count.zero?
 
-      symbols_part = render_symbols_part(dividends, front_part, 240)
+      symbols_part = render_symbols_part(front_part, 240)
 
       <<~TWEET
         #{front_part}
@@ -52,7 +52,7 @@ module Tweet
     end
 
     def render_symbols_part(other_content = "", _limited = 240)
-      symbols = symbols_in_number_of_characters(dividends, other_content, 240)
+      symbols = symbols_in_number_of_characters(other_content, 240)
       symbols_part = symbols.join(" ")
 
       remaining_count = dividends.count - symbols.count
