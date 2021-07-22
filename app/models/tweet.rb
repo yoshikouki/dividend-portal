@@ -28,7 +28,8 @@ module Tweet
     dividends = Dividend.not_notified
 
     content = Content.new(dividends: dividends)
-    tweet(content.latest_dividend)
+    tweet = tweet(content.latest_dividend)
+    tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
 
     dividends.update_all(notified: true)
   end
