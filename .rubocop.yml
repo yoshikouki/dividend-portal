@@ -112,6 +112,9 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 9
 
+Metrics/AbcSize:
+  Max: 20
+
 # ##########################################
 # Style
 
