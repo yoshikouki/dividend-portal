@@ -2,7 +2,7 @@
 
 module Tweet
   # reply_to: Twitter::Tweet
-  def self.tweet(text, reply_to = nil)
+  def self.tweet(text, reply_to: nil)
     client = Client.new
     option = reply_to ? { in_reply_to_status: reply_to } : {}
     client.update(text, option)
@@ -20,7 +20,8 @@ module Tweet
     dividends = Dividend::Api.filter_by_ex_dividend_date(next_workday)
 
     content = Content.new(dividends: dividends)
-    tweet(content.ex_dividend_previous_date)
+    tweet = tweet(content.ex_dividend_previous_date)
+    tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
   end
 
   def self.latest_dividend
