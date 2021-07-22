@@ -12,7 +12,7 @@ module Tweet
       !remaining_dividends.nil? && remaining_dividends.count.positive?
     end
 
-    def ex_dividend_previous_date(dividends = [])
+    def ex_dividend_previous_date
       content_for_calculation = template_for_ex_dividend_previous_date(dividends.count)
       tweet_symbols = []
 
