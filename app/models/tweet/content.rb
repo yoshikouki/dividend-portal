@@ -14,26 +14,26 @@ module Tweet
 
     def ex_dividend_previous_date
       front_part = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
-      return front_part if dividends.count.zero?
-
-      symbols_part = render_symbols_part(front_part, 240)
-
-      <<~TWEET
-        #{front_part}
-        #{symbols_part}
-      TWEET
+      if dividends.count.zero?
+        front_part
+      else
+        <<~TWEET
+          #{front_part}
+          #{render_symbols_part(front_part, 240)}
+        TWEET
+      end
     end
 
     def latest_dividend
       front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
-      return front_part if dividends.count.zero?
-
-      symbols_part = render_symbols_part(front_part, 240)
-
-      <<~TWEET
-        #{front_part}
-        #{symbols_part}
-      TWEET
+      if dividends.count.zero?
+        front_part
+      else
+        <<~TWEET
+          #{front_part}
+          #{render_symbols_part(front_part, 240)}
+        TWEET
+      end
     end
 
     def render_symbols_part(other_content = "", _limited = 240)
