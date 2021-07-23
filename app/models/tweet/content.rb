@@ -38,11 +38,10 @@ module Tweet
     end
 
     def render_symbols_part(other_content = "", _limited = 240)
-      symbols_part = symbols.join(" ")
       symbols = shift_symbols_in_number_of_characters(other_content, 240)
+      symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
 
-      remaining_count = dividends.count - symbols.count
-      remaining_part = remaining_count.positive? ? " ...他#{remaining_count}件" : ""
+      remaining_part = remained? ? " ...他#{remained_dividends.count}件" : ""
 
       "#{symbols_part}#{remaining_part}"
     end
