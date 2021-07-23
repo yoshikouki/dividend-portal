@@ -59,7 +59,7 @@ module Tweet
 
         shift_number = index
       end
-      remained_dividends.shift(shift_number).map { |dividend| dividend.symbol }
+      remained_dividends.shift(shift_number).map(&:symbol)
     end
 
     # Twitter上の文字数を算出する
