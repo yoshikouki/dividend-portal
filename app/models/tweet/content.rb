@@ -6,6 +6,7 @@ module Tweet
 
     def initialize(dividends: [])
       @dividends = dividends
+      @remained_dividends = dividends
     end
 
     def remained?
@@ -37,8 +38,8 @@ module Tweet
     end
 
     def render_symbols_part(other_content = "", _limited = 240)
-      symbols = symbols_in_number_of_characters(other_content, 240)
       symbols_part = symbols.join(" ")
+      symbols = shift_symbols_in_number_of_characters(other_content, 240)
 
       remaining_count = dividends.count - symbols.count
       remaining_part = remaining_count.positive? ? " ...他#{remaining_count}件" : ""
@@ -50,16 +51,21 @@ module Tweet
       #  WIP
     end
 
-    def symbols_in_number_of_characters(other_content, limited)
+    def shift_symbols_in_number_of_characters(other_content, limited)
       content_for_calculation = "#{other_content}\n"
-      symbols = dividends.map do |dividend|
-        symbol = "$#{dividend.symbol}"
-        content_for_calculation += "#{symbol} "
-        next if Twitter::TwitterText::Validation.parse_tweet(content_for_calculation)[:weighted_length] > limited
+      shift_number = 0
+      remained_dividends.each.with_index(1) do |dividend, index|
+        content_for_calculation += "$#{dividend.symbol} "
+        next if content_weighted_length(content_for_calculation) > limited
 
-        symbol
+        shift_number = index
       end
-      symbols.compact
+      remained_dividends.shift(shift_number).map { |dividend| dividend.symbol }
+    end
+
+    # Twitter上の文字数を算出する
+    def content_weighted_length(content)
+      Twitter::TwitterText::Validation.parse_tweet(content)[:weighted_length]
     end
   end
 end
