@@ -34,7 +34,7 @@ RSpec.describe Tweet::Content, type: :model do
         dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
         max_count = 22
         symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
-        symbols_text += " ...他#{dividends.count - max_count}件"
+        symbols_text += " ...残り#{dividends.count - max_count}件"
         expected = <<~TWEET
           今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)
           #{symbols_text}
