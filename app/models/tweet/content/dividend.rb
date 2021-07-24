@@ -8,6 +8,7 @@ module Tweet
       def initialize(dividends: [])
         @dividends = dividends
         @remained_dividends = dividends
+        @content = Content.new
       end
 
       def remained?
@@ -15,15 +16,9 @@ module Tweet
       end
 
       def ex_dividend_previous_date
-        front_part = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
-        if dividends.count.zero?
-          front_part
-        else
-          <<~TWEET
-            #{front_part}
-            #{render_symbols_part(front_part, 240)}
-          TWEET
-        end
+        @content.header_section = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
+        @content.body_section = render_symbols_part if dividends.count.positive?
+        @content.render
       end
 
       def latest_dividend
