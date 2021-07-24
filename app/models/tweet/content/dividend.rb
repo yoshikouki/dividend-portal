@@ -33,8 +33,8 @@ module Tweet
         end
       end
 
-      def render_symbols_part(other_content = "", limited = 240)
-        symbols = shift_symbols_in_number_of_characters(other_content, limited)
+      def render_symbols_part(limited = 240)
+        symbols = shift_symbols_in_number_of_characters(limited)
         symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
 
         remaining_part = remained? ? " ...残り#{remained_dividends.count}件" : ""
@@ -43,11 +43,11 @@ module Tweet
       end
 
       def remained_symbols
-        render_symbols_part("", 240)
+        render_symbols_part(240)
       end
 
-      def shift_symbols_in_number_of_characters(other_content, limited)
-        content_for_calculation = "#{other_content}\n"
+      def shift_symbols_in_number_of_characters(limited)
+        content_for_calculation = "#{@content.render}\n"
         shift_number = 0
         remained_dividends.each.with_index(1) do |dividend, index|
           content_for_calculation += "$#{dividend.symbol} "

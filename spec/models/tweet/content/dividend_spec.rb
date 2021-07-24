@@ -63,12 +63,12 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
         expected = "#{symbols_string} ...残り7件"
         dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
         content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.render_symbols_part("", 100)
+        actual = content.render_symbols_part(100)
         expect(actual).to eq(expected)
 
         # もう一度実行すると残りが取得できる
         expected = (14..20).map { |i| "$TEST#{i}" }.join(" ")
-        actual = content.render_symbols_part("", 100)
+        actual = content.render_symbols_part(100)
         expect(actual).to eq(expected)
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
         dividends = (1..5).map { |i| Dividend.new(symbol: "TEST#{i}") }
         expected = %w[TEST1 TEST2 TEST3 TEST4 TEST5]
         content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.shift_symbols_in_number_of_characters("", 250)
+        actual = content.shift_symbols_in_number_of_characters(250)
         expect(actual).to eq expected
       end
     end
@@ -90,11 +90,11 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
         dividends = (1..10).map { |i| Dividend.new(symbol: "TEST#{i}") }
         expected = %w[TEST1 TEST2 TEST3 TEST4]
         content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.shift_symbols_in_number_of_characters("", 30)
+        actual = content.shift_symbols_in_number_of_characters(30)
         expect(actual).to eq expected
 
         expected = %w[TEST5 TEST6 TEST7 TEST8]
-        actual = content.shift_symbols_in_number_of_characters("", 30)
+        actual = content.shift_symbols_in_number_of_characters(30)
         expect(actual).to eq expected
       end
     end
