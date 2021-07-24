@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Tweet::Content::Dividend, type: :model do
-  describe "render_ex_dividend_previous_date" do
+  describe "#render_ex_dividend_previous_date" do
     context "引数に空の配列を渡された場合" do
       it "0件でツイート内容を作成して返す" do
         dividends = []
@@ -47,7 +47,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     end
   end
 
-  describe ".symbols_in_number_of_characters" do
+  describe "#symbols_in_number_of_characters" do
     context "指定文字数を超えない場合" do
       it "シンボル文字列の配列を返す" do
         dividends = (1..5).map { |i| Dividend.new(symbol: "TEST#{i}") }
