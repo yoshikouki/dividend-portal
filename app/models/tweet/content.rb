@@ -2,7 +2,7 @@
 
 module Tweet
   class Content
-    attr_accessor :content, :header_section, :body_section, :footer_section
+    attr_accessor :header_section, :body_section, :footer_section
 
     def initialize(header_section: "", body_section: "", footer_section: "")
       @header_section = header_section
