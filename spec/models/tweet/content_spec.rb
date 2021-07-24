@@ -12,32 +12,32 @@ RSpec.describe Tweet::Content, type: :model do
       it "インスタンスで持っているセクション情報を元にコンテンツを返す" do
         content = Tweet::Content.new(
           header: "header_section",
-          body: "body_section",
+          main: "main_section",
           footer: "footer_section",
         )
         actual = content.content
-        expected = "header_section\nbody_section\nfooter_section"
+        expected = "header_section\nmain_section\nfooter_section"
         expect(actual).to eq expected
       end
 
       it "セクション情報は定義しなくても良い" do
         content = Tweet::Content.new(
-          body: "body_section",
+          main: "main_section",
           footer: "footer_section",
         )
         actual = content.content
-        expected = "body_section\nfooter_section"
+        expected = "main_section\nfooter_section"
         expect(actual).to eq expected
       end
 
       it "エイリアス #render を持つ" do
         content = Tweet::Content.new(
           header: "header_section",
-          body: "body_section",
+          main: "main_section",
           footer: "footer_section",
         )
         actual = content.render
-        expected = "header_section\nbody_section\nfooter_section"
+        expected = "header_section\nmain_section\nfooter_section"
         expect(actual).to eq expected
       end
     end
@@ -46,29 +46,29 @@ RSpec.describe Tweet::Content, type: :model do
       it "引数に応じてコンテンツ内容を非破壊的に上書きした文字列返す" do
         content = Tweet::Content.new(
           header: "header_section",
-          body: "body_section",
+          main: "main_section",
           footer: "footer_section",
         )
         actual = content.content(
           header: "header",
-          body: "body",
+          main: "main",
         )
-        expected = "header\nbody\nfooter_section"
+        expected = "header\nmain\nfooter_section"
         expect(actual).to eq expected
 
         # 非破壊的なのでインスタンス変数は変更されていない
         actual = content.content
-        expected = "header_section\nbody_section\nfooter_section"
+        expected = "header_section\nmain_section\nfooter_section"
         expect(actual).to eq expected
       end
     end
   end
 
   describe "#content=" do
-    it "content への直接代入は body_section に代入される" do
+    it "content への直接代入は main_section に代入される" do
       content = Tweet::Content.new
       content.content = "test string"
-      expect(content.content).to eq content.body_section
+      expect(content.content).to eq content.main_section
     end
   end
 end
