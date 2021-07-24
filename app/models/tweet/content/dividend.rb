@@ -22,15 +22,9 @@ module Tweet
       end
 
       def latest_dividend
-        front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
-        if dividends.count.zero?
-          front_part
-        else
-          <<~TWEET
-            #{front_part}
-            #{render_symbols_part(front_part, 240)}
-          TWEET
-        end
+        @content.main_section = "米国株に関する新着の配当金情報は #{dividends.count}件です"
+        @content.footer_section = render_symbols_part if dividends.count.positive?
+        @content.render
       end
 
       def render_symbols_part(length = nil)
