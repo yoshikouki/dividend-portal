@@ -34,8 +34,7 @@ module Tweet
       end
 
       def render_symbols_part(length = nil)
-        max_remained_part_length = Content.weighted_length(" ...残り#{dividends.count}件")
-        length ||= Content::MAX_WEIGHTED_LENGTH - max_remained_part_length
+        length ||= Content::MAX_WEIGHTED_LENGTH - Content.weighted_length(" ...残り#{dividends.count}件")
         symbols = shift_symbols_in_number_of_characters(length)
 
         symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
