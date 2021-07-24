@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 module Tweet
-  def self.tweet(text)
+  # reply_to: Twitter::Tweet
+  def self.tweet(text, reply_to: nil)
     client = Client.new
-    client.update(text)
+    option = reply_to ? { in_reply_to_status: reply_to } : {}
+    client.update(text, option)
   end
 
   def self.holiday(_country = :us, workday = Workday.today)
@@ -18,14 +20,16 @@ module Tweet
     dividends = Dividend::Api.filter_by_ex_dividend_date(next_workday)
 
     content = Content.new(dividends: dividends)
-    tweet(content.ex_dividend_previous_date)
+    tweet = tweet(content.ex_dividend_previous_date)
+    tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
   end
 
   def self.latest_dividend
     dividends = Dividend.not_notified
 
     content = Content.new(dividends: dividends)
-    tweet(content.latest_dividend)
+    tweet = tweet(content.latest_dividend)
+    tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
 
     dividends.update_all(notified: true)
   end
