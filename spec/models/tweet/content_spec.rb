@@ -16,7 +16,7 @@ RSpec.describe Tweet::Content, type: :model do
           footer: "footer_section",
         )
         actual = content.content
-        expected = "header_sectionbody_sectionfooter_section"
+        expected = "header_section\nbody_section\nfooter_section"
         expect(actual).to eq expected
       end
 
@@ -26,7 +26,7 @@ RSpec.describe Tweet::Content, type: :model do
           footer: "footer_section",
         )
         actual = content.content
-        expected = "body_sectionfooter_section"
+        expected = "body_section\nfooter_section"
         expect(actual).to eq expected
       end
 
@@ -37,7 +37,7 @@ RSpec.describe Tweet::Content, type: :model do
           footer: "footer_section",
         )
         actual = content.render
-        expected = "header_sectionbody_sectionfooter_section"
+        expected = "header_section\nbody_section\nfooter_section"
         expect(actual).to eq expected
       end
     end
@@ -53,12 +53,12 @@ RSpec.describe Tweet::Content, type: :model do
           header: "header",
           body: "body",
         )
-        expected = "headerbodyfooter_section"
+        expected = "header\nbody\nfooter_section"
         expect(actual).to eq expected
 
         # 非破壊的なのでインスタンス変数は変更されていない
         actual = content.content
-        expected = "header_sectionbody_sectionfooter_section"
+        expected = "header_section\nbody_section\nfooter_section"
         expect(actual).to eq expected
       end
     end
