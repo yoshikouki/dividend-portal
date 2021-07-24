@@ -16,8 +16,8 @@ module Tweet
       end
 
       def ex_dividend_previous_date
-        @content.header_section = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
-        @content.body_section = render_symbols_part if dividends.count.positive?
+        @content.main_section = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
+        @content.footer_section = render_symbols_part if dividends.count.positive?
         @content.render
       end
 

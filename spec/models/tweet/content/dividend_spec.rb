@@ -22,7 +22,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
           Dividend.new(symbol: "portal"),
         ]
         symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
-        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}\n"
+        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
         content = Tweet::Content::Dividend.new(dividends: dividends)
         actual = content.ex_dividend_previous_date
         expect(actual).to eq(expected)
@@ -35,10 +35,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
         max_count = 22
         symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
         symbols_text += " ...残り#{dividends.count - max_count}件"
-        expected = <<~TWEET
-          今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)
-          #{symbols_text}
-        TWEET
+        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
         content = Tweet::Content::Dividend.new(dividends: dividends)
         actual = content.ex_dividend_previous_date
         expect(actual).to eq(expected)
