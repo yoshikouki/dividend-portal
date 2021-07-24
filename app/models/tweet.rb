@@ -19,7 +19,7 @@ module Tweet
     next_workday = date.next_workday
     dividends = Dividend::Api.filter_by_ex_dividend_date(next_workday)
 
-    content = Content.new(dividends: dividends)
+    content = Content::Dividend.new(dividends: dividends)
     tweet = tweet(content.ex_dividend_previous_date)
     tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
   end
@@ -27,7 +27,7 @@ module Tweet
   def self.latest_dividend
     dividends = Dividend.not_notified
 
-    content = Content.new(dividends: dividends)
+    content = Content::Dividend.new(dividends: dividends)
     tweet = tweet(content.latest_dividend)
     tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
 
