@@ -5,7 +5,59 @@ require "rails_helper"
 RSpec.describe Tweet::Content, type: :model do
   describe "#content" do
     context "引数が空の場合" do
-      it "コンテンツを返す"
+      it "セクション情報がない場合は空文字列を返す" do
+        expect(Tweet::Content.new.content).to eq ""
+      end
+
+      it "インスタンスで持っているセクション情報を元にコンテンツを返す" do
+        content = Tweet::Content.new(
+          header_section: "header_section",
+          body_section: "body_section",
+          footer_section: "footer_section",
+        )
+        actual = content.content
+        expected = "header_sectionbody_sectionfooter_section"
+        expect(actual).to eq expected
+      end
+
+      it "セクション情報は定義しなくても良い" do
+        content = Tweet::Content.new(
+          body_section: "body_section",
+          footer_section: "footer_section",
+        )
+        actual = content.content
+        expected = "body_sectionfooter_section"
+        expect(actual).to eq expected
+      end
+    end
+
+    context "引数が渡されている場合" do
+      it "引数に応じてコンテンツ内容を非破壊的に上書きした文字列返す" do
+        content = Tweet::Content.new(
+          header_section: "header_section",
+          body_section: "body_section",
+          footer_section: "footer_section",
+        )
+        actual = content.content(
+          header_section: "header",
+          body_section: "body",
+        )
+        expected = "headerbodyfooter_section"
+        expect(actual).to eq expected
+
+        # 非破壊的なのでインスタンス変数は変更されていない
+        actual = content.content
+        expected = "header_sectionbody_sectionfooter_section"
+        expect(actual).to eq expected
+      end
+    end
+  end
+
+  describe "#content=" do
+    it "content への直接代入は body_section に代入される" do
+      content = Tweet::Content.new
+      content.content = "test string"
+      expect(content.content).to eq content.body_section
     end
   end
 end
