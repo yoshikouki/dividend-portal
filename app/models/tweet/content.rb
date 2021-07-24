@@ -4,17 +4,17 @@ module Tweet
   class Content
     attr_accessor :header_section, :body_section, :footer_section
 
-    def initialize(header_section: "", body_section: "", footer_section: "")
-      @header_section = header_section
-      @body_section = body_section
-      @footer_section = footer_section
+    def initialize(header: "", body: "", footer: "")
+      @header_section = header
+      @body_section = body
+      @footer_section = footer
     end
 
-    def content(header_section: nil, body_section: nil, footer_section: nil)
+    def content(header: nil, body: nil, footer: nil)
       @content = ""
-      @content += header_section || @header_section
-      @content += body_section || @body_section
-      @content += footer_section || @footer_section
+      @content += header || @header_section
+      @content += body || @body_section
+      @content += footer || @footer_section
       @content
     end
     alias render content
