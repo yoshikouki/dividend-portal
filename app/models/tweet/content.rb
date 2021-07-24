@@ -47,7 +47,7 @@ module Tweet
     end
 
     def remained_symbols
-      #  WIP
+      render_symbols_part("", 240)
     end
 
     def shift_symbols_in_number_of_characters(other_content, limited)
