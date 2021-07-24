@@ -27,6 +27,10 @@ module Tweet
         @content.render
       end
 
+      def remained_symbols
+        render_symbols_part
+      end
+
       def render_symbols_part(length = nil)
         length ||= Content::MAX_WEIGHTED_LENGTH - Content.weighted_length(" ...残り#{dividends.count}件")
         symbols = shift_symbols_in_number_of_characters(length)
@@ -34,10 +38,6 @@ module Tweet
         symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
         symbols_part += " ...残り#{remained_dividends.count}件" if remained?
         symbols_part
-      end
-
-      def remained_symbols
-        render_symbols_part(240)
       end
 
       def shift_symbols_in_number_of_characters(limited)
