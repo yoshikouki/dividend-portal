@@ -32,7 +32,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     context "引数に:symbolのキーを持つオブジェクトを渡されてツイート本文が規定文字数を超える場合" do
       it "規定文字数を超えないようにツイート本文を作成して返す" do
         dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
-        max_count = 22
+        max_count = 25
         symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
         symbols_text += " ...残り#{dividends.count - max_count}件"
         expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
