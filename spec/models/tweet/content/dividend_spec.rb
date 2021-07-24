@@ -47,6 +47,33 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     end
   end
 
+  describe "#render_symbols_part" do
+    context "シンボルが規定文字数を超えない場合" do
+      it "先頭に$を付けたシンボルを半角スペースで区切った文字列として返す" do
+        expected = (1..20).map { |i| "$TEST#{i}" }.join(" ")
+        dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
+        actual = Tweet::Content::Dividend.new(dividends: dividends).render_symbols_part
+        expect(actual).to eq(expected)
+      end
+    end
+
+    context "シンボルが規定文字数を超える場合" do
+      it "規定文字列内で先頭に$を付けたシンボルを半角スペースで区切った文字列として返す" do
+        symbols_string = (1..13).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り7件"
+        dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
+        content = Tweet::Content::Dividend.new(dividends: dividends)
+        actual = content.render_symbols_part("", 100)
+        expect(actual).to eq(expected)
+
+        # もう一度実行すると残りが取得できる
+        expected = (14..20).map { |i| "$TEST#{i}" }.join(" ")
+        actual = content.render_symbols_part("", 100)
+        expect(actual).to eq(expected)
+      end
+    end
+  end
+
   describe "#symbols_in_number_of_characters" do
     context "指定文字数を超えない場合" do
       it "シンボル文字列の配列を返す" do
