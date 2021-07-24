@@ -47,20 +47,15 @@ module Tweet
       end
 
       def shift_symbols_in_number_of_characters(limited)
-        content_for_calculation = "#{@content.render}\n"
+        symbols_text_for_calculation = ""
         shift_number = 0
         remained_dividends.each.with_index(1) do |dividend, index|
-          content_for_calculation += "$#{dividend.symbol} "
-          next if content_weighted_length(content_for_calculation) > limited
+          symbols_text_for_calculation += "$#{dividend.symbol} "
+          break if @content.weighted_length(footer: symbols_text_for_calculation) > limited
 
           shift_number = index
         end
         remained_dividends.shift(shift_number).map(&:symbol)
-      end
-
-      # Twitter上の文字数を算出する
-      def content_weighted_length(content)
-        Twitter::TwitterText::Validation.parse_tweet(content)[:weighted_length]
       end
     end
   end
