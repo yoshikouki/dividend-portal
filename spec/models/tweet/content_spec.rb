@@ -29,6 +29,17 @@ RSpec.describe Tweet::Content, type: :model do
         expected = "body_sectionfooter_section"
         expect(actual).to eq expected
       end
+
+      it "エイリアス #render を持つ" do
+        content = Tweet::Content.new(
+          header_section: "header_section",
+          body_section: "body_section",
+          footer_section: "footer_section",
+        )
+        actual = content.render
+        expected = "header_sectionbody_sectionfooter_section"
+        expect(actual).to eq expected
+      end
     end
 
     context "引数が渡されている場合" do

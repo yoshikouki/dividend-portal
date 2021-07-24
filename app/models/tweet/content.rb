@@ -17,6 +17,7 @@ module Tweet
       @content += footer_section || @footer_section
       @content
     end
+    alias render content
 
     def content=(content)
       @body_section = content
