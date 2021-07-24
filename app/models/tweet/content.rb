@@ -41,7 +41,7 @@ module Tweet
       symbols = shift_symbols_in_number_of_characters(other_content, limited)
       symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
 
-      remaining_part = remained? ? " ...他#{remained_dividends.count}件" : ""
+      remaining_part = remained? ? " ...残り#{remained_dividends.count}件" : ""
 
       "#{symbols_part}#{remaining_part}"
     end
