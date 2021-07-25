@@ -29,6 +29,13 @@ module Tweet
       @main_section = content
     end
 
+    def clear
+      @header_section = nil
+      @main_section = nil
+      @footer_section = nil
+      content
+    end
+
     # Twitter上の文字数を算出する
     def weighted_length(header: nil, main: nil, footer: nil)
       tmp_content = content(header: header, main: main, footer: footer)

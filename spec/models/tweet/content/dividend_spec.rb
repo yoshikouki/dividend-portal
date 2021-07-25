@@ -4,42 +4,53 @@ require "rails_helper"
 
 RSpec.describe Tweet::Content::Dividend, type: :model do
   describe "#render_ex_dividend_previous_date" do
-    context "引数に空の配列を渡された場合" do
+    context "初期テンプレート" do
+      let!(:dividends) { [] }
+      let!(:workday) { Workday.new(2021, 1, 1) }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday) }
+
       it "0件でツイート内容を作成して返す" do
-        dividends = []
-        expected = "今日までの購入で配当金が受け取れる米国株は「0件」です (配当落ち前日)"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
         actual = content.ex_dividend_previous_date
+        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は0件です"
         expect(actual).to eq(expected)
       end
     end
 
-    context "引数に:symbolのキーを持つオブジェクトを渡された場合" do
-      it "オブジェクトの個数と:symbolの値からツイート本文を作成して返す" do
-        dividends = [
-          Dividend.new(symbol: "test"),
-          Dividend.new(symbol: "dividend"),
-          Dividend.new(symbol: "portal"),
-        ]
-        symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
-        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.ex_dividend_previous_date
-        expect(actual).to eq(expected)
-      end
-    end
-
-    context "引数に:symbolのキーを持つオブジェクトを渡されてツイート本文が規定文字数を超える場合" do
-      it "規定文字数を超えないようにツイート本文を作成して返す" do
-        dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
+    context "規定文字数を超える情報が合った場合" do
+      let!(:dividends) { (1..100).map { |i| Dividend.new(symbol: "test#{i}") } }
+      let!(:workday) { Workday.new(2021, 1, 1) }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday) }
+      let!(:symbols_text) do
         max_count = 25
-        symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
-        symbols_text += " ...残り#{dividends.count - max_count}件"
-        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
+        dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ") + " ...残り#{dividends.count - max_count}件"
+      end
+
+      it "規定文字数を超えないようにツイート本文を作成して返す" do
         actual = content.ex_dividend_previous_date
+        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
         expect(actual).to eq(expected)
         expect(Twitter::TwitterText::Validation.parse_tweet(actual)[:valid]).to be true
+      end
+    end
+  end
+
+  describe "#remained_symbols" do
+    context "シンボルが規定文字数を超える場合" do
+      let!(:dividends) { (1..70).map { |i| Dividend.new(symbol: "TEST#{i}") } }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends) }
+
+      it "残ったシンボルを順次書き出しする" do
+        # 一度書き出す
+        content.ex_dividend_previous_date
+
+        symbols_string = (26..58).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り12件"
+        actual = content.remained_symbols
+        expect(actual).to eq(expected)
+
+        expected = (59..70).map { |i| "$TEST#{i}" }.join(" ")
+        actual = content.remained_symbols
+        expect(actual).to eq(expected)
       end
     end
   end
@@ -55,17 +66,19 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     end
 
     context "シンボルが規定文字数を超える場合" do
+      let!(:dividends) { (1..100).map { |i| Dividend.new(symbol: "TEST#{i}") } }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends) }
+
       it "規定文字列内で先頭に$を付けたシンボルを半角スペースで区切った文字列として返す" do
-        symbols_string = (1..13).map { |i| "$TEST#{i}" }.join(" ")
-        expected = "#{symbols_string} ...残り7件"
-        dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
-        content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.render_symbols_section(100)
+        symbols_string = (1..34).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り66件"
+        actual = content.render_symbols_section
         expect(actual).to eq(expected)
 
         # もう一度実行すると残りが取得できる
-        expected = (14..20).map { |i| "$TEST#{i}" }.join(" ")
-        actual = content.render_symbols_section(100)
+        symbols_string = (35..67).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り33件"
+        actual = content.render_symbols_section
         expect(actual).to eq(expected)
       end
     end

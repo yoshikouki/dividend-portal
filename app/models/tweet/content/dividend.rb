@@ -3,11 +3,12 @@
 module Tweet
   class Content
     class Dividend
-      attr_reader :dividends, :remained_dividends
+      attr_reader :dividends, :remained_dividends, :content
 
-      def initialize(dividends: [])
+      def initialize(dividends: [], reference_date: Workday.today)
         @dividends = dividends
-        @remained_dividends = dividends
+        @remained_dividends = dividends.clone
+        @reference_date = reference_date
         @content = Content.new
       end
 
@@ -16,24 +17,29 @@ module Tweet
       end
 
       def ex_dividend_previous_date
-        @content.main_section = Template.dividend_ex_dividend_previous_date(dividends.count)
+        @content = Template.dividend_ex_dividend_previous_date(dividends.count, @reference_date)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def latest_dividend
-        @content.main_section = Template.dividend_latest_dividend(dividends.count)
+        @content = Template.dividend_latest_dividend(dividends.count, @reference_date)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def remained_symbols
-        render_symbols_section
+        @content.clear
+        @content = Content.new(
+          main: render_symbols_section,
+        )
+        @content.render
       end
 
       def render_symbols_section(length = nil)
         length ||= calculate_symbols_section_length
         symbols = shift_symbols_in_number_of_characters(length)
+        return "" unless symbols.present?
 
         symbols_section = Template.symbols_section(symbols)
         symbols_section += Template.remained_section(remained_dividends.count) if remained?
