@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Tweet::Content::Dividend, type: :model do
   describe "#render_ex_dividend_previous_date" do
-    context "引数に空の配列を渡された場合" do
+    context "初期テンプレート" do
       it "0件でツイート内容を作成して返す" do
         dividends = []
         workday = Workday.new(2021,1,1)
@@ -15,23 +15,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
       end
     end
 
-    context "引数に:symbolのキーを持つオブジェクトを渡された場合" do
-      it "オブジェクトの個数と:symbolの値からツイート本文を作成して返す" do
-        dividends = [
-          Dividend.new(symbol: "test"),
-          Dividend.new(symbol: "dividend"),
-          Dividend.new(symbol: "portal"),
-        ]
-        workday = Workday.new(2021,1,1)
-        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
-        actual = content.ex_dividend_previous_date
-        symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
-        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
-        expect(actual).to eq(expected)
-      end
-    end
-
-    context "引数に:symbolのキーを持つオブジェクトを渡されてツイート本文が規定文字数を超える場合" do
+    context "規定文字数を超える情報が合った場合" do
       it "規定文字数を超えないようにツイート本文を作成して返す" do
         dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
         workday = Workday.new(2021,1,1)
