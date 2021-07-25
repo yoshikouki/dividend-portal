@@ -5,9 +5,10 @@ module Tweet
     class Dividend
       attr_reader :dividends, :remained_dividends
 
-      def initialize(dividends: [])
+      def initialize(dividends: [], reference_date: Workday.today)
         @dividends = dividends
         @remained_dividends = dividends.clone
+        @reference_date = reference_date
         @content = Content.new
       end
 
@@ -16,13 +17,13 @@ module Tweet
       end
 
       def ex_dividend_previous_date
-        @content = Template.dividend_ex_dividend_previous_date(dividends.count)
+        @content = Template.dividend_ex_dividend_previous_date(dividends.count, @reference_date)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def latest_dividend
-        @content = Template.dividend_latest_dividend(dividends.count)
+        @content = Template.dividend_latest_dividend(dividends.count, @reference_date)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
