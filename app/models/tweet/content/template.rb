@@ -7,11 +7,15 @@ module Tweet
       SYMBOL_DELIMITER = " "
 
       def self.dividend_ex_dividend_previous_date(count = 0)
-        "今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)"
+        Content.new(
+          main: "今日までの購入で配当金が受け取れる米国株は「#{count}件」です (配当落ち前日)",
+        )
       end
 
       def self.dividend_latest_dividend(count = 0)
-        "米国株に関する新着の配当金情報は #{count}件です"
+        Content.new(
+          main: "米国株に関する新着の配当金情報は #{count}件です",
+        )
       end
 
       def self.symbol(symbol)

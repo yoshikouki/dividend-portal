@@ -16,13 +16,13 @@ module Tweet
       end
 
       def ex_dividend_previous_date
-        @content.main_section = Template.dividend_ex_dividend_previous_date(dividends.count)
+        @content = Template.dividend_ex_dividend_previous_date(dividends.count)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def latest_dividend
-        @content.main_section = Template.dividend_latest_dividend(dividends.count)
+        @content = Template.dividend_latest_dividend(dividends.count)
         @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
