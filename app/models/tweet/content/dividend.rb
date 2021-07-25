@@ -35,6 +35,7 @@ module Tweet
       def render_symbols_section(length = nil)
         length ||= calculate_symbols_section_length
         symbols = shift_symbols_in_number_of_characters(length)
+        return "" unless symbols.present?
 
         symbols_section = Template.symbols_section(symbols)
         symbols_section += Template.remained_section(remained_dividends.count) if remained?
