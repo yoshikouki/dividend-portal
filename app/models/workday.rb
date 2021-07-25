@@ -21,4 +21,8 @@ class Workday < Date
     next_workday = next_workday.next_day while next_workday.on_weekend? || next_workday.holiday?(country)
     next_workday
   end
+
+  def show
+    "#{year}-#{month}-#{day}"
+  end
 end
