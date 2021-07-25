@@ -7,9 +7,10 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     context "引数に空の配列を渡された場合" do
       it "0件でツイート内容を作成して返す" do
         dividends = []
-        expected = "今日までの購入で配当金が受け取れる米国株は「0件」です (配当落ち前日)"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
+        workday = Workday.new(2021,1,1)
+        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
         actual = content.ex_dividend_previous_date
+        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は0件です"
         expect(actual).to eq(expected)
       end
     end
@@ -21,10 +22,11 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
           Dividend.new(symbol: "dividend"),
           Dividend.new(symbol: "portal"),
         ]
-        symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
-        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
+        workday = Workday.new(2021,1,1)
+        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
         actual = content.ex_dividend_previous_date
+        symbols_text = dividends.map { |d| "$#{d[:symbol]}" }.join(" ")
+        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
         expect(actual).to eq(expected)
       end
     end
@@ -32,12 +34,13 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     context "引数に:symbolのキーを持つオブジェクトを渡されてツイート本文が規定文字数を超える場合" do
       it "規定文字数を超えないようにツイート本文を作成して返す" do
         dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
+        workday = Workday.new(2021,1,1)
+        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
+        actual = content.ex_dividend_previous_date
         max_count = 25
         symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
         symbols_text += " ...残り#{dividends.count - max_count}件"
-        expected = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)\n#{symbols_text}"
-        content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.ex_dividend_previous_date
+        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
         expect(actual).to eq(expected)
         expect(Twitter::TwitterText::Validation.parse_tweet(actual)[:valid]).to be true
       end
