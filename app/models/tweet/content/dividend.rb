@@ -32,7 +32,7 @@ module Tweet
       end
 
       def render_symbols_part(length = nil)
-        length ||= Content::MAX_WEIGHTED_LENGTH - Content.weighted_length(" ...残り#{dividends.count}件")
+        length ||= calculate_symbols_part_length
         symbols = shift_symbols_in_number_of_characters(length)
 
         symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
@@ -40,12 +40,17 @@ module Tweet
         symbols_part
       end
 
+      def calculate_symbols_part_length
+        max_remained_part_length = Content.weighted_length(" ...残り#{dividends.count}件")
+        Content::MAX_WEIGHTED_LENGTH - max_remained_part_length - @content.weighted_length
+      end
+
       def shift_symbols_in_number_of_characters(limited)
         symbols_text_for_calculation = ""
         shift_number = 0
         remained_dividends.each.with_index(1) do |dividend, index|
           symbols_text_for_calculation += "$#{dividend.symbol} "
-          break if @content.weighted_length(footer: symbols_text_for_calculation) > limited
+          break if Content.weighted_length(symbols_text_for_calculation) > limited
 
           shift_number = index
         end
