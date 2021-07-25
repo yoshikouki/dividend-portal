@@ -17,32 +17,32 @@ module Tweet
 
       def ex_dividend_previous_date
         @content.main_section = Template.dividend_ex_dividend_previous_date(dividends.count)
-        @content.footer_section = render_symbols_part if dividends.count.positive?
+        @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def latest_dividend
         @content.main_section = Template.dividend_latest_dividend(dividends.count)
-        @content.footer_section = render_symbols_part if dividends.count.positive?
+        @content.footer_section = render_symbols_section if dividends.count.positive?
         @content.render
       end
 
       def remained_symbols
-        render_symbols_part
+        render_symbols_section
       end
 
-      def render_symbols_part(length = nil)
-        length ||= calculate_symbols_part_length
+      def render_symbols_section(length = nil)
+        length ||= calculate_symbols_section_length
         symbols = shift_symbols_in_number_of_characters(length)
 
-        symbols_part = Template.symbols_section(symbols)
-        symbols_part += Template.remained_section(remained_dividends.count) if remained?
-        symbols_part
+        symbols_section = Template.symbols_section(symbols)
+        symbols_section += Template.remained_section(remained_dividends.count) if remained?
+        symbols_section
       end
 
-      def calculate_symbols_part_length
-        max_remained_part_length = Content.weighted_length(Template.remained_section(dividends.count))
-        Content::MAX_WEIGHTED_LENGTH - max_remained_part_length - @content.weighted_length
+      def calculate_symbols_section_length
+        max_remained_section_length = Content.weighted_length(Template.remained_section(dividends.count))
+        Content::MAX_WEIGHTED_LENGTH - max_remained_section_length - @content.weighted_length
       end
 
       def shift_symbols_in_number_of_characters(limited)

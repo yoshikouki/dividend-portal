@@ -49,7 +49,7 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
       it "先頭に$を付けたシンボルを半角スペースで区切った文字列として返す" do
         expected = (1..20).map { |i| "$TEST#{i}" }.join(" ")
         dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
-        actual = Tweet::Content::Dividend.new(dividends: dividends).render_symbols_part
+        actual = Tweet::Content::Dividend.new(dividends: dividends).render_symbols_section
         expect(actual).to eq(expected)
       end
     end
@@ -60,12 +60,12 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
         expected = "#{symbols_string} ...残り7件"
         dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
         content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.render_symbols_part(100)
+        actual = content.render_symbols_section(100)
         expect(actual).to eq(expected)
 
         # もう一度実行すると残りが取得できる
         expected = (14..20).map { |i| "$TEST#{i}" }.join(" ")
-        actual = content.render_symbols_part(100)
+        actual = content.render_symbols_section(100)
         expect(actual).to eq(expected)
       end
     end
