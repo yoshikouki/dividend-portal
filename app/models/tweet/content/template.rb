@@ -15,7 +15,7 @@ module Tweet
 
       def self.dividend_latest_dividend(count = 0, date)
         Content.new(
-          header: "配当金新着情報",
+          header: "新着配当金情報",
           main: "#{date.show}の新着情報は #{count}件です",
         )
       end
