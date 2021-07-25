@@ -29,7 +29,11 @@ module Tweet
       end
 
       def remained_symbols
-        render_symbols_section
+        @content.clear
+        @content = Content.new(
+          main: render_symbols_section,
+        )
+        @content.render
       end
 
       def render_symbols_section(length = nil)
