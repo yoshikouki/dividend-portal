@@ -97,7 +97,7 @@ RSpec.describe Workday, type: :model do
 
   describe "#show" do
     it "ディスプレイ用に変換して表示する" do
-      actual = Workday.new(2021,7,1).show
+      actual = Workday.new(2021, 7, 1).show
       expected = "2021-7-1"
       expect(actual).to eq(expected)
     end
