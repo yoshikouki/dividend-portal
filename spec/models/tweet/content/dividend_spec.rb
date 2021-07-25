@@ -45,17 +45,34 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     end
 
     context "シンボルが規定文字数を超える場合" do
+      let!(:dividends) { (1..100).map { |i| Dividend.new(symbol: "TEST#{i}") } }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends) }
+
       it "規定文字列内で先頭に$を付けたシンボルを半角スペースで区切った文字列として返す" do
-        symbols_string = (1..13).map { |i| "$TEST#{i}" }.join(" ")
-        expected = "#{symbols_string} ...残り7件"
-        dividends = (1..20).map { |i| Dividend.new(symbol: "TEST#{i}") }
-        content = Tweet::Content::Dividend.new(dividends: dividends)
-        actual = content.render_symbols_section(100)
+        symbols_string = (1..34).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り66件"
+        actual = content.render_symbols_section
         expect(actual).to eq(expected)
 
         # もう一度実行すると残りが取得できる
-        expected = (14..20).map { |i| "$TEST#{i}" }.join(" ")
-        actual = content.render_symbols_section(100)
+        symbols_string = (35..67).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り33件"
+        actual = content.render_symbols_section
+        expect(actual).to eq(expected)
+      end
+
+      it "残ったシンボルを順次書き出しする" do
+        # 一度書き出す
+        content.ex_dividend_previous_date
+
+        symbols_string = (26..67).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り33件"
+        actual = content.render_symbols_section
+        expect(actual).to eq(expected)
+
+        symbols_string = (35..67).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り33件"
+        actual = content.render_symbols_section
         expect(actual).to eq(expected)
       end
     end
