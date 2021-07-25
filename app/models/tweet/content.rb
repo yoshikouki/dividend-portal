@@ -2,69 +2,42 @@
 
 module Tweet
   class Content
-    attr_reader :dividends, :remained_dividends
+    attr_accessor :header_section, :main_section, :footer_section
 
-    def initialize(dividends: [])
-      @dividends = dividends
-      @remained_dividends = dividends
+    MAX_WEIGHTED_LENGTH = 280
+
+    def initialize(header: nil, main: nil, footer: nil)
+      @header_section = header
+      @main_section = main
+      @footer_section = footer
     end
 
-    def remained?
-      !remained_dividends.nil? && remained_dividends.count.positive?
+    def content(header: nil, main: nil, footer: nil)
+      header ||= @header_section
+      main ||= @main_section
+      footer ||= @footer_section
+
+      @content = ""
+      @content += "#{header}\n" if header
+      @content += main if main
+      @content += "\n#{footer}" if footer
+      @content
     end
+    alias render content
 
-    def ex_dividend_previous_date
-      front_part = "今日までの購入で配当金が受け取れる米国株は「#{dividends.count}件」です (配当落ち前日)"
-      if dividends.count.zero?
-        front_part
-      else
-        <<~TWEET
-          #{front_part}
-          #{render_symbols_part(front_part, 240)}
-        TWEET
-      end
-    end
-
-    def latest_dividend
-      front_part = "米国株に関する新着の配当金情報は #{dividends.count}件です"
-      if dividends.count.zero?
-        front_part
-      else
-        <<~TWEET
-          #{front_part}
-          #{render_symbols_part(front_part, 240)}
-        TWEET
-      end
-    end
-
-    def render_symbols_part(other_content = "", limited = 240)
-      symbols = shift_symbols_in_number_of_characters(other_content, limited)
-      symbols_part = symbols.map { |symbol| "$#{symbol}" }.join(" ")
-
-      remaining_part = remained? ? " ...残り#{remained_dividends.count}件" : ""
-
-      "#{symbols_part}#{remaining_part}"
-    end
-
-    def remained_symbols
-      render_symbols_part("", 240)
-    end
-
-    def shift_symbols_in_number_of_characters(other_content, limited)
-      content_for_calculation = "#{other_content}\n"
-      shift_number = 0
-      remained_dividends.each.with_index(1) do |dividend, index|
-        content_for_calculation += "$#{dividend.symbol} "
-        next if content_weighted_length(content_for_calculation) > limited
-
-        shift_number = index
-      end
-      remained_dividends.shift(shift_number).map(&:symbol)
+    def content=(content)
+      @main_section = content
     end
 
     # Twitter上の文字数を算出する
-    def content_weighted_length(content)
-      Twitter::TwitterText::Validation.parse_tweet(content)[:weighted_length]
+    def weighted_length(header: nil, main: nil, footer: nil)
+      tmp_content = content(header: header, main: main, footer: footer)
+      Content.weighted_length(tmp_content)
+    end
+
+    def self.weighted_length(text)
+      validation = Twitter::TwitterText::Validation.parse_tweet(text)
+      validation[:weighted_length]
     end
   end
 end
