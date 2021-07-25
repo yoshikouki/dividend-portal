@@ -3,7 +3,7 @@
 module Tweet
   class Content
     class Dividend
-      attr_reader :dividends, :remained_dividends
+      attr_reader :dividends, :remained_dividends, :content
 
       def initialize(dividends: [], reference_date: Workday.today)
         @dividends = dividends
