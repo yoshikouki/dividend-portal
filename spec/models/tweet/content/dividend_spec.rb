@@ -5,10 +5,11 @@ require "rails_helper"
 RSpec.describe Tweet::Content::Dividend, type: :model do
   describe "#render_ex_dividend_previous_date" do
     context "初期テンプレート" do
+      let!(:dividends) { [] }
+      let!(:workday) { Workday.new(2021, 1, 1) }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday) }
+
       it "0件でツイート内容を作成して返す" do
-        dividends = []
-        workday = Workday.new(2021,1,1)
-        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
         actual = content.ex_dividend_previous_date
         expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は0件です"
         expect(actual).to eq(expected)
@@ -16,14 +17,16 @@ RSpec.describe Tweet::Content::Dividend, type: :model do
     end
 
     context "規定文字数を超える情報が合った場合" do
-      it "規定文字数を超えないようにツイート本文を作成して返す" do
-        dividends = (1..100).map { |i| Dividend.new(symbol: "test#{i}") }
-        workday = Workday.new(2021,1,1)
-        content = Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday)
-        actual = content.ex_dividend_previous_date
+      let!(:dividends) { (1..100).map { |i| Dividend.new(symbol: "test#{i}") } }
+      let!(:workday) { Workday.new(2021, 1, 1) }
+      let!(:content) { Tweet::Content::Dividend.new(dividends: dividends, reference_date: workday) }
+      let!(:symbols_text) do
         max_count = 25
-        symbols_text = dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ")
-        symbols_text += " ...残り#{dividends.count - max_count}件"
+        dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ") + " ...残り#{dividends.count - max_count}件"
+      end
+
+      it "規定文字数を超えないようにツイート本文を作成して返す" do
+        actual = content.ex_dividend_previous_date
         expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
         expect(actual).to eq(expected)
         expect(Twitter::TwitterText::Validation.parse_tweet(actual)[:valid]).to be true
