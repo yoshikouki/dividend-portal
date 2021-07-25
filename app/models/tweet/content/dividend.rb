@@ -7,7 +7,7 @@ module Tweet
 
       def initialize(dividends: [])
         @dividends = dividends
-        @remained_dividends = dividends
+        @remained_dividends = dividends.clone
         @content = Content.new
       end
 
