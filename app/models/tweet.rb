@@ -15,11 +15,11 @@ module Tweet
   end
 
   def self.ex_dividend_previous_date(date = Workday.today)
-    # date までに購入すると配当金の権利落ちする銘柄を調べるため、翌日が権利落ち日の銘柄を探す
+    # 権利付き最終日が date の銘柄を調べるため、翌日が権利落ち日の銘柄を探す
     next_workday = date.next_workday
     dividends = Dividend::Api.filter_by_ex_dividend_date(next_workday)
 
-    content = Content::Dividend.new(dividends: dividends)
+    content = Content::Dividend.new(dividends: dividends, reference_date: date)
     tweet = tweet(content.ex_dividend_previous_date)
     tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
   end
