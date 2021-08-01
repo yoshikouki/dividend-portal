@@ -21,12 +21,8 @@ class Company < ApplicationRecord
     new_coming = []
     needs_updating = []
 
-    latest_all.each do |raw|
-      latest = {
-        symbol: raw["symbol"],
-        name: raw["name"],
-        exchange: raw["exchange"],
-      }
+    latest_all.each do |latest|
+      latest.delete(:price)
       target = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
 
       # 未知の企業ならインサートする
