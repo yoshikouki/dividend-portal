@@ -33,5 +33,24 @@ RSpec.describe Company, type: :model do
         expect(Company.last.name).to eq "Intel Corporation"
       end
     end
+
+    context "情報が更新されている場合" do
+      before do
+        [
+          { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", exchange: "NYみたいなところ" },
+          { symbol: "CMCSAAAAAAAAAAAAAAA", name: "Comcast Corporation", exchange: "Nasdaq Global Select" },
+          { symbol: "KMI", name: "名無し", exchange: "New York Stock Exchange" },
+          { symbol: "INTC", name: "Intel Corporation", exchange: "Nasdaq Global Select" },
+        ].each { |company| FactoryBot.create(:company, company) }
+      end
+
+      it "シンボルを元に作成・更新が行われる" do
+        allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
+        Company.update_to_least
+        expect(Company.all.count).to eq (api_response.count + 1)
+        expect(Company.find_by(symbol: "SPY").exchange).to eq "New York Stock Exchange Arca"
+        expect(Company.find_by(symbol: "KMI").name).to eq "Kinder Morgan, Inc."
+      end
+    end
   end
 end
