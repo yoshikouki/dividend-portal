@@ -47,7 +47,5 @@ class Company < ApplicationRecord
 
     Company.insert_all!(new_coming) if new_coming.count.positive?
     Company.upsert_all(needs_updating) if needs_updating.count.positive?
-
-    puts "inserted: #{new_coming.count} \nupdated: #{needs_updating.count}"
   end
 end
