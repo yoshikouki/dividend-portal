@@ -25,6 +25,20 @@ module Client
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
+    # https://financialmodelingprep.com/developer/docs#ETF-List
+    # https://financialmodelingprep.com/developer/docs/etf-list
+    def self.get_etf_list
+      res = Client.get url("/api/v3/etf/list")
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    # https://financialmodelingprep.com/developer/docs#Tradable-Symbols-List
+    # https://financialmodelingprep.com/developer/docs/tradable-list
+    def self.get_tradable_symbols_list
+      res = Client.get url("/api/v3/available-traded/list")
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
     # to の最長期間は from から3ヶ月
     # https://financialmodelingprep.com/developer/docs#Dividend-Calendar
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
