@@ -22,11 +22,12 @@ class Company < ApplicationRecord
     needs_updating = []
 
     latest_all.each do |latest|
+      # API のレスポンスに不要な情報が含まれているので削除
       latest.delete(:price)
-      target = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
+      target_index = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
 
       # 未知の企業ならインサートする
-      if target.nil?
+      if target_index.nil?
         new_coming << {
           **latest,
           created_at: Time.current,
@@ -35,8 +36,8 @@ class Company < ApplicationRecord
         next
       end
 
-      current = current_all.slice!(target)
       # 情報を比較して差異があれば更新
+      current = current_all.slice!(target_index)
       next unless current.diff?(latest, %i[name exchange])
 
       needs_updating << {
