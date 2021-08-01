@@ -17,4 +17,21 @@ RSpec.describe Company, type: :model do
       end
     end
   end
+
+  describe ".update_to_least" do
+    let!(:api_response) {[
+      { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", price: 438.51, exchange: "New York Stock Exchange Arca" },
+      { symbol: "CMCSA", name: "Comcast Corporation", price: 58.83, exchange: "Nasdaq Global Select" },
+      { symbol: "KMI", name: "Kinder Morgan, Inc.", price: 17.38, exchange: "New York Stock Exchange" },
+      { symbol: "INTC", name: "Intel Corporation", price: 53.72, exchange: "Nasdaq Global Select" },
+    ]}
+
+    context "DBが空の場合" do
+      it "取得した情報を元にレコードを作成する" do
+        allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
+        expect { Company.update_to_least }.to change { Company.all.count }.by(api_response.count)
+        expect(Company.last.name).to eq "Intel Corporation"
+      end
+    end
+  end
 end
