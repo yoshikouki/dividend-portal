@@ -18,6 +18,8 @@ module Client
       adj_dividend: "adjusted dividend", # "調整後配当金"
     }.freeze
 
+    # https://financialmodelingprep.com/developer/docs#Symbols-List
+    # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
     def self.get_symbols_list
       res = Client.get url("/api/v3/stock/list")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])

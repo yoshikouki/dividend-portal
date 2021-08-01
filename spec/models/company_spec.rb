@@ -17,4 +17,42 @@ RSpec.describe Company, type: :model do
       end
     end
   end
+
+  describe ".update_to_least" do
+    let!(:api_response) do
+      [
+        { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", price: 438.51, exchange: "New York Stock Exchange Arca" },
+        { symbol: "CMCSA", name: "Comcast Corporation", price: 58.83, exchange: "Nasdaq Global Select" },
+        { symbol: "KMI", name: "Kinder Morgan, Inc.", price: 17.38, exchange: "New York Stock Exchange" },
+        { symbol: "INTC", name: "Intel Corporation", price: 53.72, exchange: "Nasdaq Global Select" },
+      ]
+    end
+
+    context "DBが空の場合" do
+      it "取得した情報を元にレコードを作成する" do
+        allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
+        expect { Company.update_to_least }.to change { Company.all.count }.by(api_response.count)
+        expect(Company.last.name).to eq "Intel Corporation"
+      end
+    end
+
+    context "情報が更新されている場合" do
+      before do
+        [
+          { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", exchange: "NYみたいなところ" },
+          { symbol: "CMCSAAAAAAAAAAAAAAA", name: "Comcast Corporation", exchange: "Nasdaq Global Select" },
+          { symbol: "KMI", name: "名無し", exchange: "New York Stock Exchange" },
+          { symbol: "INTC", name: "Intel Corporation", exchange: "Nasdaq Global Select" },
+        ].each { |company| FactoryBot.create(:company, company) }
+      end
+
+      it "シンボルを元に作成・更新が行われる" do
+        allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
+        Company.update_to_least
+        expect(Company.all.count).to eq(api_response.count + 1)
+        expect(Company.find_by(symbol: "SPY").exchange).to eq "New York Stock Exchange Arca"
+        expect(Company.find_by(symbol: "KMI").name).to eq "Kinder Morgan, Inc."
+      end
+    end
+  end
 end
