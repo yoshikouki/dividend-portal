@@ -7,7 +7,7 @@ module Tweet
 
       def initialize(dividends: [], reference_date: Workday.today)
         @dividends = dividends
-        @remained_dividends = dividends.clone
+        @remained_dividends = dividends.clone.to_a
         @reference_date = reference_date
         @content = Content.new
       end
