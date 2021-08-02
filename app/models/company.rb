@@ -17,13 +17,11 @@ class Company < ApplicationRecord
 
   def self.update_to_least
     current_all = Company.all.to_a
-    latest_all = Client::Fmp.get_symbols_list
+    latest_all = Api.fetch_us
     new_coming = []
     needs_updating = []
 
     latest_all.each do |latest|
-      # API のレスポンスに不要な情報が含まれているので削除
-      latest.delete(:price)
       target_index = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
 
       # 未知の企業ならインサートする
