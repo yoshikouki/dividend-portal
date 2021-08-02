@@ -18,6 +18,51 @@ module Client
       adj_dividend: "adjusted dividend", # "調整後配当金"
     }.freeze
 
+    # https://financialmodelingprep.com/developer/docs#Company-Profile
+    # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
+    def self.profile(symbol = "AAPL")
+      res = Client.get url("/api/v3/profile/#{symbol}")
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    PROFILE_CONVERSION = {
+      symbol: :symbol,
+      price: :price,
+      beta: :beta,
+      volAvg: :volume_average,
+      mktCap: :market_capitalization,
+      lastDiv: :last_dividend,
+      range: :range,
+      changes: :changes,
+      companyName: :company_name,
+      currency: :currency,
+      cik: :cik,
+      isin: :isin,
+      cusip: :cusip,
+      exchange: :exchange,
+      exchangeShortName: :exchange_short_name,
+      industry: :industry,
+      website: :website,
+      description: :description,
+      ceo: :ceo,
+      sector: :sector,
+      country: :country,
+      fullTimeEmployees: :full_time_employees,
+      phone: :phone,
+      address: :address,
+      city: :city,
+      state: :state,
+      zip: :zip,
+      dcfDiff: :dcf_diff,
+      dcf: :dcf,
+      image: :image,
+      ipoDate: :ipo_date,
+      defaultImage: :default_image,
+      isEtf: :is_etf,
+      isActivelyTrading: :is_actively_trading,
+    }
+
+
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
     def self.get_symbols_list
