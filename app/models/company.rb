@@ -8,6 +8,8 @@ class Company < ApplicationRecord
   validates :exchange,
             presence: true
 
+  DIVIDEND_ARISTOCRATS = %w[MMM AOS ABT ABBV AFL APD ALB AMCR ADM T ATO ADP BDX BF-B CAH CAT CVX CB CINF CTAS CLX KO CL ED DOV ECL EMR ESS EXPD XOM FRT BEN GD GPC HRL ITW IBM JNJ KMB LEG LIN LOW MKC MCD MDT NEE NUE PNR PBCT PEP PPG PG O ROP SPGI SHW SWK SYY TROW TGT VFC GWW WBA WMT WST].freeze
+
   def diff?(target, check_list)
     check_list.each do |c|
       return true unless self[c] == target[c]
