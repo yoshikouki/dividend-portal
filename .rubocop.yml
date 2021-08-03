@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - "node_modules/**/*"
     - "vendor/**/*"
+    - "db/migrate/*.rb"
     - "db/schema.rb"
 
 # ##########################################
@@ -20,13 +21,10 @@ Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
 Layout/ExtraSpacing:
-  Exclude:
-    - "db/migrate/*.rb"
 
 Layout/LineLength:
   Max: 160
   Exclude:
-    - "db/migrate/*.rb"
     - "bin/bundle"
 
 Layout/SpaceInsideBlockBraces:
