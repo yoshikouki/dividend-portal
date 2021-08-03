@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 dividend_aristocrats = [
   { symbol: "MMM", years_of_dividend_growth: 63 },
   { symbol: "AOS", years_of_dividend_growth: 28 },

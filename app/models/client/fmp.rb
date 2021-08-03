@@ -60,8 +60,7 @@ module Client
       default_image: :default_image,
       is_etf: :is_etf,
       is_actively_trading: :is_actively_trading,
-    }
-
+    }.freeze
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
