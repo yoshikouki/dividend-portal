@@ -23,6 +23,8 @@ class Company < ApplicationRecord
   def update_to_least
     profiles = Api.profiles(symbol)
     set_params(profiles[0]).save
+  end
+
   def self.update_all_to_least
     current_all = Company.all.to_a
     latest_all = Api.fetch_us
@@ -55,4 +57,15 @@ class Company < ApplicationRecord
     Company.insert_all!(new_coming) if new_coming.count.positive?
     Company.upsert_all(needs_updating) if needs_updating.count.positive?
   end
+
+  private
+
+    def set_params(params)
+      attribute_names.each do |attr|
+        next unless params[attr.to_sym]
+
+        self[attr] = params[attr.to_sym]
+      end
+      self
+    end
 end
