@@ -58,6 +58,15 @@ class Company < ApplicationRecord
     Company.upsert_all(needs_updating) if needs_updating.count.positive?
   end
 
+  def self.update_dividend_aristocrats
+    dividend_aristocrats = DIVIDEND_ARISTOCRATS
+    profiles = Api.profiles(dividend_aristocrats)
+    profiles.each do |profile|
+      company = find_or_initialize_by(symbol: profile[:symbol])
+      company.assign_attributes(profile).save
+    end
+  end
+
   private
 
   def assign_attributes(params)
