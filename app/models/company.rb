@@ -60,12 +60,12 @@ class Company < ApplicationRecord
 
   private
 
-    def set_params(params)
-      attribute_names.each do |attr|
-        next unless params[attr.to_sym]
+  def set_params(params)
+    attribute_names.each do |attr|
+      next unless params[attr.to_sym]
 
-        self[attr] = params[attr.to_sym]
-      end
-      self
+      self[attr] = params[attr.to_sym]
     end
+    self
+  end
 end

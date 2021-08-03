@@ -26,7 +26,7 @@ class Company
     def self.profiles(symbol)
       return [] unless symbol
 
-      row_profiles = Client::Fmp::profile(symbol)
+      row_profiles = Client::Fmp.profile(symbol)
       row_profiles.map do |raw_profile|
         convert_profile_response(raw_profile)
       end
