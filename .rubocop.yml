@@ -20,8 +20,6 @@ Layout/ClassStructure:
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
-Layout/ExtraSpacing:
-
 Layout/LineLength:
   Max: 160
   Exclude:
