@@ -19,6 +19,7 @@ class Company
       response = Client::Fmp.get_symbols_list
       response.map do |r|
         r.delete(:price)
+        r
       end
     end
 
