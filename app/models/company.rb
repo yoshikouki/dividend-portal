@@ -17,7 +17,7 @@ class Company < ApplicationRecord
     false
   end
 
-  def self.update_to_least
+  def self.update_all_to_least
     current_all = Company.all.to_a
     latest_all = Api.fetch_us
     new_coming = []
