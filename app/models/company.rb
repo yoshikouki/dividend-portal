@@ -25,49 +25,49 @@ class Company < ApplicationRecord
     assign_attributes(profiles[0]).save
   end
 
-  def self.update_all_with_api
-    current_all = Company.all.to_a
-    latest_all = Api.fetch_us
-    new_coming = []
-    needs_updating = []
+  class << self
+    def update_all_with_api
+      current_all = Company.all.to_a
+      latest_all = Api.fetch_us
+      new_coming = []
+      needs_updating = []
 
-    latest_all.each do |latest|
-      target_index = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
+      latest_all.each do |latest|
+        target_index = current_all.find_index { |cc| cc.symbol == latest[:symbol] }
 
-      # 未知の企業ならインサートする
-      if target_index.nil?
-        new_coming << {
+        # 未知の企業ならインサートする
+        if target_index.nil?
+          new_coming << {
+            **latest,
+            created_at: Time.current,
+            updated_at: Time.current,
+          }
+          next
+        end
+
+        # 情報を比較して差異があれば更新
+        current = current_all.slice!(target_index)
+        next unless current.diff?(latest, %i[name exchange])
+
+        needs_updating << {
+          **current.attributes.symbolize_keys,
           **latest,
-          created_at: Time.current,
-          updated_at: Time.current,
         }
-        next
       end
 
-      # 情報を比較して差異があれば更新
-      current = current_all.slice!(target_index)
-      next unless current.diff?(latest, %i[name exchange])
-
-      needs_updating << {
-        **current.attributes.symbolize_keys,
-        **latest,
-      }
+      Company.insert_all!(new_coming) if new_coming.count.positive?
+      Company.upsert_all(needs_updating) if needs_updating.count.positive?
     end
 
-    Company.insert_all!(new_coming) if new_coming.count.positive?
-    Company.upsert_all(needs_updating) if needs_updating.count.positive?
-  end
-
-  def self.update_dividend_aristocrats
-    dividend_aristocrats = DIVIDEND_ARISTOCRATS
-    profiles = Api.profiles(dividend_aristocrats)
-    profiles.each do |profile|
-      company = find_or_initialize_by(symbol: profile[:symbol])
-      company.assign_attributes(profile).save
+    def update_dividend_aristocrats
+      dividend_aristocrats = DIVIDEND_ARISTOCRATS
+      profiles = Api.profiles(dividend_aristocrats)
+      profiles.each do |profile|
+        company = find_or_initialize_by(symbol: profile[:symbol])
+        company.assign_attributes(profile).save
+      end
     end
   end
-
-  private
 
   def assign_attributes(params)
     attribute_names.each do |attr|
