@@ -22,7 +22,7 @@ class Company < ApplicationRecord
 
   def update_to_least
     profiles = Api.profiles(symbol)
-    set_params(profiles[0]).save
+    assign_attributes(profiles[0]).save
   end
 
   def self.update_all_to_least
@@ -60,7 +60,7 @@ class Company < ApplicationRecord
 
   private
 
-  def set_params(params)
+  def assign_attributes(params)
     attribute_names.each do |attr|
       next unless params[attr.to_sym]
 
