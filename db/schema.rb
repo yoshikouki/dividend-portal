@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_720_131_650) do
+ActiveRecord::Schema.define(version: 2021_08_02_234806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20_210_720_131_650) do
     t.string "exchange"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "industry"
+    t.string "sector"
+    t.string "country"
+    t.string "currency"
+    t.string "exchange_short_name"
+    t.date "ipo_date"
+    t.string "image"
+    t.index ["symbol"], name: "index_companies_on_symbol"
   end
 
   create_table "dividends", force: :cascade do |t|
