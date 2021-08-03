@@ -20,6 +20,9 @@ class Company < ApplicationRecord
     false
   end
 
+  def update_to_least
+    profiles = Api.profiles(symbol)
+    set_params(profiles[0]).save
   def self.update_all_to_least
     current_all = Company.all.to_a
     latest_all = Api.fetch_us

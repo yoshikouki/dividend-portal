@@ -107,7 +107,7 @@ RSpec.describe Company, type: :model do
 
       it "シンボルを元に作成・更新が行われる" do
         allow(Client::Fmp).to receive(:profile).and_return(api_response)
-        expect { company.update_to_least.update_to_least }.to change { Company.all.count }.by(0)
+        expect { company.update_to_least }.to change { Company.all.count }.by(0)
         expect(company.reload.name).to eq "The Coca-Cola Company"
       end
     end
