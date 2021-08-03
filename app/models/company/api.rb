@@ -23,8 +23,8 @@ class Company
       end
     end
 
-    def self.profiles(symbol)
-      return [] unless symbol
+    def self.profiles(*symbol)
+      return [] unless symbol && symbol.present?
 
       row_profiles = Client::Fmp.profile(symbol)
       row_profiles.map do |raw_profile|

@@ -20,8 +20,14 @@ module Client
 
     # https://financialmodelingprep.com/developer/docs#Company-Profile
     # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
-    def self.profile(symbol = "AAPL")
-      res = Client.get url("/api/v3/profile/#{symbol}")
+    def self.profile(*symbols)
+      param = case symbols
+              when Array
+                symbols.join(",")
+              when String
+                symbols
+      end
+      res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
