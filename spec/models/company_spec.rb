@@ -31,7 +31,7 @@ RSpec.describe Company, type: :model do
     context "DBが空の場合" do
       it "取得した情報を元にレコードを作成する" do
         allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
-        expect { Company.update_all_to_least }.to change { Company.all.count }.by(api_response.count)
+        expect { Company.update_all_with_api }.to change { Company.all.count }.by(api_response.count)
         expect(Company.last.name).to eq "Intel Corporation"
       end
     end
@@ -48,7 +48,7 @@ RSpec.describe Company, type: :model do
 
       it "シンボルを元に作成・更新が行われる" do
         allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
-        Company.update_all_to_least
+        Company.update_all_with_api
         expect(Company.all.count).to eq(api_response.count + 1)
         expect(Company.find_by(symbol: "SPY").exchange).to eq "New York Stock Exchange Arca"
         expect(Company.find_by(symbol: "KMI").name).to eq "Kinder Morgan, Inc."
@@ -97,7 +97,7 @@ RSpec.describe Company, type: :model do
     context "DBが空の場合" do
       it "取得した情報を元にレコードを作成する" do
         allow(Client::Fmp).to receive(:profile).and_return(api_response)
-        expect { Company.new(symbol: "KO").update_to_least }.to change { Company.all.count }.by(1)
+        expect { Company.new(symbol: "KO").update_with_api }.to change { Company.all.count }.by(1)
         expect(Company.last.name).to eq "The Coca-Cola Company"
       end
     end
@@ -107,7 +107,7 @@ RSpec.describe Company, type: :model do
 
       it "シンボルを元に作成・更新が行われる" do
         allow(Client::Fmp).to receive(:profile).and_return(api_response)
-        expect { company.update_to_least }.to change { Company.all.count }.by(0)
+        expect { company.update_with_api }.to change { Company.all.count }.by(0)
         expect(company.reload.name).to eq "The Coca-Cola Company"
       end
     end
