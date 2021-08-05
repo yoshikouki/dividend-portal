@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 [
   {
     symbol: "ABBV",
@@ -10,7 +12,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2013-01-02",
     image: "https://financialmodelingprep.com/image-stock/ABBV.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "ABT",
@@ -23,7 +25,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1937-03-01",
     image: "https://financialmodelingprep.com/image-stock/ABT.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "ADM",
@@ -36,7 +38,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1924-12-24",
     image: "https://financialmodelingprep.com/image-stock/ADM.png",
-    years_of_dividend_growth: 47
+    years_of_dividend_growth: 47,
   },
   {
     symbol: "ADP",
@@ -49,7 +51,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1961-09-01",
     image: "https://financialmodelingprep.com/image-stock/ADP.png",
-    years_of_dividend_growth: 46
+    years_of_dividend_growth: 46,
   },
   {
     symbol: "AFL",
@@ -62,7 +64,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1974-06-15",
     image: "https://financialmodelingprep.com/image-stock/AFL.png",
-    years_of_dividend_growth: 38
+    years_of_dividend_growth: 38,
   },
   {
     symbol: "ALB",
@@ -75,7 +77,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1994-02-22",
     image: "https://financialmodelingprep.com/image-stock/ALB.png",
-    years_of_dividend_growth: 27
+    years_of_dividend_growth: 27,
   },
   {
     symbol: "AMCR",
@@ -88,7 +90,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2019-06-11",
     image: "https://financialmodelingprep.com/image-stock/AMCR.png",
-    years_of_dividend_growth: 38
+    years_of_dividend_growth: 38,
   },
   {
     symbol: "AOS",
@@ -101,7 +103,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1994-12-14",
     image: "https://financialmodelingprep.com/image-stock/AOS.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "APD",
@@ -114,7 +116,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1961-11-13",
     image: "https://financialmodelingprep.com/image-stock/APD.png",
-    years_of_dividend_growth: 39
+    years_of_dividend_growth: 39,
   },
   {
     symbol: "ATO",
@@ -127,7 +129,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1988-10-03",
     image: "https://financialmodelingprep.com/image-stock/ATO.png",
-    years_of_dividend_growth: 34
+    years_of_dividend_growth: 34,
   },
   {
     symbol: "BDX",
@@ -140,7 +142,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1963-09-25",
     image: "https://financialmodelingprep.com/image-stock/BDX.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "BEN",
@@ -153,7 +155,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1986-12-05",
     image: "https://financialmodelingprep.com/image-stock/BEN.png",
-    years_of_dividend_growth: 40
+    years_of_dividend_growth: 40,
   },
   {
     symbol: "BF-B",
@@ -166,7 +168,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1991-05-09",
     image: "https://financialmodelingprep.com/image-stock/BF-B.jpg",
-    years_of_dividend_growth: 37
+    years_of_dividend_growth: 37,
   },
   {
     symbol: "CAH",
@@ -179,7 +181,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1994-09-07",
     image: "https://financialmodelingprep.com/image-stock/CAH.png",
-    years_of_dividend_growth: 34
+    years_of_dividend_growth: 34,
   },
   {
     symbol: "CAT",
@@ -192,7 +194,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1929-12-02",
     image: "https://financialmodelingprep.com/image-stock/CAT.png",
-    years_of_dividend_growth: 27
+    years_of_dividend_growth: 27,
   },
   {
     symbol: "CB",
@@ -205,7 +207,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2008-07-18",
     image: "https://financialmodelingprep.com/image-stock/CB.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "CINF",
@@ -218,7 +220,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1980-03-17",
     image: "https://financialmodelingprep.com/image-stock/CINF.png",
-    years_of_dividend_growth: 61
+    years_of_dividend_growth: 61,
   },
   {
     symbol: "CL",
@@ -231,7 +233,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1930-03-31",
     image: "https://financialmodelingprep.com/image-stock/CL.png",
-    years_of_dividend_growth: 59
+    years_of_dividend_growth: 59,
   },
   {
     symbol: "CLX",
@@ -244,7 +246,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1968-08-01",
     image: "https://financialmodelingprep.com/image-stock/CLX.png",
-    years_of_dividend_growth: 45
+    years_of_dividend_growth: 45,
   },
   {
     symbol: "CTAS",
@@ -257,7 +259,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1983-01-01",
     image: "https://financialmodelingprep.com/image-stock/CTAS.png",
-    years_of_dividend_growth: 37
+    years_of_dividend_growth: 37,
   },
   {
     symbol: "CVX",
@@ -270,7 +272,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1921-06-24",
     image: "https://financialmodelingprep.com/image-stock/CVX.png",
-    years_of_dividend_growth: 34
+    years_of_dividend_growth: 34,
   },
   {
     symbol: "DOV",
@@ -283,7 +285,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1956-12-03",
     image: "https://financialmodelingprep.com/image-stock/DOV.png",
-    years_of_dividend_growth: 65
+    years_of_dividend_growth: 65,
   },
   {
     symbol: "ECL",
@@ -296,7 +298,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1957-01-01",
     image: "https://financialmodelingprep.com/image-stock/ECL.png",
-    years_of_dividend_growth: 29
+    years_of_dividend_growth: 29,
   },
   {
     symbol: "ED",
@@ -309,7 +311,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1948-06-21",
     image: "https://financialmodelingprep.com/image-stock/ED.png",
-    years_of_dividend_growth: 47
+    years_of_dividend_growth: 47,
   },
   {
     symbol: "EMR",
@@ -322,7 +324,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1944-09-05",
     image: "https://financialmodelingprep.com/image-stock/EMR.png",
-    years_of_dividend_growth: 59
+    years_of_dividend_growth: 59,
   },
   {
     symbol: "ESS",
@@ -335,7 +337,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1994-06-07",
     image: "https://financialmodelingprep.com/image-stock/ESS.png",
-    years_of_dividend_growth: 27
+    years_of_dividend_growth: 27,
   },
   {
     symbol: "EXPD",
@@ -348,7 +350,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "2005-06-06",
     image: "https://financialmodelingprep.com/image-stock/EXPD.png",
-    years_of_dividend_growth: 27
+    years_of_dividend_growth: 27,
   },
   {
     symbol: "FRT",
@@ -361,7 +363,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1984-12-17",
     image: "https://financialmodelingprep.com/image-stock/FRT.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "GD",
@@ -374,7 +376,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1952-04-25",
     image: "https://financialmodelingprep.com/image-stock/GD.png",
-    years_of_dividend_growth: 30
+    years_of_dividend_growth: 30,
   },
   {
     symbol: "GPC",
@@ -387,7 +389,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1986-08-20",
     image: "https://financialmodelingprep.com/image-stock/GPC.png",
-    years_of_dividend_growth: 65
+    years_of_dividend_growth: 65,
   },
   {
     symbol: "GWW",
@@ -400,7 +402,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1975-07-29",
     image: "https://financialmodelingprep.com/image-stock/GWW.png",
-    years_of_dividend_growth: 50
+    years_of_dividend_growth: 50,
   },
   {
     symbol: "HRL",
@@ -413,7 +415,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1990-01-16",
     image: "https://financialmodelingprep.com/image-stock/HRL.png",
-    years_of_dividend_growth: 55
+    years_of_dividend_growth: 55,
   },
   {
     symbol: "IBM",
@@ -426,7 +428,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1915-11-11",
     image: "https://financialmodelingprep.com/image-stock/IBM.png",
-    years_of_dividend_growth: 25
+    years_of_dividend_growth: 25,
   },
   {
     symbol: "ITW",
@@ -439,7 +441,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1973-03-13",
     image: "https://financialmodelingprep.com/image-stock/ITW.png",
-    years_of_dividend_growth: 50
+    years_of_dividend_growth: 50,
   },
   {
     symbol: "JNJ",
@@ -452,7 +454,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1944-09-25",
     image: "https://financialmodelingprep.com/image-stock/JNJ.png",
-    years_of_dividend_growth: 59
+    years_of_dividend_growth: 59,
   },
   {
     symbol: "KMB",
@@ -465,7 +467,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1929-05-09",
     image: "https://financialmodelingprep.com/image-stock/KMB.png",
-    years_of_dividend_growth: 48
+    years_of_dividend_growth: 48,
   },
   {
     symbol: "KO",
@@ -478,7 +480,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1919-09-05",
     image: "https://financialmodelingprep.com/image-stock/KO.png",
-    years_of_dividend_growth: 59
+    years_of_dividend_growth: 59,
   },
   {
     symbol: "LEG",
@@ -491,7 +493,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1979-06-25",
     image: "https://financialmodelingprep.com/image-stock/LEG.png",
-    years_of_dividend_growth: 50
+    years_of_dividend_growth: 50,
   },
   {
     symbol: "LIN",
@@ -504,7 +506,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2018-10-29",
     image: "https://financialmodelingprep.com/image-stock/LIN.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "LOW",
@@ -517,7 +519,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1979-12-19",
     image: "https://financialmodelingprep.com/image-stock/LOW.png",
-    years_of_dividend_growth: 47
+    years_of_dividend_growth: 47,
   },
   {
     symbol: "MCD",
@@ -530,7 +532,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1966-07-05",
     image: "https://financialmodelingprep.com/image-stock/MCD.png",
-    years_of_dividend_growth: 44
+    years_of_dividend_growth: 44,
   },
   {
     symbol: "MDT",
@@ -543,7 +545,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1980-03-17",
     image: "https://financialmodelingprep.com/image-stock/MDT.png",
-    years_of_dividend_growth: 43
+    years_of_dividend_growth: 43,
   },
   {
     symbol: "MKC",
@@ -556,7 +558,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1999-05-25",
     image: "https://financialmodelingprep.com/image-stock/MKC.png",
-    years_of_dividend_growth: 35
+    years_of_dividend_growth: 35,
   },
   {
     symbol: "MMM",
@@ -569,7 +571,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1946-01-14",
     image: "https://financialmodelingprep.com/image-stock/MMM.png",
-    years_of_dividend_growth: 63
+    years_of_dividend_growth: 63,
   },
   {
     symbol: "NEE",
@@ -582,7 +584,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1950-02-15",
     image: "https://financialmodelingprep.com/image-stock/NEE.png",
-    years_of_dividend_growth: 25
+    years_of_dividend_growth: 25,
   },
   {
     symbol: "NUE",
@@ -595,7 +597,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1972-07-12",
     image: "https://financialmodelingprep.com/image-stock/NUE.png",
-    years_of_dividend_growth: 48
+    years_of_dividend_growth: 48,
   },
   {
     symbol: "O",
@@ -608,7 +610,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2012-02-10",
     image: "https://financialmodelingprep.com/image-stock/O.png",
-    years_of_dividend_growth: 26
+    years_of_dividend_growth: 26,
   },
   {
     symbol: "PBCT",
@@ -621,7 +623,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1988-01-07",
     image: "https://financialmodelingprep.com/image-stock/PBCT.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "PEP",
@@ -634,7 +636,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1919-12-18",
     image: "https://financialmodelingprep.com/image-stock/PEP.png",
-    years_of_dividend_growth: 48
+    years_of_dividend_growth: 48,
   },
   {
     symbol: "PG",
@@ -647,7 +649,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1950-03-22",
     image: "https://financialmodelingprep.com/image-stock/PG.png",
-    years_of_dividend_growth: 65
+    years_of_dividend_growth: 65,
   },
   {
     symbol: "PNR",
@@ -660,7 +662,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "2012-09-17",
     image: "https://financialmodelingprep.com/image-stock/PNR.png",
-    years_of_dividend_growth: 44
+    years_of_dividend_growth: 44,
   },
   {
     symbol: "PPG",
@@ -673,7 +675,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1945-12-17",
     image: "https://financialmodelingprep.com/image-stock/PPG.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "ROP",
@@ -686,7 +688,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1996-11-01",
     image: "https://financialmodelingprep.com/image-stock/ROP.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "SHW",
@@ -699,7 +701,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1964-02-11",
     image: "https://financialmodelingprep.com/image-stock/SHW.png",
-    years_of_dividend_growth: 42
+    years_of_dividend_growth: 42,
   },
   {
     symbol: "SPGI",
@@ -712,7 +714,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1929-02-14",
     image: "https://financialmodelingprep.com/image-stock/SPGI.png",
-    years_of_dividend_growth: 48
+    years_of_dividend_growth: 48,
   },
   {
     symbol: "SWK",
@@ -725,7 +727,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1966-06-15",
     image: "https://financialmodelingprep.com/image-stock/SWK.png",
-    years_of_dividend_growth: 53
+    years_of_dividend_growth: 53,
   },
   {
     symbol: "SYY",
@@ -738,7 +740,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1981-01-20",
     image: "https://financialmodelingprep.com/image-stock/SYY.png",
-    years_of_dividend_growth: 41
+    years_of_dividend_growth: 41,
   },
   {
     symbol: "T",
@@ -751,7 +753,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1983-11-21",
     image: "https://financialmodelingprep.com/image-stock/T.png",
-    years_of_dividend_growth: 36
+    years_of_dividend_growth: 36,
   },
   {
     symbol: "TGT",
@@ -764,7 +766,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1969-09-08",
     image: "https://financialmodelingprep.com/image-stock/TGT.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "TROW",
@@ -777,7 +779,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "1986-01-04",
     image: "https://financialmodelingprep.com/image-stock/TROW.png",
-    years_of_dividend_growth: 35
+    years_of_dividend_growth: 35,
   },
   {
     symbol: "VFC",
@@ -790,7 +792,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1966-07-25",
     image: "https://financialmodelingprep.com/image-stock/VFC.png",
-    years_of_dividend_growth: 49
+    years_of_dividend_growth: 49,
   },
   {
     symbol: "WBA",
@@ -803,7 +805,7 @@
     exchange_short_name: "NASDAQ",
     ipo_date: "2014-12-31",
     image: "https://financialmodelingprep.com/image-stock/WBA.png",
-    years_of_dividend_growth: 45
+    years_of_dividend_growth: 45,
   },
   {
     symbol: "WMT",
@@ -816,7 +818,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1972-08-25",
     image: "https://financialmodelingprep.com/image-stock/WMT.png",
-    years_of_dividend_growth: 48
+    years_of_dividend_growth: 48,
   },
   {
     symbol: "WST",
@@ -829,7 +831,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1923-07-27",
     image: "https://financialmodelingprep.com/image-stock/WST.png",
-    years_of_dividend_growth: 28
+    years_of_dividend_growth: 28,
   },
   {
     symbol: "XOM",
@@ -842,7 +844,7 @@
     exchange_short_name: "NYSE",
     ipo_date: "1980-03-17",
     image: "https://financialmodelingprep.com/image-stock/XOM.png",
-    years_of_dividend_growth: 37
+    years_of_dividend_growth: 37,
   },
 ].each do |company|
   Company.create!(company) unless Company.exists?(symbol: company[:symbol])
