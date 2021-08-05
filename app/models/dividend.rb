@@ -9,7 +9,7 @@ class Dividend < ApplicationRecord
     row_dividends = Client::Fmp.get_dividend_calendar(from: Time.at(3.months.ago))
 
     # 選択
-    dividends = filter_by_condition(to_instances(row_dividends), :declares_on, time)
+    dividends = filter_by_condition(convert_response_of_dividend_calendar(row_dividends), :declares_on, time)
 
     # View 用に変換
     dividends.map { |dividend| new(dividend) }
