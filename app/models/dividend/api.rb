@@ -12,7 +12,7 @@ class Dividend
       symbol: :symbol,
       dividend: :dividend,
       adj_dividend: :adjusted_dividend,
-    }
+    }.freeze
 
     def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
       row_dividends = Client::Fmp.get_dividend_calendar(
@@ -33,7 +33,9 @@ class Dividend
     end
 
     def self.convert_response_of_dividend_calendar(row_dividends = [])
-      CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map { |k, v| [v, row_dividends[k]] }.to_h
+      row_dividends.map do |dividend|
+        CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map { |k, v| [v, dividend[k]] }.to_h
+      end
     end
 
     def self.to_instances(row_dividends = [])
