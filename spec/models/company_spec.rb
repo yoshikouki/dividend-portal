@@ -18,7 +18,7 @@ RSpec.describe Company, type: :model do
     end
   end
 
-  describe ".update_to_least" do
+  describe ".update_all_to_least" do
     let!(:api_response) do
       [
         { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", price: 438.51, exchange: "New York Stock Exchange Arca" },
@@ -31,7 +31,7 @@ RSpec.describe Company, type: :model do
     context "DBが空の場合" do
       it "取得した情報を元にレコードを作成する" do
         allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
-        expect { Company.update_to_least }.to change { Company.all.count }.by(api_response.count)
+        expect { Company.update_all_with_api }.to change { Company.all.count }.by(api_response.count)
         expect(Company.last.name).to eq "Intel Corporation"
       end
     end
@@ -48,10 +48,67 @@ RSpec.describe Company, type: :model do
 
       it "シンボルを元に作成・更新が行われる" do
         allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
-        Company.update_to_least
+        Company.update_all_with_api
         expect(Company.all.count).to eq(api_response.count + 1)
         expect(Company.find_by(symbol: "SPY").exchange).to eq "New York Stock Exchange Arca"
         expect(Company.find_by(symbol: "KMI").name).to eq "Kinder Morgan, Inc."
+      end
+    end
+  end
+
+  describe "#update_to_least" do
+    let!(:api_response) do
+      [{ symbol: "KO",
+         price: 56.88,
+         beta: 0.614254,
+         vol_avg: 14_358_100,
+         mkt_cap: 245_529_329_664,
+         last_div: 1.66,
+         range: "46.22-57.56",
+         changes: -0.15,
+         company_name: "The Coca-Cola Company",
+         currency: "USD",
+         cik: "0000021344",
+         isin: "US1912161007",
+         cusip: "191216100",
+         exchange: "New York Stock Exchange",
+         exchange_short_name: "NYSE",
+         industry: "Beverages—Non-Alcoholic",
+         website: "http://www.coca-colacompany.com",
+         description: "The Coca-Cola Company, a beverage company, manufactures, markets, and sells various nonalcoholic beverages worldwide.",
+         ceo: "Mr. James Quincey",
+         sector: "Consumer Defensive",
+         country: "US",
+         full_time_employees: "80300",
+         phone: "14046762121",
+         address: "1 Coca Cola Plz NW",
+         city: "Atlanta",
+         state: "GEORGIA",
+         zip: "30301",
+         dcf_diff: -22.44,
+         dcf: 58.4493,
+         image: "https://financialmodelingprep.com/image-stock/KO.png",
+         ipo_date: "1919-09-05",
+         default_image: false,
+         is_etf: false,
+         is_actively_trading: true }]
+    end
+
+    context "DBが空の場合" do
+      it "取得した情報を元にレコードを作成する" do
+        allow(Client::Fmp).to receive(:profile).and_return(api_response)
+        expect { Company.new(symbol: "KO").update_with_api }.to change { Company.all.count }.by(1)
+        expect(Company.last.name).to eq "The Coca-Cola Company"
+      end
+    end
+
+    context "情報が更新されている場合" do
+      let!(:company) { FactoryBot.create(:company, symbol: "KO", name: "Kora-Kola") }
+
+      it "シンボルを元に作成・更新が行われる" do
+        allow(Client::Fmp).to receive(:profile).and_return(api_response)
+        expect { company.update_with_api }.to change { Company.all.count }.by(0)
+        expect(company.reload.name).to eq "The Coca-Cola Company"
       end
     end
   end
