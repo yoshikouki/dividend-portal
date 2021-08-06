@@ -11,7 +11,6 @@ class Company
 
         # USの取引所のデータだけ保存する
         profiles.each do |profile|
-          pp profile
           company = Company.new(profile)
           company.save if company.us_exchange?
         end
