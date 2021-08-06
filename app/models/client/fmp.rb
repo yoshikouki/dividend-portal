@@ -106,6 +106,11 @@ module Client
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
+    def self.sp500
+      res = Client.get url("api/v3/sp500_constituent")
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
     def self.url(path, query_hash = {})
       path = "/#{path}" if path[0] != "/"
       throw("Invalid pattern") if path[1] == "/"
