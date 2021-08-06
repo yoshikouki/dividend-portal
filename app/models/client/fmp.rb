@@ -28,7 +28,7 @@ module Client
                 symbols
       end
       # symbol に / を含むものが紛れており、エラーになるので変換する
-      param = param.gsub(/[\/_]/, "-")
+      param = param.gsub(%r{[/_]}, "-")
       res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
