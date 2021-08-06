@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ]) }
+
   validates :symbol,
             presence: true
   validates :name,
@@ -12,6 +14,10 @@ class Company < ApplicationRecord
     MMM AOS ABT ABBV AFL APD ALB AMCR ADM T ATO ADP BDX BF-B CAH CAT CVX CB CINF CTAS CLX KO CL ED DOV ECL EMR ESS EXPD XOM FRT BEN GD
     GPC HRL ITW IBM JNJ KMB LEG LIN LOW MKC MCD MDT NEE NUE PNR PBCT PEP PPG PG O ROP SPGI SHW SWK SYY TROW TGT VFC GWW WBA WMT WST
   ].freeze
+
+  # exchange の表記揺れがあるため、正規表現を定義する
+  REGEXP_NASDAQ = /NASDAQ/i
+  REGEXP_NYSE = /(New York|NYSE)/i
 
   def diff?(target, check_list)
     check_list.each do |c|
@@ -67,6 +73,12 @@ class Company < ApplicationRecord
         company.assign_attributes(profile).save
       end
     end
+
+    def where_or_create_by_us(symbols)
+      # 不足している企業情報を作る
+      Save.create_by_us(symbols)
+      us_exchanges
+    end
   end
 
   def assign_attributes(params)
@@ -76,5 +88,17 @@ class Company < ApplicationRecord
       self[attr] = params[attr.to_sym]
     end
     self
+  end
+
+  def us_exchange?
+    nyse? || nasdaq?
+  end
+
+  def nyse?
+    REGEXP_NYSE.match?(exchange)
+  end
+
+  def nasdaq?
+    REGEXP_NASDAQ.match?(exchange)
   end
 end

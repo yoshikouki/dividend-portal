@@ -21,12 +21,12 @@ RSpec.describe Dividend::Recent, type: :model do
   end
 
   describe ".update_to_latest" do
-    let!(:dividend) { FactoryBot.create(:dividend) }
+    let!(:dividend) { FactoryBot.create(:dividend).attributes }
 
     it "新しいデータが追加される" do
       latest_dividends = [
         dividend,
-        Dividend.new(
+        {
           ex_dividend_on: Date.today,
           records_on: Date.tomorrow,
           pays_on: Date.today.next_month,
@@ -34,9 +34,64 @@ RSpec.describe Dividend::Recent, type: :model do
           symbol: "AZZ",
           dividend: 0.1,
           adjusted_dividend: 0.1,
-        ),
+        },
       ]
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(1)
+    end
+  end
+
+  describe ".update_us_to_latest" do
+    let!(:dividend_calendar_response) do
+      [
+        { date: "2021-08-12",
+          label: "August 12, 21",
+          adj_dividend: 0.87,
+          symbol: "XOM",
+          dividend: 0.87,
+          record_date: "2021-08-13",
+          payment_date: "2021-09-10",
+          declaration_date: "2021-07-28" },
+        { date: "2021-08-12",
+          label: "August 12, 21",
+          adj_dividend: 0.87,
+          symbol: "TEST",
+          dividend: 0.87,
+          record_date: "2021-08-13",
+          payment_date: "2021-09-10",
+          declaration_date: "2021-07-28" },
+      ]
+    end
+    let!(:profile_response) do
+      [
+        { symbol: "XOM",
+          company_name: "Exxon Mobil Corporation",
+          currency: "USD",
+          exchange: "New York Stock Exchange",
+          exchange_short_name: "NYSE",
+          industry: "Oil & Gas Integrated",
+          sector: "Energy",
+          country: "US",
+          image: "https://financialmodelingprep.com/image-stock/XOM.png",
+          ipo_date: "1980-03-17" },
+        { symbol: "TEST",
+          companyName: "Test Corporation",
+          currency: "USD",
+          exchange: "Kagoshima Exchange",
+          exchangeShortName: "KE",
+          industry: "Oil & Gas Integrated",
+          sector: "Energy",
+          country: "US",
+          image: "https://financialmodelingprep.com/image-stock/XOM.png",
+          ipoDate: "1980-03-17" },
+      ]
+    end
+
+    it "US企業の新しいデータが追加される" do
+      allow(Client::Fmp).to receive(:get_dividend_calendar).and_return(dividend_calendar_response)
+      allow(Client::Fmp).to receive(:profile).and_return(profile_response)
+
+      expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(1)
+      expect(Company.first.symbol).to eq("XOM")
     end
   end
 

@@ -27,6 +27,8 @@ module Client
               when String
                 symbols
       end
+      # symbol に / を含むものが紛れており、エラーになるので変換する
+      param = param.gsub(%r{[/_]}, "-")
       res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
@@ -101,6 +103,11 @@ module Client
       query = Client.value_to_time query
 
       res = Client.get url(path, query)
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    def self.sp500
+      res = Client.get url("api/v3/sp500_constituent")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 

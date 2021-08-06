@@ -4,12 +4,22 @@ class Dividend
   module Api
     RECENT_REFERENCE_START_DATE = Time.at(2.days.ago)
 
+    CONVERSION_TABLE_OF_DIVIDEND_CALENDAR = {
+      date: :ex_dividend_on,
+      record_date: :records_on,
+      payment_date: :pays_on,
+      declaration_date: :declares_on,
+      symbol: :symbol,
+      dividend: :dividend,
+      adj_dividend: :adjusted_dividend,
+    }.freeze
+
     def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
       row_dividends = Client::Fmp.get_dividend_calendar(
         from: from,
         to: to,
       )
-      to_instances(row_dividends)
+      convert_response_of_dividend_calendar(row_dividends)
     end
 
     def self.filter_by_ex_dividend_date(from_time = Time.now, _to_time = nil)
@@ -22,18 +32,14 @@ class Dividend
       to_instances(row_dividends)
     end
 
-    def self.to_instances(row_dividends = [])
+    def self.convert_response_of_dividend_calendar(row_dividends = [])
       row_dividends.map do |dividend|
-        Dividend.new(
-          ex_dividend_on: dividend[:date],
-          records_on: dividend[:record_date],
-          pays_on: dividend[:payment_date],
-          declares_on: dividend[:declaration_date],
-          symbol: dividend[:symbol],
-          dividend: dividend[:dividend],
-          adjusted_dividend: dividend[:adj_dividend],
-        )
+        CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map { |k, v| [v, dividend[k]] }.to_h
       end
+    end
+
+    def self.to_instances(row_dividends = [])
+      convert_response_of_dividend_calendar(row_dividends).map { |attr| Dividend.new(attr) }
     end
   end
 end
