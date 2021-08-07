@@ -7,9 +7,10 @@ class Company
         # 保存されていない企業情報を抽出
         current = Company.where(symbol: symbols)
         missing_symbols = symbols - current.pluck(:symbol)
-        profiles = Api.profiles(missing_symbols)
+        return unless missing_symbols.count.positive?
 
         # USの取引所のデータだけ保存する
+        profiles = Api.profiles(missing_symbols)
         profiles.each do |profile|
           company = Company.new(profile)
           company.save if company.us_exchange?
