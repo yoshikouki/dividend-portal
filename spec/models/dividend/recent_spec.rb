@@ -46,7 +46,10 @@ RSpec.describe Dividend::Recent, type: :model do
                         payment_date: "2021-09-10", declaration_date: "2021-07-28" }
       [
         base_response,
-        base_response.merge(symbol: "TEST"),
+        base_response.merge(symbol: "NewYorkCo"),
+        base_response.merge(symbol: "NYSECo"),
+        base_response.merge(symbol: "NASDAQCo"),
+        base_response.merge(symbol: "NoUS"),
       ]
     end
     let!(:profile_response) do
@@ -55,7 +58,10 @@ RSpec.describe Dividend::Recent, type: :model do
                         image: "https://financialmodelingprep.com/image-stock/XOM.png", ipo_date: "1980-03-17" }
       [
         base_response,
-        base_response.merge(symbol: "TEST", exchange: "Kagoshima Exchange", exchange_short_name: "KE"),
+        base_response.merge(symbol: "NewYorkCo", exchange: "new york", exchange_short_name: "NYSE"),
+        base_response.merge(symbol: "NYSECo", exchange: "NYSE", exchange_short_name: "NYSE"),
+        base_response.merge(symbol: "NASDAQCo", exchange: "nasdaq", exchange_short_name: "NASDAQ"),
+        base_response.merge(symbol: "NoUS", exchange: "Kagoshima Exchange", exchange_short_name: "KE"),
       ]
     end
 
@@ -63,8 +69,9 @@ RSpec.describe Dividend::Recent, type: :model do
       allow(Client::Fmp).to receive(:get_dividend_calendar).and_return(dividend_calendar_response)
       allow(Client::Fmp).to receive(:profile).and_return(profile_response)
 
-      expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(1)
+      expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(4)
       expect(Company.first.symbol).to eq("XOM")
+      expect(Company.last.symbol).to eq("NASDAQCo")
     end
   end
 
