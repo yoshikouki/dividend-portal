@@ -74,10 +74,10 @@ class Company < ApplicationRecord
       end
     end
 
-    def where_or_create_by_us(symbols)
+    def in_us_where_or_create_by_symbol(symbols)
       # 不足している企業情報を作る
-      Save.create_by_us(symbols)
-      us_exchanges
+      Save.create_for_us_with_api(symbols)
+      us_exchanges.where(symbol: symbols)
     end
   end
 
