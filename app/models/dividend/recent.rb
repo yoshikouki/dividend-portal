@@ -23,7 +23,7 @@ class Dividend
 
     def self.filter_by_us(dividend_calendars = [])
       symbols = dividend_calendars.pluck(:symbol)
-      symbols_in_us = Company.where_or_create_by_us(symbols).pluck(:symbol)
+      symbols_in_us = Company.in_us_where_or_create_by_symbol(symbols).pluck(:symbol)
       dividend_calendars.filter { |dc| symbols_in_us.include?(dc[:symbol]) }
     end
   end
