@@ -23,9 +23,8 @@ class Dividend
         updated_dividends << Dividend.attributes_hash(latest, current_dividend)
       end
 
-      binding.irb
-      # Dividend.insert_all!(new_dividends) unless new_dividends.empty?
-      # Dividend.update_all(updated_dividends) unless updated_dividends.empty?
+      Dividend.insert_all!(new_dividends) unless new_dividends.empty?
+      Dividend.update_all(updated_dividends) unless updated_dividends.empty?
     end
 
     def self.update_us_to_latest
