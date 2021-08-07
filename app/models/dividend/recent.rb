@@ -5,9 +5,27 @@ class Dividend
     self.table_name = "dividends"
 
     def self.update_to_latest(latest_dividends = Dividend::Api.recent)
-      latest_dividends.each do |dividend_attr|
-        Dividend.find_or_create_by(remove_empty_string(dividend_attr))
+      current_dividends = Dividend.where(ex_dividend_on: Date.today..).order(:ex_dividend_on).to_a
+
+      new_dividends = []
+      updated_dividends = []
+      latest_dividends.each do |latest|
+        latest = remove_empty_string(latest)
+        current_index = current_dividends.find_index { |current| current.same?(latest) }
+        unless current_index
+          new_dividends << Dividend.attributes_hash(latest)
+          next
+        end
+
+        current_dividend = current_dividends.delete_at(current_index)
+        next unless current_dividend.updated?(latest)
+
+        updated_dividends << Dividend.attributes_hash(latest, current_dividend)
       end
+
+      binding.irb
+      # Dividend.insert_all!(new_dividends) unless new_dividends.empty?
+      # Dividend.update_all(updated_dividends) unless updated_dividends.empty?
     end
 
     def self.update_us_to_latest

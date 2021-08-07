@@ -21,23 +21,25 @@ RSpec.describe Dividend::Recent, type: :model do
   end
 
   describe ".update_to_latest" do
-    let!(:dividend) { FactoryBot.create(:dividend).attributes }
-
-    it "新しいデータが追加される" do
-      new_dividend = {
-        ex_dividend_on: Date.today,
-        records_on: Date.tomorrow,
-        pays_on: Date.today.next_month,
-        declares_on: Date.today.last_month,
-        symbol: "AZZ",
+    let!(:dividend) do
+      {
+        ex_dividend_on: Date.today.strftime("%Y-%m-%d"),
+        records_on: Date.tomorrow.strftime("%Y-%m-%d"),
+        pays_on: Date.today.next_month.strftime("%Y-%m-%d"),
+        declares_on: Date.today.last_month.strftime("%Y-%m-%d"),
+        symbol: "TST1",
         dividend: 0.1,
         adjusted_dividend: 0.1,
       }
+    end
+
+    it "新しいデータが追加される" do
+      Dividend.create!(dividend)
       latest_dividends = [
         dividend,
-        new_dividend,
-        new_dividend.merge(declares_on: nil, symbol: "NILDECLARE"),
-        new_dividend.merge(declares_on: "", symbol: "EMPTYDECLARE"), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
+        dividend.merge(symbol: "NEWSYMBOL"),
+        dividend.merge(declares_on: nil, symbol: "NILDECLARE"),
+        dividend.merge(declares_on: "", symbol: "EMPTYDECLARE"), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
       ]
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(3)
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(0)

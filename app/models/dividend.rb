@@ -35,4 +35,28 @@ class Dividend < ApplicationRecord
       end
     end
   end
+
+  def self.attributes_hash(attributes, base_dividend = nil)
+    return base_dividend.attributes.symbolize_keys.merge(attributes) if base_dividend
+
+    attributes.merge(created_at: Time.current, updated_at: Time.current)
+  end
+
+  def same?(attributes)
+    ex_dividend_on == Date.parse(attributes[:ex_dividend_on]) &&
+      symbol == attributes[:symbol]
+  end
+
+  def updated?(attributes)
+    attributes.each do |k, v|
+      source = self[k]
+      case source
+      when Date
+        return true if source != Date.parse(v)
+      else
+        return true if source != v
+      end
+    end
+    false
+  end
 end
