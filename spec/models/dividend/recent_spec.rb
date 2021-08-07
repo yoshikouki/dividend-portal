@@ -42,47 +42,20 @@ RSpec.describe Dividend::Recent, type: :model do
 
   describe ".update_us_to_latest" do
     let!(:dividend_calendar_response) do
+      base_response = { symbol: "XOM", date: "2021-08-12", label: "August 12, 21", adj_dividend: 0.87, dividend: 0.87, record_date: "2021-08-13",
+                        payment_date: "2021-09-10", declaration_date: "2021-07-28" }
       [
-        { date: "2021-08-12",
-          label: "August 12, 21",
-          adj_dividend: 0.87,
-          symbol: "XOM",
-          dividend: 0.87,
-          record_date: "2021-08-13",
-          payment_date: "2021-09-10",
-          declaration_date: "2021-07-28" },
-        { date: "2021-08-12",
-          label: "August 12, 21",
-          adj_dividend: 0.87,
-          symbol: "TEST",
-          dividend: 0.87,
-          record_date: "2021-08-13",
-          payment_date: "2021-09-10",
-          declaration_date: "2021-07-28" },
+        base_response,
+        base_response.merge(symbol: "TEST"),
       ]
     end
     let!(:profile_response) do
+      base_response = { symbol: "XOM", company_name: "Exxon Mobil Corporation", currency: "USD",
+                        exchange: "New York Stock Exchange", exchange_short_name: "NYSE", industry: "Oil & Gas Integrated", sector: "Energy", country: "US",
+                        image: "https://financialmodelingprep.com/image-stock/XOM.png", ipo_date: "1980-03-17" }
       [
-        { symbol: "XOM",
-          company_name: "Exxon Mobil Corporation",
-          currency: "USD",
-          exchange: "New York Stock Exchange",
-          exchange_short_name: "NYSE",
-          industry: "Oil & Gas Integrated",
-          sector: "Energy",
-          country: "US",
-          image: "https://financialmodelingprep.com/image-stock/XOM.png",
-          ipo_date: "1980-03-17" },
-        { symbol: "TEST",
-          companyName: "Test Corporation",
-          currency: "USD",
-          exchange: "Kagoshima Exchange",
-          exchangeShortName: "KE",
-          industry: "Oil & Gas Integrated",
-          sector: "Energy",
-          country: "US",
-          image: "https://financialmodelingprep.com/image-stock/XOM.png",
-          ipoDate: "1980-03-17" },
+        base_response,
+        base_response.merge(symbol: "TEST", exchange: "Kagoshima Exchange", exchange_short_name: "KE"),
       ]
     end
 
