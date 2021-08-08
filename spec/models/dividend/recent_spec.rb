@@ -72,6 +72,8 @@ RSpec.describe Dividend::Recent, type: :model do
       expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(4)
       expect(Company.first.symbol).to eq("XOM")
       expect(Company.last.symbol).to eq("NASDAQCo")
+      expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(0)
+      expect(Dividend.not_notified.count).to eq(4)
     end
   end
 
