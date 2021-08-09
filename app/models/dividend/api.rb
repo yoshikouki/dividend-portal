@@ -34,7 +34,11 @@ class Dividend
 
     def self.convert_response_of_dividend_calendar(row_dividends = [])
       row_dividends.map do |dividend|
-        CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map { |k, v| [v, dividend[k]] }.to_h
+        CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map do |k, v|
+          # APIレスポンスがnullの祭に変換処理で空文字になることがあってバグになったので、明示的にnilに変換する
+          response_value = dividend[k] != "" ? dividend[k] : nil
+          [v, response_value]
+        end.to_h
       end
     end
 
