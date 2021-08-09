@@ -75,8 +75,12 @@ class Company < ApplicationRecord
     end
 
     def in_us_where_or_create_by_symbol(symbols)
+      # 保存されていない企業情報を抽出
+      current = Company.where(symbol: symbols)
+      missing_symbols = symbols - current.pluck(:symbol)
+
       # 不足している企業情報を作る
-      Save.create_for_us_with_api(symbols)
+      Save.create_for_us_with_api(missing_symbols) if missing_symbols.present?
       us_exchanges.where(symbol: symbols)
     end
   end
