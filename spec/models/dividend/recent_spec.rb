@@ -36,8 +36,11 @@ RSpec.describe Dividend::Recent, type: :model do
       latest_dividends = [
         dividend,
         new_dividend,
+        new_dividend.merge(declares_on: nil, symbol: "NILDECLARE"),
+        new_dividend.merge(declares_on: "", symbol: "EMPTYDECLARE"), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
       ]
-      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(1)
+      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(3)
+      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(0)
     end
   end
 
