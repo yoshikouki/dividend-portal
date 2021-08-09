@@ -76,6 +76,7 @@ class Company < ApplicationRecord
 
     def in_us_where_or_create_by_symbol(symbols)
       # 保存されていない企業情報を抽出
+      symbols = symbols.map { |symbol| symbol.gsub(%r{[/_]}, "-") }
       current = Company.where(symbol: symbols)
       missing_symbols = symbols - current.pluck(:symbol)
 
