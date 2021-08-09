@@ -24,19 +24,23 @@ RSpec.describe Dividend::Recent, type: :model do
     let!(:dividend) { FactoryBot.create(:dividend).attributes }
 
     it "新しいデータが追加される" do
+      new_dividend = {
+        ex_dividend_on: Date.today,
+        records_on: Date.tomorrow,
+        pays_on: Date.today.next_month,
+        declares_on: Date.today.last_month,
+        symbol: "AZZ",
+        dividend: 0.1,
+        adjusted_dividend: 0.1,
+      }
       latest_dividends = [
         dividend,
-        {
-          ex_dividend_on: Date.today,
-          records_on: Date.tomorrow,
-          pays_on: Date.today.next_month,
-          declares_on: Date.today.last_month,
-          symbol: "AZZ",
-          dividend: 0.1,
-          adjusted_dividend: 0.1,
-        },
+        new_dividend,
+        new_dividend.merge(declares_on: nil, symbol: "NILDECLARE"),
+        new_dividend.merge(declares_on: "", symbol: "EMPTYDECLARE"), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
       ]
-      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(1)
+      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(3)
+      expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(0)
     end
   end
 
@@ -72,6 +76,8 @@ RSpec.describe Dividend::Recent, type: :model do
       expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(4)
       expect(Company.first.symbol).to eq("XOM")
       expect(Company.last.symbol).to eq("NASDAQCo")
+      expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(0)
+      expect(Dividend.not_notified.count).to eq(4)
     end
   end
 

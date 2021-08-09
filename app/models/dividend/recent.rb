@@ -5,8 +5,8 @@ class Dividend
     self.table_name = "dividends"
 
     def self.update_to_latest(latest_dividends = Dividend::Api.recent)
-      latest_dividends.each do |dividend|
-        Dividend.find_or_create_by(dividend)
+      latest_dividends.each do |dividend_attr|
+        Dividend.find_or_create_by(remove_empty_string(dividend_attr))
       end
     end
 
@@ -25,6 +25,11 @@ class Dividend
       symbols = dividend_calendars.pluck(:symbol)
       symbols_in_us = Company.in_us_where_or_create_by_symbol(symbols).pluck(:symbol)
       dividend_calendars.filter { |dc| symbols_in_us.include?(dc[:symbol]) }
+    end
+
+    def self.remove_empty_string(hash)
+      # #present? ではfalse(boolean)だった場合もnilにしてしまうため、シンプルに空文字を検証する
+      hash.transform_values { |v| v == "" ? nil : v }
     end
   end
 end
