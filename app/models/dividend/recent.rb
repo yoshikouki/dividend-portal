@@ -27,11 +27,9 @@ class Dividend
       dividend_calendars.filter { |dc| symbols_in_us.include?(dc[:symbol]) }
     end
 
-    private
-
     def self.remove_empty_string(hash)
       # #present? ではfalse(boolean)だった場合もnilにしてしまうため、シンプルに空文字を検証する
-      hash.map { |k,v| [k, v != "" ? v : nil] }.to_h
+      hash.transform_values { |v| v == "" ? nil : v }
     end
   end
 end
