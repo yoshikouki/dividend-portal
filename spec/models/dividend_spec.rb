@@ -55,4 +55,84 @@ RSpec.describe Dividend, type: :model do
       end
     end
   end
+
+  describe "#same?" do
+    let!(:dividend) do
+      Dividend.create(
+        ex_dividend_on: "2021-01-01",
+        records_on: "2021-01-01",
+        pays_on: "2021-01-01",
+        declares_on: "2021-01-01",
+        symbol: "TST",
+        dividend: 0.1,
+        adjusted_dividend: 0.1,
+      )
+    end
+
+    context "引数の権利落ち日とシンボルと同じ場合" do
+      it "true を返す" do
+        attributes = {
+          ex_dividend_on: "2021-01-01",
+          symbol: "TST",
+        }
+        expect(dividend.same?(attributes)).to be true
+      end
+    end
+
+    context "引数の権利落ち日とシンボルのどちらかが異なる場合" do
+      it "false を返す" do
+        ex_dividend_on = {
+          ex_dividend_on: "2021-12-31",
+          symbol: "TST",
+        }
+        symbol = {
+          ex_dividend_on: "2021-01-01",
+          symbol: "NOTEST",
+        }
+        expect(dividend.same?(ex_dividend_on)).to be false
+        expect(dividend.same?(symbol)).to be false
+      end
+    end
+  end
+
+  describe "#updated?" do
+    let!(:dividend) { FactoryBot.create(:dividend) }
+
+    context "引数を元にインスタンスの値を比較して同じ場合" do
+      it "false を返す" do
+        attributes = {
+          ex_dividend_on: Date.today.strftime("%Y-%m-%d"),
+          records_on: Date.tomorrow.strftime("%Y-%m-%d"),
+          pays_on: Date.today.next_month.strftime("%Y-%m-%d"),
+          declares_on: Date.today.last_month.strftime("%Y-%m-%d"),
+          symbol: dividend.symbol,
+          dividend: 0.1,
+          adjusted_dividend: 0.1,
+        }
+        expect(dividend.updated?(attributes)).to be false
+      end
+    end
+
+    context "引数を元にインスタンスの値を比較して異なっていた場合" do
+      it "true を返す" do
+        attributes = {
+          ex_dividend_on: Date.today.strftime("%Y-%m-%d"),
+          records_on: Date.tomorrow.strftime("%Y-%m-%d"),
+          pays_on: Date.today.next_month.strftime("%Y-%m-%d"),
+          declares_on: Date.today.last_month.strftime("%Y-%m-%d"),
+          symbol: dividend.symbol,
+          dividend: 0.1,
+          adjusted_dividend: 0.1,
+        }
+        expect(dividend.updated?(attributes.merge(ex_dividend_on: "2001-12-01"))).to be true
+        expect(dividend.updated?(attributes.merge(records_on: "2001-12-01"))).to be true
+        expect(dividend.updated?(attributes.merge(pays_on: "2001-12-01"))).to be true
+        expect(dividend.updated?(attributes.merge(declares_on: "2001-12-01"))).to be true
+        expect(dividend.updated?(attributes.merge(symbol: "NOTST"))).to be true
+        expect(dividend.updated?(attributes.merge(dividend: 0.00001))).to be true
+        expect(dividend.updated?(attributes.merge(adjusted_dividend: 0.00001))).to be true
+        expect(dividend.updated?(attributes)).to be false
+      end
+    end
+  end
 end

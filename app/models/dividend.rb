@@ -35,4 +35,22 @@ class Dividend < ApplicationRecord
       end
     end
   end
+
+  def same?(attributes)
+    ex_dividend_on == Date.parse(attributes[:ex_dividend_on]) &&
+      symbol == attributes[:symbol]
+  end
+
+  def updated?(attributes)
+    attributes.each do |k, v|
+      source = self[k]
+      case source
+      when Date
+        return true if source != Date.parse(v)
+      else
+        return true if source != v
+      end
+    end
+    false
+  end
 end
