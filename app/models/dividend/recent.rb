@@ -5,7 +5,7 @@ class Dividend
     self.table_name = "dividends"
 
     def self.update_to_latest(latest_dividends = Dividend::Api.recent)
-      current_dividends = Dividend.where(ex_dividend_on: Date.today..).order(:ex_dividend_on).to_a
+      current_dividends = Dividend.order(:ex_dividend_on).to_a
       new_dividends = latest_dividends.filter_map do |latest|
         latest = remove_empty_string(latest)
         current_index = current_dividends.find_index { |current| current.same?(latest) }
