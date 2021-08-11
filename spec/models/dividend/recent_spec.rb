@@ -84,13 +84,17 @@ RSpec.describe Dividend::Recent, type: :model do
   end
 
   describe ".destroy_outdated" do
+    let!(:company) { FactoryBot.create(:company) }
+
     it "権利落ち日が3日以前の配当金は削除する" do
       FactoryBot.create(
         :dividend,
+        :with_company,
         ex_dividend_on: Date.today.prev_day(3),
       )
       FactoryBot.create(
         :dividend,
+        :with_company,
         ex_dividend_on: Date.today.prev_day(2),
       )
       expect { Dividend::Recent.destroy_outdated }.to change { Dividend.count }.by(-1)

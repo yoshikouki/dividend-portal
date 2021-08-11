@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :company do
-    symbol { "KO" }
-    name { "The Coca-Cola Company" }
+    sequence(:symbol) { |n| "TEST#{n}" }
+    sequence(:name) { |n| "The Test#{n} Company" }
     currency { "USD" }
     exchange { "New York Stock Exchange" }
     exchange_short_name { "NYSE" }
