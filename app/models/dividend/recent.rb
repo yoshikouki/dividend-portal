@@ -33,7 +33,7 @@ class Dividend
 
     def self.associate_with_us_companies(dividend_calendars = [])
       symbols = dividend_calendars.pluck(:symbol)
-      companies_in_us = Company.in_us_where_or_create_by_symbol(symbols)
+      companies_in_us = Company.in_us_where_or_create_by_symbol(symbols).to_a
       symbols_in_us = companies_in_us.pluck(:symbol)
 
       dividend_calendars.filter_map do |dc|
@@ -41,8 +41,8 @@ class Dividend
         index = symbols_in_us.find_index(symbol)
         if index
           symbols_in_us.delete_at(index)
-          company = companies_in_us.delete(index)
-          dc.merge(company: company)
+          company = companies_in_us.delete_at(index)
+          dc.merge(company_id: company.id)
         end
       end
     end
