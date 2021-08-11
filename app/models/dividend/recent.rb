@@ -22,7 +22,7 @@ class Dividend
 
     def self.update_us_to_latest
       dividend_calendars = Api.recent
-      dividend_calendars_in_us = filter_by_us(dividend_calendars)
+      dividend_calendars_in_us = associate_with_us_companies(dividend_calendars)
       update_to_latest(dividend_calendars_in_us)
     end
 
@@ -31,7 +31,7 @@ class Dividend
       Dividend.where(ex_dividend_on: ..outdated).destroy_all
     end
 
-    def self.filter_by_us(dividend_calendars = [])
+    def self.associate_with_us_companies(dividend_calendars = [])
       symbols = dividend_calendars.pluck(:symbol)
       companies_in_us = Company.in_us_where_or_create_by_symbol(symbols)
       symbols_in_us = companies_in_us.pluck(:symbol)
