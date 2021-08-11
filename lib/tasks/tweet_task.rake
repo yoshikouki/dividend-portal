@@ -3,6 +3,7 @@
 namespace :tweet do
   desc "権利落ち前日の米国株を配信する"
   task ex_dividend_previous_date: :environment do
+    Dividend::Recent.refresh_us
     today = Workday.today
     if today.holiday?(:us)
       Tweet.holiday(:us)
