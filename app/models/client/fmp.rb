@@ -28,7 +28,7 @@ module Client
                 symbols
       end
       # symbol に / を含むものが紛れており、エラーになるので変換する
-      param = param.gsub(%r{[/_]}, "-")
+      param = convert_symbol_to_profile_query(param)
       res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
@@ -69,6 +69,10 @@ module Client
       is_etf: :is_etf,
       is_actively_trading: :is_actively_trading,
     }.freeze
+
+    def self.convert_symbol_to_profile_query(symbol)
+      symbol.gsub(%r{[/_]}, "-")
+    end
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
