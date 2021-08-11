@@ -96,7 +96,8 @@ RSpec.describe Dividend, type: :model do
   end
 
   describe "#updated?" do
-    let!(:dividend) { FactoryBot.create(:dividend) }
+    let!(:company) { FactoryBot.create(:company) }
+    let!(:dividend) { FactoryBot.create(:dividend, :with_company) }
 
     context "引数を元にインスタンスの値を比較して同じ場合" do
       it "false を返す" do

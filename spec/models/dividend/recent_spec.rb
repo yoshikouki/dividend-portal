@@ -21,15 +21,20 @@ RSpec.describe Dividend::Recent, type: :model do
   end
 
   describe ".update_to_latest" do
+    let!(:company) { FactoryBot.create(:company) }
+    let!(:new_company) { FactoryBot.create(:company, symbol: "NEWSYMBOL") }
+    let!(:nil_declare) { FactoryBot.create(:company, symbol: "NILDECLARE") }
+    let!(:empty_declare) { FactoryBot.create(:company, symbol: "EMPTYDECLARE") }
     let!(:dividend) do
       {
         ex_dividend_on: Date.today.strftime("%Y-%m-%d"),
         records_on: Date.tomorrow.strftime("%Y-%m-%d"),
         pays_on: Date.today.next_month.strftime("%Y-%m-%d"),
         declares_on: Date.today.last_month.strftime("%Y-%m-%d"),
-        symbol: "TST1",
+        symbol: company.symbol,
         dividend: 0.1,
         adjusted_dividend: 0.1,
+        company_id: company.id,
       }
     end
 
@@ -37,9 +42,9 @@ RSpec.describe Dividend::Recent, type: :model do
       Dividend.create!(dividend)
       latest_dividends = [
         dividend,
-        dividend.merge(symbol: "NEWSYMBOL"),
-        dividend.merge(declares_on: nil, symbol: "NILDECLARE"),
-        dividend.merge(declares_on: "", symbol: "EMPTYDECLARE"), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
+        dividend.merge(symbol: new_company.symbol, company_id: new_company.id),
+        dividend.merge(declares_on: nil, symbol: nil_declare.symbol, company_id: nil_declare.id),
+        dividend.merge(declares_on: "", symbol: empty_declare.symbol, company_id: empty_declare.id), # APIレスポンスがnullの場合に、変換処理で空文字になることがあった
       ]
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(3)
       expect { Dividend::Recent.update_to_latest(latest_dividends) }.to change { Dividend.count }.by(0)
@@ -84,13 +89,17 @@ RSpec.describe Dividend::Recent, type: :model do
   end
 
   describe ".destroy_outdated" do
+    let!(:company) { FactoryBot.create(:company) }
+
     it "権利落ち日が3日以前の配当金は削除する" do
       FactoryBot.create(
         :dividend,
+        :with_company,
         ex_dividend_on: Date.today.prev_day(3),
       )
       FactoryBot.create(
         :dividend,
+        :with_company,
         ex_dividend_on: Date.today.prev_day(2),
       )
       expect { Dividend::Recent.destroy_outdated }.to change { Dividend.count }.by(-1)

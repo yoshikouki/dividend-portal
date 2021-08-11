@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  has_many :dividends, dependent: :destroy
+
   scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ]) }
 
   validates :symbol,
@@ -19,6 +21,7 @@ class Company < ApplicationRecord
   REGEXP_NASDAQ = /NASDAQ/i
   REGEXP_NYSE = /(New York|NYSE)/i
 
+  # FMP-profile のAPIに則っていない古い仕様なので非推奨
   def diff?(target, check_list)
     check_list.each do |c|
       return true unless self[c] == target[c]
@@ -76,13 +79,17 @@ class Company < ApplicationRecord
 
     def in_us_where_or_create_by_symbol(symbols)
       # 保存されていない企業情報を抽出
-      symbols = symbols.map { |symbol| symbol.gsub(%r{[/_]}, "-") }
-      current = Company.where(symbol: symbols)
+      symbols = symbols.map { |symbol| Client::Fmp.convert_symbol_to_profile_query(symbol) }
+      current = us_exchanges.where(symbol: symbols)
       missing_symbols = symbols - current.pluck(:symbol)
 
       # 不足している企業情報を作る
-      Save.create_for_us_with_api(missing_symbols) if missing_symbols.present?
-      us_exchanges.where(symbol: symbols)
+      if missing_symbols.present?
+        Save.create_for_us_with_api(missing_symbols)
+        us_exchanges.where(symbol: symbols)
+      else
+        current
+      end
     end
   end
 

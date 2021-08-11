@@ -12,7 +12,7 @@ RSpec.describe Company, type: :model do
           name
           exchange
         ]
-        same_company = Company.new(symbol: "WFC-PZ", name: "Wells Fargo & Company", exchange: "New York Stock Exchange")
+        same_company = Company.new(symbol: company.symbol, name: company.name, exchange: company.exchange)
         expect(company.diff?(same_company, check_list)).to be false
       end
     end
