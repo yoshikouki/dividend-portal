@@ -33,8 +33,18 @@ class Dividend
 
     def self.filter_by_us(dividend_calendars = [])
       symbols = dividend_calendars.pluck(:symbol)
-      symbols_in_us = Company.in_us_where_or_create_by_symbol(symbols).pluck(:symbol)
-      dividend_calendars.filter { |dc| symbols_in_us.include?(dc[:symbol]) }
+      companies_in_us = Company.in_us_where_or_create_by_symbol(symbols)
+      symbols_in_us = companies_in_us.pluck(:symbol)
+
+      dividend_calendars.filter_map do |dc|
+        symbol = dc[:symbol]
+        index = symbols_in_us.find_index(symbol)
+        if index
+          symbols_in_us.delete_at(index)
+          company = companies_in_us.delete(index)
+          dc.merge(company: company)
+        end
+      end
     end
 
     def self.remove_empty_string(hash)
