@@ -4,6 +4,11 @@ class Dividend
   class Recent < ApplicationRecord
     self.table_name = "dividends"
 
+    def self.refresh_us
+      destroy_outdated
+      update_us_to_latest
+    end
+
     def self.update_to_latest(latest_dividends = Dividend::Api.recent)
       current_dividends = Dividend.order(:ex_dividend_on).to_a
       new_dividends = latest_dividends.filter_map do |latest|

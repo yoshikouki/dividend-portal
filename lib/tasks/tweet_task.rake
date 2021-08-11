@@ -13,8 +13,7 @@ namespace :tweet do
 
   desc "新着の配当金情報を配信する"
   task latest_dividend_with_update: :environment do
-    Dividend::Recent.destroy_outdated
-    Dividend::Recent.update_us_to_latest
+    Dividend::Recent.refresh_us
     Tweet.latest_dividend
   end
 end
