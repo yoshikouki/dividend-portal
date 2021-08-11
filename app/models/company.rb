@@ -21,6 +21,7 @@ class Company < ApplicationRecord
   REGEXP_NASDAQ = /NASDAQ/i
   REGEXP_NYSE = /(New York|NYSE)/i
 
+  # FMP-profile のAPIに則っていない古い仕様なので非推奨
   def diff?(target, check_list)
     check_list.each do |c|
       return true unless self[c] == target[c]
