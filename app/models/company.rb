@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  has_many :dividends, dependent: :destroy
+
   scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ]) }
 
   validates :symbol,

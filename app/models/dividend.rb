@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Dividend < ApplicationRecord
+  belongs_to :company
+
   scope :not_notified, -> { where(notified: false) }
 
   def self.declared_from(time = Time.at(1.week.ago))
