@@ -22,8 +22,8 @@ class Dividend
 
     def self.update_us_to_latest
       dividend_calendars = Api.recent
-      latest_dividends = filter_by_us(dividend_calendars)
-      update_to_latest(latest_dividends)
+      dividend_calendars_in_us = filter_by_us(dividend_calendars)
+      update_to_latest(dividend_calendars_in_us)
     end
 
     def self.destroy_outdated
