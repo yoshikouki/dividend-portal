@@ -16,13 +16,14 @@ RSpec.describe Company::Api, type: :model do
     it "FMPから取得した生データをインスタンスメソッドに変換して返す" do
       allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
       expected = [
-        Company.new(symbol: "SPY", name: "SPDR S&P 500 ETF Trust", exchange: "New York Stock Exchange Arca"),
-        Company.new(symbol: "KMI", name: "Kinder Morgan, Inc.", exchange: "New York Stock Exchange"),
-        Company.new(symbol: "INTC", name: "Intel Corporation", exchange: "Nasdaq Global Select"),
+        { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", exchange: "New York Stock Exchange Arca" },
+        { symbol: "KMI", name: "Kinder Morgan, Inc.", exchange: "New York Stock Exchange" },
+        { symbol: "REGL", name: "ProShares S&P MidCap 400 Dividend Aristocrats ETF", exchange: "BATS Exchange" },
+        { symbol: "INTC", name: "Intel Corporation", exchange: "Nasdaq Global Select" },
       ]
-      actual = Company::Api.fetch_us
+      actual = Company::Api.fetch_all
       expect(actual).to eq expected
-      expect(actual.count).to eq 3
+      expect(actual.count).to eq 4
     end
   end
 
@@ -68,19 +69,17 @@ RSpec.describe Company::Api, type: :model do
       allow(Client::Fmp).to receive(:profile).and_return(api_response)
       expected = [
         symbol: "KO",
-        company_name: "The Coca-Cola Company",
+        name: "The Coca-Cola Company",
         currency: "USD",
         exchange: "New York Stock Exchange",
         exchange_short_name: "NYSE",
         industry: "Beverages—Non-Alcoholic",
-        website: "http://www.coca-colacompany.com",
-        description: "The Coca-Cola Company, a beverage company, manufactures, markets, and sells various nonalcoholic beverages worldwide.",
         sector: "Consumer Defensive",
         country: "US",
         image: "https://financialmodelingprep.com/image-stock/KO.png",
         ipo_date: "1919-09-05",
       ]
-      actual = Company::Api.profile("KO")
+      actual = Company::Api.profiles("KO")
       expect(actual).to eq expected
     end
   end
