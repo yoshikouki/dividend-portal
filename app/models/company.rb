@@ -34,7 +34,7 @@ class Company < ApplicationRecord
   class << self
     def update_all_with_api
       current_all = Company.all.to_a
-      latest_all = Api.fetch_us
+      latest_all = Api.fetch_all
       new_coming = []
       needs_updating = []
 

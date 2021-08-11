@@ -15,7 +15,7 @@ class Company
       ipo_date: :ipo_date,
     }.freeze
 
-    def self.fetch_us
+    def self.fetch_all
       response = Client::Fmp.get_symbols_list
       response.map do |r|
         r.delete(:price)
