@@ -13,6 +13,10 @@ class Dividend
       current_dividends = Dividend.order(:ex_dividend_on).to_a
       new_dividends = latest_dividend_calendar.filter_map do |latest|
         latest = remove_empty_string(latest)
+        # companies に保存されていない企業の場合は作成しない
+        unless latest[:company_id].present?
+          latest[:company_id] = Company.find_by(symbol: latest[:symbol]) || next
+        end
         current_index = current_dividends.find_index { |current| current.same?(latest) }
         latest.merge(created_at: Time.current, updated_at: Time.current) unless current_index
       end
