@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-dividend_aristocrat_tag = Tag.create(name: :dividend_aristocrats, display_name: "配当貴族")
+dividend_aristocrat_tag = Tag.find_or_create_by(name: :dividend_aristocrats, display_name: "配当貴族")
 
 [
   {
@@ -853,6 +853,6 @@ dividend_aristocrat_tag = Tag.create(name: :dividend_aristocrats, display_name: 
   if company
     company.company_tags.create(tag: dividend_aristocrat_tag)
   else
-    dividend_aristocrat_tag.companies.create!(attr)
+    dividend_aristocrat_tag.companies.create(attr)
   end
 end
