@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-dividend_aristocrat_tag = Tag.create!(name: "配当貴族")
+dividend_aristocrat_tag = Tag.create(name: :dividend_aristocrats, display_name: "配当貴族")
 
 [
   {
@@ -848,6 +848,11 @@ dividend_aristocrat_tag = Tag.create!(name: "配当貴族")
     image: "https://financialmodelingprep.com/image-stock/XOM.png",
     years_of_dividend_growth: 37,
   },
-].each do |company|
-  dividend_aristocrat_tag.companies.create!(company) unless Company.exists?(symbol: company[:symbol])
+].each do |attr|
+  company = Company.find_by(symbol: attr[:symbol])
+  if company
+    company.company_tags.create(tag: dividend_aristocrat_tag)
+  else
+    dividend_aristocrat_tag.companies.create!(attr)
+  end
 end
