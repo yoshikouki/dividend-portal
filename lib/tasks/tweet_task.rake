@@ -17,4 +17,11 @@ namespace :tweet do
     Dividend::Recent.refresh_us
     Tweet.latest_dividend
   end
+
+  desc "配当貴族の配当金に関する新着情報を配信する"
+  task new_dividend_of_dividend_aristocrats: :environment do
+    Dividend::Recent.refresh_us
+    report_queue = ReportQueue::Dividend::DividendAristocrat.dequeue
+    Tweet.new_dividend_of_dividend_aristocrats(report_queue)
+  end
 end
