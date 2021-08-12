@@ -9,6 +9,11 @@ RSpec.describe CompanyTag, type: :model do
       it "valid" do
         expect(CompanyTag.new(company: company, tag: tag).valid?).to be true
       end
+
+      it "Company--Tag のペアはユニーク" do
+        CompanyTag.create(company: company, tag: tag)
+        expect{ CompanyTag.create(company: company, tag: tag) }.to change(CompanyTag, :count).by(0)
+      end
     end
   end
 end
