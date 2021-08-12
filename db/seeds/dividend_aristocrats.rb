@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+dividend_aristocrat_tag = Tag.create!(name: "配当貴族")
+
 [
   {
     symbol: "ABBV",
@@ -847,5 +849,5 @@
     years_of_dividend_growth: 37,
   },
 ].each do |company|
-  Company.create!(company) unless Company.exists?(symbol: company[:symbol])
+  dividend_aristocrat_tag.companies.create!(company) unless Company.exists?(symbol: company[:symbol])
 end
