@@ -2,6 +2,8 @@
 
 class Company < ApplicationRecord
   has_many :dividends, dependent: :destroy
+  has_many :company_tags
+  has_many :tags, through: :company_tags
 
   scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ]) }
 

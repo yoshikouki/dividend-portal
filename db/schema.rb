@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_090606) do
+ActiveRecord::Schema.define(version: 2021_08_12_061034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2021_08_11_090606) do
     t.index ["symbol"], name: "index_companies_on_symbol"
   end
 
+  create_table "company_tags", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_company_tags_on_company_id"
+    t.index ["tag_id"], name: "index_company_tags_on_tag_id"
+  end
+
   create_table "dividends", force: :cascade do |t|
     t.date "ex_dividend_on"
     t.date "records_on"
@@ -48,5 +57,15 @@ ActiveRecord::Schema.define(version: 2021_08_11_090606) do
     t.index ["symbol"], name: "index_dividends_on_symbol"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "display_name"
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  add_foreign_key "company_tags", "companies"
+  add_foreign_key "company_tags", "tags"
   add_foreign_key "dividends", "companies"
 end
