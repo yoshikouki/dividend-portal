@@ -1,12 +1,14 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Tag, type: :model do
   describe "validation" do
     context "正常系" do
       it "valid" do
         [
-          {name: :dividend_aristocrats, display_name: "配当貴族"},
-          {name: :aa, display_name: "テスト"},
+          { name: :dividend_aristocrats, display_name: "配当貴族" },
+          { name: :aa, display_name: "テスト" },
         ].each do |attr|
           expect(Tag.new(attr).valid?).to be true
         end
