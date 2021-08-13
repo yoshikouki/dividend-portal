@@ -5,7 +5,8 @@ class Company < ApplicationRecord
   has_many :company_tags
   has_many :tags, through: :company_tags
 
-  scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ]) }
+  scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ AMEX]) }
+  scope :dividend_aristocrats, -> { joins(:tags).where(tags: { name: :dividend_aristocrats }) }
 
   validates :symbol,
             presence: true

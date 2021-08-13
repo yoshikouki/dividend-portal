@@ -9,19 +9,28 @@ class Dividend
       update_us_to_latest
     end
 
+    # @return [ActiveRecord::Result, nil]
     def self.update_to_latest(latest_dividend_calendar)
       current_dividends = Dividend.order(:ex_dividend_on).to_a
       new_dividends = latest_dividend_calendar.filter_map do |latest|
         latest = remove_empty_string(latest)
-        # companies に保存されていない企業の場合は作成しない
+        # dividends に保存されている配当の場合はスキップ
+        current_index = current_dividends.find_index { |current| current.same?(latest) }
+        if current_index
+          current_dividends.delete_at(current_index) # 高速化のために削除しておく
+          next
+        end
+        # companies に保存されていない企業の場合はスキップ
         unless latest[:company_id].present?
           latest[:company_id] = Company.find_by(symbol: latest[:symbol]) || next
         end
-        current_index = current_dividends.find_index { |current| current.same?(latest) }
-        latest.merge(created_at: Time.current, updated_at: Time.current) unless current_index
+
+        latest.merge(created_at: Time.current, updated_at: Time.current)
       end
 
-      Dividend.insert_all!(new_dividends) unless new_dividends.empty?
+      return if new_dividends.empty?
+
+      Dividend.insert_all!(new_dividends)
     end
 
     def self.update_us_to_latest

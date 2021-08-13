@@ -9,7 +9,7 @@ class Company
         us_profiles = profiles.filter_map do |profile|
           profile.merge(created_at: Time.current, updated_at: Time.current) if Company.new(profile).us_exchange?
         end
-        Company.insert_all(us_profiles)
+        Company.insert_all(us_profiles) if us_profiles.present?
       end
     end
   end
