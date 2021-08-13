@@ -30,7 +30,10 @@ class Dividend
 
       return if new_dividends.empty?
 
-      Dividend.insert_all!(new_dividends)
+      unless new_dividends.empty?
+        Dividend.insert_all!(new_dividends)
+        ReportQueueOfDividendAristocratsDividend.enqueue
+      end
     end
 
     def self.update_us_to_latest
