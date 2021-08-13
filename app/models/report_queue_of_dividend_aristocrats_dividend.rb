@@ -1,0 +1,2 @@
+class ReportQueueOfDividendAristocratsDividend < ReportQueue
+end
