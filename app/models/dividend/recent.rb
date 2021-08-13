@@ -9,6 +9,7 @@ class Dividend
       update_us_to_latest
     end
 
+    # @return [ActiveRecord::Result, nil]
     def self.update_to_latest(latest_dividend_calendar)
       current_dividends = Dividend.order(:ex_dividend_on).to_a
       new_dividends = latest_dividend_calendar.filter_map do |latest|
