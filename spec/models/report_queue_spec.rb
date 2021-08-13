@@ -3,5 +3,15 @@
 require "rails_helper"
 
 RSpec.describe ReportQueue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".enqueue" do
+    context "正常系" do
+      it "キューを追加する"
+    end
+  end
+
+  describe ".dequeue" do
+    context "正常系" do
+      it "キューを取り出してレコードを削除する"
+    end
+  end
 end
