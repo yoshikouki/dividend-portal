@@ -6,7 +6,8 @@ class Dividend
 
     def self.refresh_us
       destroy_outdated
-      update_us_to_latest
+      result = update_us_to_latest
+      enqueue_dividend_report(filter_id(result)) if result
     end
 
     # @return [ActiveRecord::Result, nil]
@@ -45,6 +46,10 @@ class Dividend
       Dividend.where(ex_dividend_on: ..outdated).destroy_all
     end
 
+    def self.enqueue_dividend_report(dividend_ids)
+      ReportQueueOfDividendAristocratsDividend.enqueue
+    end
+
     def self.associate_with_us_companies(dividend_calendar = [])
       symbols = dividend_calendar.pluck(:symbol)
       companies_in_us = Company.in_us_where_or_create_by_symbol(symbols).to_a
@@ -64,6 +69,10 @@ class Dividend
     def self.remove_empty_string(hash)
       # #present? ではfalse(boolean)だった場合もnilにしてしまうため、シンプルに空文字を検証する
       hash.transform_values { |v| v == "" ? nil : v }
+    end
+
+    def self.filter_id(result)
+      result.map { |h| h["id"] }
     end
   end
 end
