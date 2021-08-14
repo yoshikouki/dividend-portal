@@ -15,7 +15,7 @@ FactoryBot.define do
 
     trait :dividend_aristocrats do
       after(:create) do |company|
-        tag = create(:dividend_aristocrats_tag)
+        tag = Tag.find_by(name: :dividend_aristocrats) || create(:dividend_aristocrats_tag)
         create(:company_tag, tag: tag, company: company)
       end
     end
