@@ -12,5 +12,13 @@ FactoryBot.define do
     country { "US" }
     image { "https://financialmodelingprep.com/image-stock/KO.png" }
     ipo_date { "1919-09-05" }
+
+    trait :dividend_aristocrats do
+      after(:create) do |company|
+        tag = create(:dividend_aristocrats_tag)
+        create(:company_tag, tag: tag, company: company)
+      end
+    end
+    factory :dividend_aristocrats_company, traits: [:dividend_aristocrats]
   end
 end

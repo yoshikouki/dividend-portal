@@ -13,5 +13,9 @@ FactoryBot.define do
     trait :with_company do
       association :company, factory: :company
     end
+
+    trait :with_dividend_aristocrats_company do
+      association :company, factory: :dividend_aristocrats_company
+    end
   end
 end
