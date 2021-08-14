@@ -5,4 +5,8 @@ FactoryBot.define do
     type { "" }
     dividend { nil }
   end
+
+  trait :with_no_dividend_aristocrats_dividend do
+    dividend { association :dividend_with_company }
+  end
 end
