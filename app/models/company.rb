@@ -6,7 +6,7 @@ class Company < ApplicationRecord
   has_many :tags, through: :company_tags
 
   scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ AMEX]) }
-  scope :dividend_aristocrats, -> { joins(:tags).merge(Tag.dividend_aristocrats) }
+  scope :dividend_aristocrats, -> { includes(:tags).joins(:tags).merge(Tag.dividend_aristocrats) }
 
   validates :symbol,
             presence: true
