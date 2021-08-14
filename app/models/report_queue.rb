@@ -5,6 +5,13 @@ class ReportQueue < ApplicationRecord
 
   class << self
     def dequeue
+      return unless dequeue_target
+
+      dequeue_target.destroy
+    end
+
+    def dequeue_target
+      first
     end
   end
 end
