@@ -6,7 +6,7 @@ FactoryBot.define do
     records_on { Date.tomorrow }
     pays_on { Date.today.next_month }
     declares_on { Date.today.last_month }
-    sequence(:symbol) { |n| "TST#{n}" }
+    sequence(:symbol) { |n| "TEST#{n}" }
     dividend { 0.1 }
     adjusted_dividend { 0.1 }
 
