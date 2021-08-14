@@ -4,6 +4,7 @@ class Dividend < ApplicationRecord
   belongs_to :company
 
   scope :not_notified, -> { where(notified: false) }
+  scope :dividend_aristocrats, -> { joins(:company).merge(Company.dividend_aristocrats) }
 
   def self.declared_from(time = Time.at(1.week.ago))
     # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない

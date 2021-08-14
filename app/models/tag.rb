@@ -4,6 +4,8 @@ class Tag < ApplicationRecord
   has_many :company_tags
   has_many :companies, through: :company_tags
 
+  scope :dividend_aristocrats, -> { where(name: :dividend_aristocrats) }
+
   REGEXP_NAME = /\A([a-zA-Z]\w*[a-zA-Z0-9]|[a-zA-Z])\z/i
 
   validates :name,
