@@ -32,4 +32,25 @@ RSpec.describe ReportQueueOfDividendAristocratsDividend, type: :model do
       end
     end
   end
+
+  describe ".dequeue" do
+    context "正常系" do
+      let!(:no_dividend_aristocrats) { FactoryBot.create(:dividend, :with_company) }
+      let!(:dividend) { FactoryBot.create(:dividend, :with_dividend_aristocrats_company) }
+      let!(:dividend2) { FactoryBot.create(:dividend, :with_dividend_aristocrats_company) }
+
+      it "最新の配当貴族の配当レポートキューが一つ削除される" do
+        expect { ReportQueueOfDividendAristocratsDividend.dequeue }.to change(ReportQueue, :count).by(-1)
+        expect(ReportQueue.all).to eq([no_dividend_aristocrats, dividend2])
+      end
+    end
+
+    context "配当貴族ではない配当レポートキューだけしかない場合" do
+      let!(:no_dividend_aristocrats) { FactoryBot.create(:dividend, :with_company) }
+
+      it "キューは削除されない" do
+        expect { ReportQueueOfDividendAristocratsDividend.dequeue }.to change(ReportQueue, :count).by(0)
+      end
+    end
+  end
 end
