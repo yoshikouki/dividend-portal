@@ -46,7 +46,7 @@ class Dividend
     end
 
     def self.enqueue_dividend_report(dividend_ids)
-      ReportQueueOfDividendAristocratsDividend.enqueue(dividend_ids)
+      ReportQueueOfDividendAristocratsDividend.enqueue(dividend_ids: dividend_ids)
     end
 
     def self.associate_with_us_companies(dividend_calendar = [])
