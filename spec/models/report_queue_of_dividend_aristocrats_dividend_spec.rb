@@ -16,9 +16,10 @@ RSpec.describe ReportQueueOfDividendAristocratsDividend, type: :model do
 
   describe ".enqueue" do
     context "正常系" do
-      let!(:dividend) { FactoryBot.create(:dividend, :with_company) }
+      let!(:dividend) { FactoryBot.create(:dividend, :with_dividend_aristocrats_company) }
 
       it "作成される" do
+        binding.irb
         expect { ReportQueueOfDividendAristocratsDividend.enqueue(dividend_ids: [dividend.id]) }.to change(ReportQueue, :count).by(1)
         expect(ReportQueue.first.type).to eq("ReportQueueOfDividendAristocratsDividend")
       end
