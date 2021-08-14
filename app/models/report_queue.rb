@@ -11,7 +11,7 @@ class ReportQueue < ApplicationRecord
     end
 
     def dequeue_target
-      first
+      @dequeue_target ||= first
     end
   end
 end
