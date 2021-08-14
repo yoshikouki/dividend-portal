@@ -40,8 +40,10 @@ RSpec.describe ReportQueueOfDividendAristocratsDividend, type: :model do
       let!(:dividend_aristocrats_queue2) { FactoryBot.create(:report_queue_of_dividend_aristocrats_dividend, :with_dividend_aristocrats_dividend) }
 
       it "最新の配当貴族の配当レポートキューが一つ削除される" do
-        expect { ReportQueueOfDividendAristocratsDividend.dequeue }.to change(ReportQueue, :count).by(-1)
-        expect(ReportQueue.all).to eq([no_dividend_aristocrats, dividend2])
+        queue = nil
+        expect { queue = ReportQueueOfDividendAristocratsDividend.dequeue }.to change(ReportQueue, :count).by(-1)
+        expect(queue).to eq(dividend_aristocrats_queue)
+        expect(ReportQueue.all).to eq([no_dividend_aristocrats, dividend_aristocrats_queue2])
       end
     end
 
