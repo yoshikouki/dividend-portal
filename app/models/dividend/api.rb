@@ -29,5 +29,14 @@ class Dividend
         CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.map { |k, v| [v, dividend[k]] }.to_h
       end
     end
+
+    def self.all(symbols, from: nil, to: nil)
+      row_dividends = Client::Fmp.historical_dividends(
+        symbols,
+        from: from,
+        to: to,
+      )
+      row_dividends[:historical] = convert_response_of_dividend_calendar(row_dividends[:historical])
+    end
   end
 end

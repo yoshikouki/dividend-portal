@@ -104,6 +104,18 @@ module Client
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
+    def self.historical_dividends(*symbols, from: nil, to: nil)
+      path = "/api/v3/historical-price-full/stock_dividend/#{symbols_to_param(symbols)}"
+
+      query = {}
+      query[:from] = from if from
+      query[:to] = to if to
+      query = Client.value_to_time query
+
+      res = Client.get url(path, query)
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
     def self.symbols_to_param(symbols)
       param = symbols_to_s(symbols)
       # symbol に / を含むものが紛れており、エラーになるので変換する
