@@ -34,7 +34,8 @@ module Tweet
     dividends.update_all(notified: true)
   end
 
-  def self.new_dividend_of_dividend_aristocrats(report_queue)
+  def self.new_dividend_of_dividend_aristocrats
+    report_queue = ReportQueueOfDividendAristocratsDividend.dequeue
     content = Tweet::Content::Dividend.new(report_queue: report_queue)
     tweet(content.new_dividend_of_dividend_aristocrats)
   end
