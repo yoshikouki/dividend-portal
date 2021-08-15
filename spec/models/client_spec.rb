@@ -41,6 +41,25 @@ RSpec.describe Client, type: :model do
     end
   end
 
+  describe ".transform_keys_to_snake_case_and_symbol" do
+    context "階層が混在している場合" do
+      it "各要素のキーを変換して返す" do
+        body = {
+          "camelCase" => "string",
+          "camelCase2" => [{ "camelCase" => "string" }, { "camelCase" => "string" }],
+          "camelCase3" => { "camelCase" => "string" },
+        }
+        actual = Client.transform_keys_to_snake_case_and_symbol(body)
+        expect = {
+          camel_case: "string",
+          camel_case2: [{ camel_case: "string" }, { camel_case: "string" }],
+          camel_case3: { camel_case: "string" },
+        }
+        expect(actual).to eq(expect)
+      end
+    end
+  end
+
   describe "value_to_time" do
     context "Hash の value が文字列だった場合" do
       it "value を %Y-%m-%d の形式に変換して返す" do
