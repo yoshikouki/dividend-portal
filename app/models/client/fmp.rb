@@ -89,11 +89,7 @@ module Client
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
     def self.get_dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
-
-      query = {}
-      query[:from] = from if from
-      query[:to] = to if to
-      query = Client.value_to_time query
+      query = from_and_to_query(from, to)
 
       res = Client.get url(path, query)
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
@@ -106,11 +102,7 @@ module Client
 
     def self.historical_dividends(*symbols, from: nil, to: nil)
       path = "/api/v3/historical-price-full/stock_dividend/#{symbols_to_param(symbols)}"
-
-      query = {}
-      query[:from] = from if from
-      query[:to] = to if to
-      query = Client.value_to_time query
+      query = from_and_to_query(from, to)
 
       res = Client.get url(path, query)
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
@@ -133,6 +125,13 @@ module Client
 
     def self.convert_symbol_to_profile_query(symbol)
       symbol.gsub(%r{[/_]}, "-")
+    end
+
+    def self.from_and_to_query(from, to)
+      query = {}
+      query[:from] = from if from
+      query[:to] = to if to
+      Client.value_to_time query
     end
 
     def self.url(path, query_hash = {})
