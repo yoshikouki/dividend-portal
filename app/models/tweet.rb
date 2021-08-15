@@ -34,14 +34,8 @@ module Tweet
     dividends.update_all(notified: true)
   end
 
-  def self.new_dividend_of_dividend_aristocrats(report_queue = nil)
-    assigns = {
-      symbol: "TEST",
-      name: "The Test Company",
-    }
-    ApplicationController.render(
-      template: "tweets/#{__method__}",
-      assigns: assigns
-    )
+  def self.new_dividend_of_dividend_aristocrats(report_queue)
+    content = Tweet::Content::Dividend.new(report_queue: report_queue)
+    tweet(content.new_dividend_of_dividend_aristocrats)
   end
 end
