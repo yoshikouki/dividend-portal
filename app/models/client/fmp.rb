@@ -21,14 +21,7 @@ module Client
     # https://financialmodelingprep.com/developer/docs#Company-Profile
     # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
     def self.profile(*symbols)
-      param = case symbols
-              when Array
-                symbols.join(",")
-              when String
-                symbols
-      end
-      # symbol に / を含むものが紛れており、エラーになるので変換する
-      param = convert_symbol_to_profile_query(param)
+      param = symbols_to_param(symbols)
       res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
@@ -70,10 +63,6 @@ module Client
       is_actively_trading: :is_actively_trading,
     }.freeze
 
-    def self.convert_symbol_to_profile_query(symbol)
-      symbol.gsub(%r{[/_]}, "-")
-    end
-
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
     def self.get_symbols_list
@@ -113,6 +102,25 @@ module Client
     def self.sp500
       res = Client.get url("api/v3/sp500_constituent")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    def self.symbols_to_param(symbols)
+      param = symbols_to_s(symbols)
+      # symbol に / を含むものが紛れており、エラーになるので変換する
+      convert_symbol_to_profile_query(param)
+    end
+
+    def self.symbols_to_s(symbols)
+      case symbols
+      when Array
+        symbols.join(",")
+      when String
+        symbols
+      end
+    end
+
+    def self.convert_symbol_to_profile_query(symbol)
+      symbol.gsub(%r{[/_]}, "-")
     end
 
     def self.url(path, query_hash = {})
