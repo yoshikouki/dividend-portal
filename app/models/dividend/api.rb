@@ -31,13 +31,21 @@ class Dividend
     end
 
     def self.all(symbols, from: nil, to: nil)
-      row_dividends = Client::Fmp.historical_dividends(
+      historical_dividends = Client::Fmp.historical_dividends(
         symbols,
         from: from,
         to: to,
       )
-      row_dividends[:historical] = convert_response_of_dividend_calendar(row_dividends[:historical])
-      row_dividends
+      convert_response_of_historical_calendar(historical_dividends)
+    end
+
+    def self.convert_response_of_historical_calendar(historical_dividends)
+      historical_dividends[:historical].map do |hd|
+        # APIレスポンスがnullの祭に変換処理で空文字になることがあってバグになったので、明示的にnilに変換する
+        hd = hd.transform_values { |v| v == "" ? nil : v }
+        dividend = CONVERSION_TABLE_OF_DIVIDEND_CALENDAR.filter_map { |k, v| [v, hd[k]] if hd[k] }.to_h
+        dividend.merge(symbol: historical_dividends[:symbol])
+      end
     end
   end
 end
