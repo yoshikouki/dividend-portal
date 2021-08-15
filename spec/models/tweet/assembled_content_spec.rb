@@ -2,15 +2,15 @@
 
 require "rails_helper"
 
-RSpec.describe Tweet::Content, type: :model do
-  describe "#content" do
+RSpec.describe Tweet::AssembledContent, type: :model do
+  describe "#assembled_content" do
     context "引数が空の場合" do
       it "セクション情報がない場合は空文字列を返す" do
-        expect(Tweet::Content.new.content).to eq ""
+        expect(Tweet::AssembledContent.new.content).to eq ""
       end
 
       it "インスタンスで持っているセクション情報を元にコンテンツを返す" do
-        content = Tweet::Content.new(
+        content = Tweet::AssembledContent.new(
           header: "header_section",
           main: "main_section",
           footer: "footer_section",
@@ -21,7 +21,7 @@ RSpec.describe Tweet::Content, type: :model do
       end
 
       it "セクション情報は定義しなくても良い" do
-        content = Tweet::Content.new(
+        content = Tweet::AssembledContent.new(
           main: "main_section",
           footer: "footer_section",
         )
@@ -31,7 +31,7 @@ RSpec.describe Tweet::Content, type: :model do
       end
 
       it "エイリアス #render を持つ" do
-        content = Tweet::Content.new(
+        content = Tweet::AssembledContent.new(
           header: "header_section",
           main: "main_section",
           footer: "footer_section",
@@ -44,7 +44,7 @@ RSpec.describe Tweet::Content, type: :model do
 
     context "引数が渡されている場合" do
       it "引数に応じてコンテンツ内容を非破壊的に上書きした文字列返す" do
-        content = Tweet::Content.new(
+        content = Tweet::AssembledContent.new(
           header: "header_section",
           main: "main_section",
           footer: "footer_section",
@@ -66,7 +66,7 @@ RSpec.describe Tweet::Content, type: :model do
 
   describe "#content=" do
     it "content への直接代入は main_section に代入される" do
-      content = Tweet::Content.new
+      content = Tweet::AssembledContent.new
       content.content = "test string"
       expect(content.content).to eq content.main_section
     end

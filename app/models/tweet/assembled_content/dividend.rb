@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Tweet
-  class Content
+  class AssembledContent
     class Dividend
       attr_reader :dividends, :remained_dividends, :content
 
@@ -9,7 +9,7 @@ module Tweet
         @dividends = dividends
         @remained_dividends = dividends.clone.to_a
         @reference_date = reference_date
-        @content = Content.new
+        @content = AssembledContent.new
       end
 
       def remained?
@@ -30,7 +30,7 @@ module Tweet
 
       def remained_symbols
         @content.clear
-        @content = Content.new(
+        @content = AssembledContent.new(
           main: render_symbols_section,
         )
         @content.render
@@ -47,8 +47,8 @@ module Tweet
       end
 
       def calculate_symbols_section_length
-        max_remained_section_length = Content.weighted_length(Template.remained_section(dividends.count))
-        Content::MAX_WEIGHTED_LENGTH - max_remained_section_length - @content.weighted_length
+        max_remained_section_length = AssembledContent.weighted_length(Template.remained_section(dividends.count))
+        AssembledContent::MAX_WEIGHTED_LENGTH - max_remained_section_length - @content.weighted_length
       end
 
       def shift_symbols_in_number_of_characters(limited)
@@ -56,7 +56,7 @@ module Tweet
         shift_number = 0
         remained_dividends.each.with_index(1) do |dividend, index|
           symbols_text_for_calculation += Template.symbol(dividend.symbol) + Template::SYMBOL_DELIMITER
-          break if Content.weighted_length(symbols_text_for_calculation) > limited
+          break if AssembledContent.weighted_length(symbols_text_for_calculation) > limited
 
           shift_number = index
         end
