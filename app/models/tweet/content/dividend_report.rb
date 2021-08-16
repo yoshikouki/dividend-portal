@@ -7,6 +7,7 @@ module Tweet
         annualized_dividend: 0,
         dividend_count: 0,
       }.freeze
+      ASSUMED_DIVIDEND_DECIMAL_POINT = 10
       PERCENTAGE_DECIMAL_POINT = 3
 
       def new_dividend_of_dividend_aristocrats(report_queue = nil)
@@ -47,7 +48,7 @@ module Tweet
           year = Date.parse(dividend_hash[:ex_dividend_on]).year
           annual_dividend = annual_dividends[year].presence || DEFAULT_ANNUAL_DIVIDEND.dup
 
-          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], 10) + BigDecimal(dividend_hash[:dividend], 10)
+          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], ASSUMED_DIVIDEND_DECIMAL_POINT) + BigDecimal(dividend_hash[:dividend], ASSUMED_DIVIDEND_DECIMAL_POINT)
           annual_dividend[:annualized_dividend] =  big_decimal.to_f
           annual_dividend[:dividend_count] += 1
 
