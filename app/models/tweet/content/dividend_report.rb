@@ -3,7 +3,7 @@
 module Tweet
   class Content
     class DividendReport < Tweet::Content
-      def new_dividend_of_dividend_aristocrats(report_queue)
+      def new_dividend_of_dividend_aristocrats(report_queue = nil)
         assigns = {}
         self.class.render(
           template: template_path(__method__),
