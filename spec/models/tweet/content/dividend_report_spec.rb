@@ -4,7 +4,11 @@ require "rails_helper"
 
 RSpec.describe Tweet::Content::DividendReport, type: :model do
   describe "#new_dividend_of_dividend_aristocrats" do
-    context "引数が空の場合" do
+    let!(:company) { FactoryBot.create(:company, symbol: "ADM", name: "Archer-Daniels-Midland Company") }
+    let!(:dividend) { FactoryBot.create(:dividend, symbol: "ADM", company: company) }
+    let!(:report_queue) { FactoryBot.create(:report_queue_of_dividend_aristocrats_dividend, dividend: dividend) }
+
+    context "正常系" do
       let!(:base) do
         { date: "2021-08-17", label: "August 17, 21", record_date: "2021-08-18", payment_date: "2021-09-08", declaration_date: "2021-08-04",
           adj_dividend: 0.37, dividend: 0.37 }
@@ -27,9 +31,17 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
 
       it "素のテンプレートを返す" do
         allow(Client::Fmp).to receive(:historical_dividends).and_return(historical_dividends_response)
-        content = Tweet::Content::DividendReport.new
-        actual = content.new_dividend_of_dividend_aristocrats
-        expected = "#配当貴族 $ の新着配当金情報です\n\n企業名 \n配当比率 % ($ )\n増配比率 % (+$ )\n増配年数 年\n配当支給日 \n権利付き最終日 \n配当性向 % (+%)\n"
+        actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)
+        expected = <<~TWEET 
+          #配当貴族 $ADM の新着配当金情報です
+
+          企業名 Archer-Daniels-Midland Company
+          配当比率 % ($ 0.1)
+          増配比率 -0.229% (+$ -0.33)
+          増配年数 年
+          配当支給日 2021-09-17
+          権利落ち日 2021-08-17
+        TWEET
         expect(actual).to eq expected
       end
     end
