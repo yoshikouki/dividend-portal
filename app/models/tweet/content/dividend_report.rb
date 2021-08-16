@@ -48,8 +48,9 @@ module Tweet
           year = Date.parse(dividend_hash[:ex_dividend_on]).year
           annual_dividend = annual_dividends[year].presence || DEFAULT_ANNUAL_DIVIDEND.dup
 
-          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], ASSUMED_DIVIDEND_DECIMAL_POINT) + BigDecimal(dividend_hash[:dividend], ASSUMED_DIVIDEND_DECIMAL_POINT)
-          annual_dividend[:annualized_dividend] =  big_decimal.to_f
+          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], ASSUMED_DIVIDEND_DECIMAL_POINT) +
+                        BigDecimal(dividend_hash[:dividend], ASSUMED_DIVIDEND_DECIMAL_POINT)
+          annual_dividend[:annualized_dividend] = big_decimal.to_f
           annual_dividend[:dividend_count] += 1
 
           annual_dividends[year] = annual_dividend
