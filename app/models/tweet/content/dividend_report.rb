@@ -48,8 +48,7 @@ module Tweet
           year = Date.parse(dividend_hash[:ex_dividend_on]).year
           annual_dividend = annual_dividends[year].presence || DEFAULT_ANNUAL_DIVIDEND.dup
 
-          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], ASSUMED_DIVIDEND_DECIMAL_POINT) +
-                        BigDecimal(dividend_hash[:dividend], ASSUMED_DIVIDEND_DECIMAL_POINT)
+          big_decimal = to_bd(annual_dividend[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
           annual_dividend[:annualized_dividend] = big_decimal.to_f
           annual_dividend[:dividend_count] += 1
 
@@ -63,13 +62,20 @@ module Tweet
         result = annual_dividends[this_year]
 
         last_year_annualized_dividend = annual_dividends[this_year - 1][:annualized_dividend]
-        dividend_increase = annual_dividends[this_year][:annualized_dividend] - last_year_annualized_dividend
+        dividend_increase = (to_bd(annual_dividends[this_year][:annualized_dividend]) -
+                             to_bd(last_year_annualized_dividend)).to_f
         incremental_dividend_rate = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
 
         result.merge(
           dividend_increase: dividend_increase,
           incremental_dividend_rate: incremental_dividend_rate,
         )
+      end
+
+      private
+
+      def to_bd(float)
+        BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
       end
     end
   end
