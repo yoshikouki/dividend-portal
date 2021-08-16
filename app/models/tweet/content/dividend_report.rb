@@ -15,7 +15,7 @@ module Tweet
         company = latest_dividend.company
         dividends = Dividend::Api.all(latest_dividend.symbol, from: Time.at(3.years.ago))
 
-        annual_dividends = annualized_dividends(dividends)
+        total_result_of_this_year = total_result_of_this_year(dividends)
 
         assigns = {
           symbol: company.symbol,
@@ -24,8 +24,8 @@ module Tweet
           dividend: latest_dividend.dividend,
           pays_on: latest_dividend.pays_on,
           ex_dividend_on: latest_dividend.ex_dividend_on,
-          dividend_change: annual_dividends[Time.current.year][:dividend_increase],
-          incremental_dividend_rate: annual_dividends[Time.current.year][:incremental_dividend_rate],
+          dividend_change: total_result_of_this_year[:dividend_increase],
+          incremental_dividend_rate: total_result_of_this_year[:incremental_dividend_rate],
           # dividend_yield: dividend_yield,
           # company-key-metrics-api などで取得できそうだが工数かかるので後回し
           # payout_ratio: payout_ratio,
@@ -37,9 +37,9 @@ module Tweet
         )
       end
 
-      def annualized_dividends(dividends)
+      def total_result_of_this_year(dividends)
         annual_dividends = calculate_annually(dividends)
-        add_dividend_increase(annual_dividends)
+        calculate_total_result(annual_dividends)
       end
 
       def calculate_annually(dividends)
@@ -57,13 +57,18 @@ module Tweet
         annual_dividends
       end
 
-      def add_dividend_increase(annual_dividends)
+      def calculate_total_result(annual_dividends)
         this_year = annual_dividends.keys.max
+        result = annual_dividends[this_year]
+
         last_year_annualized_dividend = annual_dividends[this_year - 1][:annualized_dividend]
         dividend_increase = annual_dividends[this_year][:annualized_dividend] - last_year_annualized_dividend
-        annual_dividends[this_year][:dividend_increase] = dividend_increase
-        annual_dividends[this_year][:incremental_dividend_rate] = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
-        annual_dividends
+        incremental_dividend_rate = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
+
+        result.merge(
+          dividend_increase: dividend_increase,
+          incremental_dividend_rate: incremental_dividend_rate,
+        )
       end
     end
   end
