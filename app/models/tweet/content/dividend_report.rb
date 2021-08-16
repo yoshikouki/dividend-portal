@@ -2,7 +2,7 @@
 
 module Tweet
   class Content
-    class Dividend < Tweet::Content
+    class DividendReport < Tweet::Content
       def new_dividend_of_dividend_aristocrats(report_queue)
         assigns = {}
         self.class.render(
