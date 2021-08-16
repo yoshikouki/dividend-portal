@@ -7,6 +7,7 @@ module Tweet
         annualized_dividend: 0,
         dividend_count: 0,
       }.freeze
+      PERCENTAGE_DECIMAL_POINT = 3
 
       def new_dividend_of_dividend_aristocrats(report_queue = nil)
         latest_dividend = report_queue.dividend
@@ -22,8 +23,8 @@ module Tweet
           dividend: latest_dividend.dividend,
           pays_on: latest_dividend.pays_on,
           ex_dividend_on: latest_dividend.ex_dividend_on,
-          # dividend_change: incremental_dividend_change,
-          # incremental_dividend_rate: incremental_dividend_rate,
+          dividend_change: annual_dividends[Time.current.year][:dividend_increase],
+          incremental_dividend_rate: annual_dividends[Time.current.year][:incremental_dividend_rate],
           # dividend_yield: dividend_yield,
           # company-key-metrics-api などで取得できそうだが工数かかるので後回し
           # payout_ratio: payout_ratio,
@@ -36,6 +37,11 @@ module Tweet
       end
 
       def annualized_dividends(dividends)
+        annual_dividends = calculate_annually(dividends)
+        add_dividend_increase(annual_dividends)
+      end
+
+      def calculate_annually(dividends)
         annual_dividends = {}
         dividends.each do |dividend_hash|
           year = Date.parse(dividend_hash[:ex_dividend_on]).year
@@ -47,6 +53,15 @@ module Tweet
 
           annual_dividends[year] = annual_dividend
         end
+        annual_dividends
+      end
+
+      def add_dividend_increase(annual_dividends)
+        this_year = annual_dividends.keys.max
+        last_year_annualized_dividend = annual_dividends[this_year - 1][:annualized_dividend]
+        dividend_increase = annual_dividends[this_year][:annualized_dividend] - last_year_annualized_dividend
+        annual_dividends[this_year][:dividend_increase] = dividend_increase
+        annual_dividends[this_year][:incremental_dividend_rate] = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
         annual_dividends
       end
     end
