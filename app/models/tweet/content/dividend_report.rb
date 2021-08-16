@@ -3,6 +3,11 @@
 module Tweet
   class Content
     class DividendReport < Tweet::Content
+      DEFAULT_ANNUAL_DIVIDEND = {
+        annualized_dividend: 0,
+        dividend_count: 0,
+      }.freeze
+
       def new_dividend_of_dividend_aristocrats(report_queue = nil)
         latest_dividend = report_queue.dividend
         company = latest_dividend.company
@@ -28,6 +33,21 @@ module Tweet
           template: template_path(__method__),
           assigns: assigns,
         )
+      end
+
+      def annualized_dividends(dividends)
+        annual_dividends = {}
+        dividends.each do |dividend_hash|
+          year = Date.parse(dividend_hash[:ex_dividend_on]).year
+          annual_dividend = annual_dividends[year].presence || DEFAULT_ANNUAL_DIVIDEND.dup
+
+          big_decimal = BigDecimal(annual_dividend[:annualized_dividend], 10) + BigDecimal(dividend_hash[:dividend], 10)
+          annual_dividend[:annualized_dividend] =  big_decimal.to_f
+          annual_dividend[:dividend_count] += 1
+
+          annual_dividends[year] = annual_dividend
+        end
+        annual_dividends
       end
     end
   end

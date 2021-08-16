@@ -34,4 +34,38 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
       end
     end
   end
+
+  describe "#annualize_dividends" do
+    context "正常系-同じシンボルの過去の配当情報をDIVIDEND_CALENDAR形式の配列で取得した場合" do
+      let!(:base) do
+        { ex_dividend_on: "2021-08-17", records_on: "2021-08-18", pays_on: "2021-09-08", declares_on: "2021-08-04",
+          dividend: 0.37, adjusted_dividend: 0.37, symbol: "ADM" }
+      end
+      let!(:dividends) do
+        [
+          base,
+          base.merge(ex_dividend_on: "2021-05-18", dividend: 0.37),
+          base.merge(ex_dividend_on: "2021-02-08", dividend: 0.37),
+          base.merge(ex_dividend_on: "2020-11-18", dividend: 0.36),
+          base.merge(ex_dividend_on: "2020-08-18", dividend: 0.36),
+          base.merge(ex_dividend_on: "2020-05-19", dividend: 0.36),
+          base.merge(ex_dividend_on: "2020-02-12", dividend: 0.36),
+          base.merge(ex_dividend_on: "2019-11-20", dividend: 0.35),
+          base.merge(ex_dividend_on: "2019-08-21", dividend: 0.35),
+          base.merge(ex_dividend_on: "2019-05-14", dividend: 0.35),
+          base.merge(ex_dividend_on: "2019-02-15", dividend: 0.35),
+          base.merge(ex_dividend_on: "2018-11-21", dividend: 0.335),
+        ]
+      end
+
+      it "1-12月を一年の単位として集計した配当情報を返す" do
+        actual = Tweet::Content::DividendReport.new.annualized_dividends(dividends)
+        expected = { 2021 => { annualized_dividend: 1.11, dividend_count: 3 },
+                     2020 => { annualized_dividend: 1.44, dividend_count: 4 },
+                     2019 => { annualized_dividend: 1.4, dividend_count: 4 },
+                     2018 => { annualized_dividend: 0.335, dividend_count: 1 } }
+        expect(actual).to eq expected
+      end
+    end
+  end
 end
