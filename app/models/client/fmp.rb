@@ -108,6 +108,16 @@ module Client
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
+    # https://financialmodelingprep.com/developer/docs/company-outlook
+    def self.company_outlook(symbol)
+      path = "api/v4/company-outlook"
+      query = {
+        symbol: symbol,
+      }
+      res = Client.get url(path, query)
+      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
     def self.symbols_to_param(symbols)
       param = symbols_to_s(symbols)
       # symbol に / を含むものが紛れており、エラーになるので変換する
