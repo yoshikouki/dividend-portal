@@ -34,16 +34,14 @@ module Client
         end
       end
     when Hash
-      transformed = body.map do |key, value|
+      transformed_hash = body.map do |key, value|
         case value
-        when Array
+        when Array, Hash
           value = transform_keys_to_snake_case_and_symbol(value)
-        when Hash
-          value = value.transform_keys { |k| k.underscore.to_sym }
         end
         [key.underscore.to_sym, value]
       end
-      transformed.to_h
+      transformed_hash.to_h
     end
   end
 

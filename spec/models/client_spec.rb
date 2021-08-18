@@ -47,13 +47,13 @@ RSpec.describe Client, type: :model do
         body = {
           "camelCase" => "string",
           "camelCase2" => [{ "camelCase" => "string" }, { "camelCase" => "string" }],
-          "camelCase3" => { "camelCase" => "string" },
+          "camelCase3" => { "camelCase" => "string", "camelCaseArray" => [{ "camelCase" => "string" }] },
         }
         actual = Client.transform_keys_to_snake_case_and_symbol(body)
         expect = {
           camel_case: "string",
           camel_case2: [{ camel_case: "string" }, { camel_case: "string" }],
-          camel_case3: { camel_case: "string" },
+          camel_case3: { camel_case: "string", camel_case_array: [{ camel_case: "string" }] },
         }
         expect(actual).to eq(expect)
       end
