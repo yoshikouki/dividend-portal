@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Tweet::Content::DividendReport, type: :model do
   describe "#new_dividend_of_dividend_aristocrats" do
-    let!(:company) { FactoryBot.create(:company, symbol: "ADM", name: "Archer-Daniels-Midland Company") }
+    let!(:company) { FactoryBot.create(:company, symbol: "ADM", name: "Archer-Daniels-Midland Company", years_of_dividend_growth: 47) }
     let!(:dividend) { FactoryBot.create(:dividend, symbol: "ADM", company: company) }
     let!(:report_queue) { FactoryBot.create(:report_queue_of_dividend_aristocrats_dividend, dividend: dividend) }
 
