@@ -39,7 +39,7 @@ module Tweet
 
       def total_result_of_this_year(dividends)
         annual_dividends = calculate_annually(dividends)
-        calculate_total_result(annual_dividends)
+        calculate_total_result(annual_dividends, dividends.first)
       end
 
       def calculate_annually(dividends)
@@ -57,16 +57,26 @@ module Tweet
         annual_dividends
       end
 
-      def calculate_total_result(annual_dividends)
+      def calculate_total_result(annual_dividends, latest_dividend)
         this_year = annual_dividends.keys.max
-        result = annual_dividends[this_year]
+        annual_dividend_or_this_year = annual_dividends[this_year]
 
+        # TODO: this_yearの配当支払いが終わっていない場合、推定の年間配当額を算出する
+        # 昨年の年間配当
+        # 昨年・一昨年の配当回数を取得して低い方を支払回数とみなす
+        number_of_dividends_per_year = [annual_dividends[this_year - 1][:dividend_count], annual_dividends[this_year - 2][:dividend_count]].min
+        # 今年の予想年間配当を計算する
+        remained_number_of_dividends_per_year = number_of_dividends_per_year - annual_dividend_or_this_year[:dividend_count]
+        forward_annual_dividend = annual_dividend_or_this_year[:dividend] + (remained_number_of_dividends_per_year * latest_dividend[:dividend])
+        # 予想配当利回りを計算する
+        current_price =
+        forward_annual_dividend_rate = forward_annual_dividend / current_price
         last_year_annualized_dividend = annual_dividends[this_year - 1][:annualized_dividend]
         dividend_increase = (to_bd(annual_dividends[this_year][:annualized_dividend]) -
                              to_bd(last_year_annualized_dividend)).to_f
         incremental_dividend_rate = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
 
-        result.merge(
+        annual_dividend_or_this_year.merge(
           dividend_increase: dividend_increase,
           incremental_dividend_rate: incremental_dividend_rate,
         )
@@ -76,6 +86,12 @@ module Tweet
 
       def to_bd(float)
         BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
+      end
+
+      def number_of_dividends_per_year
+      end
+
+      def calculate_forward_annual_dividend
       end
     end
   end

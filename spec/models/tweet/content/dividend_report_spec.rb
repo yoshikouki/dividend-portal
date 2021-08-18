@@ -36,8 +36,9 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
           #配当貴族 $ADM の新着配当金情報です
 
           企業名 Archer-Daniels-Midland Company
-          配当比率 % ($ 0.1)
-          増配比率 -0.229% (+$ -0.33)
+          配当 $0.1
+          配当比率 %
+          増配比率 -0.229% (-0.33)
           増配年数 年
           配当支給日 2021-09-17
           権利落ち日 2021-08-17
