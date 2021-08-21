@@ -26,7 +26,7 @@ class Dividend
           latest[:company_id] = Company.find_by(symbol: latest[:symbol]) || next
         end
 
-        latest.merge(created_at: Time.current, updated_at: Time.current)
+        Dividend::DEFAULT_INSERT_ALL.deep_dup.merge(latest)
       end
 
       return if new_dividends.empty?
