@@ -20,7 +20,7 @@ class Dividend
       dividend_yield_ttm: :dividend_yield,
       dividend_per_share_ttm: :dividend_per_share,
       stock_dividend: :dividends, # stock_dividend (株式配当 ※通貨による配当ではない) ではなかったので改名
-      payout_ratio_ttm: :payout_ratio
+      payout_ratio_ttm: :payout_ratio,
     }.freeze
 
     def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
@@ -63,13 +63,14 @@ class Dividend
     end
 
     def self.convert_response_of_company_outlook(response)
+      ratio = response[:ratios].first
       {
         symbol: response[:profile][:symbol],
         price: response[:profile][:price],
         ttm: {
-          dividend_yield: response[:ratios].first[:dividend_yiel_ttm],
-          dividend_per_share: response[:ratios].first[:dividend_per_share_ttm],
-          payout_ratio: response[:ratios].first[:dividend_yiel_ttm],
+          dividend_yield: ratio[:dividend_yield_ttm],
+          dividend_per_share: ratio[:dividend_per_share_ttm],
+          payout_ratio: ratio[:payout_ratio_ttm],
         },
         dividends: response[:stock_dividend],
       }
