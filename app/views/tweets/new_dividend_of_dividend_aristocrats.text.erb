@@ -1,9 +1,10 @@
 #配当貴族 $<%= @symbol %> の新着配当金情報です
 
 企業名 <%= @name %>
-配当 $<%= @dividend %>
-配当利回り <%= @dividend_yield %>%
+一株当たり配当 $<%= @dividend_per_share %> (年間 $<%= @annual_dividend_per_share %>)
+配当年間利回り <%= @dividend_yield %>%
 年間増配率 <%= @incremental_dividend_rate %>% (<%= @dividend_change %>)
+配当性向 <%= @payout_ratio %>%
 増配年数 <%= @years_of_dividend_growth %>年
-配当支給日 <%= @pays_on %>
 権利落ち日 <%= @ex_dividend_on %>
+配当支給日 <%= @pays_on %>
