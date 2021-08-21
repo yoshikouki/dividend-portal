@@ -50,6 +50,34 @@ module Client
         is_etf: :is_etf,
         is_actively_trading: :is_actively_trading,
       }.freeze
+
+      def self.symbols_to_param(symbols)
+        param = symbols_to_s(symbols)
+        # symbol に / を含むものが紛れており、エラーになるので変換する
+        Converter.symbol_to_profile_query(param)
+      end
+
+      def self.symbol_to_profile_query(symbol)
+        symbol.gsub(%r{[/_]}, "-")
+      end
+
+      def self.from_and_to_query(from, to)
+        query = {}
+        query[:from] = from if from
+        query[:to] = to if to
+        Client.value_to_time query
+      end
+
+      private
+
+      def self.symbols_to_s(symbols)
+        case symbols
+        when Array
+          symbols.join(",")
+        when String
+          symbols
+        end
+      end
     end
   end
 end

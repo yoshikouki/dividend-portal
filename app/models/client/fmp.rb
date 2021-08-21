@@ -10,7 +10,7 @@ module Client
     # https://financialmodelingprep.com/developer/docs#Company-Profile
     # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
     def self.profile(*symbols)
-      param = symbols_to_param(symbols)
+      param = Converter.symbols_to_param(symbols)
       res = Client.get url("/api/v3/profile/#{param}")
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
     end
@@ -41,7 +41,7 @@ module Client
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
     def self.get_dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
-      query = from_and_to_query(from, to)
+      query = Converter.from_and_to_query(from, to)
 
       res = Client.get url(path, query)
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
@@ -53,8 +53,8 @@ module Client
     end
 
     def self.historical_dividends(*symbols, from: nil, to: nil)
-      path = "/api/v3/historical-price-full/stock_dividend/#{symbols_to_param(symbols)}"
-      query = from_and_to_query(from, to)
+      path = "/api/v3/historical-price-full/stock_dividend/#{Converter.symbols_to_param(symbols)}"
+      query = Converter.from_and_to_query(from, to)
 
       res = Client.get url(path, query)
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
@@ -68,32 +68,6 @@ module Client
       }
       res = Client.get url(path, query)
       Client.parse_response_body(body: res.body, content_type: res["content-type"])
-    end
-
-    def self.symbols_to_param(symbols)
-      param = symbols_to_s(symbols)
-      # symbol に / を含むものが紛れており、エラーになるので変換する
-      convert_symbol_to_profile_query(param)
-    end
-
-    def self.symbols_to_s(symbols)
-      case symbols
-      when Array
-        symbols.join(",")
-      when String
-        symbols
-      end
-    end
-
-    def self.convert_symbol_to_profile_query(symbol)
-      symbol.gsub(%r{[/_]}, "-")
-    end
-
-    def self.from_and_to_query(from, to)
-      query = {}
-      query[:from] = from if from
-      query[:to] = to if to
-      Client.value_to_time query
     end
 
     def self.url(path, query_hash = {})
