@@ -43,19 +43,23 @@ module Tweet
         calculate_dividend_increase_and_its_rate(dividends_per_year)
       end
 
-      def aggregate_by_12_months(dividends)
-        annual_dividends = {}
+      def aggregate_by_12_months(dividends, reference_date: Date.today)
+        aggregated_results = {
+          trailing_12_months: DEFAULT_ANNUAL_DIVIDEND.dup,
+          next_12_months: DEFAULT_ANNUAL_DIVIDEND.dup,
+        }
+        twelve_months_ago = reference_date.months_ago(12)
+        twenty_four_months_ago = reference_date.months_ago(24)
+
         dividends.each do |dividend_hash|
-          year = Date.parse(dividend_hash[:ex_dividend_on]).year
-          annual_dividend = annual_dividends[year].presence || DEFAULT_ANNUAL_DIVIDEND.dup
-
-          big_decimal = to_bd(annual_dividend[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
-          annual_dividend[:annualized_dividend] = big_decimal.to_f
-          annual_dividend[:dividend_count] += 1
-
-          annual_dividends[year] = annual_dividend
+          ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_on])
+          if ex_dividend_date.after?(twelve_months_ago)
+            aggregated_results[:trailing_12_months] = sum_dividend_to_hash(aggregated_results[:trailing_12_months], dividend_hash)
+          elsif ex_dividend_date.after?(twenty_four_months_ago)
+            aggregated_results[:next_12_months] = sum_dividend_to_hash(aggregated_results[:next_12_months], dividend_hash)
+          end
         end
-        annual_dividends
+        aggregated_results
       end
 
       def calculate_dividend_increase_and_its_rate(annual_dividends)
@@ -89,10 +93,12 @@ module Tweet
         BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
       end
 
-      def number_of_dividends_per_year
-      end
-
-      def calculate_forward_annual_dividend
+      def sum_dividend_to_hash(annualized_dividend_hash, dividend_hash)
+        big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
+        {
+          annualized_dividend: big_decimal.to_f,
+          dividend_count: annualized_dividend_hash[:dividend_count] += 1,
+        }
       end
     end
   end
