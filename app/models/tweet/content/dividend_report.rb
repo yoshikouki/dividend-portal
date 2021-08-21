@@ -45,19 +45,22 @@ module Tweet
 
       def aggregate_by_12_months(dividends, reference_date: Date.today)
         aggregated_results = {
-          trailing_12_months: DEFAULT_ANNUAL_DIVIDEND.dup,
-          next_12_months: DEFAULT_ANNUAL_DIVIDEND.dup,
+          trailing_twelve_months_ago: DEFAULT_ANNUAL_DIVIDEND.dup,
+          twelve_to_twenty_four_months_ago: DEFAULT_ANNUAL_DIVIDEND.dup,
         }
         twelve_months_ago = reference_date.months_ago(12)
         twenty_four_months_ago = reference_date.months_ago(24)
 
         dividends.each do |dividend_hash|
           ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_on])
-          if ex_dividend_date.after?(twelve_months_ago)
-            aggregated_results[:trailing_12_months] = sum_dividend_to_hash(aggregated_results[:trailing_12_months], dividend_hash)
-          elsif ex_dividend_date.after?(twenty_four_months_ago)
-            aggregated_results[:next_12_months] = sum_dividend_to_hash(aggregated_results[:next_12_months], dividend_hash)
-          end
+          target = if ex_dividend_date.after?(twelve_months_ago)
+                     :trailing_twelve_months_ago
+                   elsif ex_dividend_date.after?(twenty_four_months_ago)
+                     :twelve_to_twenty_four_months_ago
+                   end
+          break unless target
+
+          aggregated_results[target] = sum_dividend_to_hash(aggregated_results[target], dividend_hash)
         end
         aggregated_results
       end

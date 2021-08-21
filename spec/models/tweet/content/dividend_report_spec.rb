@@ -120,8 +120,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
       it "12ヶ月分を一つの単位として集計した今年と昨年の配当情報を返す。集計基準日は配当落ち日" do
         actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends)
         expected = {
-          trailing_12_months: { annualized_dividend: 0.4, dividend_count: 4 },
-          next_12_months: { annualized_dividend: 0.04, dividend_count: 4 }
+          trailing_twelve_months_ago: { annualized_dividend: 0.4, dividend_count: 4 },
+          twelve_to_twenty_four_months_ago: { annualized_dividend: 0.04, dividend_count: 4 }
         }
         expect(actual).to eq expected
       end
