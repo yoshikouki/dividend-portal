@@ -66,6 +66,13 @@ module Tweet
       end
 
       def calculate_changed_dividend_and_its_rate(dividends_per_year)
+        annualized_dividend = dividends_per_year[:trailing_twelve_months_ago][:annualized_dividend]
+        previous_annualized_dividend = dividends_per_year[:twelve_to_twenty_four_months_ago][:annualized_dividend]
+        {
+          annualized_dividend: annualized_dividend,
+          changed_dividend: to_bd(annualized_dividend) - to_bd(previous_annualized_dividend).to_f,
+          changed_dividend_rate: (annualized_dividend / previous_annualized_dividend) - 1,
+        }
       end
 
       private
