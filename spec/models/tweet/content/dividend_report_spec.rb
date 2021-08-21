@@ -81,12 +81,11 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     end
 
     it "過去12ヶ月の増配金額と増配率をハッシュで返す" do
-      actual = Tweet::Content::DividendReport.new.calculate_result_of_dividend_increase(dividends)
+      actual = Tweet::Content::DividendReport.new.calculate_changed_dividend_and_its_rate_from_dividends(dividends)
       expected = {
         annualized_dividend: 0.4,
-        dividend_count: 4,
-        dividend_increase: 0.36,
-        incremental_dividend_rate: 9,
+        changed_dividend: 0.36,
+        changed_dividend_rate: 9,
       }
       expect(actual).to eq expected
     end

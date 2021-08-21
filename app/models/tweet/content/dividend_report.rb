@@ -16,7 +16,7 @@ module Tweet
         dividends = Dividend::Api.all(latest_dividend.symbol, from: Time.at(3.years.ago))
         outlook = Dividend::Api.outlook(latest_dividend.symbol)
 
-        result_of_dividend_increase = calculate_result_of_dividend_increase(dividends)
+        result_of_dividend_increase = calculate_changed_dividend_and_its_rate_from_dividends(dividends)
 
         assigns = {
           symbol: company.symbol,
@@ -38,9 +38,9 @@ module Tweet
       end
 
       # ttm は "trailing 12 months" 過去12ヶ月の実績
-      def calculate_result_of_dividend_increase(dividends)
+      def calculate_changed_dividend_and_its_rate_from_dividends(dividends)
         dividends_per_year = aggregate_by_12_months(dividends)
-        calculate_dividend_increase_and_its_rate(dividends_per_year)
+        calculate_changed_dividend_and_its_rate(dividends_per_year)
       end
 
       def aggregate_by_12_months(dividends, reference_date: Date.today)
@@ -65,29 +65,7 @@ module Tweet
         aggregated_results
       end
 
-      def calculate_dividend_increase_and_its_rate(annual_dividends)
-        this_year = annual_dividends.keys.max
-        annual_dividend_or_this_year = annual_dividends[this_year]
-
-        # TODO: this_yearの配当支払いが終わっていない場合、推定の年間配当額を算出する
-        # 昨年の年間配当
-        # 昨年・一昨年の配当回数を取得して低い方を支払回数とみなす
-        number_of_dividends_per_year = [annual_dividends[this_year - 1][:dividend_count], annual_dividends[this_year - 2][:dividend_count]].min
-        # 今年の予想年間配当を計算する
-        remained_number_of_dividends_per_year = number_of_dividends_per_year - annual_dividend_or_this_year[:dividend_count]
-        forward_annual_dividend = annual_dividend_or_this_year[:dividend] + (remained_number_of_dividends_per_year * latest_dividend[:dividend])
-        # 予想配当利回りを計算する
-        current_price =
-        forward_annual_dividend_rate = forward_annual_dividend / current_price
-        last_year_annualized_dividend = annual_dividends[this_year - 1][:annualized_dividend]
-        dividend_increase = (to_bd(annual_dividends[this_year][:annualized_dividend]) -
-                             to_bd(last_year_annualized_dividend)).to_f
-        incremental_dividend_rate = (dividend_increase / last_year_annualized_dividend).round(PERCENTAGE_DECIMAL_POINT)
-
-        annual_dividend_or_this_year.merge(
-          dividend_increase: dividend_increase,
-          incremental_dividend_rate: incremental_dividend_rate,
-        )
+      def calculate_changed_dividend_and_its_rate(dividends_per_year)
       end
 
       private
