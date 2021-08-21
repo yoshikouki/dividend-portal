@@ -34,7 +34,7 @@ class Dividend < ApplicationRecord
       dividend.delete(:label)
 
       dividend.transform_keys do |key|
-        Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key]
+        Client::Fmp::Converter::DIVIDEND_CALENDAR_FOR_VIEW[key]
       end
     end
   end
