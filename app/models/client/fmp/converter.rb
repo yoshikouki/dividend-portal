@@ -86,10 +86,10 @@ module Client
       def self.value_to_time(hash)
         hash.each do |key, value|
           hash[key] = if value.instance_of? Time
-                        value.strftime("%Y-%m-%d")
-                      else
-                        Time.parse(value).strftime("%Y-%m-%d")
-                      end
+            value.strftime("%Y-%m-%d")
+          else
+            Time.parse(value).strftime("%Y-%m-%d")
+          end
         end
       end
 
@@ -109,8 +109,6 @@ module Client
         query[:to] = to if to
         value_to_time query
       end
-
-      private
 
       def self.symbols_to_s(symbols)
         case symbols
