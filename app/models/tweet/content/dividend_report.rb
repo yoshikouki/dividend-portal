@@ -11,10 +11,10 @@ module Tweet
       PERCENTAGE_DECIMAL_POINT = 3
 
       def new_dividend_of_dividend_aristocrats(report_queue = nil)
-        latest_dividend = report_queue.dividend
-        company = latest_dividend.company
-        dividends = Dividend::Api.all(latest_dividend.symbol, from: Time.at(3.years.ago))
-        outlook = Dividend::Api.outlook(latest_dividend.symbol)
+        company = report_queue.dividend.company
+        dividends = Dividend::Api.all(company.symbol, from: Time.at(3.years.ago))
+        latest_dividend = dividends[0]
+        outlook = Dividend::Api.outlook(company.symbol)
 
         result_of_dividend_increase = calculate_changed_dividend_and_its_rate_from_dividends(dividends)
 
@@ -22,11 +22,11 @@ module Tweet
           symbol: company.symbol,
           name: company.name,
           years_of_dividend_growth: company.years_of_dividend_growth,
-          dividend_per_share: latest_dividend.dividend,
-          pays_on: latest_dividend.pays_on,
-          ex_dividend_on: latest_dividend.ex_dividend_on,
           dividend_change: result_of_dividend_increase[:dividend_increase],
           incremental_dividend_rate: result_of_dividend_increase[:incremental_dividend_rate],
+          dividend_per_share: latest_dividend[:dividend],
+          pays_on: latest_dividend[:pays_on],
+          ex_dividend_on: latest_dividend[:ex_dividend_on],
           dividend_yield: outlook[:ttm][:dividend_yield],
           annual_dividend_per_share: outlook[:ttm][:dividend_per_share],
           payout_ratio: outlook[:ttm][:payout_ratio],
