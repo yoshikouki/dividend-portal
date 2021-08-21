@@ -36,7 +36,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         }
       end
 
-      it "素のテンプレートを返す" do
+      it "tweets/new_dividend_of_dividend_aristocrats.text.erb から View をレンダリングして返す" do
         allow(Client::Fmp).to receive(:historical_dividends).and_return(historical_dividends_response)
         allow(Client::Fmp).to receive(:company_outlook).and_return(company_outlook_response)
         actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)

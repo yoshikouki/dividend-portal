@@ -13,27 +13,10 @@ module Tweet
       def new_dividend_of_dividend_aristocrats(report_queue = nil)
         company = report_queue.dividend.company
         dividends = Dividend::Api.all(company.symbol, from: Time.at(3.years.ago))
-        latest_dividend = dividends[0]
         outlook = Dividend::Api.outlook(company.symbol)
-
-        changed_dividend = calculate_changed_dividend_and_its_rate_from_dividends(dividends)
-
-        assigns = {
-          symbol: company.symbol,
-          name: company.name,
-          years_of_dividend_growth: company.years_of_dividend_growth,
-          dividend_per_share: latest_dividend[:dividend],
-          pays_on: latest_dividend[:pays_on],
-          ex_dividend_on: latest_dividend[:ex_dividend_on],
-          changed_dividend: changed_dividend[:changed_dividend],
-          changed_dividend_rate: changed_dividend[:changed_dividend_rate],
-          dividend_yield: outlook[:ttm][:dividend_yield],
-          annual_dividend_per_share: outlook[:ttm][:dividend_per_share],
-          payout_ratio: outlook[:ttm][:payout_ratio],
-        }
         self.class.render(
           template: template_path(__method__),
-          assigns: assigns,
+          assigns: convert_to_assigns(company, dividends, outlook),
         )
       end
 
@@ -66,6 +49,24 @@ module Tweet
       end
 
       private
+
+      def convert_to_assigns(company, dividends, outlook)
+        latest_dividend = dividends[0]
+        changed_dividend = calculate_changed_dividend_and_its_rate_from_dividends(dividends)
+        {
+          symbol: company.symbol,
+          name: company.name,
+          years_of_dividend_growth: company.years_of_dividend_growth,
+          dividend_per_share: latest_dividend[:dividend],
+          pays_on: latest_dividend[:pays_on],
+          ex_dividend_on: latest_dividend[:ex_dividend_on],
+          changed_dividend: changed_dividend[:changed_dividend],
+          changed_dividend_rate: changed_dividend[:changed_dividend_rate],
+          dividend_yield: outlook[:ttm][:dividend_yield],
+          annual_dividend_per_share: outlook[:ttm][:dividend_per_share],
+          payout_ratio: outlook[:ttm][:payout_ratio],
+        }
+      end
 
       def sum_dividend_to_hash(annualized_dividend_hash, dividend_hash)
         big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
