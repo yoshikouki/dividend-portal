@@ -57,34 +57,36 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
   end
 
   describe "#calculate_result_of_dividend_increase" do
+    let!(:today) { Date.today }
     let!(:base) do
-      { ex_dividend_on: "2021-08-17", records_on: "2021-08-18", pays_on: "2021-09-08", declares_on: "2021-08-04",
-        dividend: 0.37, adjusted_dividend: 0.37, symbol: "ADM" }
+      { ex_dividend_on: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
+        pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
+        dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
     end
     let!(:dividends) do
       [
         base,
-        base.merge(ex_dividend_on: "2021-05-18", dividend: 0.37),
-        base.merge(ex_dividend_on: "2021-02-08", dividend: 0.37),
-        base.merge(ex_dividend_on: "2020-11-18", dividend: 0.36),
-        base.merge(ex_dividend_on: "2020-08-18", dividend: 0.36),
-        base.merge(ex_dividend_on: "2020-05-19", dividend: 0.36),
-        base.merge(ex_dividend_on: "2020-02-12", dividend: 0.36),
-        base.merge(ex_dividend_on: "2019-11-20", dividend: 0.35),
-        base.merge(ex_dividend_on: "2019-08-21", dividend: 0.35),
-        base.merge(ex_dividend_on: "2019-05-14", dividend: 0.35),
-        base.merge(ex_dividend_on: "2019-02-15", dividend: 0.35),
-        base.merge(ex_dividend_on: "2018-11-21", dividend: 0.335),
+        base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_on: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_on: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_on: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_on: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_on: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_on: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_on: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_on: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_on: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
       ]
     end
 
     it "過去12ヶ月の増配金額と増配率をハッシュで返す" do
       actual = Tweet::Content::DividendReport.new.calculate_result_of_dividend_increase(dividends)
       expected = {
-        annualized_dividend: 1.11,
-        dividend_count: 3,
-        dividend_increase: -0.33,
-        incremental_dividend_rate: -0.229,
+        annualized_dividend: 0.4,
+        dividend_count: 4,
+        dividend_increase: 0.36,
+        incremental_dividend_rate: 9,
       }
       expect(actual).to eq expected
     end
@@ -92,33 +94,35 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
 
   describe "#aggregate_by_12_months" do
     context "正常系-同じシンボルの過去の配当情報をDIVIDEND_CALENDAR形式の配列で取得した場合" do
+      let!(:today) { Date.today }
       let!(:base) do
-        { ex_dividend_on: "2021-08-17", records_on: "2021-08-18", pays_on: "2021-09-08", declares_on: "2021-08-04",
-          dividend: 0.37, adjusted_dividend: 0.37, symbol: "ADM" }
+        { ex_dividend_on: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
+          pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
+          dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
       end
       let!(:dividends) do
         [
           base,
-          base.merge(ex_dividend_on: "2021-05-18", dividend: 0.37),
-          base.merge(ex_dividend_on: "2021-02-08", dividend: 0.37),
-          base.merge(ex_dividend_on: "2020-11-18", dividend: 0.36),
-          base.merge(ex_dividend_on: "2020-08-18", dividend: 0.36),
-          base.merge(ex_dividend_on: "2020-05-19", dividend: 0.36),
-          base.merge(ex_dividend_on: "2020-02-12", dividend: 0.36),
-          base.merge(ex_dividend_on: "2019-11-20", dividend: 0.35),
-          base.merge(ex_dividend_on: "2019-08-21", dividend: 0.35),
-          base.merge(ex_dividend_on: "2019-05-14", dividend: 0.35),
-          base.merge(ex_dividend_on: "2019-02-15", dividend: 0.35),
-          base.merge(ex_dividend_on: "2018-11-21", dividend: 0.335),
+          base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_on: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_on: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_on: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_on: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_on: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_on: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_on: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_on: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_on: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
         ]
       end
 
-      it "12ヶ月分を一つの単位として集計した配当情報を返す" do
+      it "12ヶ月分を一つの単位として集計した今年と昨年の配当情報を返す。集計基準日は配当落ち日" do
         actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends)
-        expected = { 2021 => { annualized_dividend: 1.11, dividend_count: 3 },
-                     2020 => { annualized_dividend: 1.44, dividend_count: 4 },
-                     2019 => { annualized_dividend: 1.4, dividend_count: 4 },
-                     2018 => { annualized_dividend: 0.335, dividend_count: 1 } }
+        expected = {
+          this_year: { annualized_dividend: 0.4, dividend_count: 4 },
+          last_year: { annualized_dividend: 0.04, dividend_count: 4 }
+        }
         expect(actual).to eq expected
       end
     end
