@@ -59,10 +59,44 @@ module Client
         body
       end
 
+      def self.transform_keys_to_snake_case_and_symbol(body)
+        # TODO: 孫子要素が[{}]の階層を持っていると変換されないので、必要になったら修正する
+        case body
+        when Array
+          body.map do |item, value|
+            case value
+            when Array, Hash
+              transform_keys_to_snake_case_and_symbol(value)
+            else
+              item.transform_keys { |key| key.underscore.to_sym }
+            end
+          end
+        when Hash
+          transformed_hash = body.map do |key, value|
+            case value
+            when Array, Hash
+              value = transform_keys_to_snake_case_and_symbol(value)
+            end
+            [key.underscore.to_sym, value]
+          end
+          transformed_hash.to_h
+        end
+      end
+
+      def self.value_to_time(hash)
+        hash.each do |key, value|
+          hash[key] = if value.instance_of? Time
+                        value.strftime("%Y-%m-%d")
+                      else
+                        Time.parse(value).strftime("%Y-%m-%d")
+                      end
+        end
+      end
+
       def self.symbols_to_param(symbols)
         param = symbols_to_s(symbols)
         # symbol に / を含むものが紛れており、エラーになるので変換する
-        Converter.symbol_to_profile_query(param)
+        symbol_to_profile_query(param)
       end
 
       def self.symbol_to_profile_query(symbol)
@@ -73,7 +107,7 @@ module Client
         query = {}
         query[:from] = from if from
         query[:to] = to if to
-        Client.value_to_time query
+        value_to_time query
       end
 
       private
