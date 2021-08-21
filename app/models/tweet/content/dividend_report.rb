@@ -14,9 +14,10 @@ module Tweet
         company = report_queue.dividend.company
         dividends = Dividend::Api.all(company.symbol, from: Time.at(3.years.ago))
         outlook = Dividend::Api.outlook(company.symbol)
+        assigns = convert_to_assigns(company, dividends, outlook)
         self.class.render(
           template: template_path(__method__),
-          assigns: convert_to_assigns(company, dividends, outlook),
+          assigns: assigns,
         )
       end
 
