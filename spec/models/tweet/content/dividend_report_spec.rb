@@ -28,9 +28,17 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
                        base.merge(date: "2019-02-15", dividend: 0.35),
                        base.merge(date: "2018-11-21", dividend: 0.335)] }
       end
+      let!(:company_outlook_response) do
+        {
+          profile: { symbol: "JNJ", price: 179.44 },
+          ratios: [{ payout_ratio_ttm: 0.6060069229470366, dividend_yield_ttm: 0.022793134195274185, dividend_per_share_ttm: 4.09 }],
+          stock_dividend: historical_dividends_response,
+        }
+      end
 
       it "素のテンプレートを返す" do
         allow(Client::Fmp).to receive(:historical_dividends).and_return(historical_dividends_response)
+        allow(Client::Fmp).to receive(:company_outlook).and_return(company_outlook_response)
         actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)
         expected = <<~TWEET 
           #配当貴族 $ADM の新着配当金情報です
