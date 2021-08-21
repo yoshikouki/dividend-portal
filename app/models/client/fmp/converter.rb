@@ -51,6 +51,14 @@ module Client
         is_actively_trading: :is_actively_trading,
       }.freeze
 
+      def self.parse_response_body(body:, content_type: nil)
+        if content_type&.include?("application/json")
+          body = JSON.parse(body)
+          body = transform_keys_to_snake_case_and_symbol(body)
+        end
+        body
+      end
+
       def self.symbols_to_param(symbols)
         param = symbols_to_s(symbols)
         # symbol に / を含むものが紛れており、エラーになるので変換する

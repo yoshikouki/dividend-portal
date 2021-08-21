@@ -12,28 +12,28 @@ module Client
     def self.profile(*symbols)
       param = Converter.symbols_to_param(symbols)
       res = Client.get url("/api/v3/profile/#{param}")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
     def self.get_symbols_list
       res = Client.get url("/api/v3/stock/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#ETF-List
     # https://financialmodelingprep.com/developer/docs/etf-list
     def self.get_etf_list
       res = Client.get url("/api/v3/etf/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Tradable-Symbols-List
     # https://financialmodelingprep.com/developer/docs/tradable-list
     def self.get_tradable_symbols_list
       res = Client.get url("/api/v3/available-traded/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # to の最長期間は from から3ヶ月
@@ -44,12 +44,12 @@ module Client
       query = Converter.from_and_to_query(from, to)
 
       res = Client.get url(path, query)
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.sp500
       res = Client.get url("api/v3/sp500_constituent")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.historical_dividends(*symbols, from: nil, to: nil)
@@ -57,7 +57,7 @@ module Client
       query = Converter.from_and_to_query(from, to)
 
       res = Client.get url(path, query)
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs/company-outlook
@@ -67,7 +67,7 @@ module Client
         symbol: symbol,
       }
       res = Client.get url(path, query)
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.url(path, query_hash = {})
