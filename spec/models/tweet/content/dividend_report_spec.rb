@@ -40,7 +40,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         allow(Client::Fmp).to receive(:historical_dividends).and_return(historical_dividends_response)
         allow(Client::Fmp).to receive(:company_outlook).and_return(company_outlook_response)
         actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)
-        expected = <<~TWEET 
+        expected = <<~TWEET
           #配当貴族 $ADM の新着配当金情報です
 
           企業名 Archer-Daniels-Midland Company
