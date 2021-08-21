@@ -3,6 +3,7 @@
 class Dividend < ApplicationRecord
   belongs_to :company
 
+  has_many :report_queues, dependent: :destroy
   scope :not_notified, -> { where(notified: false) }
   scope :dividend_aristocrats, -> { includes(:company).joins(:company).merge(Company.dividend_aristocrats) }
 
