@@ -17,7 +17,7 @@ class Dividend
     CONVERSION_TABLE_OF_OUTLOOK = {
       symbol: :symbol,
       price: :price,
-      dividend_yiel_ttm: :dividend_yield,
+      dividend_yield_ttm: :dividend_yield,
       dividend_per_share_ttm: :dividend_per_share,
       stock_dividend: :dividends, # stock_dividend (株式配当 ※通貨による配当ではない) ではなかったので改名
       payout_ratio_ttm: :payout_ratio
