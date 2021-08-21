@@ -65,6 +65,20 @@ module Tweet
         aggregated_results
       end
 
+      private
+
+      def sum_dividend_to_hash(annualized_dividend_hash, dividend_hash)
+        big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
+        {
+          annualized_dividend: big_decimal.to_f,
+          dividend_count: annualized_dividend_hash[:dividend_count] += 1,
+        }
+      end
+
+      def to_bd(float)
+        BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
+      end
+
       def calculate_changed_dividend_and_its_rate(dividends_per_year)
         annualized_dividend = dividends_per_year[:trailing_twelve_months_ago][:annualized_dividend]
         previous_annualized_dividend = dividends_per_year[:twelve_to_twenty_four_months_ago][:annualized_dividend]
@@ -72,20 +86,6 @@ module Tweet
           annualized_dividend: annualized_dividend,
           changed_dividend: to_bd(annualized_dividend) - to_bd(previous_annualized_dividend).to_f,
           changed_dividend_rate: (annualized_dividend / previous_annualized_dividend) - 1,
-        }
-      end
-
-      private
-
-      def to_bd(float)
-        BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
-      end
-
-      def sum_dividend_to_hash(annualized_dividend_hash, dividend_hash)
-        big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
-        {
-          annualized_dividend: big_decimal.to_f,
-          dividend_count: annualized_dividend_hash[:dividend_count] += 1,
         }
       end
     end
