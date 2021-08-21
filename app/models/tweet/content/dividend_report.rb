@@ -16,7 +16,7 @@ module Tweet
         dividends = Dividend::Api.all(latest_dividend.symbol, from: Time.at(3.years.ago))
         outlook = Dividend::Api.outlook(latest_dividend.symbol)
 
-        total_result_of_this_year = total_result_of_this_year(dividends)
+        result_of_dividend_increase = calculate_result_of_dividend_increase(dividends)
 
         assigns = {
           symbol: company.symbol,
@@ -25,8 +25,8 @@ module Tweet
           dividend_per_share: latest_dividend.dividend,
           pays_on: latest_dividend.pays_on,
           ex_dividend_on: latest_dividend.ex_dividend_on,
-          dividend_change: total_result_of_this_year[:dividend_increase],
-          incremental_dividend_rate: total_result_of_this_year[:incremental_dividend_rate],
+          dividend_change: result_of_dividend_increase[:dividend_increase],
+          incremental_dividend_rate: result_of_dividend_increase[:incremental_dividend_rate],
           dividend_yield: outlook[:ttm][:dividend_yield],
           annual_dividend_per_share: outlook[:ttm][:dividend_per_share],
           payout_ratio: outlook[:ttm][:payout_ratio],
@@ -37,12 +37,13 @@ module Tweet
         )
       end
 
-      def total_result_of_this_year(dividends)
-        annual_dividends = calculate_annually(dividends)
-        calculate_total_result(annual_dividends, dividends.first)
+      # ttm は "trailing 12 months" 過去12ヶ月の実績
+      def calculate_result_of_dividend_increase(dividends)
+        dividends_per_year = aggregate_by_12_months(dividends)
+        calculate_dividend_increase_and_its_rate(dividends_per_year)
       end
 
-      def calculate_annually(dividends)
+      def aggregate_by_12_months(dividends)
         annual_dividends = {}
         dividends.each do |dividend_hash|
           year = Date.parse(dividend_hash[:ex_dividend_on]).year
@@ -57,7 +58,7 @@ module Tweet
         annual_dividends
       end
 
-      def calculate_total_result(annual_dividends, latest_dividend)
+      def calculate_dividend_increase_and_its_rate(annual_dividends)
         this_year = annual_dividends.keys.max
         annual_dividend_or_this_year = annual_dividends[this_year]
 

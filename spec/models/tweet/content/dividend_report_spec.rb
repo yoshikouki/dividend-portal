@@ -56,7 +56,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     end
   end
 
-  describe "#total_result_of_this_year" do
+  describe "#calculate_result_of_dividend_increase" do
     let!(:base) do
       { ex_dividend_on: "2021-08-17", records_on: "2021-08-18", pays_on: "2021-09-08", declares_on: "2021-08-04",
         dividend: 0.37, adjusted_dividend: 0.37, symbol: "ADM" }
@@ -78,8 +78,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
       ]
     end
 
-    it "最も新しい配当の年について集計結果を返す" do
-      actual = Tweet::Content::DividendReport.new.total_result_of_this_year(dividends)
+    it "過去12ヶ月の増配金額と増配率をハッシュで返す" do
+      actual = Tweet::Content::DividendReport.new.calculate_result_of_dividend_increase(dividends)
       expected = {
         annualized_dividend: 1.11,
         dividend_count: 3,
@@ -90,7 +90,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     end
   end
 
-  describe "#calculate_annually" do
+  describe "#aggregate_by_12_months" do
     context "正常系-同じシンボルの過去の配当情報をDIVIDEND_CALENDAR形式の配列で取得した場合" do
       let!(:base) do
         { ex_dividend_on: "2021-08-17", records_on: "2021-08-18", pays_on: "2021-09-08", declares_on: "2021-08-04",
@@ -113,8 +113,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         ]
       end
 
-      it "1-12月を一年の単位として集計した配当情報を返す" do
-        actual = Tweet::Content::DividendReport.new.calculate_annually(dividends)
+      it "12ヶ月分を一つの単位として集計した配当情報を返す" do
+        actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends)
         expected = { 2021 => { annualized_dividend: 1.11, dividend_count: 3 },
                      2020 => { annualized_dividend: 1.44, dividend_count: 4 },
                      2019 => { annualized_dividend: 1.4, dividend_count: 4 },
