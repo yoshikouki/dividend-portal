@@ -54,10 +54,10 @@ module Tweet
         dividends.each do |dividend_hash|
           ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_on])
           target = if ex_dividend_date.after?(twelve_months_ago)
-                     :trailing_twelve_months_ago
-                   elsif ex_dividend_date.after?(twenty_four_months_ago)
-                     :twelve_to_twenty_four_months_ago
-                   end
+            :trailing_twelve_months_ago
+          elsif ex_dividend_date.after?(twenty_four_months_ago)
+            :twelve_to_twenty_four_months_ago
+          end
           break unless target
 
           aggregated_results[target] = sum_dividend_to_hash(aggregated_results[target], dividend_hash)
