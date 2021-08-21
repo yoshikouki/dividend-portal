@@ -43,13 +43,13 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         expected = <<~TWEET
           #配当貴族 $ADM の新着配当金情報です
 
-          企業名 Archer-Daniels-Midland Company
-          配当 $0.1
-          配当比率 %
-          増配比率 -0.229% (-0.33)
-          増配年数 年
-          配当支給日 2021-09-17
+          Archer-Daniels-Midland Company (連続増配 47年)
+          年間配当利回り 2.28%
+          年間増配率 2.80% ($0.04)
+          一株当たり配当 $0.37 (年間 $4.09)
+          配当性向 60.60%
           権利落ち日 2021-08-17
+          配当支給日 2021-09-08
         TWEET
         expect(actual).to eq expected
       end
@@ -120,7 +120,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends)
         expected = {
           trailing_twelve_months_ago: { annualized_dividend: 0.4, dividend_count: 4 },
-          twelve_to_twenty_four_months_ago: { annualized_dividend: 0.04, dividend_count: 4 }
+          twelve_to_twenty_four_months_ago: { annualized_dividend: 0.04, dividend_count: 4 },
         }
         expect(actual).to eq expected
       end
