@@ -32,14 +32,17 @@ module Tweet
           trailing_twelve_months_ago: DEFAULT_ANNUAL_DIVIDEND.dup,
           twelve_to_twenty_four_months_ago: DEFAULT_ANNUAL_DIVIDEND.dup,
         }
-        twelve_months_ago = reference_date.months_ago(12)
-        twenty_four_months_ago = reference_date.months_ago(24)
+        # 各年で基準日(配当落ち日)の揺れがあって配当が別の年集計されてしまうことを防ぐため、月末を比較日とする
+        # 2021年8月10日に配当支払いがあった場合、2020年9月1日以降の配当を過去12ヶ月分と計算する。
+        # 日付比較で使う #after? は比較対象 Date を含まないので、一日古い日付を基準とするため #yesterday をつける
+        reference_date_trailing_twelve_months = reference_date.months_ago(11).beginning_of_month.yesterday
+        reference_date_twenty_four_months_ago = reference_date.months_ago(23).beginning_of_month.yesterday
 
         dividends.each do |dividend_hash|
           ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_on])
-          target = if ex_dividend_date.after?(twelve_months_ago)
+          target = if ex_dividend_date.after?(reference_date_trailing_twelve_months)
             :trailing_twelve_months_ago
-          elsif ex_dividend_date.after?(twenty_four_months_ago)
+          elsif ex_dividend_date.after?(reference_date_twenty_four_months_ago)
             :twelve_to_twenty_four_months_ago
           end
           break unless target
