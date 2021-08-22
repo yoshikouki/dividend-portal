@@ -18,7 +18,7 @@ class Dividend < ApplicationRecord
     company_id: nil,
     created_at: Time.current,
     updated_at: Time.current,
-  }
+  }.freeze
 
   def self.declared_from(time = Time.at(1.week.ago))
     # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
