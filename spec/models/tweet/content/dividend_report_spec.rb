@@ -116,11 +116,36 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         ]
       end
 
-      it "12ヶ月分を一つの単位として集計した今年と昨年の配当情報を返す。集計基準日は配当落ち日" do
+      it "12ヶ月分を一つの単位として集計した今年と昨年の配当情報を返す。集計基準日は配当落ち日の月初日" do
         actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends)
         expected = {
           trailing_twelve_months_ago: { annualized_dividend: 0.4, dividend_count: 4 },
           twelve_to_twenty_four_months_ago: { annualized_dividend: 0.04, dividend_count: 4 },
+        }
+        expect(actual).to eq expected
+      end
+    end
+
+    context "集計基準日の配当落ち日に揺れがあった場合" do
+      let!(:reference_date) { Date.new(2021, 8, 10) }
+      let!(:dividends) do
+        [
+          # 2021年8月10日に配当支払いがあった場合、2020年9月1日以降の配当を過去12ヶ月分と計算する
+          { ex_dividend_on: "2021-08-10", dividend: 0.1 },
+          { ex_dividend_on: "2020-09-01", dividend: 0.1 },
+          # 過去12-24ヶ月前の配当
+          { ex_dividend_on: "2020-08-31", dividend: 0.01 },
+          { ex_dividend_on: "2019-09-01", dividend: 0.01 },
+          # 24-36ヶ月前 (集計外)
+          { ex_dividend_on: "2019-08-31", dividend: 0.001 },
+        ]
+      end
+
+      it "12ヶ月をひとまとまりとして集計される" do
+        actual = Tweet::Content::DividendReport.new.aggregate_by_12_months(dividends, reference_date: reference_date)
+        expected = {
+          trailing_twelve_months_ago: { annualized_dividend: 0.2, dividend_count: 2 },
+          twelve_to_twenty_four_months_ago: { annualized_dividend: 0.02, dividend_count: 2 },
         }
         expect(actual).to eq expected
       end
