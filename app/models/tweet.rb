@@ -19,7 +19,7 @@ module Tweet
     next_workday = date.next_workday
     dividends = Dividend.where(ex_dividend_on: next_workday)
 
-    content = Content::Dividend.new(dividends: dividends, reference_date: date)
+    content = AssembledContent::Dividend.new(dividends: dividends, reference_date: date)
     tweet = tweet(content.ex_dividend_previous_date)
     tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
   end
@@ -27,10 +27,16 @@ module Tweet
   def self.latest_dividend
     dividends = Dividend.not_notified
 
-    content = Content::Dividend.new(dividends: dividends)
+    content = AssembledContent::Dividend.new(dividends: dividends)
     tweet = tweet(content.latest_dividend)
     tweet = tweet(content.remained_symbols, reply_to: tweet) while content.remained?
 
     dividends.update_all(notified: true)
+  end
+
+  def self.new_dividend_of_dividend_aristocrats
+    report_queue = ReportQueueOfDividendAristocratsDividend.dequeue
+    content = Tweet::Content::DividendReport.new
+    tweet(content.new_dividend_of_dividend_aristocrats(report_queue))
   end
 end

@@ -2,49 +2,28 @@
 
 module Tweet
   class Content
-    attr_accessor :header_section, :main_section, :footer_section
+    class << self
+      def render(**arg)
+        ApplicationController.render(render_argument(arg))
+      end
 
-    MAX_WEIGHTED_LENGTH = 280
+      def template_path(method = "test")
+        "tweets/#{method}"
+      end
 
-    def initialize(header: nil, main: nil, footer: nil)
-      @header_section = header
-      @main_section = main
-      @footer_section = footer
+      private
+
+      def render_argument(arg = {})
+        {
+          template: template_path,
+        }.merge(arg)
+      end
     end
 
-    def content(header: nil, main: nil, footer: nil)
-      header ||= @header_section
-      main ||= @main_section
-      footer ||= @footer_section
+    private
 
-      @content = ""
-      @content += "#{header}\n" if header
-      @content += main if main
-      @content += "\n#{footer}" if footer
-      @content
-    end
-    alias render content
-
-    def content=(content)
-      @main_section = content
-    end
-
-    def clear
-      @header_section = nil
-      @main_section = nil
-      @footer_section = nil
-      content
-    end
-
-    # Twitter上の文字数を算出する
-    def weighted_length(header: nil, main: nil, footer: nil)
-      tmp_content = content(header: header, main: main, footer: footer)
-      Content.weighted_length(tmp_content)
-    end
-
-    def self.weighted_length(text)
-      validation = Twitter::TwitterText::Validation.parse_tweet(text)
-      validation[:weighted_length]
+    def template_path(method)
+      self.class.template_path(method)
     end
   end
 end

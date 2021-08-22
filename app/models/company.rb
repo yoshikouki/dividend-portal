@@ -6,7 +6,7 @@ class Company < ApplicationRecord
   has_many :tags, through: :company_tags
 
   scope :us_exchanges, -> { where(exchange_short_name: %w[NYSE NASDAQ AMEX]) }
-  scope :dividend_aristocrats, -> { joins(:tags).where(tags: { name: :dividend_aristocrats }) }
+  scope :dividend_aristocrats, -> { includes(:tags).joins(:tags).merge(Tag.dividend_aristocrats) }
 
   validates :symbol,
             presence: true
@@ -82,7 +82,7 @@ class Company < ApplicationRecord
 
     def in_us_where_or_create_by_symbol(symbols)
       # 保存されていない企業情報を抽出
-      symbols = symbols.map { |symbol| Client::Fmp.convert_symbol_to_profile_query(symbol) }
+      symbols = symbols.map { |symbol| Client::Fmp::Converter.symbol_to_profile_query(symbol) }
       current = us_exchanges.where(symbol: symbols)
       missing_symbols = symbols - current.pluck(:symbol)
 

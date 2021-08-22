@@ -6,7 +6,8 @@ class Dividend
 
     def self.refresh_us
       destroy_outdated
-      update_us_to_latest
+      result = update_us_to_latest
+      enqueue_dividend_report(filter_id(result)) if result
     end
 
     # @return [ActiveRecord::Result, nil]
@@ -25,7 +26,7 @@ class Dividend
           latest[:company_id] = Company.find_by(symbol: latest[:symbol]) || next
         end
 
-        latest.merge(created_at: Time.current, updated_at: Time.current)
+        Dividend::DEFAULT_INSERT_ALL.deep_dup.merge(latest)
       end
 
       return if new_dividends.empty?
@@ -42,6 +43,10 @@ class Dividend
     def self.destroy_outdated
       outdated = Dividend::Api::RECENT_REFERENCE_START_DATE.yesterday
       Dividend.where(ex_dividend_on: ..outdated).destroy_all
+    end
+
+    def self.enqueue_dividend_report(dividend_ids)
+      ReportQueueOfDividendAristocratsDividend.enqueue(dividend_ids: dividend_ids)
     end
 
     def self.associate_with_us_companies(dividend_calendar = [])
@@ -63,6 +68,10 @@ class Dividend
     def self.remove_empty_string(hash)
       # #present? ではfalse(boolean)だった場合もnilにしてしまうため、シンプルに空文字を検証する
       hash.transform_values { |v| v == "" ? nil : v }
+    end
+
+    def self.filter_id(result)
+      result.map { |h| h["id"] }
     end
   end
 end

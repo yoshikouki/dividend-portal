@@ -3,7 +3,22 @@
 class Dividend < ApplicationRecord
   belongs_to :company
 
+  has_many :report_queues, dependent: :destroy
   scope :not_notified, -> { where(notified: false) }
+  scope :dividend_aristocrats, -> { includes(:company).joins(:company).merge(Company.dividend_aristocrats) }
+
+  DEFAULT_INSERT_ALL = {
+    ex_dividend_on: nil,
+    records_on: nil,
+    pays_on: nil,
+    declares_on: nil,
+    symbol: nil,
+    dividend: nil,
+    adjusted_dividend: nil,
+    company_id: nil,
+    created_at: Time.current,
+    updated_at: Time.current,
+  }.freeze
 
   def self.declared_from(time = Time.at(1.week.ago))
     # TODO: ActiveRecord を継承していい感じに処理を改める。このままではWebアプリの方は動かない
@@ -33,7 +48,7 @@ class Dividend < ApplicationRecord
       dividend.delete(:label)
 
       dividend.transform_keys do |key|
-        Client::Fmp::DIVIDEND_CALENDAR_CONVERSION[key]
+        Client::Fmp::Converter::DIVIDEND_CALENDAR_FOR_VIEW[key]
       end
     end
   end

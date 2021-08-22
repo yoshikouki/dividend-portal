@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Client, type: :model do
+RSpec.describe Client::Fmp::Converter, type: :model do
   describe "parse_response_body" do
     context "response body がJSONかつkeyがキャメルケースの場合" do
       it "key がスネークケースに変換されたJSONを返す" do
@@ -26,7 +26,7 @@ RSpec.describe Client, type: :model do
           record_date: "2021-07-12",
           symbol: "OGE",
         }]
-        got = Client.parse_response_body(body: body, content_type: "application/json;charset=UTF-8")
+        got = Client::Fmp::Converter.parse_response_body(body: body, content_type: "application/json;charset=UTF-8")
         expect(got).to eq(expect)
       end
     end
@@ -35,8 +35,27 @@ RSpec.describe Client, type: :model do
       it "そのまま文字列を帰す" do
         body = "test response body"
         expect = "test response body"
-        got = Client.parse_response_body(body: body)
+        got = Client::Fmp::Converter.parse_response_body(body: body)
         expect(got).to eq(expect)
+      end
+    end
+  end
+
+  describe ".transform_keys_to_snake_case_and_symbol" do
+    context "階層が混在している場合" do
+      it "各要素のキーを変換して返す" do
+        body = {
+          "camelCase" => "string",
+          "camelCase2" => [{ "camelCase" => "string" }, { "camelCase" => "string" }],
+          "camelCase3" => { "camelCase" => "string", "camelCaseArray" => [{ "camelCase" => "string" }] },
+        }
+        actual = Client::Fmp::Converter.transform_keys_to_snake_case_and_symbol(body)
+        expect = {
+          camel_case: "string",
+          camel_case2: [{ camel_case: "string" }, { camel_case: "string" }],
+          camel_case3: { camel_case: "string", camel_case_array: [{ camel_case: "string" }] },
+        }
+        expect(actual).to eq(expect)
       end
     end
   end
@@ -63,7 +82,7 @@ RSpec.describe Client, type: :model do
           to: "2021-12-31",
         }
         cases.each do |c|
-          expect(Client.value_to_time(c)).to eq(expect)
+          expect(Client::Fmp::Converter.value_to_time(c)).to eq(expect)
         end
       end
     end
@@ -81,7 +100,7 @@ RSpec.describe Client, type: :model do
           to: "2021-12-31",
         }
         cases.each do |c|
-          expect(Client.value_to_time(c)).to eq(expect)
+          expect(Client::Fmp::Converter.value_to_time(c)).to eq(expect)
         end
       end
     end

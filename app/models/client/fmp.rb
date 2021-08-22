@@ -7,92 +7,33 @@ module Client
 
     START_DATE_OF_RECENT_DIVIDEND = Time.now.ago(3.days)
 
-    DIVIDEND_CALENDAR_CONVERSION = {
-      date: "ex-dividend date", # "権利落ち日"
-      label: "label", # "権利落ち日(英語表記)"
-      record_date: "record date", # "権利確定日"
-      payment_date: "payment date", # "支払日"
-      declaration_date: "declaration date", # "発表日"
-      symbol: "symbol", # "ティッカーシンボル"
-      dividend: "dividend", # "配当金"
-      adj_dividend: "adjusted dividend", # "調整後配当金"
-    }.freeze
-
     # https://financialmodelingprep.com/developer/docs#Company-Profile
     # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
     def self.profile(*symbols)
-      param = case symbols
-              when Array
-                symbols.join(",")
-              when String
-                symbols
-      end
-      # symbol に / を含むものが紛れており、エラーになるので変換する
-      param = convert_symbol_to_profile_query(param)
+      param = Converter.symbols_to_param(symbols)
       res = Client.get url("/api/v3/profile/#{param}")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
-    end
-
-    PROFILE_CONVERSION = {
-      symbol: :symbol,
-      price: :price,
-      beta: :beta,
-      vol_avg: :volume_average,
-      mkt_cap: :market_capitalization,
-      last_div: :last_dividend,
-      range: :range,
-      changes: :changes,
-      company_name: :company_name,
-      currency: :currency,
-      cik: :cik,
-      isin: :isin,
-      cusip: :cusip,
-      exchange: :exchange,
-      exchange_short_name: :exchange_short_name,
-      industry: :industry,
-      website: :website,
-      description: :description,
-      ceo: :ceo,
-      sector: :sector,
-      country: :country,
-      full_time_employees: :full_time_employees,
-      phone: :phone,
-      address: :address,
-      city: :city,
-      state: :state,
-      zip: :zip,
-      dcf_diff: :dcf_diff,
-      dcf: :dcf,
-      image: :image,
-      ipo_date: :ipo_date,
-      default_image: :default_image,
-      is_etf: :is_etf,
-      is_actively_trading: :is_actively_trading,
-    }.freeze
-
-    def self.convert_symbol_to_profile_query(symbol)
-      symbol.gsub(%r{[/_]}, "-")
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
     def self.get_symbols_list
       res = Client.get url("/api/v3/stock/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#ETF-List
     # https://financialmodelingprep.com/developer/docs/etf-list
     def self.get_etf_list
       res = Client.get url("/api/v3/etf/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Tradable-Symbols-List
     # https://financialmodelingprep.com/developer/docs/tradable-list
     def self.get_tradable_symbols_list
       res = Client.get url("/api/v3/available-traded/list")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # to の最長期間は from から3ヶ月
@@ -100,19 +41,33 @@ module Client
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
     def self.get_dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
-
-      query = {}
-      query[:from] = from if from
-      query[:to] = to if to
-      query = Client.value_to_time query
+      query = Converter.from_and_to_query(from, to)
 
       res = Client.get url(path, query)
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.sp500
       res = Client.get url("api/v3/sp500_constituent")
-      Client.parse_response_body(body: res.body, content_type: res["content-type"])
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    def self.historical_dividends(*symbols, from: nil, to: nil)
+      path = "/api/v3/historical-price-full/stock_dividend/#{Converter.symbols_to_param(symbols)}"
+      query = Converter.from_and_to_query(from, to)
+
+      res = Client.get url(path, query)
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
+    end
+
+    # https://financialmodelingprep.com/developer/docs/company-outlook
+    def self.company_outlook(symbol)
+      path = "api/v4/company-outlook"
+      query = {
+        symbol: symbol,
+      }
+      res = Client.get url(path, query)
+      Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     def self.url(path, query_hash = {})
