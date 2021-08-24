@@ -41,12 +41,12 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         allow(Client::Fmp).to receive(:company_outlook).and_return(company_outlook_response)
         actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)
         expected = <<~TWEET
-          #配当貴族 $ADM の新着配当金情報です
+          #米国株 配当貴族の $ADM に関する新着配当情報
 
           Archer-Daniels-Midland Company (連続増配 47年)
+          一株当たり配当 $0.37 (年間 $4.09)
           年間配当利回り 2.28%
           年間増配率 2.80% ($0.04)
-          一株当たり配当 $0.37 (年間 $4.09)
           配当性向 60.60%
           権利落ち日 2021-08-17
           配当支給日 2021-09-08
