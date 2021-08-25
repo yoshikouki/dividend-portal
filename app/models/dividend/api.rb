@@ -24,7 +24,7 @@ class Dividend
     }.freeze
 
     def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
-      row_dividends = Client::Fmp.get_dividend_calendar(
+      row_dividends = Fmp.get_dividend_calendar(
         from: from,
         to: to,
       )
@@ -40,7 +40,7 @@ class Dividend
     end
 
     def self.all(symbols, from: nil, to: nil)
-      historical_dividends = Client::Fmp.historical_dividends(
+      historical_dividends = Fmp.historical_dividends(
         symbols,
         from: from,
         to: to,
@@ -58,7 +58,7 @@ class Dividend
     end
 
     def self.outlook(symbol)
-      response = Client::Fmp.company_outlook(symbol)
+      response = Fmp.company_outlook(symbol)
       convert_response_of_company_outlook(response)
     end
 

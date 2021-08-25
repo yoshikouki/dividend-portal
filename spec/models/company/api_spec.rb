@@ -14,7 +14,7 @@ RSpec.describe Company::Api, type: :model do
     end
 
     it "FMPから取得した生データをインスタンスメソッドに変換して返す" do
-      allow(Client::Fmp).to receive(:get_symbols_list).and_return(api_response)
+      allow(Fmp).to receive(:get_symbols_list).and_return(api_response)
       expected = [
         { symbol: "SPY", name: "SPDR S&P 500 ETF Trust", exchange: "New York Stock Exchange Arca" },
         { symbol: "KMI", name: "Kinder Morgan, Inc.", exchange: "New York Stock Exchange" },
@@ -66,7 +66,7 @@ RSpec.describe Company::Api, type: :model do
     end
 
     it "FMPから取得した生データをCompanyパラメタのHashに変換して返す" do
-      allow(Client::Fmp).to receive(:profile).and_return(api_response)
+      allow(Fmp).to receive(:profile).and_return(api_response)
       expected = [
         symbol: "KO",
         name: "The Coca-Cola Company",

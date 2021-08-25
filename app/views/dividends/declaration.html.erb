@@ -7,7 +7,7 @@
     <tr>
       <% JSON.parse(@dividends.to_json).first.keys.each do |key| %>
         <th>
-          <%= Client::Fmp::Converter::DIVIDEND_CALENDAR_FOR_VIEW[key.to_sym] %>
+          <%= Fmp::Converter::DIVIDEND_CALENDAR_FOR_VIEW[key.to_sym] %>
         </th>
       <% end %>
     </tr>

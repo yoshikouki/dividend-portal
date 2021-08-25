@@ -16,7 +16,7 @@ class Company
     }.freeze
 
     def self.fetch_all
-      response = Client::Fmp.get_symbols_list
+      response = Fmp.get_symbols_list
       response.map do |r|
         r.delete(:price)
         r
@@ -26,7 +26,7 @@ class Company
     def self.profiles(*symbol)
       return [] unless symbol&.present?
 
-      row_profiles = Client::Fmp.profile(symbol)
+      row_profiles = Fmp.profile(symbol)
       row_profiles.map do |raw_profile|
         convert_profile_response(raw_profile)
       end
