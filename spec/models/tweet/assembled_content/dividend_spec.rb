@@ -11,7 +11,7 @@ RSpec.describe Tweet::AssembledContent::Dividend, type: :model do
 
       it "0件でツイート内容を作成して返す" do
         actual = content.ex_dividend_previous_date
-        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は0件です"
+        expected = "【権利付き最終日通知 #{workday.show}】\n本日までの購入で配当金が受け取れる #米国株 は0件です"
         expect(actual).to eq(expected)
       end
     end
@@ -21,13 +21,13 @@ RSpec.describe Tweet::AssembledContent::Dividend, type: :model do
       let!(:workday) { Workday.new(2021, 1, 1) }
       let!(:content) { Tweet::AssembledContent::Dividend.new(dividends: dividends, reference_date: workday) }
       let!(:symbols_text) do
-        max_count = 25
+        max_count = 23
         dividends[0..(max_count - 1)].map { |d| "$#{d[:symbol]}" }.join(" ") + " ...残り#{dividends.count - max_count}件"
       end
 
       it "規定文字数を超えないようにツイート本文を作成して返す" do
         actual = content.ex_dividend_previous_date
-        expected = "権利付き最終日通知\n#{workday.show}までの購入で配当金が受け取れる米国株は#{dividends.count}件です\n#{symbols_text}"
+        expected = "【権利付き最終日通知 #{workday.show}】\n本日までの購入で配当金が受け取れる #米国株 は#{dividends.count}件です\n#{symbols_text}"
         expect(actual).to eq(expected)
         expect(Twitter::TwitterText::Validation.parse_tweet(actual)[:valid]).to be true
       end
@@ -43,12 +43,12 @@ RSpec.describe Tweet::AssembledContent::Dividend, type: :model do
         # 一度書き出す
         content.ex_dividend_previous_date
 
-        symbols_string = (26..58).map { |i| "$TEST#{i}" }.join(" ")
-        expected = "#{symbols_string} ...残り12件"
+        symbols_string = (24..56).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り14件"
         actual = content.remained_symbols
         expect(actual).to eq(expected)
 
-        expected = (59..70).map { |i| "$TEST#{i}" }.join(" ")
+        expected = (57..70).map { |i| "$TEST#{i}" }.join(" ")
         actual = content.remained_symbols
         expect(actual).to eq(expected)
       end

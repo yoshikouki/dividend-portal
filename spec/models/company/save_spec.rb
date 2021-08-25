@@ -50,7 +50,7 @@ RSpec.describe Company::Save, type: :model do
     end
 
     it "引数のシンボル配列の中から米国企業だけをDBに保存する" do
-      allow(Client::Fmp).to receive(:profile).and_return(api_response)
+      allow(Fmp).to receive(:profile).and_return(api_response)
       symbols = api_response.pluck(:symbol)
       expect { Company::Save.create_for_us_with_api(symbols) }.to change(Company, :count).by(3)
       expect(Company.last.symbol).to eq "NASDAQCOMPANY"

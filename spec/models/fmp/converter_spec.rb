@@ -2,7 +2,32 @@
 
 require "rails_helper"
 
-RSpec.describe Client::Fmp::Converter, type: :model do
+RSpec.describe Fmp::Converter, type: :model do
+  describe "#url" do
+    valid_path = "/api/v3/stock/list"
+    valid_path2 = "api/v3/stock/list"
+
+    it "path should be valid" do
+      expect(Fmp::Converter.url(valid_path)).to be_truthy
+    end
+
+    it "path should be valid" do
+      expect(Fmp::Converter.url(valid_path2)).to be_truthy
+    end
+
+    context "query_hash がある場合" do
+      it "URLの最後にクエリを生成する" do
+        query_hash = {
+          from: "test-from",
+          to: "test-to",
+        }
+        url = Fmp::Converter.url("test", query_hash)
+        expect = "&from=test-from&to=test-to"
+        expect(url.end_with?(expect)).to be_truthy
+      end
+    end
+  end
+
   describe "parse_response_body" do
     context "response body がJSONかつkeyがキャメルケースの場合" do
       it "key がスネークケースに変換されたJSONを返す" do
@@ -26,7 +51,7 @@ RSpec.describe Client::Fmp::Converter, type: :model do
           record_date: "2021-07-12",
           symbol: "OGE",
         }]
-        got = Client::Fmp::Converter.parse_response_body(body: body, content_type: "application/json;charset=UTF-8")
+        got = Fmp::Converter.parse_response_body(body: body, content_type: "application/json;charset=UTF-8")
         expect(got).to eq(expect)
       end
     end
@@ -35,7 +60,7 @@ RSpec.describe Client::Fmp::Converter, type: :model do
       it "そのまま文字列を帰す" do
         body = "test response body"
         expect = "test response body"
-        got = Client::Fmp::Converter.parse_response_body(body: body)
+        got = Fmp::Converter.parse_response_body(body: body)
         expect(got).to eq(expect)
       end
     end
@@ -49,7 +74,7 @@ RSpec.describe Client::Fmp::Converter, type: :model do
           "camelCase2" => [{ "camelCase" => "string" }, { "camelCase" => "string" }],
           "camelCase3" => { "camelCase" => "string", "camelCaseArray" => [{ "camelCase" => "string" }] },
         }
-        actual = Client::Fmp::Converter.transform_keys_to_snake_case_and_symbol(body)
+        actual = Fmp::Converter.transform_keys_to_snake_case_and_symbol(body)
         expect = {
           camel_case: "string",
           camel_case2: [{ camel_case: "string" }, { camel_case: "string" }],
@@ -82,7 +107,7 @@ RSpec.describe Client::Fmp::Converter, type: :model do
           to: "2021-12-31",
         }
         cases.each do |c|
-          expect(Client::Fmp::Converter.value_to_time(c)).to eq(expect)
+          expect(Fmp::Converter.value_to_time(c)).to eq(expect)
         end
       end
     end
@@ -100,7 +125,7 @@ RSpec.describe Client::Fmp::Converter, type: :model do
           to: "2021-12-31",
         }
         cases.each do |c|
-          expect(Client::Fmp::Converter.value_to_time(c)).to eq(expect)
+          expect(Fmp::Converter.value_to_time(c)).to eq(expect)
         end
       end
     end

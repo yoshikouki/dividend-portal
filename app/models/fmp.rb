@@ -1,87 +1,66 @@
 # frozen_string_literal: true
 
-module Client
-  module Fmp
-    API_HOST = "financialmodelingprep.com"
-    API_KEY = ENV["API_KEY_FMP"]
+module Fmp
+  START_DATE_OF_RECENT_DIVIDEND = Time.now.ago(3.days)
 
-    START_DATE_OF_RECENT_DIVIDEND = Time.now.ago(3.days)
-
+  class << self
     # https://financialmodelingprep.com/developer/docs#Company-Profile
     # https://financialmodelingprep.com/developer/docs/companies-key-stats-free-api
-    def self.profile(*symbols)
+    def profile(*symbols)
       param = Converter.symbols_to_param(symbols)
-      res = Client.get url("/api/v3/profile/#{param}")
+      res = Client.get("/api/v3/profile/#{param}")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
-    def self.get_symbols_list
-      res = Client.get url("/api/v3/stock/list")
+    def symbols_list
+      res = Client.get("/api/v3/stock/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#ETF-List
     # https://financialmodelingprep.com/developer/docs/etf-list
-    def self.get_etf_list
-      res = Client.get url("/api/v3/etf/list")
+    def etf_list
+      res = Client.get("/api/v3/etf/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Tradable-Symbols-List
     # https://financialmodelingprep.com/developer/docs/tradable-list
-    def self.get_tradable_symbols_list
-      res = Client.get url("/api/v3/available-traded/list")
+    def tradable_symbols_list
+      res = Client.get("/api/v3/available-traded/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # to の最長期間は from から3ヶ月
     # https://financialmodelingprep.com/developer/docs#Dividend-Calendar
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
-    def self.get_dividend_calendar(from: nil, to: nil)
+    def dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
       query = Converter.from_and_to_query(from, to)
-
-      res = Client.get url(path, query)
+      res = Client.get(path, query)
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
-    def self.sp500
-      res = Client.get url("api/v3/sp500_constituent")
+    def sp500
+      res = Client.get("api/v3/sp500_constituent")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
-    def self.historical_dividends(*symbols, from: nil, to: nil)
+    def historical_dividends(*symbols, from: nil, to: nil)
       path = "/api/v3/historical-price-full/stock_dividend/#{Converter.symbols_to_param(symbols)}"
       query = Converter.from_and_to_query(from, to)
-
-      res = Client.get url(path, query)
+      res = Client.get(path, query)
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs/company-outlook
-    def self.company_outlook(symbol)
+    def company_outlook(symbol)
       path = "api/v4/company-outlook"
-      query = {
-        symbol: symbol,
-      }
-      res = Client.get url(path, query)
+      query = { symbol: symbol }
+      res = Client.get(path, query)
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
-    end
-
-    def self.url(path, query_hash = {})
-      path = "/#{path}" if path[0] != "/"
-      throw("Invalid pattern") if path[1] == "/"
-
-      query = ""
-      unless query_hash.empty?
-        query_hash.each do |key, value|
-          query += "&#{key}=#{value}" if value
-        end
-      end
-
-      "https://#{API_HOST}#{path}?apikey=#{API_KEY}#{query}"
     end
   end
 end
