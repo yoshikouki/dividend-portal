@@ -31,12 +31,13 @@ module Fmp
         "https://#{API_HOST}#{path}?apikey=#{API_KEY}#{query}"
       end
 
-      def parse_response_body(body:, content_type: nil)
-        if content_type&.include?("application/json")
+      def parse_response_body(response)
+        if response["content-type"]&.include?("application/json")
           body = JSON.parse(body)
-          body = transform_keys_to_snake_case_and_symbol(body)
+          transform_keys_to_snake_case_and_symbol(body)
+        else
+          response.body
         end
-        body
       end
 
       def transform_keys_to_snake_case_and_symbol(body)
