@@ -33,7 +33,7 @@ module Fmp
 
       def parse_response_body(response)
         if response["content-type"]&.include?("application/json")
-          body = JSON.parse(body)
+          body = JSON.parse(response.body)
           transform_keys_to_snake_case_and_symbol(body)
         else
           response.body
