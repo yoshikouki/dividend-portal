@@ -24,7 +24,7 @@ class Dividend
     }.freeze
 
     def self.recent(from: RECENT_REFERENCE_START_DATE, to: nil)
-      row_dividends = Fmp.get_dividend_calendar(
+      row_dividends = Fmp.dividend_calendar(
         from: from,
         to: to,
       )

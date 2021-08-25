@@ -77,7 +77,7 @@ RSpec.describe Dividend::Recent, type: :model do
     end
 
     it "US企業の新しいデータが追加される" do
-      allow(Fmp).to receive(:get_dividend_calendar).and_return(dividend_calendar_response)
+      allow(Fmp).to receive(:dividend_calendar).and_return(dividend_calendar_response)
       allow(Fmp).to receive(:profile).and_return(profile_response)
 
       expect { Dividend::Recent.update_us_to_latest }.to change { Dividend.count }.by(4)

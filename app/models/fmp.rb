@@ -14,21 +14,21 @@ module Fmp
 
     # https://financialmodelingprep.com/developer/docs#Symbols-List
     # https://financialmodelingprep.com/developer/docs/stock-market-quote-free-api
-    def get_symbols_list
+    def symbols_list
       res = Client.get("/api/v3/stock/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#ETF-List
     # https://financialmodelingprep.com/developer/docs/etf-list
-    def get_etf_list
+    def etf_list
       res = Client.get("/api/v3/etf/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
 
     # https://financialmodelingprep.com/developer/docs#Tradable-Symbols-List
     # https://financialmodelingprep.com/developer/docs/tradable-list
-    def get_tradable_symbols_list
+    def tradable_symbols_list
       res = Client.get("/api/v3/available-traded/list")
       Converter.parse_response_body(body: res.body, content_type: res["content-type"])
     end
@@ -36,7 +36,7 @@ module Fmp
     # to の最長期間は from から3ヶ月
     # https://financialmodelingprep.com/developer/docs#Dividend-Calendar
     # https://financialmodelingprep.com/developer/docs/dividend-calendar
-    def get_dividend_calendar(from: nil, to: nil)
+    def dividend_calendar(from: nil, to: nil)
       path = "/api/v3/stock_dividend_calendar"
       query = Converter.from_and_to_query(from, to)
       res = Client.get(path, query)

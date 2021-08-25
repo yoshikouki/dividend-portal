@@ -16,7 +16,7 @@ class Company
     }.freeze
 
     def self.fetch_all
-      response = Fmp.get_symbols_list
+      response = Fmp.symbols_list
       response.map do |r|
         r.delete(:price)
         r
