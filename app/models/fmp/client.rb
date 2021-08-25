@@ -12,9 +12,10 @@ module Fmp
           use_ssl: uri.scheme == "https",
         }
 
-        Net::HTTP.start(uri.host, uri.port, options) do |http|
+        response = Net::HTTP.start(uri.host, uri.port, options) do |http|
           http.request(req)
         end
+        Converter.parse_response_body(response)
       end
     end
   end
