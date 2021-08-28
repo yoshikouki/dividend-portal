@@ -5,17 +5,32 @@ module Tweet
     API_HOST = "api.twitter.com"
     TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"
 
-    CONSUMER_KEY = "8YdmRHRF40jw6kzstjJAg5gzH"
-    CONSUMER_SECRET = Rails.application.credentials.twitter[:consumer_secret]
-    ACCESS_TOKEN = "1409097772528148482-JvlKIcCm7g7SXLg1ILHZDi0OM1EnfG"
-    ACCESS_SECRET = Rails.application.credentials.twitter[:access_secret]
+    CREDENTIALS = {
+      consumer_key: "8YdmRHRF40jw6kzstjJAg5gzH",
+      consumer_secret: Rails.application.credentials.twitter[:consumer_secret],
+      access_token: "1409097772528148482-JvlKIcCm7g7SXLg1ILHZDi0OM1EnfG",
+      access_token_secret: Rails.application.credentials.twitter[:access_secret],
+    }.freeze
 
-    def self.new
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = CONSUMER_KEY
-        config.consumer_secret     = CONSUMER_SECRET
-        config.access_token        = ACCESS_TOKEN
-        config.access_token_secret = ACCESS_SECRET
+    CREDENTIALS_FOR_DEV = {
+      consumer_key: "8wwEvpXmANbgYro5FMdCrWVwy",
+      consumer_secret: Rails.application.credentials.twitter[:consumer_secret_for_dev],
+      access_token: "1167600595739365376-5B0zppIhWBxZ66S4hLAOxRlDOJMh0H",
+      access_token_secret: Rails.application.credentials.twitter[:access_secret_for_dev],
+    }.freeze
+
+    class << self
+      # reply_to: Twitter::Tweet
+      def tweet(text, reply_to: nil, dev: false)
+        option = reply_to ? { in_reply_to_status: reply_to } : {}
+        client(dev: dev).update(text, option)
+      end
+
+      private
+
+      def client(dev: false)
+        credentials = dev ? CREDENTIALS_FOR_DEV : CREDENTIALS
+        Twitter::REST::Client.new(credentials)
       end
     end
   end
