@@ -76,9 +76,13 @@ RSpec.configure do |config|
 
     # 秘匿情報はフィルタリングして記録する
     c.filter_sensitive_data("<FMP_API_KEY>") { Fmp::Client::API_KEY }
-    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY>") { Tweet::Client::CONSUMER_KEY }
-    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET>") { Tweet::Client::CONSUMER_SECRET }
-    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN>") { Tweet::Client::ACCESS_TOKEN }
-    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET>") { Tweet::Client::ACCESS_SECRET }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY>") { Rails.application.credentials.twitter[:consumer_key] }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET>") { Rails.application.credentials.twitter[:consumer_secret] }
+    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN>") { Rails.application.credentials.twitter[:access_token] }
+    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET>") { Rails.application.credentials.twitter[:access_secret] }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY_FOR_DEV>") { Rails.application.credentials.twitter[:consumer_key_for_dev] }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET_FOR_DEV>") { Rails.application.credentials.twitter[:consumer_secret_for_dev] }
+    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN_FOR_DEV>") { Rails.application.credentials.twitter[:access_token_for_dev] }
+    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET_FOR_DEV>") { Rails.application.credentials.twitter[:access_secret_for_dev] }
   end
 end

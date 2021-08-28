@@ -2,8 +2,8 @@
 
 module Tweet
   # reply_to: Twitter::Tweet
-  def self.tweet(text, reply_to: nil)
-    client = Client.new
+  def self.tweet(text, reply_to: nil, dev: false)
+    client = Client.new(dev: dev)
     option = reply_to ? { in_reply_to_status: reply_to } : {}
     client.update(text, option)
   end
