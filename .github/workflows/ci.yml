@@ -17,6 +17,9 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
       - name: Setup
         run: bin/setup
       - name: Linter
