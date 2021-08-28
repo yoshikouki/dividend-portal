@@ -21,10 +21,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ./vendor/bundle
+            /app/vendor/bundle
           key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
       - name: Setup
-        run: bin/setup
+        run: |
+          bundle config path /app/vendor/bundle
+          bin/setup
       - name: Linter
         run: make lint
       - name: Test
