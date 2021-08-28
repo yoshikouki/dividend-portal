@@ -8,6 +8,7 @@ require File.expand_path("../config/environment", __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
+require "vcr"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -63,4 +64,17 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  VCR.configure do |c|
+    c.cassette_library_dir = "spec/vcr"
+    c.hook_into :webmock
+    c.allow_http_connections_when_no_cassette = false
+
+    # 秘匿情報はフィルタリングして記録する
+    c.filter_sensitive_data("<FMP_API_KEY>") { Fmp::Client::API_KEY }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY>") { Tweet::CONSUMER_KEY }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET>") { Tweet::CONSUMER_SECRET }
+    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN>") { Tweet::ACCESS_TOKEN }
+    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET>") { Tweet::ACCESS_SECRET }
+  end
 end
