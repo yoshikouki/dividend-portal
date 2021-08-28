@@ -58,7 +58,7 @@ module Fmp
     # @option period [Symbol] :quarter or :annual
     # https://financialmodelingprep.com/developer/docs#Company-Financial-Growth
     # https://financialmodelingprep.com/developer/docs/company-financial-statement-growth-api
-    def financial_growth(symbol, period: :quarter)
+    def financial_growth(symbol, period: :annual)
       path = "api/v3/financial-growth/#{symbol}"
       query = { period: period }
       Client.get(path, query)
