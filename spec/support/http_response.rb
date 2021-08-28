@@ -17,7 +17,6 @@ class HTTPResponseMock
   def []=(key, val)
     unless val
       @header.delete key.downcase.to_s
-      return val
     end
     set_field(key, val)
   end
