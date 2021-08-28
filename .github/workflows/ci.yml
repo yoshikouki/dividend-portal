@@ -22,7 +22,7 @@ jobs:
         with:
           path: |
             ./vendor/bundle
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
       - name: Setup
         run: bin/setup
       - name: Linter
