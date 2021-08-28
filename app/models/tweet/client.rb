@@ -19,9 +19,19 @@ module Tweet
       access_token_secret: Rails.application.credentials.twitter[:access_secret_for_dev],
     }
 
-    def self.new(dev: false)
-      credentials = dev ? CREDENTIALS_FOR_DEV : CREDENTIALS
-      Twitter::REST::Client.new(credentials)
+    class << self
+      # reply_to: Twitter::Tweet
+      def tweet(text, reply_to: nil, dev: false)
+        option = reply_to ? { in_reply_to_status: reply_to } : {}
+        client(dev: dev).update(text, option)
+      end
+
+      private
+
+      def client(dev: false)
+        credentials = dev ? CREDENTIALS_FOR_DEV : CREDENTIALS
+        Twitter::REST::Client.new(credentials)
+      end
     end
   end
 end
