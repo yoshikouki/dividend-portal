@@ -10,14 +10,14 @@ module Tweet
       consumer_secret: Rails.application.credentials.twitter[:consumer_secret],
       access_token: "1409097772528148482-JvlKIcCm7g7SXLg1ILHZDi0OM1EnfG",
       access_token_secret: Rails.application.credentials.twitter[:access_secret],
-    }
+    }.freeze
 
     CREDENTIALS_FOR_DEV = {
       consumer_key: "8wwEvpXmANbgYro5FMdCrWVwy",
       consumer_secret: Rails.application.credentials.twitter[:consumer_secret_for_dev],
       access_token: "1167600595739365376-5B0zppIhWBxZ66S4hLAOxRlDOJMh0H",
       access_token_secret: Rails.application.credentials.twitter[:access_secret_for_dev],
-    }
+    }.freeze
 
     class << self
       # reply_to: Twitter::Tweet
