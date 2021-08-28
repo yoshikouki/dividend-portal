@@ -17,9 +17,20 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v2
+      - name: Cache bundle
+        uses: actions/cache@v2
+        with:
+          path: |
+            /app/vendor/bundle
+            /app/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}-${{ hashFiles('yarn.lock') }}
       - name: Setup
-        run: bin/setup
+        run: |
+          bundle config path /app/vendor/bundle
+          bin/setup
       - name: Linter
         run: make lint
       - name: Test
         run: make test
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
