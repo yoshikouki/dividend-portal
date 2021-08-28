@@ -69,12 +69,16 @@ RSpec.configure do |config|
     c.cassette_library_dir = "spec/vcr"
     c.hook_into :webmock
     c.allow_http_connections_when_no_cassette = false
+    # JSON のレスポンスがバイナリで保存される対策
+    c.before_record do |i|
+      i.response.body.force_encoding('UTF-8')
+    end
 
     # 秘匿情報はフィルタリングして記録する
     c.filter_sensitive_data("<FMP_API_KEY>") { Fmp::Client::API_KEY }
-    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY>") { Tweet::CONSUMER_KEY }
-    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET>") { Tweet::CONSUMER_SECRET }
-    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN>") { Tweet::ACCESS_TOKEN }
-    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET>") { Tweet::ACCESS_SECRET }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_KEY>") { Tweet::Client::CONSUMER_KEY }
+    c.filter_sensitive_data("<TWITTER_CONSUMER_SECRET>") { Tweet::Client::CONSUMER_SECRET }
+    c.filter_sensitive_data("<TWITTER_ACCESS_TOKEN>") { Tweet::Client::ACCESS_TOKEN }
+    c.filter_sensitive_data("<TWITTER_ACCESS_SECRET>") { Tweet::Client::ACCESS_SECRET }
   end
 end
