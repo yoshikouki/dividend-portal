@@ -33,15 +33,15 @@ RSpec.describe Fmp::Converter, type: :model do
       it "key がスネークケースに変換されたJSONを返す" do
         response = HTTPResponseMock.new(
           body: [{
-                   "date" => "2021-07-09",
-                   "label" => "July 09, 21",
-                   "adjDividend" => 0.4025,
-                   "symbol" => "OGE",
-                   "dividend" => 0.4025,
-                   "recordDate" => "2021-07-12",
-                   "paymentDate" => "2021-07-30",
-                   "declarationDate" => "2021-05-20",
-                 }].to_json,
+            "date" => "2021-07-09",
+            "label" => "July 09, 21",
+            "adjDividend" => 0.4025,
+            "symbol" => "OGE",
+            "dividend" => 0.4025,
+            "recordDate" => "2021-07-12",
+            "paymentDate" => "2021-07-30",
+            "declarationDate" => "2021-05-20",
+          }].to_json,
           header: { "content-type" => "application/json;charset=UTF-8" },
         )
         expect = [
@@ -52,7 +52,7 @@ RSpec.describe Fmp::Converter, type: :model do
             label: "July 09, 21",
             payment_date: "2021-07-30",
             record_date: "2021-07-12",
-            symbol: "OGE" }
+            symbol: "OGE" },
         ]
         got = Fmp::Converter.parse_response_body(response)
         expect(got).to eq(expect)

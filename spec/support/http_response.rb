@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HTTPResponseMock
   include ActiveModel
 
@@ -5,7 +7,7 @@ class HTTPResponseMock
 
   def initialize(body: nil, header: nil)
     @body = body
-    @header = header ? header : {}
+    @header = header || {}
   end
 
   def [](key)
