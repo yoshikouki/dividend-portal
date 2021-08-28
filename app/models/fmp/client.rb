@@ -2,6 +2,9 @@
 
 module Fmp
   module Client
+    API_HOST = "financialmodelingprep.com"
+    API_KEY = Rails.application.credentials.fmp[:api_key]
+
     class << self
       def get(path, query_hash = {})
         url = Converter.url(path, query_hash)

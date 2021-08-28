@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HTTPResponseMock
   include ActiveModel
 
@@ -5,7 +7,7 @@ class HTTPResponseMock
 
   def initialize(body: nil, header: nil)
     @body = body
-    @header = header ? header : {}
+    @header = header || {}
   end
 
   def [](key)
@@ -15,7 +17,6 @@ class HTTPResponseMock
   def []=(key, val)
     unless val
       @header.delete key.downcase.to_s
-      return val
     end
     set_field(key, val)
   end

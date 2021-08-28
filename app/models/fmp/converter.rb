@@ -2,9 +2,6 @@
 
 module Fmp
   module Converter
-    API_HOST = "financialmodelingprep.com"
-    API_KEY = ENV["API_KEY_FMP"]
-
     DIVIDEND_CALENDAR_FOR_VIEW = {
       date: "ex-dividend date", # "権利落ち日"
       label: "label", # "権利落ち日(英語表記)"
@@ -28,7 +25,7 @@ module Fmp
           end
         end
 
-        "https://#{API_HOST}#{path}?apikey=#{API_KEY}#{query}"
+        "https://#{Client::API_HOST}#{path}?apikey=#{Client::API_KEY}#{query}"
       end
 
       def parse_response_body(response)
