@@ -22,7 +22,8 @@ jobs:
         with:
           path: |
             /app/vendor/bundle
-          key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}
+            /app/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('Gemfile.lock') }}-${{ hashFiles('yarn.lock') }}
       - name: Setup
         run: |
           bundle config path /app/vendor/bundle
