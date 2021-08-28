@@ -3,7 +3,7 @@
 module Fmp
   module Converter
     API_HOST = "financialmodelingprep.com"
-    API_KEY = ENV["API_KEY_FMP"]
+    API_KEY = Rails.application.credentials.fmp[:api_key]
 
     DIVIDEND_CALENDAR_FOR_VIEW = {
       date: "ex-dividend date", # "権利落ち日"

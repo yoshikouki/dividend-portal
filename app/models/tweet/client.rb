@@ -5,17 +5,17 @@ module Tweet
     API_HOST = "api.twitter.com"
     TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"
 
-    CONSUMER_KEY = ENV["TWITTER_CONSUMER_KEY"]
-    CONSUMER_SECRET = ENV["TWITTER_CONSUMER_SECRET"]
-    ACCESS_TOKEN = ENV["TWITTER_ACCESS_TOKEN"]
-    ACCESS_SECRET = ENV["TWITTER_ACCESS_SECRET"]
+    CONSUMER_KEY = "8YdmRHRF40jw6kzstjJAg5gzH"
+    CONSUMER_SECRET = Rails.application.credentials.twitter[:consumer_secret]
+    ACCESS_TOKEN = "1409097772528148482-JvlKIcCm7g7SXLg1ILHZDi0OM1EnfG"
+    ACCESS_SECRET = Rails.application.credentials.twitter[:access_secret]
 
     def self.new
       Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-        config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-        config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-        config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+        config.consumer_key        = CONSUMER_KEY
+        config.consumer_secret     = CONSUMER_SECRET
+        config.access_token        = ACCESS_TOKEN
+        config.access_token_secret = ACCESS_SECRET
       end
     end
   end
