@@ -78,7 +78,7 @@ class Dividend
           stock_splits_after_dividend = total_split_number_by_span.keys.filter { |split_date| split_date.after?(ex_dividend_date) }
           if stock_splits_after_dividend.present?
             total_split_number = total_split_number_by_span[stock_splits_after_dividend.last]
-            dividend[:adjusted_dividend] = (decimal(dividend[:dividend]) / decimal(total_split_number)).to_f
+            dividend[:adjusted_dividend] = division(dividend[:dividend], total_split_number)
           else
             dividend[:adjusted_dividend] = dividend[:adjusted_dividend].to_f
           end
@@ -88,8 +88,10 @@ class Dividend
 
       private
 
-      def self.decimal(float)
-        BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
+      def self.division(numerator, denominator)
+        result = numerator.to_d / denominator.to_d
+        # result.to_s("F")[0..ASSUMED_DIVIDEND_DECIMAL_POINT]
+        result.to_f
       end
     end
   end
