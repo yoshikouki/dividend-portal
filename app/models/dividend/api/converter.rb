@@ -86,8 +86,6 @@ class Dividend
         end
       end
 
-      private
-
       def self.division(numerator, denominator)
         result = numerator.to_d / denominator.to_d
         # result.to_s("F")[0..ASSUMED_DIVIDEND_DECIMAL_POINT]
