@@ -26,8 +26,13 @@ class Chart
   }.freeze
 
   def mixed
-    @client = QuickChart.new(QUICK_CHART_MIXED_CONFIG, **QUICK_CHART_DEFAULT_ARG)
     client.to_file(TEMP_IMAGE_PATH)
     File.new(TEMP_IMAGE_PATH)
+  end
+
+  private
+
+  def client(config: QUICK_CHART_MIXED_CONFIG, arg: QUICK_CHART_DEFAULT_ARG)
+    @client ||= QuickChart.new(config, **arg)
   end
 end
