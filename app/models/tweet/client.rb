@@ -26,8 +26,8 @@ module Tweet
         client(dev: dev).update(text, option)
       end
 
-      def tweet_with_image(image = Chart.new.mixed)
-        client(dev: true).update_with_media("Rails からグラフのテスト投稿です", image)
+      def tweet_with_image(text, image = Chart.new.mixed, dev: false)
+        client(dev: dev).update_with_media(text, image)
       end
 
       private
