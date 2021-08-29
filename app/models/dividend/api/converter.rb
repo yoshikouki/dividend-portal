@@ -54,6 +54,17 @@ class Dividend
       end
 
       def self.calculate_adjusted_dividend(historical_dividends, historical_stock_splits)
+        total_split_number_by_span = calculate_total_split_number(historical_stock_splits)
+      end
+
+      def self.calculate_total_split_number(historical_stock_splits)
+        total_split_number = 1
+        stock_splits = historical_stock_splits.map do |split|
+          split_date = Date.parse(split[:date])
+          total_split_number *= split[:numerator]
+          [split_date, total_split_number]
+        end
+        stock_splits.to_h
       end
     end
   end
