@@ -34,13 +34,14 @@ RSpec.describe Dividend::Api, type: :model do
   end
 
   describe ".outlook" do
-    context "シンボルが単数の場合" do
-      it "期間指定してAPI経由で配当情報を取得できる" do
-        VCR.use_cassette("models/dividend/api/outlook") do
-          actual = Dividend::Api.outlook("KO")
-          expect(actual.class).to eq Hash
-          expect(actual.keys).to eq %i[symbol price ttm dividends]
-        end
+    it "配当に関係する企業情報が取得できる" do
+      VCR.use_cassette("models/dividend/api/outlook") do
+        actual = Dividend::Api.outlook("KO")
+        expect(actual.class).to eq Hash
+        expect(actual.keys).to eq %i[symbol price ttm dividends]
+      end
+    end
+  end
       end
     end
   end
