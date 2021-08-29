@@ -1,0 +1,5459 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/stock_dividend_calendar?apikey=<FMP_API_KEY>&from=2021-08-27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 29 Aug 2021 02:06:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: UTF-8
+      string: |-
+        [ {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 1.45,
+          "symbol" : "UNH",
+          "dividend" : 1.45,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.005,
+          "symbol" : "GROW",
+          "dividend" : 0.005,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-06-02"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.49,
+          "symbol" : "DVN",
+          "dividend" : 0.49,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.55,
+          "symbol" : "OCCI",
+          "dividend" : 0.55,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-10-29",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "ITT",
+          "dividend" : 0.22,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.104,
+          "symbol" : "TBLD",
+          "dividend" : 0.104,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "VGI",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "ZTR",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "JRVR",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.54,
+          "symbol" : "KSU",
+          "dividend" : 0.54,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-10-06",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-09-10",
+          "label" : "September 10, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "SPR",
+          "dividend" : 0.01,
+          "recordDate" : "2021-09-13",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.49,
+          "symbol" : "VFC",
+          "dividend" : 0.49,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "UWMC",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-06",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.147,
+          "symbol" : "UBCP",
+          "dividend" : 0.147,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.37,
+          "symbol" : "UMBF",
+          "dividend" : 0.37,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.88,
+          "symbol" : "TRV",
+          "dividend" : 0.88,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 1.14,
+          "symbol" : "KMB",
+          "dividend" : 1.14,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.4,
+          "symbol" : "KTB",
+          "dividend" : 0.4,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.75,
+          "symbol" : "LANC",
+          "dividend" : 0.75,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "IIIN",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.14,
+          "symbol" : "ICFI",
+          "dividend" : 0.14,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-13",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "GPN",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.108,
+          "symbol" : "G",
+          "dividend" : 0.108,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.38,
+          "symbol" : "MANT",
+          "dividend" : 0.38,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "TXT",
+          "dividend" : 0.02,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.54,
+          "symbol" : "NDAQ",
+          "dividend" : 0.54,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.7,
+          "symbol" : "NTRS",
+          "dividend" : 0.7,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 1.34,
+          "symbol" : "WILC",
+          "dividend" : 1.34,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "FHN",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.39,
+          "symbol" : "FIS",
+          "dividend" : 0.39,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "FMNB",
+          "dividend" : 0.11,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.45,
+          "symbol" : "NSP",
+          "dividend" : 0.45,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "HOG",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.5,
+          "symbol" : "GOGL",
+          "dividend" : 0.5,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "FUSB",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "CAL",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.26,
+          "symbol" : "KFRC",
+          "dividend" : 0.26,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.3162,
+          "symbol" : "T.TO",
+          "dividend" : 0.3162,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "STXB",
+          "dividend" : 0.12,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.65,
+          "symbol" : "SR",
+          "dividend" : 0.65,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.303,
+          "symbol" : "SJI",
+          "dividend" : 0.303,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "SAMG",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.253,
+          "symbol" : "TU",
+          "dividend" : 0.253,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.105,
+          "symbol" : "KIO",
+          "dividend" : 0.105,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.111,
+          "symbol" : "GFI",
+          "dividend" : 0.111,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.09,
+          "symbol" : "EIC",
+          "dividend" : 0.09,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "SNDR",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.0125,
+          "symbol" : "QTRH.TO",
+          "dividend" : 0.0125,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "EXPO",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.175,
+          "symbol" : "ENS",
+          "dividend" : 0.175,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.72,
+          "symbol" : "CMP",
+          "dividend" : 0.72,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "CNO",
+          "dividend" : 0.13,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.9,
+          "symbol" : "CME",
+          "dividend" : 0.9,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.507,
+          "symbol" : "YY",
+          "dividend" : 0.507,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.002,
+          "symbol" : "MGM",
+          "dividend" : 0.002,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "ECC",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.37,
+          "symbol" : "CTXS",
+          "dividend" : 0.37,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 5.938,
+          "symbol" : "DKS",
+          "dividend" : 5.938,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.45,
+          "symbol" : "BPOP",
+          "dividend" : 0.45,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.16,
+          "symbol" : "AL",
+          "dividend" : 0.16,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "JOAN",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.29,
+          "symbol" : "AMSF",
+          "dividend" : 0.29,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 1.13,
+          "symbol" : "ANTM",
+          "dividend" : 1.13,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.26,
+          "symbol" : "AUBN",
+          "dividend" : 0.26,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.93,
+          "symbol" : "ADP",
+          "dividend" : 0.93,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "BSIG",
+          "dividend" : 0.01,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "OXY",
+          "dividend" : 0.01,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "CRWS",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.41,
+          "symbol" : "WMB",
+          "dividend" : 0.41,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.095,
+          "symbol" : "VSH",
+          "dividend" : 0.095,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-09",
+          "label" : "September 09, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "VCTR",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-10",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.115,
+          "symbol" : "LGI",
+          "dividend" : 0.115,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.022,
+          "symbol" : "DHF",
+          "dividend" : 0.022,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "CASH",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.255,
+          "symbol" : "PINE",
+          "dividend" : 0.255,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 1.0,
+          "symbol" : "CTO",
+          "dividend" : 1,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.46,
+          "symbol" : "JKHY",
+          "dividend" : 0.46,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "AAT",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.62,
+          "symbol" : "ALV",
+          "dividend" : 0.62,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.83,
+          "symbol" : "BDX",
+          "dividend" : 0.83,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 1.0,
+          "symbol" : "DHIL",
+          "dividend" : 1,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "EPC",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-10-05",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "INSW",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "KIM",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.213,
+          "symbol" : "MDU",
+          "dividend" : 0.213,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.55,
+          "symbol" : "NEM",
+          "dividend" : 0.55,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.5,
+          "symbol" : "RCI_B.TO",
+          "dividend" : 0.5,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "STNG",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 1.5,
+          "symbol" : "SPG",
+          "dividend" : 1.5,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-09-08",
+          "label" : "September 08, 21",
+          "adjDividend" : 0.57,
+          "symbol" : "TRTN",
+          "dividend" : 0.57,
+          "recordDate" : "2021-09-09",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.615,
+          "symbol" : "CNR.TO",
+          "dividend" : 0.615,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.0067,
+          "symbol" : "DNG.TO",
+          "dividend" : 0.0067,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 1.0,
+          "symbol" : "CI",
+          "dividend" : 1,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.29,
+          "symbol" : "GBDC",
+          "dividend" : 0.29,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.194,
+          "symbol" : "HPQ",
+          "dividend" : 0.194,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-10-06",
+          "declarationDate" : "2021-06-23"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.2663,
+          "symbol" : "H.TO",
+          "dividend" : 0.2663,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "KSS",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "PDCE",
+          "dividend" : 0.12,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 1.25,
+          "symbol" : "LNF.TO",
+          "dividend" : 1.25,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "MFI.TO",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "PJT",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.55,
+          "symbol" : "AEE",
+          "dividend" : 0.55,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.117,
+          "symbol" : "AMCR",
+          "dividend" : 0.117,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.51,
+          "symbol" : "PEG",
+          "dividend" : 0.51,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 2.75,
+          "symbol" : "TPL",
+          "dividend" : 2.75,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "MOV",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.4,
+          "symbol" : "TXRH",
+          "dividend" : 0.4,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.35,
+          "symbol" : "TIH.TO",
+          "dividend" : 0.35,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "BBDC",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.492,
+          "symbol" : "CNI",
+          "dividend" : 0.492,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.112,
+          "symbol" : "GES",
+          "dividend" : 0.112,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-07",
+          "label" : "September 07, 21",
+          "adjDividend" : 0.51,
+          "symbol" : "FAF",
+          "dividend" : 0.51,
+          "recordDate" : "2021-09-08",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.218,
+          "symbol" : "ASX",
+          "dividend" : 0.218,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-10-07",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "AIN",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-10-07",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.82,
+          "symbol" : "ANAT",
+          "dividend" : 0.82,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.39,
+          "symbol" : "EFX",
+          "dividend" : 0.39,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-26"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "TPR",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 4.13,
+          "symbol" : "BLK",
+          "dividend" : 4.13,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.262,
+          "symbol" : "CBSH",
+          "dividend" : 0.262,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "CMG.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.14,
+          "symbol" : "ESCA",
+          "dividend" : 0.14,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "HWC",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "HIHO",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-10-12",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "PBIP",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "AVT",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "LOB",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "SAP.TO",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.103,
+          "symbol" : "SQFT",
+          "dividend" : 0.103,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.32,
+          "symbol" : "PWOD",
+          "dividend" : 0.32,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "FANH",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "III",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "NFE",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "UNF",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-07-08"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.79,
+          "symbol" : "SWK",
+          "dividend" : 0.79,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "AMKR",
+          "dividend" : 0.04,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.28,
+          "symbol" : "QIWI",
+          "dividend" : 0.28,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.5,
+          "symbol" : "UHAL",
+          "dividend" : 0.5,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-03",
+          "label" : "September 03, 21",
+          "adjDividend" : 0.285,
+          "symbol" : "ROST",
+          "dividend" : 0.285,
+          "recordDate" : "2021-09-07",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.003,
+          "symbol" : "BBD",
+          "dividend" : 0.003,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-12",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "FLO",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "PEBK",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "UFCS",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.75,
+          "symbol" : "FDX",
+          "dividend" : 0.75,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "FFNW",
+          "dividend" : 0.11,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.29,
+          "symbol" : "FRME",
+          "dividend" : 0.29,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "EBIX",
+          "dividend" : 0.075,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.015,
+          "symbol" : "RZZ.TO",
+          "dividend" : 0.015,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-06-07"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.165,
+          "symbol" : "GOLF",
+          "dividend" : 0.165,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 4.0,
+          "symbol" : "BHP",
+          "dividend" : 4.0,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 4.0,
+          "symbol" : "BBL",
+          "dividend" : 4.0,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "AE",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "OBT",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.204,
+          "symbol" : "SQM",
+          "dividend" : 0.204,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "AMNB",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.26,
+          "symbol" : "AROW",
+          "dividend" : 0.26,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.48,
+          "symbol" : "AJG",
+          "dividend" : 0.48,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.44,
+          "symbol" : "AGR",
+          "dividend" : 0.44,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-12"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "BAC",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 1.02,
+          "symbol" : "LHX",
+          "dividend" : 1.02,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 1.06,
+          "symbol" : "LIN",
+          "dividend" : 1.06,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.09,
+          "symbol" : "LUN.TO",
+          "dividend" : 0.09,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "MBWM",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.16,
+          "symbol" : "MBCN",
+          "dividend" : 0.16,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.9,
+          "symbol" : "LCII",
+          "dividend" : 0.9,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 7.0,
+          "symbol" : "RMR",
+          "dividend" : 7,
+          "recordDate" : "2021-09-06",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-25"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "SVBI",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.053,
+          "symbol" : "AFB",
+          "dividend" : 0.053,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "MLR",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-13",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "MLI",
+          "dividend" : 0.13,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.16,
+          "symbol" : "NAVI",
+          "dividend" : 0.16,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "OUT",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 1.075,
+          "symbol" : "PEP",
+          "dividend" : 1.075,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "PWP",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "SU.TO",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.095,
+          "symbol" : "TGNA",
+          "dividend" : 0.095,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.105,
+          "symbol" : "ULH",
+          "dividend" : 0.105,
+          "recordDate" : "2021-09-06",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "WHG",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "WY",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.815,
+          "symbol" : "GPC",
+          "dividend" : 0.815,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.37,
+          "symbol" : "MYBF",
+          "dividend" : 0.37,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.2209,
+          "symbol" : "OTEX.TO",
+          "dividend" : 0.2209,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.28,
+          "symbol" : "BAX",
+          "dividend" : 0.28,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-12"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "BRKS",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1795,
+          "symbol" : "BF/B",
+          "dividend" : 0.1795,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "CASS",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "CVR",
+          "dividend" : 0.22,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "EBC",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "FNB",
+          "dividend" : 0.12,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-14"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "GAIN",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-14"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "HBM.TO",
+          "dividend" : 0.01,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "IMO.TO",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "BOTJ",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "KNX",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "SEE",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-12"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "FFIC",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "TILE",
+          "dividend" : 0.01,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.002,
+          "symbol" : "BBDO",
+          "dividend" : 0.002,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-12",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.179,
+          "symbol" : "BF.B",
+          "dividend" : 0.179,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.179,
+          "symbol" : "BF.A",
+          "dividend" : 0.179,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.51,
+          "symbol" : "CHRW",
+          "dividend" : 0.51,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.63,
+          "symbol" : "D",
+          "dividend" : 0.63,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.008,
+          "symbol" : "HBM",
+          "dividend" : 0.008,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.398,
+          "symbol" : "OTEX",
+          "dividend" : 0.398,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.185,
+          "symbol" : "SOR",
+          "dividend" : 0.185,
+          "recordDate" : "2021-09-06",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.168,
+          "symbol" : "SU",
+          "dividend" : 0.168,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.59,
+          "symbol" : "TT",
+          "dividend" : 0.59,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-06-03"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.575,
+          "symbol" : "WM",
+          "dividend" : 0.575,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "ICBK",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.341,
+          "symbol" : "TRST",
+          "dividend" : 0.341,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "PRGO",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 1.51,
+          "symbol" : "PXD",
+          "dividend" : 1.51,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "RF",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "SLM",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.43,
+          "symbol" : "STE",
+          "dividend" : 0.43,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-09-02",
+          "label" : "September 02, 21",
+          "adjDividend" : 0.6,
+          "symbol" : "STRA",
+          "dividend" : 0.6,
+          "recordDate" : "2021-09-03",
+          "paymentDate" : "2021-09-13",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.025,
+          "symbol" : "VNT",
+          "dividend" : 0.025,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "FEI",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.155,
+          "symbol" : "RCKY",
+          "dividend" : 0.155,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.43,
+          "symbol" : "HLI",
+          "dividend" : 0.43,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "RMBI",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "MOS",
+          "dividend" : 0.075,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 1.65,
+          "symbol" : "HD",
+          "dividend" : 1.65,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.4483,
+          "symbol" : "ACO_X.TO",
+          "dividend" : 0.4483,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.68,
+          "symbol" : "QCOM",
+          "dividend" : 0.68,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-07-14"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "RAND",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "CIX",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.438,
+          "symbol" : "GWO.TO",
+          "dividend" : 0.438,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "ESBK",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "FSD",
+          "dividend" : 0.11,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.149,
+          "symbol" : "FTHY",
+          "dividend" : 0.149,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.127,
+          "symbol" : "FPF",
+          "dividend" : 0.127,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "FMY",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.008,
+          "symbol" : "FIV",
+          "dividend" : 0.008,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "FAM",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.063,
+          "symbol" : "FIF",
+          "dividend" : 0.063,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "LZB",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "VOYA",
+          "dividend" : 0.04,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "KRO",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.5,
+          "symbol" : "LEA",
+          "dividend" : 0.5,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "NL",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "SSTK",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.038,
+          "symbol" : "FPL",
+          "dividend" : 0.038,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "VHI",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.036,
+          "symbol" : "WSR",
+          "dividend" : 0.036,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-06-11"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "IGD",
+          "dividend" : 0.04,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "FDEU",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.09,
+          "symbol" : "FCT",
+          "dividend" : 0.09,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "PTEN",
+          "dividend" : 0.02,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.463,
+          "symbol" : "PAX",
+          "dividend" : 0.463,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.003,
+          "symbol" : "ITUB",
+          "dividend" : 0.003,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-10-12",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-09-01",
+          "label" : "September 01, 21",
+          "adjDividend" : 0.4,
+          "symbol" : "FLNG",
+          "dividend" : 0.4,
+          "recordDate" : "2021-09-02",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.3345,
+          "symbol" : "CWEN/A",
+          "dividend" : 0.3345,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "CCNE",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "NPO",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "ESNT",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.23,
+          "symbol" : "FFBC",
+          "dividend" : 0.23,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "FBC",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "FNCB",
+          "dividend" : 0.075,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "FOXA",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 2.0,
+          "symbol" : "GS",
+          "dividend" : 2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "FF",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2020-12-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.09,
+          "symbol" : "GCMG",
+          "dividend" : 0.09,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "PAHC",
+          "dividend" : 0.12,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.035,
+          "symbol" : "PANL",
+          "dividend" : 0.035,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "PTVE",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "WMS",
+          "dividend" : 0.11,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.21,
+          "symbol" : "CXP",
+          "dividend" : 0.21,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "COWN",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "EBAY",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "EA",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "ZEUS",
+          "dividend" : 0.02,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.35,
+          "symbol" : "AEM.TO",
+          "dividend" : 0.35,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-04-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "ASH",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "ASB",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.34,
+          "symbol" : "GPI",
+          "dividend" : 0.34,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 1.1,
+          "symbol" : "MTB",
+          "dividend" : 1.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "OPOF",
+          "dividend" : 0.13,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.235,
+          "symbol" : "O",
+          "dividend" : 0.235,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "TER",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.35,
+          "symbol" : "HIG",
+          "dividend" : 0.35,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.322,
+          "symbol" : "HY",
+          "dividend" : 0.322,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.68,
+          "symbol" : "AVY",
+          "dividend" : 0.68,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "ORI",
+          "dividend" : 0.22,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "BLL",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "BGFV",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "BCC",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.63,
+          "symbol" : "AEM",
+          "dividend" : 0.63,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "BRKR",
+          "dividend" : 0.04,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.17,
+          "symbol" : "BWA",
+          "dividend" : 0.17,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.566,
+          "symbol" : "FORTY",
+          "dividend" : 0.566,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-04",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.036,
+          "symbol" : "TAC",
+          "dividend" : 0.036,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "UHS",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "PFBI",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.387,
+          "symbol" : "MGEE",
+          "dividend" : 0.387,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.52,
+          "symbol" : "HTLD",
+          "dividend" : 0.52,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.045,
+          "symbol" : "HAL",
+          "dividend" : 0.045,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "ESI",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "BSY",
+          "dividend" : 0.03,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.16,
+          "symbol" : "SSNC",
+          "dividend" : 0.16,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "NNI",
+          "dividend" : 0.22,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.28,
+          "symbol" : "NBTB",
+          "dividend" : 0.28,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.14,
+          "symbol" : "MVBF",
+          "dividend" : 0.14,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.225,
+          "symbol" : "MOFG",
+          "dividend" : 0.225,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "MRU.TO",
+          "dividend" : 0.25,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.47,
+          "symbol" : "MCK",
+          "dividend" : 0.47,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 1.29,
+          "symbol" : "MCD",
+          "dividend" : 1.29,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.61,
+          "symbol" : "MLM",
+          "dividend" : 0.61,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "CCS",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "IBKR",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "EMCF",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "HBB",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "KRNY",
+          "dividend" : 0.1,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "NVDA",
+          "dividend" : 0.04,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-23",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "VINP",
+          "dividend" : 0.3,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "HQI",
+          "dividend" : 0.06,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "HAYN",
+          "dividend" : 0.22,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "NTST",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.335,
+          "symbol" : "CWEN.A",
+          "dividend" : 0.335,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.335,
+          "symbol" : "CWEN",
+          "dividend" : 0.335,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "CRWS",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "FOX",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "ODFL",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "SJ.TO",
+          "dividend" : 0.18,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.045,
+          "symbol" : "TA.TO",
+          "dividend" : 0.045,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.18125,
+          "symbol" : "VIA",
+          "dividend" : 0.18125,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 2.6,
+          "symbol" : "LMT",
+          "dividend" : 2.6,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-06-24"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.4,
+          "symbol" : "KHC",
+          "dividend" : 0.4,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.58,
+          "symbol" : "K",
+          "dividend" : 0.58,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "JNPR",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "GHL",
+          "dividend" : 0.05,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.14,
+          "symbol" : "ONB",
+          "dividend" : 0.14,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.125,
+          "symbol" : "STAR",
+          "dividend" : 0.125,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.46,
+          "symbol" : "ITIC",
+          "dividend" : 0.46,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.27,
+          "symbol" : "IPG",
+          "dividend" : 0.27,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "WEN",
+          "dividend" : 0.12,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.26,
+          "symbol" : "WTS",
+          "dividend" : 0.26,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "VIRT",
+          "dividend" : 0.24,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "HLF.TO",
+          "dividend" : 0.07,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.19,
+          "symbol" : "LCNB",
+          "dividend" : 0.19,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "UFPI",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.445,
+          "symbol" : "TSN",
+          "dividend" : 0.445,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-05-14"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.23,
+          "symbol" : "TRMK",
+          "dividend" : 0.23,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "TW",
+          "dividend" : 0.08,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "SF",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "SBGI",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.14,
+          "symbol" : "SLGN",
+          "dividend" : 0.14,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-02"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.125,
+          "symbol" : "SLB",
+          "dividend" : 0.125,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-10-07",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.9,
+          "symbol" : "SAFT",
+          "dividend" : 0.9,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.175,
+          "symbol" : "PRGS",
+          "dividend" : 0.175,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-06-24"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.63,
+          "symbol" : "PFG",
+          "dividend" : 0.63,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-24",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "PINC",
+          "dividend" : 0.2,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.63,
+          "symbol" : "PII",
+          "dividend" : 0.63,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.175,
+          "symbol" : "CUP_U.TO",
+          "dividend" : 0.175,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-31",
+          "label" : "August 31, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "CDK",
+          "dividend" : 0.15,
+          "recordDate" : "2021-09-01",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.063,
+          "symbol" : "BBU",
+          "dividend" : 0.063,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "ACNB",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "AGNC",
+          "dividend" : 0.12,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.12,
+          "symbol" : "ABTX",
+          "dividend" : 0.12,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.81,
+          "symbol" : "ALL",
+          "dividend" : 0.81,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "ALS.TO",
+          "dividend" : 0.07,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.31,
+          "symbol" : "ARGO",
+          "dividend" : 0.31,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.43,
+          "symbol" : "AY",
+          "dividend" : 0.43,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "AI.TO",
+          "dividend" : 0.075,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0525,
+          "symbol" : "BDGI.TO",
+          "dividend" : 0.0525,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.09,
+          "symbol" : "ABX.TO",
+          "dividend" : 0.09,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0325,
+          "symbol" : "BDT.TO",
+          "dividend" : 0.0325,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.041666,
+          "symbol" : "BLB_UN.TO",
+          "dividend" : 0.041666,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-03-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.165,
+          "symbol" : "BLX.TO",
+          "dividend" : 0.165,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1125,
+          "symbol" : "BRE.TO",
+          "dividend" : 0.1125,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "BAM_A.TO",
+          "dividend" : 0.13,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0625,
+          "symbol" : "BBU_UN.TO",
+          "dividend" : 0.0625,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-08"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.304,
+          "symbol" : "BEPC",
+          "dividend" : 0.304,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.304,
+          "symbol" : "BEP",
+          "dividend" : 0.304,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.025,
+          "symbol" : "BTB_UN.TO",
+          "dividend" : 0.025,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "CGI.TO",
+          "dividend" : 0.22,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "CIQ_UN.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.135,
+          "symbol" : "CTT",
+          "dividend" : 0.135,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "CPF",
+          "dividend" : 0.24,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.26,
+          "symbol" : "CRAI",
+          "dividend" : 0.26,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.43,
+          "symbol" : "CR",
+          "dividend" : 0.43,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-08",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07417,
+          "symbol" : "CRR_UN.TO",
+          "dividend" : 0.07417,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.093,
+          "symbol" : "CSX",
+          "dividend" : 0.093,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.025,
+          "symbol" : "DE.TO",
+          "dividend" : 0.025,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03333,
+          "symbol" : "MDC_UN.TO",
+          "dividend" : 0.03333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.5,
+          "symbol" : "DOV",
+          "dividend" : 0.5,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.038,
+          "symbol" : "ERF.TO",
+          "dividend" : 0.038,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "EXE.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.82,
+          "symbol" : "FDS",
+          "dividend" : 0.82,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.078,
+          "symbol" : "FC.TO",
+          "dividend" : 0.078,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-05-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0425,
+          "symbol" : "FCD_UN.TO",
+          "dividend" : 0.0425,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-05-25"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.036,
+          "symbol" : "FCR_UN.TO",
+          "dividend" : 0.036,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "FRU.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0125,
+          "symbol" : "MMX.TO",
+          "dividend" : 0.0125,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "MR_UN.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.16,
+          "symbol" : "MLAB",
+          "dividend" : 0.16,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-07"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05416,
+          "symbol" : "RCO_UN.TO",
+          "dividend" : 0.05416,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04167,
+          "symbol" : "RA_UN.TO",
+          "dividend" : 0.04167,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "MID_UN.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.23,
+          "symbol" : "NWL",
+          "dividend" : 0.23,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05333,
+          "symbol" : "NXR_UN.TO",
+          "dividend" : 0.05333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "NOA.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "NPI.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06667,
+          "symbol" : "NWH_UN.TO",
+          "dividend" : 0.06667,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.38,
+          "symbol" : "PFIS",
+          "dividend" : 0.38,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-30"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "PZA.TO",
+          "dividend" : 0.06,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "POWI",
+          "dividend" : 0.13,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "MMP_UN.TO",
+          "dividend" : 0.01,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.053,
+          "symbol" : "RIB_UN.TO",
+          "dividend" : 0.053,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-06-30"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.08,
+          "symbol" : "REI_UN.TO",
+          "dividend" : 0.08,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-08",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "RLI",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "SCHL",
+          "dividend" : 0.15,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-21"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.015,
+          "symbol" : "PME.TO",
+          "dividend" : 0.015,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "TSLX",
+          "dividend" : 0.02,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "TWC.TO",
+          "dividend" : 0.02,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 1.07,
+          "symbol" : "UNP",
+          "dividend" : 1.07,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "UBOH",
+          "dividend" : 0.2,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04166,
+          "symbol" : "PBY_UN.TO",
+          "dividend" : 0.04166,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-03-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "FFI_UN.TO",
+          "dividend" : 0.07,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0339,
+          "symbol" : "PMB_UN.TO",
+          "dividend" : 0.0339,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "BUA_UN.TO",
+          "dividend" : 0.03,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-03-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "RBN_UN.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0834,
+          "symbol" : "BEI_UN.TO",
+          "dividend" : 0.0834,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.7,
+          "symbol" : "DOW",
+          "dividend" : 0.7,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.078,
+          "symbol" : "SIA.TO",
+          "dividend" : 0.078,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.42,
+          "symbol" : "SPB",
+          "dividend" : 0.42,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.121,
+          "symbol" : "STAG",
+          "dividend" : 0.121,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "SCM",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "RAY_A.TO",
+          "dividend" : 0.075,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.047,
+          "symbol" : "SMU_UN.TO",
+          "dividend" : 0.047,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03333,
+          "symbol" : "AGR_UN.TO",
+          "dividend" : 0.03333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04167,
+          "symbol" : "INF_UN.TO",
+          "dividend" : 0.04167,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03333,
+          "symbol" : "SIH_UN.TO",
+          "dividend" : 0.03333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0475,
+          "symbol" : "TFPM.TO",
+          "dividend" : 0.0475,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.065,
+          "symbol" : "DNP",
+          "dividend" : 0.065,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-06-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.022,
+          "symbol" : "AVAL",
+          "dividend" : 0.022,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-04-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1417,
+          "symbol" : "AP_UN.TO",
+          "dividend" : 0.1417,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.067,
+          "symbol" : "APR_UN.TO",
+          "dividend" : 0.067,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "BRMK",
+          "dividend" : 0.07,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.051,
+          "symbol" : "CSH_UN.TO",
+          "dividend" : 0.051,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.061667,
+          "symbol" : "CHP_UN.TO",
+          "dividend" : 0.061667,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01345,
+          "symbol" : "ERE_UN.TO",
+          "dividend" : 0.01345,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0425,
+          "symbol" : "MHC_U.TO",
+          "dividend" : 0.0425,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "GDG_UN.TO",
+          "dividend" : 0.06,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.033,
+          "symbol" : "BL_UN.TO",
+          "dividend" : 0.033,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04167,
+          "symbol" : "GEC_UN.TO",
+          "dividend" : 0.04167,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "EAF",
+          "dividend" : 0.01,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.98,
+          "symbol" : "HUBB",
+          "dividend" : 0.98,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-22"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06875,
+          "symbol" : "INO_UN.TO",
+          "dividend" : 0.06875,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-05-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04167,
+          "symbol" : "CLP_UN.TO",
+          "dividend" : 0.04167,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-13"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.027125,
+          "symbol" : "IIP_UN.TO",
+          "dividend" : 0.027125,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "JWEL.TO",
+          "dividend" : 0.15,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "KBL.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-06"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.185,
+          "symbol" : "KEY",
+          "dividend" : 0.185,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-07"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05667,
+          "symbol" : "KMP_UN.TO",
+          "dividend" : 0.05667,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "KINS",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-03"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "KNSL",
+          "dividend" : 0.11,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-13",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 1.725,
+          "symbol" : "MAGS",
+          "dividend" : 1.725,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-22",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0583,
+          "symbol" : "MRG_UN.TO",
+          "dividend" : 0.0583,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "MRT_UN.TO",
+          "dividend" : 0.02,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.10476,
+          "symbol" : "NHF_UN.TO",
+          "dividend" : 0.10476,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02333,
+          "symbol" : "PLZ_UN.TO",
+          "dividend" : 0.02333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0495,
+          "symbol" : "TNT_UN.TO",
+          "dividend" : 0.0495,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "CTF_UN.TO",
+          "dividend" : 0.01,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-01-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.88,
+          "symbol" : "CODI",
+          "dividend" : 0.88,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-07",
+          "declarationDate" : "2021-08-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.24,
+          "symbol" : "GLW",
+          "dividend" : 0.24,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-06-30"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.001,
+          "symbol" : "SFI.TO",
+          "dividend" : 0.001,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06,
+          "symbol" : "SPB.TO",
+          "dividend" : 0.06,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.125,
+          "symbol" : "SYZ.TO",
+          "dividend" : 0.125,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-08",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "SSF_UN.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.23,
+          "symbol" : "TNC",
+          "dividend" : 0.23,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.021,
+          "symbol" : "EURN",
+          "dividend" : 0.021,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-08",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "AX_UN.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0171,
+          "symbol" : "AFCC_H.TO",
+          "dividend" : 0.0171,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-30",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0417,
+          "symbol" : "HOM_U.TO",
+          "dividend" : 0.0417,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.12083,
+          "symbol" : "CAR_UN.TO",
+          "dividend" : 0.12083,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "ENI_UN.TO",
+          "dividend" : 0.01,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "NETI",
+          "dividend" : 0.01,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "EPR",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.19,
+          "symbol" : "EIF.TO",
+          "dividend" : 0.19,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.195833,
+          "symbol" : "FN.TO",
+          "dividend" : 0.195833,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03792,
+          "symbol" : "MI_UN.TO",
+          "dividend" : 0.03792,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.013,
+          "symbol" : "PVL",
+          "dividend" : 0.013,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "RS.TO",
+          "dividend" : 0.13,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03333,
+          "symbol" : "SCPT_A.TO",
+          "dividend" : 0.03333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.01625,
+          "symbol" : "WCP.TO",
+          "dividend" : 0.01625,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-16"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "EFC",
+          "dividend" : 0.15,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.305,
+          "symbol" : "SCL",
+          "dividend" : 0.305,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "STEP",
+          "dividend" : 0.07,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-10"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.217,
+          "symbol" : "ADC",
+          "dividend" : 0.217,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.51,
+          "symbol" : "BIP",
+          "dividend" : 0.51,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.10167,
+          "symbol" : "BK.TO",
+          "dividend" : 0.10167,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05417,
+          "symbol" : "LFE.TO",
+          "dividend" : 0.05417,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "DFN.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.07142,
+          "symbol" : "DS.TO",
+          "dividend" : 0.07142,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1257,
+          "symbol" : "FTN.TO",
+          "dividend" : 0.1257,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "GRT_UN.TO",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.14667,
+          "symbol" : "INC_UN.TO",
+          "dividend" : 0.14667,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "YCM.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.11335,
+          "symbol" : "FFN.TO",
+          "dividend" : 0.11335,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06142,
+          "symbol" : "PDV.TO",
+          "dividend" : 0.06142,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0375,
+          "symbol" : "SCPO_UN.TO",
+          "dividend" : 0.0375,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "XTD.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "TTR.TO",
+          "dividend" : 0.02,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-17"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06533,
+          "symbol" : "FTU.TO",
+          "dividend" : 0.06533,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "DF.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "BAM",
+          "dividend" : 0.13,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "ERF",
+          "dividend" : 0.03,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "GRP.U",
+          "dividend" : 0.2,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.032,
+          "symbol" : "NOA",
+          "dividend" : 0.032,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-10-08",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.055,
+          "symbol" : "HRR_UN.TO",
+          "dividend" : 0.055,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0662,
+          "symbol" : "BNK.TO",
+          "dividend" : 0.0662,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1031,
+          "symbol" : "PRM.TO",
+          "dividend" : 0.1031,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.065,
+          "symbol" : "HBL_UN.TO",
+          "dividend" : 0.065,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.2,
+          "symbol" : "CRS",
+          "dividend" : 0.2,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-07",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "CUF_UN.TO",
+          "dividend" : 0.03,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.13,
+          "symbol" : "ENS.TO",
+          "dividend" : 0.13,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.53,
+          "symbol" : "EL",
+          "dividend" : 0.53,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.015,
+          "symbol" : "GCM.TO",
+          "dividend" : 0.015,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.065,
+          "symbol" : "LWRK.TO",
+          "dividend" : 0.065,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.198,
+          "symbol" : "NC",
+          "dividend" : 0.198,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.065,
+          "symbol" : "ORC",
+          "dividend" : 0.065,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-08-18"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.11,
+          "symbol" : "RPI_UN.TO",
+          "dividend" : 0.11,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0333,
+          "symbol" : "SOT_UN.TO",
+          "dividend" : 0.0333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.137,
+          "symbol" : "MNSO",
+          "dividend" : 0.137,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 2.75,
+          "symbol" : "CABO",
+          "dividend" : 2.75,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.4,
+          "symbol" : "CRI",
+          "dividend" : 0.4,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.48,
+          "symbol" : "CBOE",
+          "dividend" : 0.48,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "CHE_UN.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-27",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "CHW.TO",
+          "dividend" : 0.03,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.097,
+          "symbol" : "CRT",
+          "dividend" : 0.097,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.03333,
+          "symbol" : "MPCT_UN.TO",
+          "dividend" : 0.03333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05833,
+          "symbol" : "DIR_UN.TO",
+          "dividend" : 0.05833,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.08333,
+          "symbol" : "D_UN.TO",
+          "dividend" : 0.08333,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.064,
+          "symbol" : "MARPS",
+          "dividend" : 0.064,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-28",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.062,
+          "symbol" : "PRT",
+          "dividend" : 0.062,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05208,
+          "symbol" : "PTI_UN.TO",
+          "dividend" : 0.05208,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05688,
+          "symbol" : "PGI_UN.TO",
+          "dividend" : 0.05688,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "PTO_UN.TO",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0375,
+          "symbol" : "PRV_UN.TO",
+          "dividend" : 0.0375,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.303,
+          "symbol" : "SLG",
+          "dividend" : 0.303,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "MTL.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.36,
+          "symbol" : "TPVG",
+          "dividend" : 0.36,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-04"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.51,
+          "symbol" : "BIPC",
+          "dividend" : 0.51,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-29",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.75,
+          "symbol" : "CFR",
+          "dividend" : 0.75,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-29"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.02,
+          "symbol" : "PBT",
+          "dividend" : 0.02,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-03-09"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.043,
+          "symbol" : "FT",
+          "dividend" : 0.043,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06994,
+          "symbol" : "CRT_UN.TO",
+          "dividend" : 0.06994,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-23"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.038,
+          "symbol" : "PLC.TO",
+          "dividend" : 0.038,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "SIS.TO",
+          "dividend" : 0.04,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.075,
+          "symbol" : "LCS.TO",
+          "dividend" : 0.075,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "SBC.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "DGS.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "GDV.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "LBS.TO",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.06667,
+          "symbol" : "PWI.TO",
+          "dividend" : 0.06667,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.0575,
+          "symbol" : "TF.TO",
+          "dividend" : 0.0575,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.15417,
+          "symbol" : "SRU_UN.TO",
+          "dividend" : 0.15417,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-24"
+        }, {
+          "date" : "2021-08-30",
+          "label" : "August 30, 21",
+          "adjDividend" : 0.7,
+          "symbol" : "BOH",
+          "dividend" : 0.7,
+          "recordDate" : "2021-08-31",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-26"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "MUSA",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.13,
+          "symbol" : "LYB",
+          "dividend" : 1.13,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-07",
+          "declarationDate" : "2021-08-20"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.25,
+          "symbol" : "LUMN",
+          "dividend" : 0.25,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.31,
+          "symbol" : "CATY",
+          "dividend" : 0.31,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-09",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.05,
+          "symbol" : "LYTS",
+          "dividend" : 0.05,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-07",
+          "declarationDate" : "2021-08-19"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.66,
+          "symbol" : "AIZ",
+          "dividend" : 0.66,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-07-23"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.57,
+          "symbol" : "NOC",
+          "dividend" : 1.57,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.071,
+          "symbol" : "SFC.TO",
+          "dividend" : 0.05625,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-20",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.28,
+          "symbol" : "PATK",
+          "dividend" : 0.28,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-13",
+          "declarationDate" : "2021-08-13"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.34,
+          "symbol" : "TAP.A",
+          "dividend" : 0.34,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.234,
+          "symbol" : "MGIC",
+          "dividend" : 0.234,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-14",
+          "declarationDate" : "2021-08-12"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.368,
+          "symbol" : "ESLT",
+          "dividend" : 0.368,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-13",
+          "declarationDate" : "2021-08-11"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.125,
+          "symbol" : "VVV",
+          "dividend" : 0.125,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-07-19"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.275,
+          "symbol" : "NKE",
+          "dividend" : 0.275,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-10-01",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.07,
+          "symbol" : "NGVC",
+          "dividend" : 0.07,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-15",
+          "declarationDate" : "2021-08-05"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.42,
+          "symbol" : "TPX_B.TO",
+          "dividend" : 0.42,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.34,
+          "symbol" : "TAP",
+          "dividend" : 0.34,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-17",
+          "declarationDate" : "2021-07-15"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.22,
+          "symbol" : "MKSI",
+          "dividend" : 0.22,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-10",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "MZH.SI",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.275,
+          "symbol" : "NKE.DE",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 4.0,
+          "symbol" : "LUS.DE",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.57,
+          "symbol" : "NTH.DE",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 18.0,
+          "symbol" : "CEATLTD.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.5,
+          "symbol" : "AUROPHARMA.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.5,
+          "symbol" : "KITEX.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.8,
+          "symbol" : "HGINFRA.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 2.0,
+          "symbol" : "PANAMAPET.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.3,
+          "symbol" : "SUTLEJTEX.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 2.5,
+          "symbol" : "SILINV.NS",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 1.0,
+          "symbol" : "1308.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.03,
+          "symbol" : "1469.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.039,
+          "symbol" : "1637.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.01,
+          "symbol" : "8136.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.005,
+          "symbol" : "FM.TO",
+          "dividend" : 0.005,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-21",
+          "declarationDate" : "2021-07-27"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.1,
+          "symbol" : "WHD",
+          "dividend" : 0.1,
+          "recordDate" : "2021-08-30",
+          "paymentDate" : "2021-09-16",
+          "declarationDate" : "2021-07-28"
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.005,
+          "symbol" : "0064.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.18,
+          "symbol" : "0194.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.15,
+          "symbol" : "0035.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.29,
+          "symbol" : "0345.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.015,
+          "symbol" : "0635.HK",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.04,
+          "symbol" : "ZMBS.TO",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.055,
+          "symbol" : "ZIC.TO",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        }, {
+          "date" : "2021-08-27",
+          "label" : "August 27, 21",
+          "adjDividend" : 0.038,
+          "symbol" : "UDA.TO",
+          "dividend" : null,
+          "recordDate" : null,
+          "paymentDate" : null,
+          "declarationDate" : null
+        } ]
+  recorded_at: Sun, 29 Aug 2021 02:06:31 GMT
+recorded_with: VCR 6.0.0
