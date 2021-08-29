@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Dividend::Api::Converter, type: :model do
   describe ".convert_response_of_dividend_calendar" do

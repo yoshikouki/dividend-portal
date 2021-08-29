@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Dividend::Api, type: :model do
   describe ".recent" do
     let!(:expected_keys) do
-      [:ex_dividend_on, :records_on, :pays_on, :declares_on, :symbol, :dividend, :adjusted_dividend]
+      %i[ex_dividend_on records_on pays_on declares_on symbol dividend adjusted_dividend]
     end
 
     it "期間指定してAPI経由で配当情報を取得できる" do
@@ -19,7 +19,7 @@ RSpec.describe Dividend::Api, type: :model do
 
   describe ".all" do
     let!(:expected_keys) do
-      [:ex_dividend_on, :records_on, :pays_on, :declares_on, :dividend, :adjusted_dividend, :symbol]
+      %i[ex_dividend_on records_on pays_on declares_on dividend adjusted_dividend symbol]
     end
 
     context "シンボルが単数の場合" do
@@ -39,7 +39,7 @@ RSpec.describe Dividend::Api, type: :model do
         VCR.use_cassette("models/dividend/api/outlook") do
           actual = Dividend::Api.outlook("KO")
           expect(actual.class).to eq Hash
-          expect(actual.keys).to eq [:symbol, :price, :ttm, :dividends]
+          expect(actual.keys).to eq %i[symbol price ttm dividends]
         end
       end
     end
