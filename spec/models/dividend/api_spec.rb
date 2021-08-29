@@ -24,9 +24,9 @@ RSpec.describe Dividend::Api, type: :model do
           payment_date: "2020-09-10",
           declaration_date: "2020-07-28" },
       ]
-      actual = Dividend.convert_response_of_dividend_calendar(dividends)
-      expect(actual.first.ex_dividend_on).to eq expected.first.ex_dividend_on
-      expect(actual.first.dividend).to eq expected.first.dividend
+      actual = Dividend::Api.convert_response_of_dividend_calendar(dividends)
+      expect(actual.first[:ex_dividend_on]).to eq expected.first[:ex_dividend_on]
+      expect(actual.first[:dividend]).to eq expected.first[:dividend]
     end
   end
 end
