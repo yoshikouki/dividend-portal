@@ -10,8 +10,7 @@ module Tweet
       ASSUMED_DIVIDEND_DECIMAL_POINT = 10
       PERCENTAGE_DECIMAL_POINT = 3
 
-      def new_dividend_of_dividend_aristocrats(report_queue = nil)
-        company = report_queue.dividend.company
+      def new_dividend_of_dividend_aristocrats(company)
         dividends = Dividend::Api.all(company.symbol, from: Time.at(3.years.ago))
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)

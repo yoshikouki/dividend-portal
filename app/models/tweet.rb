@@ -32,6 +32,6 @@ module Tweet
     return unless report_queue
 
     content = Tweet::Content::DividendReport.new
-    Client.tweet(content.new_dividend_of_dividend_aristocrats(report_queue))
+    Client.tweet(content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company))
   end
 end
