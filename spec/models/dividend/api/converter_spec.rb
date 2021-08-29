@@ -68,4 +68,43 @@ RSpec.describe Dividend::Api::Converter, type: :model do
       end
     end
   end
+
+  describe ".calculate_adjusted_dividend_by_stock_split" do
+    let!(:base_dividend) do
+      { ex_dividend_on: "2021-06-14", dividend: 100, adjusted_dividend: 100,
+        records_on: "2021-06-15", pays_on: "2021-07-01", declares_on: "2021-04-21", symbol: "KO" }
+    end
+    let!(:historical_dividends) do
+      [
+        base_dividend,
+        base_dividend.merge(ex_dividend_on: "2012-08-10"),
+        base_dividend.merge(ex_dividend_on: "2012-08-09"),
+        base_dividend.merge(ex_dividend_on: "1996-05-10"),
+        base_dividend.merge(ex_dividend_on: "1996-05-09"),
+        base_dividend.merge(ex_dividend_on: "1965-02-10"),
+        base_dividend.merge(ex_dividend_on: "1965-02-09"),
+      ]
+    end
+    let!(:total_split_number_by_span) do
+      {
+        Date.parse("2012-08-10") => 2,
+        Date.parse("1996-05-10") => 4,
+        Date.parse("1965-02-10") => 768,
+      }
+    end
+
+    it "過去の株式分割から現在価格の調整後配当を算出して上書きする" do
+      actual = Dividend::Api::Converter.calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
+      expected = [
+        base_dividend.merge(ex_dividend_on: "2021-06-14", adjusted_dividend: 100.0),
+        base_dividend.merge(ex_dividend_on: "2012-08-10", adjusted_dividend: 100.0),
+        base_dividend.merge(ex_dividend_on: "2012-08-09", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_on: "1996-05-10", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_on: "1996-05-09", adjusted_dividend: 25.0),
+        base_dividend.merge(ex_dividend_on: "1965-02-10", adjusted_dividend: 25.0),
+        base_dividend.merge(ex_dividend_on: "1965-02-09", adjusted_dividend: 0.13020833333333334),
+      ]
+      expect(actual).to eq expected
+    end
+  end
 end

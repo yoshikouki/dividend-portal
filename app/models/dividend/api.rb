@@ -29,7 +29,7 @@ class Dividend
     def self.all_adjusted(symbol, from: nil, to: nil)
       historical_dividends = all(symbol, from: from, to: to)
       historical_stock_splits = Fmp.historical_stock_splits(symbol)
-      Converter.calculate_adjusted_dividend(historical_dividends, historical_stock_splits[:historical])
+      Converter.recalculate_adjusted_dividend(historical_dividends, historical_stock_splits[:historical])
     end
   end
 end

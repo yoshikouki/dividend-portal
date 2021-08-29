@@ -22,6 +22,8 @@ class Dividend
         payout_ratio_ttm: :payout_ratio,
       }.freeze
 
+      ASSUMED_DIVIDEND_DECIMAL_POINT = 10
+
       def self.convert_response_of_dividend_calendar(row_dividends = [])
         row_dividends.map do |dividend|
           # APIレスポンスがnullの祭に変換処理で空文字になることがあってバグになったので、明示的にnilに変換する
@@ -53,8 +55,9 @@ class Dividend
         }
       end
 
-      def self.calculate_adjusted_dividend(historical_dividends, historical_stock_splits)
+      def self.recalculate_adjusted_dividend(historical_dividends, historical_stock_splits)
         total_split_number_by_span = calculate_total_split_number(historical_stock_splits)
+        calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
       end
 
       def self.calculate_total_split_number(historical_stock_splits)
@@ -65,6 +68,28 @@ class Dividend
           [split_date, total_split_number]
         end
         stock_splits.to_h
+      end
+
+      # total_split_number_by_span の配列は、最新情報を先頭に時系昇順で並んでいる想定 (必要があれば改修)
+      def self.calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
+        historical_dividends.map do |dividend|
+          ex_dividend_date = Date.parse(dividend[:ex_dividend_on])
+          # Total number of stock splits based on the current time
+          stock_splits_after_dividend = total_split_number_by_span.keys.filter { |split_date| split_date.after?(ex_dividend_date) }
+          if stock_splits_after_dividend.present?
+            total_split_number = total_split_number_by_span[stock_splits_after_dividend.last]
+            dividend[:adjusted_dividend] = (decimal(dividend[:dividend]) / decimal(total_split_number)).to_f
+          else
+            dividend[:adjusted_dividend] = dividend[:adjusted_dividend].to_f
+          end
+          dividend
+        end
+      end
+
+      private
+
+      def self.decimal(float)
+        BigDecimal(float, ASSUMED_DIVIDEND_DECIMAL_POINT)
       end
     end
   end
