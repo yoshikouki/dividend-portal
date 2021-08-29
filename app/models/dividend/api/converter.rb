@@ -52,6 +52,9 @@ class Dividend
           dividends: response[:stock_dividend],
         }
       end
+
+      def self.calculate_adjusted_dividend(historical_dividends, historical_stock_splits)
+      end
     end
   end
 end

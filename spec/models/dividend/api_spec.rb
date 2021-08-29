@@ -42,6 +42,29 @@ RSpec.describe Dividend::Api, type: :model do
       end
     end
   end
+
+  describe ".all_adjusted " do
+    it "過去の株式分割を考慮した配当の調整後金額を含めた配当情報を取得する" do
+      VCR.use_cassette("models/dividend/api/all_adjusted") do
+        actual = Dividend::Api.all_adjusted("KO")
+        expected_latest_dividend = {
+          ex_dividend_on: "2021-06-14",
+          records_on: "2021-06-15",
+          pays_on: "2021-07-01",
+          declares_on: "2021-04-21",
+          dividend: 0.42,
+          adjusted_dividend: 0.42,
+          symbol: "KO",
+        }
+        expected_oldest_dividend = {
+          ex_dividend_on: "1962-03-13",
+          dividend: 0.00156,
+          adjusted_dividend: 0.00000203125,
+          symbol: "KO",
+        }
+        expect(actual.class).to eq Array
+        expect(actual.first).to eq expected_latest_dividend
+        expect(actual.last).to eq expected_oldest_dividend
       end
     end
   end
