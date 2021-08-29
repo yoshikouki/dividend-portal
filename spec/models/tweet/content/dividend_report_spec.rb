@@ -9,18 +9,17 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     let!(:report_queue) { FactoryBot.create(:report_queue_of_dividend_aristocrats_dividend, dividend: dividend) }
 
     context "正常系" do
-
       it "tweets/new_dividend_of_dividend_aristocrats.text.erb から View をレンダリングして返す" do
         expected = <<~TWEET
-            #米国株 配当貴族の $ADM に関する新着配当情報
-  
-            Archer-Daniels-Midland Company (連続増配 47年)
-            一株当たり配当 $0.37 (年間 $1.4699999999999998)
-            年間配当利回り 2.43%
-            年間増配率 2.80% ($0.04)
-            配当性向 35.53%
-            権利落ち日 2021-08-17
-            配当支給日 2021-09-08
+          #米国株 配当貴族の $ADM に関する新着配当情報
+          
+          Archer-Daniels-Midland Company (連続増配 47年)
+          一株当たり配当 $0.37 (年間 $1.4699999999999998)
+          年間配当利回り 2.43%
+          年間増配率 2.80% ($0.04)
+          配当性向 35.53%
+          権利落ち日 2021-08-17
+          配当支給日 2021-09-08
         TWEET
         VCR.use_cassette "models/tweet/content/dividend_report/new_dividend_of_dividend_aristocrats" do
           actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
