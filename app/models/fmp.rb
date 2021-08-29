@@ -48,6 +48,13 @@ module Fmp
       Client.get(path, query)
     end
 
+    # 株式分割の情報を取得
+    # https://financialmodelingprep.com/developer/docs/historical-stock-splits
+    def historical_stock_splits(symbol)
+      path = "/api/v3/historical-price-full/stock_split/#{Converter.symbols_to_param(symbol)}"
+      Client.get(path)
+    end
+
     # https://financialmodelingprep.com/developer/docs/company-outlook
     def company_outlook(symbol)
       path = "api/v4/company-outlook"
