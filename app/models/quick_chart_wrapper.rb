@@ -55,7 +55,7 @@ class QuickChartWrapper
       text: title,
       display: true,
       fontSize: FONT_SIZE * 2,
-      fontFamily: FONT_FAMILY
+      fontFamily: FONT_FAMILY,
     } }
   end
 
