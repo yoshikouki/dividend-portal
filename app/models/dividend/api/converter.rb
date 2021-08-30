@@ -74,29 +74,41 @@ class Dividend
       def self.calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
         historical_dividends.map do |dividend|
           ex_dividend_date = Date.parse(dividend[:ex_dividend_on])
-          # Total number of stock splits based on the current time
-          stock_splits_after_dividend = total_split_number_by_span.keys.filter { |split_date| split_date.after?(ex_dividend_date) }
-          if stock_splits_after_dividend.present?
-            total_split_number = total_split_number_by_span[stock_splits_after_dividend.last]
-            adjusted_dividend = if dividend[:adjusted_dividend] == dividend[:dividend]
-              division(dividend[:dividend], total_split_number)
-            else
-              # すでに調整済みの配当を選択する
-              # ざっと4〜5社を調べた感じ、低いほうは株式分割を調整済みだった。何故か dividend に入る場合もある
-              [dividend[:adjusted_dividend], dividend[:dividend]].min
-            end
-            dividend[:adjusted_dividend] = adjusted_dividend
+          total_split_number_on_ex_dividend_date = total_stock_split_number(total_split_number_by_span, ex_dividend_date)
+          dividend[:adjusted_dividend] = if total_split_number_on_ex_dividend_date > 1
+            adjust_dividend(dividend, total_split_number_on_ex_dividend_date)
           else
-            dividend[:adjusted_dividend] = dividend[:adjusted_dividend].to_f
+            dividend[:adjusted_dividend].to_f
           end
           dividend
         end
       end
 
-      def self.division(numerator, denominator)
-        result = numerator.to_d / denominator.to_d
-        # result.to_s("F")[0..ASSUMED_DIVIDEND_DECIMAL_POINT]
-        result.to_f
+      class << self
+        private
+
+        def total_stock_split_number(total_split_number_by_span, ex_dividend_date)
+          # 現在から権利落ち日まで間の最も古い株式分割
+          oldest_stock_splits = total_split_number_by_span.keys.reverse.find { |split_date| split_date.after?(ex_dividend_date) }
+          # 株式分割がなければ合計株式分割数は 1
+          oldest_stock_splits ? total_split_number_by_span[oldest_stock_splits] : 1
+        end
+
+        def adjust_dividend(dividend, total_split_number)
+          if dividend[:adjusted_dividend] == dividend[:dividend]
+            division(dividend[:dividend], total_split_number)
+          else
+            # すでに調整済みの配当を選択する
+            # ざっと4〜5社を調べた感じ、低いほうは株式分割を調整済みだった。何故か dividend に入る場合もある
+            [dividend[:adjusted_dividend], dividend[:dividend]].min
+          end
+        end
+
+        def division(numerator, denominator)
+          result = numerator.to_d / denominator.to_d
+          # result.to_s("F")[0..ASSUMED_DIVIDEND_DECIMAL_POINT]
+          result.to_f
+        end
       end
     end
   end
