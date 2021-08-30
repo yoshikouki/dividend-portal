@@ -26,6 +26,12 @@ module Tweet
         client(dev: dev).update(text, option)
       end
 
+      def tweet_with_image(text, image, dev: false)
+        raise "Invalid image" unless image && image != File
+
+        client(dev: dev).update_with_media(text, image)
+      end
+
       private
 
       def client(dev: false)

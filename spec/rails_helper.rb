@@ -71,7 +71,7 @@ RSpec.configure do |config|
     c.allow_http_connections_when_no_cassette = false
     # JSON のレスポンスがバイナリで保存される対策
     c.before_record do |i|
-      i.response.body.force_encoding("UTF-8")
+      i.response.body.force_encoding("UTF-8") if i.response.headers["Content-Type"].include?("UTF-8")
     end
 
     # 秘匿情報はフィルタリングして記録する

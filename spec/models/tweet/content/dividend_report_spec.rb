@@ -9,49 +9,25 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     let!(:report_queue) { FactoryBot.create(:report_queue_of_dividend_aristocrats_dividend, dividend: dividend) }
 
     context "正常系" do
-      let!(:base) do
-        { date: "2021-08-17", label: "August 17, 21", record_date: "2021-08-18", payment_date: "2021-09-08", declaration_date: "2021-08-04",
-          adj_dividend: 0.37, dividend: 0.37 }
-      end
-      let!(:historical_dividends_response) do
-        { symbol: "ADM",
-          historical: [base,
-                       base.merge(date: "2021-05-18", dividend: 0.37),
-                       base.merge(date: "2021-02-08", dividend: 0.37),
-                       base.merge(date: "2020-11-18", dividend: 0.36),
-                       base.merge(date: "2020-08-18", dividend: 0.36),
-                       base.merge(date: "2020-05-19", dividend: 0.36),
-                       base.merge(date: "2020-02-12", dividend: 0.36),
-                       base.merge(date: "2019-11-20", dividend: 0.35),
-                       base.merge(date: "2019-08-21", dividend: 0.35),
-                       base.merge(date: "2019-05-14", dividend: 0.35),
-                       base.merge(date: "2019-02-15", dividend: 0.35),
-                       base.merge(date: "2018-11-21", dividend: 0.335)] }
-      end
-      let!(:company_outlook_response) do
-        {
-          profile: { symbol: "JNJ", price: 179.44 },
-          ratios: [{ payout_ratio_ttm: 0.6060069229470366, dividend_yield_ttm: 0.022793134195274185, dividend_per_share_ttm: 4.09 }],
-          stock_dividend: historical_dividends_response,
-        }
-      end
-
       it "tweets/new_dividend_of_dividend_aristocrats.text.erb から View をレンダリングして返す" do
-        allow(Fmp).to receive(:historical_dividends).and_return(historical_dividends_response)
-        allow(Fmp).to receive(:company_outlook).and_return(company_outlook_response)
-        actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue)
         expected = <<~TWEET
           #米国株 配当貴族の $ADM に関する新着配当情報
 
           Archer-Daniels-Midland Company (連続増配 47年)
-          一株当たり配当 $0.37 (年間 $4.09)
-          年間配当利回り 2.28%
+          一株当たり配当 $0.37 (年間 $1.4699999999999998)
+          年間配当利回り 2.43%
           年間増配率 2.80% ($0.04)
-          配当性向 60.60%
+          配当性向 35.53%
           権利落ち日 2021-08-17
           配当支給日 2021-09-08
         TWEET
-        expect(actual).to eq expected
+
+        VCR.use_cassette "models/tweet/content/dividend_report/new_dividend_of_dividend_aristocrats" do
+          content = Tweet::Content::DividendReport.new
+          text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company, chart_start_on: Date.parse("2018-08-29"))
+          expect(text).to eq expected
+          expect(image).to be_instance_of File
+        end
       end
     end
   end

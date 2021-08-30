@@ -10,15 +10,18 @@ module Tweet
       ASSUMED_DIVIDEND_DECIMAL_POINT = 10
       PERCENTAGE_DECIMAL_POINT = 3
 
-      def new_dividend_of_dividend_aristocrats(report_queue = nil)
-        company = report_queue.dividend.company
-        dividends = Dividend::Api.all(company.symbol, from: Time.at(3.years.ago))
+      def new_dividend_of_dividend_aristocrats(company, chart_start_on: Time.at(25.years.ago))
+        dividends = Dividend::Api.all_adjusted(company.symbol, from: chart_start_on)
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)
-        self.class.render(
+
+        # コンテンツをレンダリング
+        text = self.class.render(
           template: template_path(__method__),
           assigns: assigns,
         )
+        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends)
+        [text, image]
       end
 
       # ttm は "trailing 12 months" 過去12ヶ月の実績
