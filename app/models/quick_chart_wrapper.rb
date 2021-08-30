@@ -9,7 +9,7 @@ class QuickChartWrapper
   QUICK_CHART_DEFAULT_ARG = {
     width: 1024,
     height: 576,
-    background_color: "#efefef",
+    background_color: "#ffffff",
     device_pixel_ratio: 2.0,
     format: "png",
   }.freeze
