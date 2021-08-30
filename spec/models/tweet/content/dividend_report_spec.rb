@@ -22,8 +22,10 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
           配当支給日 2021-09-08
         TWEET
         VCR.use_cassette "models/tweet/content/dividend_report/new_dividend_of_dividend_aristocrats" do
-          actual = Tweet::Content::DividendReport.new.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
-          expect(actual).to eq expected
+          content = Tweet::Content::DividendReport.new
+          text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company, chart_start_on: Date.parse("2018-08-29"))
+          expect(text).to eq expected
+          expect(image).to eq File
         end
       end
     end

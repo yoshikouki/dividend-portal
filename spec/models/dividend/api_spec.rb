@@ -10,7 +10,7 @@ RSpec.describe Dividend::Api, type: :model do
 
     it "期間指定してAPI経由で配当情報を取得できる" do
       VCR.use_cassette("models/dividend/api/recent") do
-        actual = Dividend::Api.recent
+        actual = Dividend::Api.recent(from: "2021-08-27")
         expect(actual.class).to eq Array
         expect(actual[0].keys).to eq expected_keys
       end
