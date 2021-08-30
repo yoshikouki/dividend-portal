@@ -30,6 +30,23 @@ class Chart
     File.new(TEMP_IMAGE_PATH)
   end
 
+  def new_dividend_of_dividend_aristocrats(dividends)
+    dividends_in_chronological_order = dividends.reverse
+    labels = dividends_in_chronological_order.pluck(:ex_dividend_on)
+    dividends_data = dividends_in_chronological_order.pluck(:adjusted_dividend)
+    config = {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          { label: "Revenue", data: dividends_data },
+        ],
+      },
+    }
+    client(config: config).to_file(TEMP_IMAGE_PATH)
+    File.new(TEMP_IMAGE_PATH)
+  end
+
   private
 
   def client(config: QUICK_CHART_MIXED_CONFIG, arg: QUICK_CHART_DEFAULT_ARG)
