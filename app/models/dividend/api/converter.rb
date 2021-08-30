@@ -48,7 +48,7 @@ class Dividend
           price: response[:profile][:price],
           ttm: {
             dividend_yield: ratio[:dividend_yield_ttm],
-            dividend_per_share: ratio[:dividend_per_share_ttm],
+            dividend_per_share: ratio[:dividend_per_share_ttm].round(10), # たまに丸め誤差な数字も含まれるので、小数点第10位で四捨五入する
             payout_ratio: ratio[:payout_ratio_ttm],
           },
           dividends: response[:stock_dividend],
