@@ -63,7 +63,12 @@ module Fmp
 
       def value_to_time(hash)
         hash.each do |key, value|
-          value = Time.parse(value) unless value.instance_of? Time
+          case value
+          when Time, Date
+            # 何もしない
+          else
+            value = Time.parse(value)
+          end
           hash[key] = value.strftime("%Y-%m-%d")
         end
       end
