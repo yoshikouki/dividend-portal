@@ -78,7 +78,14 @@ class Dividend
           stock_splits_after_dividend = total_split_number_by_span.keys.filter { |split_date| split_date.after?(ex_dividend_date) }
           if stock_splits_after_dividend.present?
             total_split_number = total_split_number_by_span[stock_splits_after_dividend.last]
-            dividend[:adjusted_dividend] = division(dividend[:dividend], total_split_number)
+            adjusted_dividend = if dividend[:adjusted_dividend] == dividend[:dividend]
+              division(dividend[:dividend], total_split_number)
+            else
+              # すでに調整済みの配当を選択する
+              # ざっと4〜5社を調べた感じ、低いほうは株式分割を調整済みだった。何故か dividend に入る場合もある
+              [dividend[:adjusted_dividend], dividend[:dividend]].min
+            end
+            dividend[:adjusted_dividend] = adjusted_dividend
           else
             dividend[:adjusted_dividend] = dividend[:adjusted_dividend].to_f
           end

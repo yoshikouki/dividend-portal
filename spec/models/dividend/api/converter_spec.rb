@@ -106,5 +106,24 @@ RSpec.describe Dividend::Api::Converter, type: :model do
       ]
       expect(actual).to eq expected
     end
+
+    it "過去の株式分割から現在価格の調整後配当を算出して上書きする" do
+      base_dividend = { ex_dividend_on: "2021-06-14", dividend: 100, adjusted_dividend: 100 }
+      adjusted_dividends = [
+        base_dividend.merge(ex_dividend_on: "2021-08-01"),
+        base_dividend.merge(ex_dividend_on: "2021-08-02", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_on: "2021-08-03", dividend: 50.0),
+      ]
+      total_split_number_by_span = {
+        Date.parse("2021-08-30") => 2,
+      }
+      actual = Dividend::Api::Converter.calculate_adjusted_dividend_by_stock_split(adjusted_dividends, total_split_number_by_span)
+      expected = [
+        base_dividend.merge(ex_dividend_on: "2021-08-01", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_on: "2021-08-02", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_on: "2021-08-03", dividend: 50.0, adjusted_dividend: 50.0),
+      ]
+      expect(actual).to eq expected
+    end
   end
 end
