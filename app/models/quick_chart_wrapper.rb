@@ -3,14 +3,15 @@
 class QuickChartWrapper
   TEMP_IMAGE_PATH = "tmp/mixed_chart.png"
 
+  FONT_SIZE = 20
+  FONT_FAMILY = "MONO"
   # https://quickchart.io/documentation/
   QUICK_CHART_DEFAULT_ARG = {
     width: 1024,
     height: 576,
-    background_color: "#ffffff",
+    background_color: "#efefef",
     device_pixel_ratio: 2.0,
     format: "png",
-    key: nil,
   }.freeze
 
   def new_dividend_of_dividend_aristocrats(dividends)
@@ -33,13 +34,17 @@ class QuickChartWrapper
     options = {
       scales: {
         xAxes: [
-          { gridLines: { display: false } },
+          { gridLines: { display: false },
+            ticks: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
         ],
         yAxes: [
-          { ticks: { beginAtZero: true } },
+          { ticks: { beginAtZero: true, fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
         ],
       },
-      legend: { position: "bottom" },
+      legend: {
+        position: "bottom",
+        labels: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold },
+      },
     }
     options.merge!(title_hash(title)) if title
     options
@@ -49,9 +54,9 @@ class QuickChartWrapper
     { title: {
       text: title,
       display: true,
-      fontSize: 20,
-      fontFamily: "Sans CJK JP"
-      } }
+      fontSize: FONT_SIZE * 2,
+      fontFamily: FONT_FAMILY
+    } }
   end
 
   def config(type, data, options)
