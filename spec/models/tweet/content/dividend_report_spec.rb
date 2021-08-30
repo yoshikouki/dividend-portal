@@ -25,7 +25,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
           content = Tweet::Content::DividendReport.new
           text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company, chart_start_on: Date.parse("2018-08-29"))
           expect(text).to eq expected
-          expect(image).to eq File
+          expect(image).to be_instance_of File
         end
       end
     end
