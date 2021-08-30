@@ -5,8 +5,8 @@ class QuickChartWrapper
 
   # https://quickchart.io/documentation/
   QUICK_CHART_DEFAULT_ARG = {
-    width: 500,
-    height: 300,
+    width: 1024,
+    height: 576,
     background_color: "#ffffff",
     device_pixel_ratio: 2.0,
     format: "png",
