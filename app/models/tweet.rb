@@ -32,13 +32,7 @@ module Tweet
     return unless report_queue
 
     content = Tweet::Content::DividendReport.new
-    Client.tweet(content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company))
-  end
-
-  def self.test
-    company = Company.find_by(symbol: "KO")
-    content = Tweet::Content::DividendReport.new
-    text, image = content.new_dividend_of_dividend_aristocrats(company)
-    Client.tweet_with_image(text, image, dev: true)
+    text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
+    Client.tweet_with_image(text, image)
   end
 end
