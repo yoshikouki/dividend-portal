@@ -33,7 +33,7 @@ class Chart
         ],
       },
       options: {
-        title: { text: "$#{dividends[0][:symbol]} 過去25年間の推移", display: true, fontSize: 20, fontFamily: 'Sans CJK JP' },
+        title: { text: "$#{dividends[0][:symbol]} 過去25年間の推移", display: true, fontSize: 20, fontFamily: "Sans CJK JP" },
         scales: {
           xAxes: [
             { gridLines: { display: false } },
