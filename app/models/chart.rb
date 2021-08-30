@@ -1,21 +1,11 @@
 # frozen_string_literal: true
 
 class Chart
-  attr_accessor :client
+  attr_writer :client
 
   TEMP_IMAGE_PATH = "tmp/mixed_chart.png"
 
   # https://quickchart.io/documentation/
-  QUICK_CHART_MIXED_CONFIG = {
-    type: "bar",
-    data: {
-      labels: ["Hello world", "Test"],
-      datasets: [{
-        label: "Foo",
-        data: [1, 2],
-      }],
-    },
-  }.freeze
   QUICK_CHART_DEFAULT_ARG = {
     width: 500,
     height: 300,
@@ -39,17 +29,29 @@ class Chart
       data: {
         labels: labels,
         datasets: [
-          { label: "Revenue", data: dividends_data },
+          { label: "一株当たり配当($)", data: dividends_data, display: false },
         ],
       },
+      options: {
+        title: { text: "$#{dividends[0][:symbol]} 過去25年間の推移", display: true, fontSize: 20, fontFamily: 'Sans CJK JP' },
+        scales: {
+          xAxes: [
+            { gridLines: { display: false } },
+          ],
+          yAxes: [
+            { ticks: { beginAtZero: true } },
+          ],
+        },
+        legend: { position: "bottom" },
+      },
     }
-    client(config: config).to_file(TEMP_IMAGE_PATH)
+    client(config).to_file(TEMP_IMAGE_PATH)
     File.new(TEMP_IMAGE_PATH)
   end
 
   private
 
-  def client(config: QUICK_CHART_MIXED_CONFIG, arg: QUICK_CHART_DEFAULT_ARG)
+  def client(config, arg: QUICK_CHART_DEFAULT_ARG)
     @client ||= QuickChart.new(config, **arg)
   end
 end
