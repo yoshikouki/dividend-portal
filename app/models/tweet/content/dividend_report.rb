@@ -63,6 +63,7 @@ module Tweet
         {
           symbol: company.symbol,
           name: company.name,
+          sector: company.sector,
           years_of_dividend_growth: company.years_of_dividend_growth,
           dividend_per_share: latest_dividend[:dividend],
           pays_on: latest_dividend[:pays_on],

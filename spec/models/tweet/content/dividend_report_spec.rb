@@ -11,10 +11,12 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     context "正常系" do
       it "tweets/new_dividend_of_dividend_aristocrats.text.erb から View をレンダリングして返す" do
         expected = <<~TWEET
-          #米国株 配当貴族の $ADM に関する新着配当情報
+          【配当貴族の $ADM に関する新着配当情報 #米国株】
 
           Archer-Daniels-Midland Company (連続増配 47年)
-          一株当たり配当 $0.37 (年間 $1.4699999999999998)
+          セクター Consumer Defensive
+
+          一株当たり配当 $0.37 (年間 $1.47)
           年間配当利回り 2.43%
           年間増配率 2.80% ($0.04)
           配当性向 35.53%
