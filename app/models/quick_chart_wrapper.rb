@@ -18,7 +18,7 @@ class QuickChartWrapper
     labels = dividends.pluck(:ex_dividend_on)
     dividend_growth_rate = dividends.pluck(:dividend_growth_rate).map { |rate| (rate * 100).round(2) }
     datasets = [
-      { label: "増配率", data: dividend_growth_rate, type: :line, yAxisID: "left", pointRadius: 0, },
+      { label: "増配率", data: dividend_growth_rate, type: :line, yAxisID: "left", pointRadius: 0 },
       { label: "一株当たり配当($)", data: dividends.pluck(:adjusted_dividend), type: :bar, yAxisID: "right" },
     ]
     data = data(labels, datasets)
