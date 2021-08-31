@@ -14,14 +14,14 @@ module Tweet
         dividends = Dividend::Api.all_adjusted(company.symbol, from: chart_start_on)
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)
-        dividends_in_chronological_order = dividends.reverse
+        dividends_for_chart = dividends_for_chart(dividends)
 
         # コンテンツをレンダリング
         text = self.class.render(
           template: template_path(__method__),
           assigns: assigns,
         )
-        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends_in_chronological_order)
+        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends_for_chart)
         [text, image]
       end
 
@@ -97,6 +97,11 @@ module Tweet
           changed_dividend: to_bd(annualized_dividend) - to_bd(previous_annualized_dividend).to_f,
           changed_dividend_rate: (annualized_dividend / previous_annualized_dividend) - 1,
         }
+      end
+
+      def dividends_for_chart(dividends)
+        dividends_in_chronological_order = dividends.reverse
+        Dividend::Calculation.dividend_growth_rate(dividends_in_chronological_order)
       end
     end
   end
