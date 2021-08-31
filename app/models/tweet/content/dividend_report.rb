@@ -14,13 +14,14 @@ module Tweet
         dividends = Dividend::Api.all_adjusted(company.symbol, from: chart_start_on)
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)
+        dividends_in_chronological_order = dividends.reverse
 
         # コンテンツをレンダリング
         text = self.class.render(
           template: template_path(__method__),
           assigns: assigns,
         )
-        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends)
+        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends_in_chronological_order)
         [text, image]
       end
 

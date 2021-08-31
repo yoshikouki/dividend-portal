@@ -8,7 +8,6 @@ class Chart
   end
 
   def new_dividend_of_dividend_aristocrats(dividends)
-    dividends_in_chronological_order = dividends.reverse
-    quick_chart_client.new_dividend_of_dividend_aristocrats(dividends_in_chronological_order)
+    quick_chart_client.new_dividend_of_dividend_aristocrats(dividends)
   end
 end
