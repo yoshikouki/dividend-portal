@@ -15,17 +15,7 @@ class QuickChartWrapper
   }.freeze
 
   def new_dividend_of_dividend_aristocrats(dividends)
-    labels = dividends.pluck(:ex_dividend_on)
-    dividend_growth_rate = dividends.pluck(:dividend_growth_rate).map { |rate| (rate * 100).round(2) }
-    datasets = [
-      { label: "増配率", data: dividend_growth_rate, type: :line, yAxisID: "left", pointRadius: 0 },
-      { label: "一株当たり配当($)", data: dividends.pluck(:adjusted_dividend), type: :bar, yAxisID: "right" },
-    ]
-    data = data(labels, datasets)
-    options = options(title: "$#{dividends[0][:symbol]} 過去25年間の推移")
-
-    pp config(:bar, data, options)
-    render config(:bar, data, options)
+    render QuickChartWrapper::Config::NEW_DIVIDEND_OF_DIVIDEND_ARISTOCRATS
   end
 
   private
