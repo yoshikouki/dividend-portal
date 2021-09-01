@@ -10,17 +10,18 @@ module Tweet
       ASSUMED_DIVIDEND_DECIMAL_POINT = 10
       PERCENTAGE_DECIMAL_POINT = 3
 
-      def new_dividend_of_dividend_aristocrats(company, chart_start_on: Time.at(25.years.ago))
+      def new_dividend_of_dividend_aristocrats(company, chart_start_on: Time.at(27.years.ago))
         dividends = Dividend::Api.all_adjusted(company.symbol, from: chart_start_on)
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)
+        dividends_for_chart = dividends_for_chart(dividends)
 
         # コンテンツをレンダリング
         text = self.class.render(
           template: template_path(__method__),
           assigns: assigns,
         )
-        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends)
+        image = Chart.new.new_dividend_of_dividend_aristocrats(dividends_for_chart)
         [text, image]
       end
 
@@ -96,6 +97,12 @@ module Tweet
           changed_dividend: to_bd(annualized_dividend) - to_bd(previous_annualized_dividend).to_f,
           changed_dividend_rate: (annualized_dividend / previous_annualized_dividend) - 1,
         }
+      end
+
+      def dividends_for_chart(dividends)
+        merged_dividend_growth_rate = Dividend::Calculation.dividend_growth_rate!(dividends)
+        dividends_in_chronological_order = merged_dividend_growth_rate.reverse
+        dividends_in_chronological_order[0..99]
       end
     end
   end

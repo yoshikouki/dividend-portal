@@ -14,60 +14,23 @@ class QuickChartWrapper
     format: "png",
   }.freeze
 
-  def new_dividend_of_dividend_aristocrats(dividends)
-    labels = dividends.pluck(:ex_dividend_on)
-    datasets = [{ label: "一株当たり配当($)", data: dividends.pluck(:adjusted_dividend) }]
-    data = data(labels, datasets)
-    options = options(title: "$#{dividends[0][:symbol]} 過去25年間の推移")
-
-    render config(:bar, data, options)
+  def new_dividend_of_dividend_aristocrats(title: "", x_axes: {}, left_y_axes: {}, right_y_axes: {})
+    config = Config.new_dividend_of_dividend_aristocrats(
+      title: title,
+      labels: x_axes[:labels],
+      y_left_label: left_y_axes[:label],
+      y_left_data: left_y_axes[:data],
+      y_right_label: right_y_axes[:label],
+      y_right_data: right_y_axes[:data],
+    )
+    render config
   end
 
   private
 
-  def data(labels, datasets)
-    { labels: labels,
-      datasets: datasets }
-  end
-
-  def options(title: nil)
-    options = {
-      scales: {
-        xAxes: [
-          { gridLines: { display: false },
-            ticks: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
-        ],
-        yAxes: [
-          { ticks: { beginAtZero: true, fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
-        ],
-      },
-      legend: {
-        position: "bottom",
-        labels: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold },
-      },
-    }
-    options.merge!(title_hash(title)) if title
-    options
-  end
-
-  def title_hash(title)
-    { title: {
-      text: title,
-      display: true,
-      fontSize: FONT_SIZE * 2,
-      fontFamily: FONT_FAMILY,
-    } }
-  end
-
-  def config(type, data, options)
-    { type: type.to_s,
-      data: data,
-      options: options }
-  end
-
-  def render(config)
-    client(config).to_file(TEMP_IMAGE_PATH)
-    File.new(TEMP_IMAGE_PATH)
+  def render(config, path: TEMP_IMAGE_PATH)
+    client(config).to_file(path)
+    File.new(path)
   end
 
   def client(config, arg: QUICK_CHART_DEFAULT_ARG)
