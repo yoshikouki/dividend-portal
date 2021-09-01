@@ -43,12 +43,12 @@ RSpec.describe Tweet::AssembledContent::Dividend, type: :model do
         # 一度書き出す
         content.ex_dividend_previous_date
 
-        symbols_string = (24..56).map { |i| "$TEST#{i}" }.join(" ")
-        expected = "#{symbols_string} ...残り14件"
+        symbols_string = (25..57).map { |i| "$TEST#{i}" }.join(" ")
+        expected = "#{symbols_string} ...残り13件"
         actual = content.remained_symbols
         expect(actual).to eq(expected)
 
-        expected = (57..70).map { |i| "$TEST#{i}" }.join(" ")
+        expected = (58..70).map { |i| "$TEST#{i}" }.join(" ")
         actual = content.remained_symbols
         expect(actual).to eq(expected)
       end
