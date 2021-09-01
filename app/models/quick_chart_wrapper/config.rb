@@ -6,12 +6,12 @@ class QuickChartWrapper
       {
         type: "line",
         data: {
-          labels: %{labels},
+          labels: %<labels>s,
           datasets: [
             {
               type: "bar",
-              label: "%{bar_label}",
-              data: %{bar_data},
+              label: "%<bar_label>s",
+              data: %<bar_data>s,
               barPercentage: 1,
               categoryPercentage: 1,
               backgroundColor:"rgba(0,0,0, 0.1)",
@@ -19,8 +19,8 @@ class QuickChartWrapper
               },
             {
               type: "line",
-              label: "%{line_label}",
-              data: %{line_data},
+              label: "%<line_label>s",
+              data: %<line_data>s,
               borderColor: "rgba(255, 159, 64, 0.1)",
               backgroundColor: getGradientFillHelper("vertical", [ "rgb(255, 159, 64)","rgba(255, 159, 64, 0.6)","rgba(255, 159, 64, 0.0)"]),
               pointRadius: 0,
@@ -66,7 +66,7 @@ class QuickChartWrapper
             labels: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold" }
           },
           title: {
-            text: "%{title}",
+            text: "%<title>s",
             display: true,
             fontSize: #{FONT_SIZE * 2},
             fontFamily: "#{FONT_FAMILY}"

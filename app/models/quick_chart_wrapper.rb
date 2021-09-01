@@ -14,14 +14,14 @@ class QuickChartWrapper
     format: "png",
   }.freeze
 
-  def new_dividend_of_dividend_aristocrats(title: "", x: {}, y_left: {}, y_right: {})
+  def new_dividend_of_dividend_aristocrats(title: "", x_axes: {}, left_y_axes: {}, right_y_axes: {})
     config = Config.new_dividend_of_dividend_aristocrats(
       title: title,
-      labels: x[:labels],
-      y_left_label: y_left[:label],
-      y_left_data: y_left[:data],
-      y_right_label: y_right[:label],
-      y_right_data: y_right[:data],
+      labels: x_axes[:labels],
+      y_left_label: left_y_axes[:label],
+      y_left_data: left_y_axes[:data],
+      y_right_label: right_y_axes[:label],
+      y_right_data: right_y_axes[:data],
     )
     render config
   end
