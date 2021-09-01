@@ -17,7 +17,7 @@ class QuickChartWrapper
               backgroundColor:"rgba(0,0,0, 0.1)",
               yAxisID: "right",
               },
-            { 
+            {
               type: "line",
               label: "%{line_label}",
               data: %{line_data},
@@ -31,7 +31,7 @@ class QuickChartWrapper
         options: {
           scales: {
             xAxes: [
-              { 
+              {
                 gridLines: { display: false },
                 ticks: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
@@ -41,22 +41,22 @@ class QuickChartWrapper
               },
             ],
             yAxes: [
-              { 
+              {
                 id: "left",
                 position: "left",
                 ticks: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
-                          return val.toLocaleString() + "%%"; 
+                          return val.toLocaleString() + "%%";
                         } },
               },
-              { 
+              {
                 id: "right",
                 position: "right",
                 ticks: { beginAtZero: true, fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
                           let price = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
-                          return price.format(val.toLocaleString()); 
-                        } }, 
+                          return price.format(val.toLocaleString());
+                        } },
                 gridLines: { display: false },
               },
             ]
@@ -77,7 +77,7 @@ class QuickChartWrapper
 
     class << self
       def new_dividend_of_dividend_aristocrats(**arg)
-        sprintf(
+        format(
           NEW_DIVIDEND_OF_DIVIDEND_ARISTOCRATS,
           {
             title: arg[:title],
@@ -85,8 +85,8 @@ class QuickChartWrapper
             line_label: arg[:y_left_label],
             line_data: arg[:y_left_data],
             bar_label: arg[:y_right_label],
-            bar_data: arg[:y_right_data]
-          }
+            bar_data: arg[:y_right_data],
+          },
         )
       end
     end
