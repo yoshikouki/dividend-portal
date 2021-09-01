@@ -10,7 +10,7 @@ module Tweet
       ASSUMED_DIVIDEND_DECIMAL_POINT = 10
       PERCENTAGE_DECIMAL_POINT = 3
 
-      def new_dividend_of_dividend_aristocrats(company, chart_start_on: Time.at(25.years.ago))
+      def new_dividend_of_dividend_aristocrats(company, chart_start_on: Time.at(27.years.ago))
         dividends = Dividend::Api.all_adjusted(company.symbol, from: chart_start_on)
         outlook = Dividend::Api.outlook(company.symbol)
         assigns = convert_to_assigns(company, dividends, outlook)
@@ -100,8 +100,9 @@ module Tweet
       end
 
       def dividends_for_chart(dividends)
-        dividends_in_chronological_order = dividends.reverse
-        Dividend::Calculation.dividend_growth_rate(dividends_in_chronological_order)
+        merged_dividend_growth_rate = Dividend::Calculation.dividend_growth_rate!(dividends)
+        dividends_in_chronological_order = merged_dividend_growth_rate.reverse
+        dividends_in_chronological_order[0..99]
       end
     end
   end
