@@ -33,7 +33,7 @@ class QuickChartWrapper
             xAxes: [
               { 
                 gridLines: { display: false },
-                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                ticks: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
                           let date = new Date(val.toLocaleString());
                           return date.getFullYear();
@@ -44,7 +44,7 @@ class QuickChartWrapper
               { 
                 id: "left",
                 position: "left",
-                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                ticks: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
                           return val.toLocaleString() + "%%"; 
                         } },
@@ -52,7 +52,7 @@ class QuickChartWrapper
               { 
                 id: "right",
                 position: "right",
-                ticks: { beginAtZero: true, fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                ticks: { beginAtZero: true, fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold",
                         callback: (val) => {
                           let price = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
                           return price.format(val.toLocaleString()); 
@@ -63,13 +63,13 @@ class QuickChartWrapper
           },
           legend: {
             position: "bottom",
-            labels: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold" }
+            labels: { fontSize: #{FONT_SIZE}, fontFamily: "#{FONT_FAMILY}", fontStyle: "bold" }
           },
           title: {
             text: "%{title}",
             display: true,
-            fontSize: 40,
-            fontFamily: "MONO"
+            fontSize: #{FONT_SIZE * 2},
+            fontFamily: "#{FONT_FAMILY}"
           }
         }
       }
