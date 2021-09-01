@@ -33,19 +33,30 @@ class QuickChartWrapper
             xAxes: [
               { 
                 gridLines: { display: false },
-                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold" },
+                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                        callback: (val) => {
+                          let date = new Date(val.toLocaleString());
+                          return date.getFullYear();
+                        }},
               },
             ],
             yAxes: [
               { 
                 id: "left",
                 position: "left",
-                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold" },
+                ticks: { fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                        callback: (val) => {
+                          return val.toLocaleString() + "%"; 
+                        } },
               },
               { 
                 id: "right",
                 position: "right",
-                ticks: { beginAtZero: true, fontSize: 20, fontFamily: "MONO", fontStyle: "bold" }, 
+                ticks: { beginAtZero: true, fontSize: 20, fontFamily: "MONO", fontStyle: "bold",
+                        callback: (val) => {
+                          let price = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+                          return price.format(val.toLocaleString()); 
+                        } }, 
                 gridLines: { display: false },
               },
             ]
