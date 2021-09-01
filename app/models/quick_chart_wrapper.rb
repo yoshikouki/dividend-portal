@@ -28,51 +28,6 @@ class QuickChartWrapper
 
   private
 
-  def data(labels, datasets)
-    { labels: labels,
-      datasets: datasets }
-  end
-
-  def options(title: nil)
-    options = {
-      scales: {
-        xAxes: [
-          { gridLines: { display: false },
-            ticks: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
-        ],
-        yAxes: [
-          { id: "left",
-            position: "left",
-            ticks: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
-          { id: "right",
-            position: "right",
-            ticks: { beginAtZero: true, fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold } },
-        ],
-      },
-      legend: {
-        position: "bottom",
-        labels: { fontSize: FONT_SIZE, fontFamily: FONT_FAMILY, fontStyle: :bold },
-      },
-    }
-    options.merge!(title_hash(title)) if title
-    options
-  end
-
-  def title_hash(title)
-    { title: {
-      text: title,
-      display: true,
-      fontSize: FONT_SIZE * 2,
-      fontFamily: FONT_FAMILY,
-    } }
-  end
-
-  def config(type, data, options)
-    { type: type.to_s,
-      data: data,
-      options: options }
-  end
-
   def render(config, path: TEMP_IMAGE_PATH)
     client(config).to_file(path)
     File.new(path)
