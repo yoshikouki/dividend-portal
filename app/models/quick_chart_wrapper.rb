@@ -14,8 +14,16 @@ class QuickChartWrapper
     format: "png",
   }.freeze
 
-  def new_dividend_of_dividend_aristocrats(dividends)
-    render QuickChartWrapper::Config::NEW_DIVIDEND_OF_DIVIDEND_ARISTOCRATS
+  def new_dividend_of_dividend_aristocrats(title: "", x: {}, y_left: {}, y_right: {})
+    config = Config.new_dividend_of_dividend_aristocrats(
+      title: title,
+      labels: x[:labels],
+      y_left_label: y_left[:label],
+      y_left_data: y_left[:data],
+      y_right_label: y_right[:label],
+      y_right_data: y_right[:data],
+    )
+    render config
   end
 
   private
@@ -65,9 +73,9 @@ class QuickChartWrapper
       options: options }
   end
 
-  def render(config)
-    client(config).to_file(TEMP_IMAGE_PATH)
-    File.new(TEMP_IMAGE_PATH)
+  def render(config, path: TEMP_IMAGE_PATH)
+    client(config).to_file(path)
+    File.new(path)
   end
 
   def client(config, arg: QUICK_CHART_DEFAULT_ARG)
