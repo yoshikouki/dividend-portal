@@ -33,7 +33,7 @@ module Refresh
     private
 
     def filter_id(result)
-      result.map { |h| h["id"] }
+      result.map { |h| h["id"] } if result.respond_to?(:map)
     end
   end
 end
