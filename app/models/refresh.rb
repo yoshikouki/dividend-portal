@@ -4,7 +4,7 @@ module Refresh
   BEGINNING_OF_DIVIDEND_STORAGE_PERIOD = Time.at(1.days.ago)
 
   class << self
-    def run
+    def daily
       remove_for_saving_storage
       new_dividend_ids = update_dividends
       enqueue(dividend_ids: new_dividend_ids) if new_dividend_ids.present?
