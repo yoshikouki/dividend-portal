@@ -191,7 +191,6 @@ RSpec.describe Dividend, type: :model do
         expect { Dividend.insert_all_with_api!(latest_dividend_calendar: latest_dividends) }.to change { Dividend.count }.by(3)
         expect { Dividend.insert_all_with_api!(latest_dividend_calendar: latest_dividends) }.to change { Dividend.count }.by(0)
       end
-
     end
   end
 end
