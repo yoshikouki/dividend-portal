@@ -23,11 +23,11 @@ module Refresh
       self::Dividend.enqueue_dividend_report(dividend_ids)
     end
 
+    # 配当貴族に関する網羅的な情報を更新する
     def dividend_aristocrats
-      # 配当貴族に関する網羅的な情報を更新する
-      # 定期的な実行ではない
-      # 現在、グラフなどの不具合を出てきたら修正するスタイルになっているので、一度情報を揃えて検証したい
-      # 分析・検証用に情報を揃えたい
+      # 2021年現在の配当貴族銘柄で企業情報を更新する
+      # 配当情報を保存する
+      # 株式分割を保存する
     end
 
     private
