@@ -34,7 +34,7 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     end
   end
 
-  describe "#calculate_result_of_dividend_increase" do
+  describe "#calculate_changed_dividend_and_its_rate_from_dividends" do
     let!(:today) { Date.today }
     let!(:base) do
       { ex_dividend_on: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
@@ -64,6 +64,21 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
         annualized_dividend: 0.4,
         changed_dividend: 0.36,
         changed_dividend_rate: 9,
+      }
+      expect(actual).to eq expected
+    end
+
+    it "配当情報の dividend がないエッジパターン" do
+      dividends = [
+        base,
+        base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: nil, adjusted_dividend: 0.1),
+        base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.1),
+      ]
+      actual = Tweet::Content::DividendReport.new.calculate_changed_dividend_and_its_rate_from_dividends(dividends)
+      expected = {
+        annualized_dividend: 0.2,
+        changed_dividend: 0.1,
+        changed_dividend_rate: 1,
       }
       expect(actual).to eq expected
     end

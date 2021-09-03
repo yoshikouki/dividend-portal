@@ -78,7 +78,8 @@ module Tweet
       end
 
       def sum_dividend_to_hash(annualized_dividend_hash, dividend_hash)
-        big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend_hash[:dividend])
+        dividend = dividend_hash[:dividend] || dividend_hash[:adjusted_dividend]
+        big_decimal = to_bd(annualized_dividend_hash[:annualized_dividend]) + to_bd(dividend)
         {
           annualized_dividend: big_decimal.to_f,
           dividend_count: annualized_dividend_hash[:dividend_count] += 1,

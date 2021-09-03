@@ -28,11 +28,13 @@ module Tweet
   end
 
   def self.new_dividend_of_dividend_aristocrats
-    report_queue = ReportQueueOfDividendAristocratsDividend.dequeue
-    return unless report_queue
+    ActiveRecord::Base.transaction do
+      report_queue = ReportQueueOfDividendAristocratsDividend.dequeue
+      return unless report_queue
 
-    content = Tweet::Content::DividendReport.new
-    text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
-    Client.tweet_with_image(text, image)
+      content = Tweet::Content::DividendReport.new
+      text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
+      Client.tweet_with_image(text, image)
+    end
   end
 end
