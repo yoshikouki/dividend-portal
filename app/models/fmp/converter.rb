@@ -38,13 +38,13 @@ module Fmp
       end
 
       def transform_keys_to_snake_case_and_symbol(body)
-        # TODO: 孫子要素が[{}]の階層を持っていると変換されないので、必要になったら修正する
         case body
         when Array
           body.map do |item, value|
-            case value
+            target = value || item
+            case target
             when Array, Hash
-              transform_keys_to_snake_case_and_symbol(value)
+              transform_keys_to_snake_case_and_symbol(target)
             else
               item.transform_keys { |key| key.underscore.to_sym }
             end
