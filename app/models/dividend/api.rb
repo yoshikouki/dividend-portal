@@ -18,7 +18,11 @@ class Dividend
         from: from,
         to: to,
       )
-      Converter.convert_response_of_historical_calendar(historical_dividends)
+      if historical_dividends[:historical_stock_list]
+        Converter.historical_stock_list(historical_dividends)
+      else
+        Converter.convert_response_of_historical_calendar(historical_dividends)
+      end
     end
 
     def self.outlook(symbol)

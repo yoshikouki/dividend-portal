@@ -26,7 +26,12 @@ module Refresh
     # 配当貴族に関する網羅的な情報を更新する
     def dividend_aristocrats
       # 2021年現在の配当貴族銘柄で企業情報を更新する
-      # 配当情報を保存する
+      ::Company.update_dividend_aristocrats
+      # 取得できる配当情報は 1962 年以降っぽいが念のため 1950 年で取得
+      all_dividends = []
+      Company::DIVIDEND_ARISTOCRATS.each_slice(5) do |symbols|
+        all_dividends += ::Dividend::Api.all(symbols, from: "1950-01-01")
+      end
       # 株式分割を保存する
     end
 
