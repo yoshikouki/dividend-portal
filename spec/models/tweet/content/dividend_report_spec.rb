@@ -37,24 +37,24 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
   describe "#calculate_changed_dividend_and_its_rate_from_dividends" do
     let!(:today) { Date.today }
     let!(:base) do
-      { ex_dividend_on: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
+      { ex_dividend_date: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
         pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
         dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
     end
     let!(:dividends) do
       [
         base,
-        base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
-        base.merge(ex_dividend_on: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
-        base.merge(ex_dividend_on: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
-        base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
-        base.merge(ex_dividend_on: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
-        base.merge(ex_dividend_on: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
-        base.merge(ex_dividend_on: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
-        base.merge(ex_dividend_on: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
-        base.merge(ex_dividend_on: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
-        base.merge(ex_dividend_on: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
-        base.merge(ex_dividend_on: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_date: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_date: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_date: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_date: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_date: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_date: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_date: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
+        base.merge(ex_dividend_date: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_date: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_date: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
+        base.merge(ex_dividend_date: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
       ]
     end
 
@@ -71,8 +71,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     it "配当情報の dividend がないエッジパターン" do
       dividends = [
         base,
-        base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: nil, adjusted_dividend: 0.1),
-        base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.1),
+        base.merge(ex_dividend_date: today.months_ago(3).strftime("%Y-%m-%d"), dividend: nil, adjusted_dividend: 0.1),
+        base.merge(ex_dividend_date: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.1),
       ]
       actual = Tweet::Content::DividendReport.new.calculate_changed_dividend_and_its_rate_from_dividends(dividends)
       expected = {
@@ -88,24 +88,24 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     context "正常系-同じシンボルの過去の配当情報をDIVIDEND_CALENDAR形式の配列で取得した場合" do
       let!(:today) { Date.today }
       let!(:base) do
-        { ex_dividend_on: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
+        { ex_dividend_date: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
           pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
           dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
       end
       let!(:dividends) do
         [
           base,
-          base.merge(ex_dividend_on: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
-          base.merge(ex_dividend_on: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
-          base.merge(ex_dividend_on: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
-          base.merge(ex_dividend_on: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
-          base.merge(ex_dividend_on: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
-          base.merge(ex_dividend_on: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
-          base.merge(ex_dividend_on: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
-          base.merge(ex_dividend_on: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
-          base.merge(ex_dividend_on: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
-          base.merge(ex_dividend_on: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
-          base.merge(ex_dividend_on: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_date: today.months_ago(3).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_date: today.months_ago(6).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_date: today.months_ago(9).strftime("%Y-%m-%d"), dividend: 0.1),
+          base.merge(ex_dividend_date: today.years_ago(1).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_date: today.years_ago(1).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_date: today.years_ago(1).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_date: today.years_ago(1).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.01),
+          base.merge(ex_dividend_date: today.years_ago(2).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_date: today.years_ago(2).months_ago(3).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_date: today.years_ago(2).months_ago(6).strftime("%Y-%m-%d"), dividend: 0.001),
+          base.merge(ex_dividend_date: today.years_ago(2).months_ago(9).strftime("%Y-%m-%d"), dividend: 0.001),
         ]
       end
 
@@ -124,13 +124,13 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
       let!(:dividends) do
         [
           # 2021年8月10日に配当支払いがあった場合、2020年9月1日以降の配当を過去12ヶ月分と計算する
-          { ex_dividend_on: "2021-08-10", dividend: 0.1 },
-          { ex_dividend_on: "2020-09-01", dividend: 0.1 },
+          { ex_dividend_date: "2021-08-10", dividend: 0.1 },
+          { ex_dividend_date: "2020-09-01", dividend: 0.1 },
           # 過去12-24ヶ月前の配当
-          { ex_dividend_on: "2020-08-31", dividend: 0.01 },
-          { ex_dividend_on: "2019-09-01", dividend: 0.01 },
+          { ex_dividend_date: "2020-08-31", dividend: 0.01 },
+          { ex_dividend_date: "2019-09-01", dividend: 0.01 },
           # 24-36ヶ月前 (集計外)
-          { ex_dividend_on: "2019-08-31", dividend: 0.001 },
+          { ex_dividend_date: "2019-08-31", dividend: 0.001 },
         ]
       end
 

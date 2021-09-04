@@ -4,7 +4,7 @@ class Dividend
   module Api
     class Converter
       CONVERSION_TABLE_OF_DIVIDEND_CALENDAR = {
-        date: :ex_dividend_on,
+        date: :ex_dividend_date,
         record_date: :records_on,
         payment_date: :pays_on,
         declaration_date: :declares_on,
@@ -73,7 +73,7 @@ class Dividend
       # total_split_number_by_span の配列は、最新情報を先頭に時系昇順で並んでいる想定 (必要があれば改修)
       def self.calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
         historical_dividends.map do |dividend|
-          ex_dividend_date = Date.parse(dividend[:ex_dividend_on])
+          ex_dividend_date = Date.parse(dividend[:ex_dividend_date])
           total_split_number_on_ex_dividend_date = total_stock_split_number(total_split_number_by_span, ex_dividend_date)
           dividend[:adjusted_dividend] = if total_split_number_on_ex_dividend_date > 1
             adjust_dividend(dividend, total_split_number_on_ex_dividend_date)

@@ -17,7 +17,7 @@ describe "Fmp::Dividend" do
           payment_date: "2021-01-01",
         )
         expected = {
-          ex_dividend_on: "2021-01-01",
+          ex_dividend_date: "2021-01-01",
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: 0.1,
@@ -40,7 +40,7 @@ describe "Fmp::Dividend" do
           declaration_date: "",
         )
         expected = {
-          ex_dividend_on: "2021-01-01",
+          ex_dividend_date: "2021-01-01",
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: nil,

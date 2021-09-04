@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :dividend do
-    ex_dividend_on { Date.today }
+    ex_dividend_date { Date.today }
     records_on { Date.tomorrow }
     pays_on { Date.today.next_month }
     declares_on { Date.today.last_month }
