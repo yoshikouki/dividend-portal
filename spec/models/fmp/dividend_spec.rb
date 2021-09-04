@@ -38,7 +38,7 @@ describe "Fmp::Dividend" do
           adj_dividend: nil,
           label: "2021-01-01",
           declaration_date: "",
-          )
+        )
         expected = {
           ex_dividend_on: "2021-01-01",
           symbol: "TEST",

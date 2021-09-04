@@ -88,7 +88,7 @@ RSpec.describe Fmp::Converter, type: :model do
 
       it "HashとArrayが交互に多重構造 {[{[{}]}]} になっている場合" do
         body = {
-          "camelCase" => [{ "camelCase" => [{ "camelCase" => "string" }, { "camelCase" => "string" }], }],
+          "camelCase" => [{ "camelCase" => [{ "camelCase" => "string" }, { "camelCase" => "string" }] }],
         }
         actual = Fmp::Converter.transform_keys_to_snake_case_and_symbol(body)
         expect = {
