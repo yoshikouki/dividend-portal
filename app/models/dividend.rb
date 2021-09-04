@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Dividend < ApplicationRecord
-  belongs_to :company
+  belongs_to :company, optional: true
 
   has_many :report_queues, dependent: :destroy
   scope :not_notified, -> { where(notified: false) }
@@ -61,6 +61,12 @@ class Dividend < ApplicationRecord
       insert_all!(attributes_array) if attributes_array.present?
     end
 
+    def insert_all_from_dividend_calendar!(dividend_calendar, associate_company: true)
+      dividend_calendar = associate_with_us_companies(dividend_calendar) if associate_company
+      dividend_calendar = merge_timestamp(dividend_calendar)
+      insert_all!(dividend_calendar)
+    end
+
     private
 
     def associate_with_us_companies(dividend_calendar = [])
@@ -94,13 +100,22 @@ class Dividend < ApplicationRecord
           latest[:company_id] = Company.find_by(symbol: latest[:symbol]) || next
         end
 
-        DEFAULT_INSERT_ALL.deep_dup.merge(latest)
+        merge_timestamp(latest)
       end
     end
 
     def remove_empty_string(hash)
       # #present? ではfalse(boolean)だった場合もnilにしてしまうため、シンプルに空文字を検証する
       hash.transform_values { |v| v == "" ? nil : v }
+    end
+
+    def merge_timestamp(dividend_calendar)
+      case dividend_calendar
+      when Array
+        dividend_calendar.map { |dividend| DEFAULT_INSERT_ALL.deep_dup.merge(dividend) }
+      when Hash
+        DEFAULT_INSERT_ALL.deep_dup.merge(dividend_calendar)
+      end
     end
   end
 

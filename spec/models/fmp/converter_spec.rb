@@ -85,6 +85,17 @@ RSpec.describe Fmp::Converter, type: :model do
         }
         expect(actual).to eq(expect)
       end
+
+      it "HashとArrayが交互に多重構造 {[{[{}]}]} になっている場合" do
+        body = {
+          "camelCase" => [{ "camelCase" => [{ "camelCase" => "string" }, { "camelCase" => "string" }] }],
+        }
+        actual = Fmp::Converter.transform_keys_to_snake_case_and_symbol(body)
+        expect = {
+          camel_case: [{ camel_case: [{ camel_case: "string" }, { camel_case: "string" }] }],
+        }
+        expect(actual).to eq(expect)
+      end
     end
   end
 
