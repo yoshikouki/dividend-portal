@@ -48,8 +48,7 @@ RSpec.describe Company, type: :model do
 
       it "シンボルを元に作成・更新が行われる" do
         allow(Fmp).to receive(:symbols_list).and_return(api_response)
-        Company.update_all_with_api
-        expect(Company.all.count).to eq(api_response.count + 1)
+        expect { Company.update_all_with_api }.to change(Company, :count).by(1)
         expect(Company.find_by(symbol: "SPY").exchange).to eq "New York Stock Exchange Arca"
         expect(Company.find_by(symbol: "KMI").name).to eq "Kinder Morgan, Inc."
       end

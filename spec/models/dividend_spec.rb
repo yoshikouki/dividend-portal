@@ -200,10 +200,10 @@ RSpec.describe Dividend, type: :model do
       let!(:new_company) { FactoryBot.create(:company, symbol: "NEWSYMBOL") }
       let!(:dividend) do
         {
-          ex_dividend_date: Date.today.strftime("%Y-%m-%d"),
-          records_on: Date.tomorrow.strftime("%Y-%m-%d"),
-          pays_on: Date.today.next_month.strftime("%Y-%m-%d"),
-          declares_on: Date.today.last_month.strftime("%Y-%m-%d"),
+          ex_dividend_date: "2021-09-01",
+          records_on: "2021-09-02",
+          pays_on: "2021-10-01",
+          declares_on: "2021-08-01",
           symbol: company.symbol,
           dividend: 0.1,
           adjusted_dividend: 0.1,
@@ -212,10 +212,9 @@ RSpec.describe Dividend, type: :model do
       end
 
       it "企業がなかった場合は新しく Company を作成して Dividend をインサートする" do
-        Dividend.create!(dividend)
         dividend_calendar = [
           dividend,
-          dividend.merge(symbol: new_company.symbol),
+          dividend.merge(symbol: new_company.symbol, ex_dividend_date: "2021-12-01"),
           dividend.merge(symbol: "KO"),
         ]
         VCR.use_cassette("models/dividend/insert_all_from_dividend_calendar/associate_company") do
@@ -241,7 +240,6 @@ RSpec.describe Dividend, type: :model do
       end
 
       it "空文字は nil として扱って新しいデータを追加する" do
-        Dividend.create!(dividend)
         dividend_calendar = [
           dividend,
           dividend.merge(symbol: "NEWCOMPANY"),

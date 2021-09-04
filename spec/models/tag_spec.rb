@@ -5,14 +5,16 @@ require "rails_helper"
 RSpec.describe Tag, type: :model do
   describe "validation" do
     context "正常系" do
-      it "valid" do
-        [
-          { name: :dividend_aristocrats, display_name: "配当貴族" },
-          { name: :a, display_name: "1文字の識別子" },
-          { name: :a1, display_name: "数字は先頭以外" },
-        ].each do |attr|
-          expect(Tag.new(attr).valid?).to be true
-        end
+      it "一文字の識別子" do
+        expect(Tag.new(name: :dividend_aristocrats, display_name: "配当貴族").valid?).to be true
+      end
+
+      it "一文字の識別子" do
+        expect(Tag.new(name: :a, display_name: "1文字の識別子").valid?).to be true
+      end
+
+      it "先頭は英字のみ" do
+        expect(Tag.new(name: :a1, display_name: "数字は先頭以外").valid?).to be true
       end
     end
 
