@@ -14,6 +14,10 @@ module Fmp
       @dividend_calendar
     end
 
+    def to_dividends_attributes
+      @dividend_calendar.map { |dividend| dividend.to_dividend_attributes }
+    end
+
     def self.historical(*symbols, from: nil, to: nil)
       warn "[WARNING] use up to 5 symbols" if symbols.count > 5
       historical_dividends = Fmp.historical_dividends(symbols, from: from, to: to)
