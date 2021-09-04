@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Dividend < ApplicationRecord
-  belongs_to :company
+  belongs_to :company, optional: true
 
   has_many :report_queues, dependent: :destroy
   scope :not_notified, -> { where(notified: false) }
