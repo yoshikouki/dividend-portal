@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/profile/KO?apikey=<FMP_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sat, 04 Sep 2021 14:22:23 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        WyB7CiAgInN5bWJvbCIgOiAiS08iLAogICJwcmljZSIgOiA1Ni43MywKICAiYmV0YSIgOiAwLjYyOTM3LAogICJ2b2xBdmciIDogMTI0OTE4MTgsCiAgIm1rdENhcCIgOiAyNDUwNTQzMDgzNTIsCiAgImxhc3REaXYiIDogMS42NiwKICAicmFuZ2UiIDogIjQ3LjMtNTcuNTYiLAogICJjaGFuZ2VzIiA6IC0wLjA0MDAwMDkyLAogICJjb21wYW55TmFtZSIgOiAiVGhlIENvY2EtQ29sYSBDb21wYW55IiwKICAiY3VycmVuY3kiIDogIlVTRCIsCiAgImNpayIgOiAiMDAwMDAyMTM0NCIsCiAgImlzaW4iIDogIlVTMTkxMjE2MTAwNyIsCiAgImN1c2lwIiA6ICIxOTEyMTYxMDAiLAogICJleGNoYW5nZSIgOiAiTmV3IFlvcmsgU3RvY2sgRXhjaGFuZ2UiLAogICJleGNoYW5nZVNob3J0TmFtZSIgOiAiTllTRSIsCiAgImluZHVzdHJ5IiA6ICJCZXZlcmFnZXPigJROb24tQWxjb2hvbGljIiwKICAid2Vic2l0ZSIgOiAiaHR0cDovL3d3dy5jb2NhLWNvbGFjb21wYW55LmNvbSIsCiAgImRlc2NyaXB0aW9uIiA6ICJUaGUgQ29jYS1Db2xhIENvbXBhbnksIGEgYmV2ZXJhZ2UgY29tcGFueSwgbWFudWZhY3R1cmVzLCBtYXJrZXRzLCBhbmQgc2VsbHMgdmFyaW91cyBub25hbGNvaG9saWMgYmV2ZXJhZ2VzIHdvcmxkd2lkZS4gVGhlIGNvbXBhbnkgcHJvdmlkZXMgc3BhcmtsaW5nIHNvZnQgZHJpbmtzOyB3YXRlciwgZW5oYW5jZWQgd2F0ZXIsIGFuZCBzcG9ydHMgZHJpbmtzOyBqdWljZSwgZGFpcnksIGFuZCBwbGFudD9iYXNlZCBiZXZlcmFnZXM7IHRlYSBhbmQgY29mZmVlOyBhbmQgZW5lcmd5IGRyaW5rcy4gSXQgYWxzbyBvZmZlcnMgYmV2ZXJhZ2UgY29uY2VudHJhdGVzIGFuZCBzeXJ1cHMsIGFzIHdlbGwgYXMgZm91bnRhaW4gc3lydXBzIHRvIGZvdW50YWluIHJldGFpbGVycywgc3VjaCBhcyByZXN0YXVyYW50cyBhbmQgY29udmVuaWVuY2Ugc3RvcmVzLiBUaGUgY29tcGFueSBzZWxscyBpdHMgcHJvZHVjdHMgdW5kZXIgdGhlIENvY2EtQ29sYSwgRGlldCBDb2tlL0NvY2EtQ29sYSBMaWdodCwgQ29jYS1Db2xhIFplcm8gU3VnYXIsIEZhbnRhLCBGcmVzY2EsIFNjaHdlcHBlcywgU3ByaXRlLCBUaHVtcyBVcCwgQXF1YXJpdXMsIENpZWwsIERhc2FuaSwgZ2xhY8OpYXUgc21hcnR3YXRlciwgZ2xhY8OpYXUgdml0YW1pbndhdGVyLCBJY2UgRGV3LCBJIExPSEFTLCBQb3dlcmFkZSwgVG9wbyBDaGljbywgQWRlUywgRGVsIFZhbGxlLCBmYWlybGlmZSwgaW5ub2NlbnQsIE1pbnV0ZSBNYWlkLCBNaW51dGUgTWFpZCBQdWxweSwgU2ltcGx5LCBaSUNPLCBBeWF0YWthLCBDb3N0YSwgZG9nYWRhbiwgRlVaRSBURUEsIEdlb3JnaWEsIEdvbGQgUGVhaywgSE9ORVNUIFRFQSwgYW5kIEtvY2hha2FkZW4gYnJhbmRzLiBJdCBvcGVyYXRlcyB0aHJvdWdoIGEgbmV0d29yayBvZiBjb21wYW55LW93bmVkIG9yIGNvbnRyb2xsZWQgYm90dGxpbmcgYW5kIGRpc3RyaWJ1dGlvbiBvcGVyYXRvcnMsIGFzIHdlbGwgYXMgdGhyb3VnaCBpbmRlcGVuZGVudCBib3R0bGluZyBwYXJ0bmVycywgZGlzdHJpYnV0b3JzLCB3aG9sZXNhbGVycywgYW5kIHJldGFpbGVycy4gVGhlIGNvbXBhbnkgd2FzIGZvdW5kZWQgaW4gMTg4NiBhbmQgaXMgaGVhZHF1YXJ0ZXJlZCBpbiBBdGxhbnRhLCBHZW9yZ2lhLiIsCiAgImNlbyIgOiAiTXIuIEphbWVzIFF1aW5jZXkiLAogICJzZWN0b3IiIDogIkNvbnN1bWVyIERlZmVuc2l2ZSIsCiAgImNvdW50cnkiIDogIlVTIiwKICAiZnVsbFRpbWVFbXBsb3llZXMiIDogIjgwMzAwIiwKICAicGhvbmUiIDogIjE0MDQ2NzYyMTIxIiwKICAiYWRkcmVzcyIgOiAiMSBDb2NhIENvbGEgUGx6IE5XIiwKICAiY2l0eSIgOiAiQXRsYW50YSIsCiAgInN0YXRlIiA6ICJHRU9SR0lBIiwKICAiemlwIiA6ICIzMDMwMSIsCiAgImRjZkRpZmYiIDogLTIyLjQ0LAogICJkY2YiIDogNTguMjk5MywKICAiaW1hZ2UiIDogImh0dHBzOi8vZmluYW5jaWFsbW9kZWxpbmdwcmVwLmNvbS9pbWFnZS1zdG9jay9LTy5wbmciLAogICJpcG9EYXRlIiA6ICIxOTE5LTA5LTA1IiwKICAiZGVmYXVsdEltYWdlIiA6IGZhbHNlLAogICJpc0V0ZiIgOiBmYWxzZSwKICAiaXNBY3RpdmVseVRyYWRpbmciIDogdHJ1ZQp9IF0=
+  recorded_at: Sat, 04 Sep 2021 14:22:23 GMT
+recorded_with: VCR 6.0.0
