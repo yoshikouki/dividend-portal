@@ -6,10 +6,10 @@ module Fmp
     attr_accessor :date, :symbol, :dividend, :adj_dividend, :declaration_date, :label, :record_date, :payment_date
 
     CONVERSION_TABLE_OF_DIVIDEND_CALENDAR = {
-      ex_dividend_on: :date,
-      records_on: :record_date,
-      pays_on: :payment_date,
-      declares_on: :declaration_date,
+      ex_dividend_date: :date,
+      record_date: :record_date,
+      payment_date: :payment_date,
+      declaration_date: :declaration_date,
       symbol: :symbol,
       dividend: :dividend,
       adjusted_dividend: :adj_dividend,

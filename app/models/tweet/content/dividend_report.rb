@@ -43,7 +43,7 @@ module Tweet
         reference_date_twenty_four_months_ago = reference_date.months_ago(23).beginning_of_month.yesterday
 
         dividends.each do |dividend_hash|
-          ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_on])
+          ex_dividend_date = Date.parse(dividend_hash[:ex_dividend_date])
           target = if ex_dividend_date.after?(reference_date_trailing_twelve_months)
             :trailing_twelve_months_ago
           elsif ex_dividend_date.after?(reference_date_twenty_four_months_ago)
@@ -67,8 +67,8 @@ module Tweet
           sector: company.sector,
           years_of_dividend_growth: company.years_of_dividend_growth,
           dividend_per_share: latest_dividend[:dividend],
-          pays_on: latest_dividend[:pays_on],
-          ex_dividend_on: latest_dividend[:ex_dividend_on],
+          payment_date: latest_dividend[:payment_date],
+          ex_dividend_date: latest_dividend[:ex_dividend_date],
           changed_dividend: changed_dividend[:changed_dividend],
           changed_dividend_rate: changed_dividend[:changed_dividend_rate],
           dividend_yield: outlook[:ttm][:dividend_yield],

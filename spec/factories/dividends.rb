@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :dividend do
-    ex_dividend_on { Date.today }
-    records_on { Date.tomorrow }
-    pays_on { Date.today.next_month }
-    declares_on { Date.today.last_month }
+    ex_dividend_date { Date.today }
+    record_date { Date.tomorrow }
+    payment_date { Date.today.next_month }
+    declaration_date { Date.today.last_month }
     sequence(:symbol) { |n| "TEST#{n}" }
     dividend { 0.1 }
     adjusted_dividend { 0.1 }

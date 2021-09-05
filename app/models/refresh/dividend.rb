@@ -4,7 +4,7 @@ module Refresh
   module Dividend
     class << self
       def remove_outdated(outdated: BEGINNING_OF_DIVIDEND_STORAGE_PERIOD.yesterday)
-        ::Dividend.where(ex_dividend_on: ..outdated).destroy_all
+        ::Dividend.where(ex_dividend_date: ..outdated).destroy_all
       end
 
       def update_us(from: BEGINNING_OF_DIVIDEND_STORAGE_PERIOD)

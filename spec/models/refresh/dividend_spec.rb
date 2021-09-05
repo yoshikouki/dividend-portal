@@ -7,8 +7,8 @@ describe "Refresh::Dividend 配当情報を新規追加・削除する処理を�
     let!(:company) { FactoryBot.create(:company) }
 
     it "権利落ち日が2日以前の配当金は削除する" do
-      FactoryBot.create(:dividend, :with_company, ex_dividend_on: Date.today.prev_day(2))
-      FactoryBot.create(:dividend, :with_company, ex_dividend_on: Date.today.prev_day(1))
+      FactoryBot.create(:dividend, :with_company, ex_dividend_date: Date.today.prev_day(2))
+      FactoryBot.create(:dividend, :with_company, ex_dividend_date: Date.today.prev_day(1))
       expect { Refresh::Dividend.remove_outdated }.to change { Dividend.count }.by(-1)
       expect(Dividend.all.count).to eq 1
     end

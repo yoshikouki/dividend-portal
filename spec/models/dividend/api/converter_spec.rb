@@ -6,10 +6,10 @@ RSpec.describe Dividend::Api::Converter, type: :model do
   describe ".convert_response_of_dividend_calendar" do
     it "FMPのレスポンスをハッシュに変換するして返す" do
       expected = [
-        { ex_dividend_on: "2020-08-07",
-          records_on: "2020-08-10",
-          pays_on: "2020-09-10",
-          declares_on: "2020-07-28",
+        { ex_dividend_date: "2020-08-07",
+          record_date: "2020-08-10",
+          payment_date: "2020-09-10",
+          declaration_date: "2020-07-28",
           symbol: "IBM",
           dividend: 1.63,
           adjusted_dividend: 1.63 },
@@ -25,7 +25,7 @@ RSpec.describe Dividend::Api::Converter, type: :model do
           declaration_date: "2020-07-28" },
       ]
       actual = Dividend::Api::Converter.convert_response_of_dividend_calendar(dividends)
-      expect(actual.first[:ex_dividend_on]).to eq expected.first[:ex_dividend_on]
+      expect(actual.first[:ex_dividend_date]).to eq expected.first[:ex_dividend_date]
       expect(actual.first[:dividend]).to eq expected.first[:dividend]
     end
   end
@@ -71,18 +71,18 @@ RSpec.describe Dividend::Api::Converter, type: :model do
 
   describe ".calculate_adjusted_dividend_by_stock_split" do
     let!(:base_dividend) do
-      { ex_dividend_on: "2021-06-14", dividend: 100, adjusted_dividend: 100,
-        records_on: "2021-06-15", pays_on: "2021-07-01", declares_on: "2021-04-21", symbol: "KO" }
+      { ex_dividend_date: "2021-06-14", dividend: 100, adjusted_dividend: 100,
+        record_date: "2021-06-15", payment_date: "2021-07-01", declaration_date: "2021-04-21", symbol: "KO" }
     end
     let!(:historical_dividends) do
       [
         base_dividend,
-        base_dividend.merge(ex_dividend_on: "2012-08-10"),
-        base_dividend.merge(ex_dividend_on: "2012-08-09"),
-        base_dividend.merge(ex_dividend_on: "1996-05-10"),
-        base_dividend.merge(ex_dividend_on: "1996-05-09"),
-        base_dividend.merge(ex_dividend_on: "1965-02-10"),
-        base_dividend.merge(ex_dividend_on: "1965-02-09"),
+        base_dividend.merge(ex_dividend_date: "2012-08-10"),
+        base_dividend.merge(ex_dividend_date: "2012-08-09"),
+        base_dividend.merge(ex_dividend_date: "1996-05-10"),
+        base_dividend.merge(ex_dividend_date: "1996-05-09"),
+        base_dividend.merge(ex_dividend_date: "1965-02-10"),
+        base_dividend.merge(ex_dividend_date: "1965-02-09"),
       ]
     end
     let!(:total_split_number_by_span) do
@@ -96,32 +96,32 @@ RSpec.describe Dividend::Api::Converter, type: :model do
     it "過去の株式分割から現在価格の調整後配当を算出して上書きする" do
       actual = Dividend::Api::Converter.calculate_adjusted_dividend_by_stock_split(historical_dividends, total_split_number_by_span)
       expected = [
-        base_dividend.merge(ex_dividend_on: "2021-06-14", adjusted_dividend: 100.0),
-        base_dividend.merge(ex_dividend_on: "2012-08-10", adjusted_dividend: 100.0),
-        base_dividend.merge(ex_dividend_on: "2012-08-09", adjusted_dividend: 50.0),
-        base_dividend.merge(ex_dividend_on: "1996-05-10", adjusted_dividend: 50.0),
-        base_dividend.merge(ex_dividend_on: "1996-05-09", adjusted_dividend: 25.0),
-        base_dividend.merge(ex_dividend_on: "1965-02-10", adjusted_dividend: 25.0),
-        base_dividend.merge(ex_dividend_on: "1965-02-09", adjusted_dividend: 0.13020833333333334),
+        base_dividend.merge(ex_dividend_date: "2021-06-14", adjusted_dividend: 100.0),
+        base_dividend.merge(ex_dividend_date: "2012-08-10", adjusted_dividend: 100.0),
+        base_dividend.merge(ex_dividend_date: "2012-08-09", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "1996-05-10", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "1996-05-09", adjusted_dividend: 25.0),
+        base_dividend.merge(ex_dividend_date: "1965-02-10", adjusted_dividend: 25.0),
+        base_dividend.merge(ex_dividend_date: "1965-02-09", adjusted_dividend: 0.13020833333333334),
       ]
       expect(actual).to eq expected
     end
 
     it "過去の株式分割から現在価格の調整後配当を算出して上書きする" do
-      base_dividend = { ex_dividend_on: "2021-06-14", dividend: 100, adjusted_dividend: 100 }
+      base_dividend = { ex_dividend_date: "2021-06-14", dividend: 100, adjusted_dividend: 100 }
       adjusted_dividends = [
-        base_dividend.merge(ex_dividend_on: "2021-08-01"),
-        base_dividend.merge(ex_dividend_on: "2021-08-02", adjusted_dividend: 50.0),
-        base_dividend.merge(ex_dividend_on: "2021-08-03", dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "2021-08-01"),
+        base_dividend.merge(ex_dividend_date: "2021-08-02", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "2021-08-03", dividend: 50.0),
       ]
       total_split_number_by_span = {
         Date.parse("2021-08-30") => 2,
       }
       actual = Dividend::Api::Converter.calculate_adjusted_dividend_by_stock_split(adjusted_dividends, total_split_number_by_span)
       expected = [
-        base_dividend.merge(ex_dividend_on: "2021-08-01", adjusted_dividend: 50.0),
-        base_dividend.merge(ex_dividend_on: "2021-08-02", adjusted_dividend: 50.0),
-        base_dividend.merge(ex_dividend_on: "2021-08-03", dividend: 50.0, adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "2021-08-01", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "2021-08-02", adjusted_dividend: 50.0),
+        base_dividend.merge(ex_dividend_date: "2021-08-03", dividend: 50.0, adjusted_dividend: 50.0),
       ]
       expect(actual).to eq expected
     end

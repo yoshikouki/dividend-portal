@@ -8,10 +8,10 @@ class Dividend < ApplicationRecord
   scope :dividend_aristocrats, -> { includes(:company).joins(:company).merge(Company.dividend_aristocrats) }
 
   DEFAULT_INSERT_ALL = {
-    ex_dividend_on: nil,
-    records_on: nil,
-    pays_on: nil,
-    declares_on: nil,
+    ex_dividend_date: nil,
+    record_date: nil,
+    payment_date: nil,
+    declaration_date: nil,
     symbol: nil,
     dividend: nil,
     adjusted_dividend: nil,
@@ -53,7 +53,7 @@ class Dividend < ApplicationRecord
     end
 
     def convert_to_attributes_array(latest_dividend_calendar)
-      current_dividends = order(:ex_dividend_on).to_a
+      current_dividends = order(:ex_dividend_date).to_a
       latest_dividend_calendar.filter_map do |latest|
         latest = remove_empty_string(latest)
         # dividends に保存されている配当の場合はスキップ
@@ -87,7 +87,7 @@ class Dividend < ApplicationRecord
   end
 
   def same?(attributes)
-    ex_dividend_on == Date.parse(attributes[:ex_dividend_on]) &&
+    ex_dividend_date == Date.parse(attributes[:ex_dividend_date]) &&
       symbol == attributes[:symbol]
   end
 end
