@@ -71,14 +71,14 @@ class Company < ApplicationRecord
       Company.upsert_all(needs_updating) if needs_updating.count.positive?
     end
 
-    def update_dividend_aristocrats
-      dividend_aristocrats = DIVIDEND_ARISTOCRATS
-      profiles = Api.profiles(dividend_aristocrats)
-      profiles.each do |profile|
+    def update_dividend_aristocrats(dividend_aristocrats_symbols: DIVIDEND_ARISTOCRATS)
+      profiles = Api.profiles(dividend_aristocrats_symbols)
+      profiles.map do |profile|
         # TODO: N+1 なので速度に問題があるようなら修正する (多くとも2000〜3000件かつ毎日の実行くらいなので様子見)
         company = find_or_initialize_by(symbol: profile[:symbol])
         company.assign_attributes(profile)
         company.save if company.changed?
+        company
       end
     end
 
