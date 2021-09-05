@@ -33,6 +33,7 @@ module Refresh
       dividend_calendar = Fmp::DividendCalendar.historical_for_bulk_symbols(dividend_aristocrats_symbols, from: target_start_date)
       ::Dividend.insert_all_from_dividend_calendar!(dividend_calendar.to_dividends_attributes, associate_company: false)
       # 株式分割を保存する
+      stock_split_calendar = Fmp::StockSplitCalendar.historical_for_bulk_symbols(dividend_aristocrats_symbols, from: target_start_date)
     end
 
     private
