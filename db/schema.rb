@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_145831) do
+ActiveRecord::Schema.define(version: 2021_09_05_073751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 2021_09_04_145831) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dividend_id"], name: "index_report_queues_on_dividend_id"
+  end
+
+  create_table "stock_splits", force: :cascade do |t|
+    t.date "date"
+    t.string "symbol"
+    t.float "numerator"
+    t.float "denominator"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date", "symbol"], name: "index_stock_splits_on_date_and_symbol", unique: true
   end
 
   create_table "tags", force: :cascade do |t|

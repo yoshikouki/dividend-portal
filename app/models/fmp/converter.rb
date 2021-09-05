@@ -96,5 +96,22 @@ module Fmp
         end
       end
     end
+
+    def flatten_from_historical_hash(historical_hash)
+      flattened = []
+      if historical_hash.key?(:historical)
+        dividends = historical_hash[:historical].map { |dividend| dividend.merge(symbol: historical_hash[:symbol]) }
+        flattened = dividends
+      elsif historical_hash.key?(:historical_stock_list)
+        historical_hash[:historical_stock_list].each do |historical_dividends_by_symbol|
+          flattened += flatten_from_historical_hash(historical_dividends_by_symbol)
+        end
+      end
+      flattened
+    end
+
+    def remove_empty_string(arg)
+      arg.transform_values { |v| v == "" ? nil : v }
+    end
   end
 end

@@ -23,11 +23,18 @@ module Refresh
       self::Dividend.enqueue_dividend_report(dividend_ids)
     end
 
+    # 配当貴族に関する網羅的な情報を更新する
     def dividend_aristocrats
-      # 配当貴族に関する網羅的な情報を更新する
-      # 定期的な実行ではない
-      # 現在、グラフなどの不具合を出てきたら修正するスタイルになっているので、一度情報を揃えて検証したい
-      # 分析・検証用に情報を揃えたい
+      dividend_aristocrats_symbols = ::Company::DIVIDEND_ARISTOCRATS
+      target_start_date = "1900-01-01"
+      # 2021年現在の配当貴族銘柄で企業情報を更新する
+      ::Company.update_dividend_aristocrats(dividend_aristocrats_symbols: dividend_aristocrats_symbols)
+      # 取得できる配当情報は 1962 年以降っぽいが念のため 1950 年で取得
+      dividend_calendar = Fmp::DividendCalendar.historical_for_bulk_symbols(dividend_aristocrats_symbols, from: target_start_date)
+      ::Dividend.insert_all_from_dividend_calendar!(dividend_calendar.to_dividends_attributes, associate_company: false)
+      # 株式分割を保存する
+      stock_split_calendar = Fmp::StockSplitCalendar.historical_for_bulk_symbols(dividend_aristocrats_symbols, from: target_start_date)
+      ::StockSplit.insert_all_from_stock_split_calendar!(stock_split_calendar.to_stock_splits_attributes)
     end
 
     private

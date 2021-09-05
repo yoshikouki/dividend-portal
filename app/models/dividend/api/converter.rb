@@ -84,6 +84,14 @@ class Dividend
         end
       end
 
+      def self.historical_stock_list(nested_historical_stock_list)
+        stock_list = []
+        nested_historical_stock_list[:historical_stock_list].each do |hash|
+          stock_list += convert_response_of_historical_calendar(hash)
+        end
+        stock_list
+      end
+
       class << self
         private
 

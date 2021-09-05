@@ -2,6 +2,8 @@
 
 module Fmp
   class Dividend
+    include Fmp::Converter
+
     # ActiveModel::Attributes だと数百〜数千件のインスタンスを扱うのに重いため純粋に定義する
     attr_accessor :date, :symbol, :dividend, :adj_dividend, :declaration_date, :label, :record_date, :payment_date
 
@@ -31,11 +33,9 @@ module Fmp
       @dividend = arg[:dividend]
       @adj_dividend = arg[:adj_dividend]
       @label = Date.parse(arg[:label]).strftime("%Y-%m-%d") if arg[:label]
-      %i[date declaration_date record_date payment_date].each { |sym| instance_variable_set("@#{sym}", arg[sym]) if arg[sym] }
-    end
-
-    def remove_empty_string(arg)
-      arg.transform_values { |v| v == "" ? nil : v }
+      %i[date declaration_date record_date payment_date].each do |sym|
+        instance_variable_set("@#{sym}", Date.parse(arg[sym])) if arg[sym]
+      end
     end
   end
 end
