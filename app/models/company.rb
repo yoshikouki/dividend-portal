@@ -75,6 +75,7 @@ class Company < ApplicationRecord
       dividend_aristocrats = DIVIDEND_ARISTOCRATS
       profiles = Api.profiles(dividend_aristocrats)
       profiles.each do |profile|
+        # TODO: N+1 なので速度に問題があるようなら修正する (多くとも2000〜3000件かつ毎日の実行くらいなので様子見)
         company = find_or_initialize_by(symbol: profile[:symbol])
         company.assign_attributes(profile)
         company.save if company.changed?
