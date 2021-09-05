@@ -50,9 +50,10 @@ module Fmp
 
     # 株式分割の情報を取得
     # https://financialmodelingprep.com/developer/docs/historical-stock-splits
-    def historical_stock_splits(symbol)
-      path = "/api/v3/historical-price-full/stock_split/#{Converter.symbols_to_param(symbol)}"
-      Client.get(path)
+    def historical_stock_splits(*symbols, from: nil, to: nil)
+      path = "/api/v3/historical-price-full/stock_split/#{Converter.symbols_to_param(symbols)}"
+      query = Converter.from_and_to_query(from, to)
+      Client.get(path, query)
     end
 
     # https://financialmodelingprep.com/developer/docs/company-outlook
