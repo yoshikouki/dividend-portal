@@ -15,7 +15,7 @@ module Fmp
     end
 
     def to_dividends_attributes
-      @dividend_calendar.map { |dividend| dividend.to_dividend_attributes }
+      @dividend_calendar.map(&:to_dividend_attributes)
     end
 
     def self.historical(*symbols, from: nil, to: nil)
