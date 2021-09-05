@@ -9,6 +9,7 @@ describe "Refresh APIから情報を取得してDBを最新情報にアップデ
         expect { Refresh.dividend_aristocrats }
           .to change { Dividend.count }.by(10639)
                                        .and change { Company.count }.by(65)
+                                                                    .and change { StockSplit.count }.by(364)
       end
     end
   end
