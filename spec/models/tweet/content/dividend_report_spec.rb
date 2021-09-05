@@ -37,8 +37,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
   describe "#calculate_changed_dividend_and_its_rate_from_dividends" do
     let!(:today) { Date.today }
     let!(:base) do
-      { ex_dividend_date: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
-        pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
+      { ex_dividend_date: today.strftime("%Y-%m-%d"), record_date: today.tomorrow.strftime("%Y-%m-%d"),
+        payment_date: today.next_week.strftime("%Y-%m-%d"), declaration_date: today.last_week.strftime("%Y-%m-%d"),
         dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
     end
     let!(:dividends) do
@@ -88,8 +88,8 @@ RSpec.describe Tweet::Content::DividendReport, type: :model do
     context "正常系-同じシンボルの過去の配当情報をDIVIDEND_CALENDAR形式の配列で取得した場合" do
       let!(:today) { Date.today }
       let!(:base) do
-        { ex_dividend_date: today.strftime("%Y-%m-%d"), records_on: today.tomorrow.strftime("%Y-%m-%d"),
-          pays_on: today.next_week.strftime("%Y-%m-%d"), declares_on: today.last_week.strftime("%Y-%m-%d"),
+        { ex_dividend_date: today.strftime("%Y-%m-%d"), record_date: today.tomorrow.strftime("%Y-%m-%d"),
+          payment_date: today.next_week.strftime("%Y-%m-%d"), declaration_date: today.last_week.strftime("%Y-%m-%d"),
           dividend: 0.1, adjusted_dividend: 0.37, symbol: "ADM" }
       end
       let!(:dividends) do

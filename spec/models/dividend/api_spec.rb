@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Dividend::Api, type: :model do
   describe ".recent" do
     let!(:expected_keys) do
-      %i[ex_dividend_date records_on pays_on declares_on symbol dividend adjusted_dividend]
+      %i[ex_dividend_date record_date payment_date declaration_date symbol dividend adjusted_dividend]
     end
 
     it "期間指定してAPI経由で配当情報を取得できる" do
@@ -19,7 +19,7 @@ RSpec.describe Dividend::Api, type: :model do
 
   describe ".all" do
     let!(:expected_keys) do
-      %i[ex_dividend_date records_on pays_on declares_on dividend adjusted_dividend symbol]
+      %i[ex_dividend_date record_date payment_date declaration_date dividend adjusted_dividend symbol]
     end
 
     context "シンボルが単数の場合" do
@@ -49,9 +49,9 @@ RSpec.describe Dividend::Api, type: :model do
         actual = Dividend::Api.all_adjusted("KO")
         expected_latest_dividend = {
           ex_dividend_date: "2021-06-14",
-          records_on: "2021-06-15",
-          pays_on: "2021-07-01",
-          declares_on: "2021-04-21",
+          record_date: "2021-06-15",
+          payment_date: "2021-07-01",
+          declaration_date: "2021-04-21",
           dividend: 0.42,
           adjusted_dividend: 0.42,
           symbol: "KO",

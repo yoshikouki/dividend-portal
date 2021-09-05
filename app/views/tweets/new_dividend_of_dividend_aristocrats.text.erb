@@ -8,4 +8,4 @@
 年間増配率 <%= float_to_percentage(@changed_dividend_rate,  precision: 2) %> (<%= dollar_display_with_increase_or_decrease(@changed_dividend) %>)
 配当性向 <%= float_to_percentage(@payout_ratio,  precision: 2) %>
 権利落ち日 <%= @ex_dividend_date %>
-配当支給日 <%= @pays_on %>
+配当支給日 <%= @payment_date %>

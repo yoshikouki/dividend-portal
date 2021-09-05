@@ -21,9 +21,9 @@ describe "Fmp::Dividend" do
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: 0.1,
-          declares_on: "2021-01-01",
-          records_on: "2021-01-01",
-          pays_on: "2021-01-01",
+          declaration_date: "2021-01-01",
+          record_date: "2021-01-01",
+          payment_date: "2021-01-01",
         }
         expect(dividend.to_dividend_attributes).to eq(expected)
       end
@@ -44,9 +44,9 @@ describe "Fmp::Dividend" do
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: nil,
-          declares_on: nil,
-          records_on: nil,
-          pays_on: nil,
+          declaration_date: nil,
+          record_date: nil,
+          payment_date: nil,
         }
         expect(dividend.to_dividend_attributes).to eq(expected)
       end

@@ -9,9 +9,9 @@ class Dividend < ApplicationRecord
 
   DEFAULT_INSERT_ALL = {
     ex_dividend_date: nil,
-    records_on: nil,
-    pays_on: nil,
-    declares_on: nil,
+    record_date: nil,
+    payment_date: nil,
+    declaration_date: nil,
     symbol: nil,
     dividend: nil,
     adjusted_dividend: nil,
@@ -26,7 +26,7 @@ class Dividend < ApplicationRecord
     row_dividends = Fmp.dividend_calendar(from: Time.at(3.months.ago))
 
     # 選択
-    dividends = filter_by_condition(convert_response_of_dividend_calendar(row_dividends), :declares_on, time)
+    dividends = filter_by_condition(convert_response_of_dividend_calendar(row_dividends), :declaration_date, time)
 
     # View 用に変換
     dividends.map { |dividend| new(dividend) }

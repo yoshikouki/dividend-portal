@@ -5,9 +5,9 @@ class Dividend
     class Converter
       CONVERSION_TABLE_OF_DIVIDEND_CALENDAR = {
         date: :ex_dividend_date,
-        record_date: :records_on,
-        payment_date: :pays_on,
-        declaration_date: :declares_on,
+        record_date: :record_date,
+        payment_date: :payment_date,
+        declaration_date: :declaration_date,
         symbol: :symbol,
         dividend: :dividend,
         adj_dividend: :adjusted_dividend,

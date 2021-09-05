@@ -7,9 +7,9 @@ RSpec.describe Dividend::Api::Converter, type: :model do
     it "FMPのレスポンスをハッシュに変換するして返す" do
       expected = [
         { ex_dividend_date: "2020-08-07",
-          records_on: "2020-08-10",
-          pays_on: "2020-09-10",
-          declares_on: "2020-07-28",
+          record_date: "2020-08-10",
+          payment_date: "2020-09-10",
+          declaration_date: "2020-07-28",
           symbol: "IBM",
           dividend: 1.63,
           adjusted_dividend: 1.63 },
@@ -72,7 +72,7 @@ RSpec.describe Dividend::Api::Converter, type: :model do
   describe ".calculate_adjusted_dividend_by_stock_split" do
     let!(:base_dividend) do
       { ex_dividend_date: "2021-06-14", dividend: 100, adjusted_dividend: 100,
-        records_on: "2021-06-15", pays_on: "2021-07-01", declares_on: "2021-04-21", symbol: "KO" }
+        record_date: "2021-06-15", payment_date: "2021-07-01", declaration_date: "2021-04-21", symbol: "KO" }
     end
     let!(:historical_dividends) do
       [

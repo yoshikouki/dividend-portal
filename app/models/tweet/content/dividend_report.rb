@@ -67,7 +67,7 @@ module Tweet
           sector: company.sector,
           years_of_dividend_growth: company.years_of_dividend_growth,
           dividend_per_share: latest_dividend[:dividend],
-          pays_on: latest_dividend[:pays_on],
+          payment_date: latest_dividend[:payment_date],
           ex_dividend_date: latest_dividend[:ex_dividend_date],
           changed_dividend: changed_dividend[:changed_dividend],
           changed_dividend_rate: changed_dividend[:changed_dividend_rate],
