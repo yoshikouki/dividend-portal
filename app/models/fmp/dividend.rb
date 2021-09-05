@@ -33,7 +33,9 @@ module Fmp
       @dividend = arg[:dividend]
       @adj_dividend = arg[:adj_dividend]
       @label = Date.parse(arg[:label]).strftime("%Y-%m-%d") if arg[:label]
-      %i[date declaration_date record_date payment_date].each { |sym| instance_variable_set("@#{sym}", arg[sym]) if arg[sym] }
+      %i[date declaration_date record_date payment_date].each do |sym|
+        instance_variable_set("@#{sym}", Date.parse(arg[sym])) if arg[sym]
+      end
     end
   end
 end

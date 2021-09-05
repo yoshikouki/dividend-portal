@@ -11,6 +11,7 @@ describe "Fmp::DividendCalendar" do
           expect(actual).to be_instance_of Fmp::DividendCalendar
           expect(actual.dividends.count).to eq 238
           expect(actual.dividends.first).to be_instance_of Fmp::Dividend
+          expect(actual.dividends.first.date).to be_instance_of Date
           expect(actual.dividends.last.symbol).to eq "KO"
           expect(actual.dividends.last.dividend).to eq 0.00156
         end
