@@ -27,11 +27,9 @@ module Refresh
     def dividend_aristocrats
       # 2021年現在の配当貴族銘柄で企業情報を更新する
       ::Company.update_dividend_aristocrats
-      all_dividends = []
-      Company::DIVIDEND_ARISTOCRATS.each_slice(5) do |symbols|
-        # 取得できる配当情報は 1962 年以降っぽいが念のため 1950 年で取得
-        all_dividends += ::Fmp::DividendCalendar.historical(symbols, from: "1950-01-01")
-      end
+      # 取得できる配当情報は 1962 年以降っぽいが念のため 1950 年で取得
+      dividend_calendar = Fmp::DividendCalendar.historical_for_bulk_symbols(Company::DIVIDEND_ARISTOCRATS, from: "1950-01-01")
+      Dividend.insert_all_from_dividend_calendar!(dividend_calendar, associate_company: false)
       # 株式分割を保存する
     end
 

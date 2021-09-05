@@ -25,6 +25,16 @@ module Fmp
       new(dividend_calendar)
     end
 
+    def self.historical_for_bulk_symbols(*symbols, from: nil, to: nil)
+      dividend_calendar = []
+      symbols.flatten.each_slice(5) do |up_to_5_symbols|
+        # 取得できる配当情報は 1962 年以降っぽいが念のため 1950 年で取得
+        historical_dividends = Fmp.historical_dividends(up_to_5_symbols, from: from, to: to)
+        dividend_calendar += flatten_from_historical_dividends(historical_dividends)
+      end
+      new(dividend_calendar)
+    end
+
     class << self
       private
 
