@@ -51,10 +51,7 @@ module Fmp
           end
         when Hash
           transformed_hash = body.map do |key, value|
-            case value
-            when Array, Hash
-              value = transform_keys_to_snake_case_and_symbol(value)
-            end
+            value = transform_keys_to_snake_case_and_symbol(value) if value.instance_of?(Array) || value.instance_of?(Hash)
             [key.underscore.to_sym, value]
           end
           transformed_hash.to_h
