@@ -2,7 +2,6 @@
 
 module Fmp
   class StockSplit
-
     attr_accessor :date, :symbol, :label, :numerator, :denominator
 
     CONVERSION_TABLE_OF_STOCK_SPLIT = {
