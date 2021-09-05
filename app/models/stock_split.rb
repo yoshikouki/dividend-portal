@@ -1,0 +1,2 @@
+class StockSplit < ApplicationRecord
+end
