@@ -25,7 +25,7 @@ class Dividend < ApplicationRecord
       latest_dividend_calendar ||= self::Api.recent(from: from)
       dividend_calendar_in_us = associate_with_us_companies(latest_dividend_calendar)
       attributes_array = convert_to_attributes_array(dividend_calendar_in_us)
-      insert_all!(attributes_array) if attributes_array.present?
+      insert_all!(attributes_array.reverse) if attributes_array.present?
     end
 
     def insert_all_from_dividend_calendar!(dividend_calendar, associate_company: true)
