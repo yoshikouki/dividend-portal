@@ -7,7 +7,7 @@ describe "Refresh APIから情報を取得してDBを最新情報にアップデ
     it "情報がなかった場合、新しく作られる" do
       VCR.use_cassette("models/refresh/dividend_aristocrats") do
         expect { Refresh.dividend_aristocrats }
-          .to change { Dividend.count }.by(421)
+          .to change { Dividend.count }.by(10639)
                                        .and change { Company.count }.by(65)
       end
     end
