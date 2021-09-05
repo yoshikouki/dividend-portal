@@ -17,13 +17,13 @@ describe "Fmp::Dividend" do
           payment_date: "2021-01-01",
         )
         expected = {
-          ex_dividend_date: "2021-01-01",
+          ex_dividend_date: Date.parse("2021-01-01"),
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: 0.1,
-          declaration_date: "2021-01-01",
-          record_date: "2021-01-01",
-          payment_date: "2021-01-01",
+          declaration_date: Date.parse("2021-01-01"),
+          record_date: Date.parse("2021-01-01"),
+          payment_date: Date.parse("2021-01-01"),
         }
         expect(dividend.to_dividend_attributes).to eq(expected)
       end
@@ -40,7 +40,7 @@ describe "Fmp::Dividend" do
           declaration_date: "",
         )
         expected = {
-          ex_dividend_date: "2021-01-01",
+          ex_dividend_date: Date.parse("2021-01-01"),
           symbol: "TEST",
           dividend: 0.1,
           adjusted_dividend: nil,
