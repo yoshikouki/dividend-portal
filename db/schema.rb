@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2021_09_04_145831) do
   end
 
   create_table "dividends", force: :cascade do |t|
-    t.date "ex_dividend_on"
-    t.date "records_on"
-    t.date "pays_on"
-    t.date "declares_on"
+    t.date "ex_dividend_date", null: false
+    t.date "record_date"
+    t.date "payment_date"
+    t.date "declaration_date"
     t.string "symbol"
     t.float "dividend"
     t.float "adjusted_dividend"
@@ -53,10 +53,6 @@ ActiveRecord::Schema.define(version: 2021_09_04_145831) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "notified", default: false
     t.bigint "company_id"
-    t.date "ex_dividend_date", null: false
-    t.date "record_date"
-    t.date "payment_date"
-    t.date "declaration_date"
     t.index ["company_id"], name: "index_dividends_on_company_id"
     t.index ["ex_dividend_date", "symbol"], name: "index_dividends_on_ex_dividend_date_and_symbol", unique: true
     t.index ["symbol"], name: "index_dividends_on_symbol"
