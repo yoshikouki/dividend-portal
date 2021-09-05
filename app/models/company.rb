@@ -76,7 +76,8 @@ class Company < ApplicationRecord
       profiles = Api.profiles(dividend_aristocrats)
       profiles.each do |profile|
         company = find_or_initialize_by(symbol: profile[:symbol])
-        company.assign_attributes(profile).save
+        company.assign_attributes(profile)
+        company.save if company.changed?
       end
     end
 
