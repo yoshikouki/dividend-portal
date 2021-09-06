@@ -39,7 +39,7 @@ class Tweet
     end
 
     def initialize(env = :production)
-      credentials = (env == :production) ? CREDENTIALS : CREDENTIALS_FOR_DEV
+      credentials = env == :production ? CREDENTIALS : CREDENTIALS_FOR_DEV
       @client = Twitter::REST::Client.new(credentials)
     end
 
