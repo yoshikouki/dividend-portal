@@ -25,7 +25,19 @@ module Fmp
     def list
       return @list if @list
 
-      @list = @responses
+      @list = {}
+      @responses.each do |response|
+        if response.key?(:historical)
+          key = response[:symbol]
+          @list[key] = response[:historical]
+        else
+          response[:historical_stock_list].each do |stock_list|
+            key = stock_list[:symbol]
+            @list[key] = stock_list[:historical]
+          end
+        end
+      end
+      @list
     end
 
     def flatten
