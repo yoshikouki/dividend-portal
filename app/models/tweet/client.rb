@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   module Client
     API_HOST = "api.twitter.com"
     TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"

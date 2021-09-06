@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   def self.holiday(_country = :us, workday = Workday.today)
     holiday = workday.holiday(:us).first[:name]
     content = "今日は「#{holiday}」の祝日なので、NY市場はお休みかも知れませんね"
