@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   class Content
     class DividendReport < Tweet::Content
       DEFAULT_ANNUAL_DIVIDEND = {

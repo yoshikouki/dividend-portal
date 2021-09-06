@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   class AssembledContent
     attr_accessor :header_section, :main_section, :footer_section
 

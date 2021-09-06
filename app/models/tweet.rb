@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
+  attr_accessor :client
+
   def self.holiday(_country = :us, workday = Workday.today)
     holiday = workday.holiday(:us).first[:name]
     content = "今日は「#{holiday}」の祝日なので、NY市場はお休みかも知れませんね"
@@ -36,5 +38,13 @@ module Tweet
       text, image = content.new_dividend_of_dividend_aristocrats(report_queue.dividend.company)
       Client.tweet_with_image(text, image)
     end
+  end
+
+  def initialize(env = nil)
+    @client = Client.new(env)
+  end
+
+  def ranking_of_weekly_drop_rate
+    client.tweet("test")
   end
 end

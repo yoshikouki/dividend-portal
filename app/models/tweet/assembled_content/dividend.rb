@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   class AssembledContent
     class Dividend
       attr_reader :dividends, :remained_dividends, :content

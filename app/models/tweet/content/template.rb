@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Tweet
+class Tweet
   class Content
     module Template
       SYMBOL_PREFIX = "$"

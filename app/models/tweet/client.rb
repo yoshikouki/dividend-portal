@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-module Tweet
-  module Client
+class Tweet
+  class Client
+    attr_accessor :client
+
     API_HOST = "api.twitter.com"
     TWEET_END_POINT = "https://#{API_HOST}/1.1/statuses/update.json"
 
@@ -21,23 +23,36 @@ module Tweet
 
     class << self
       # reply_to: Twitter::Tweet
-      def tweet(text, reply_to: nil, dev: false)
-        option = reply_to ? { in_reply_to_status: reply_to } : {}
-        client(dev: dev).update(text, option)
+      def tweet(text, reply_to: nil, env: :production)
+        client(env).tweet(text, reply_to: reply_to)
       end
 
-      def tweet_with_image(text, image, dev: false)
-        raise "Invalid image" unless image && image != File
-
-        client(dev: dev).update_with_media(text, image)
+      def tweet_with_image(text, image, env: :production)
+        client(env).tweet_with_image(text, image)
       end
 
       private
 
-      def client(dev: false)
-        credentials = dev ? CREDENTIALS_FOR_DEV : CREDENTIALS
-        Twitter::REST::Client.new(credentials)
+      def client(env = :production)
+        new(env)
       end
+    end
+
+    def initialize(env = :production)
+      credentials = env == :production ? CREDENTIALS : CREDENTIALS_FOR_DEV
+      @client = Twitter::REST::Client.new(credentials)
+    end
+
+    # reply_to: Twitter::Tweet
+    def tweet(text, reply_to: nil)
+      option = reply_to ? { in_reply_to_status: reply_to } : {}
+      client.update(text, option)
+    end
+
+    def tweet_with_image(text, image)
+      raise "Invalid image" unless image && image != File
+
+      client.update_with_media(text, image)
     end
   end
 end
