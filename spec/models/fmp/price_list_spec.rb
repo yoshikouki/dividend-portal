@@ -11,7 +11,7 @@ describe "Fmp::PriceList" do
           expect(price_list).to be_instance_of Fmp::PriceList
           expect(price_list.responses.count).to eq 1
           expect(price_list.list.count).to eq 1
-          expect(price_list.flatten.count).to eq 5
+          expect(price_list.flatten.count).to eq 3
         end
       end
     end
@@ -19,11 +19,12 @@ describe "Fmp::PriceList" do
     context "シンボルが複数の場合" do
       it "複数のシンボルに関する過去の株価をまとめた PriceList インスタンスで返す" do
         VCR.use_cassette("models/fmp/price_list/historical_for_multiple_symbols") do
-          price_list = Fmp::PriceList.historical(%w[KO JNJ PG XOM T IBM], from: "2021-09-01", to: "2021-09-03")
+          symbols = %w[KO JNJ PG XOM T IBM]
+          price_list = Fmp::PriceList.historical(symbols, from: "2021-09-01", to: "2021-09-03")
           expect(price_list).to be_instance_of Fmp::PriceList
           expect(price_list.responses.count).to eq 2
-          expect(price_list.list.count).to eq 6
-          expect(price_list.flatten.count).to eq 50
+          expect(price_list.list.count).to eq symbols.count
+          expect(price_list.flatten.count).to eq(symbols.count * 3)
         end
       end
     end
