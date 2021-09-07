@@ -28,12 +28,10 @@ module Fmp
       @list = {}
       @responses.each do |response|
         if response.key?(:historical)
-          key = response[:symbol]
-          @list[key] = response[:historical]
+          to_list(@list, response)
         else
           response[:historical_stock_list].each do |stock_list|
-            key = stock_list[:symbol]
-            @list[key] = stock_list[:historical]
+            to_list(@list, stock_list)
           end
         end
       end
@@ -46,14 +44,25 @@ module Fmp
       @flatten_list = []
       @responses.each do |response|
         if response.key?(:historical)
-          @flatten_list += response[:historical].map { |price| price.merge(symbol: response[:symbol]) }
+          to_flatten_list(@flatten_list, response)
         else
           response[:historical_stock_list].each do |stock_list|
-            @flatten_list += stock_list[:historical].map { |price| price.merge(symbol: stock_list[:symbol]) }
+            to_flatten_list(@flatten_list, stock_list)
           end
         end
       end
       @flatten_list
+    end
+
+    private
+
+    def to_list(list, response)
+      key = response[:symbol]
+      list[key] = response[:historical]
+    end
+
+    def to_flatten_list(flatten_list, response)
+      response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
     end
   end
 end
