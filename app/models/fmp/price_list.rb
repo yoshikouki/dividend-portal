@@ -43,7 +43,17 @@ module Fmp
     def flatten
       return @flatten_list if @flatten_list
 
-      @flatten_list = @responses
+      @flatten_list = []
+      @responses.each do |response|
+        if response.key?(:historical)
+          @flatten_list += response[:historical].map { |price| price.merge(symbol: response[:symbol]) }
+        else
+          response[:historical_stock_list].each do |stock_list|
+            @flatten_list += stock_list[:historical].map { |price| price.merge(symbol: stock_list[:symbol]) }
+          end
+        end
+      end
+      @flatten_list
     end
   end
 end
