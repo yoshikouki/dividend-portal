@@ -56,6 +56,15 @@ module Fmp
       Client.get(path, query)
     end
 
+    # https://financialmodelingprep.com/developer/docs/historical-stock-data-free-api
+    def historical_prices(*symbols, from: nil, to: nil, timeseries: nil, serietype: nil)
+      path = "/api/v3/historical-price-full/#{Converter.symbols_to_param(symbols)}"
+      query = Converter.from_and_to_query(from, to)
+      query[:timeseries] = timeseries
+      query[:serietype] = serietype
+      Client.get(path, query)
+    end
+
     # https://financialmodelingprep.com/developer/docs/company-outlook
     def company_outlook(symbol)
       path = "api/v4/company-outlook"

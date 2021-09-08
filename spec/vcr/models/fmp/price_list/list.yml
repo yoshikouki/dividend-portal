@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/KO?apikey=<FMP_API_KEY>&from=2021-09-01&to=2021-09-03
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Mon, 06 Sep 2021 23:15:37 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "symbol" : "KO",
+          "historical" : [ {
+            "date" : "2021-09-03",
+            "open" : 56.46,
+            "high" : 56.77,
+            "low" : 56.25,
+            "close" : 56.73,
+            "adjClose" : 56.73,
+            "volume" : 9578609.0,
+            "unadjustedVolume" : 9578609.0,
+            "change" : 0.27,
+            "changePercent" : 0.478,
+            "vwap" : 56.58333,
+            "label" : "September 03, 21",
+            "changeOverTime" : 0.00478
+          }, {
+            "date" : "2021-09-02",
+            "open" : 56.77,
+            "high" : 57.03,
+            "low" : 56.41,
+            "close" : 56.77,
+            "adjClose" : 56.77,
+            "volume" : 1.1398661E7,
+            "unadjustedVolume" : 1.1398661E7,
+            "change" : 0.0,
+            "changePercent" : 0.0,
+            "vwap" : 56.73667,
+            "label" : "September 02, 21",
+            "changeOverTime" : 0.0
+          }, {
+            "date" : "2021-09-01",
+            "open" : 56.38,
+            "high" : 56.8,
+            "low" : 56.28,
+            "close" : 56.69,
+            "adjClose" : 56.69,
+            "volume" : 9404637.0,
+            "unadjustedVolume" : 9404637.0,
+            "change" : 0.31,
+            "changePercent" : 0.55,
+            "vwap" : 56.59,
+            "label" : "September 01, 21",
+            "changeOverTime" : 0.0055
+          } ]
+        }
+  recorded_at: Mon, 06 Sep 2021 23:15:37 GMT
+recorded_with: VCR 6.0.0
