@@ -31,17 +31,7 @@ module Fmp
     def flatten
       return @flatten_list if @flatten_list
 
-      @flatten_list = []
-      @responses.each do |response|
-        if response.key?(:historical)
-          to_flatten_list(@flatten_list, response)
-        else
-          response[:historical_stock_list].each do |stock_list|
-            to_flatten_list(@flatten_list, stock_list)
-          end
-        end
-      end
-      @flatten_list
+      assign_flatten_list
     end
 
     private
@@ -51,26 +41,41 @@ module Fmp
       convert_historical_responses_to(@list)
     end
 
-    def to_flatten_list(flatten_list, response)
-      response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
+    def assign_flatten_list
+      @flatten_list = []
+      convert_historical_responses_to(@flatten_list)
     end
 
     def convert_historical_responses_to(instance_variable)
+      convert_method = convert_method(instance_variable)
       @responses.each do |response|
         if response.key?(:historical)
-          symbol_as_key(instance_variable, response)
+          send(convert_method, instance_variable, response)
         elsif response.key?(:historical_stock_list)
           response[:historical_stock_list].each do |stock_list|
-            symbol_as_key(instance_variable, stock_list)
+            send(convert_method, instance_variable, stock_list)
           end
         end
       end
       instance_variable
     end
 
+    def convert_method(instance_variable)
+      case instance_variable
+      when @list
+        :symbol_as_key
+      when @flatten_list
+        :merged_symbol
+      end
+    end
+
     def symbol_as_key(list, response)
       key = response[:symbol]
       list[key] = response[:historical]
+    end
+
+    def merged_symbol(flatten_list, response)
+      response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
     end
   end
 end
