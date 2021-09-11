@@ -28,8 +28,6 @@ class Price
   private
 
   def to_date(arg)
-    return arg if arg.is_a?(DateAndTime)
-
-    Date.parse(arg)
+    arg.is_a?(DateAndTime) ? arg : Date.parse(arg)
   end
 end
