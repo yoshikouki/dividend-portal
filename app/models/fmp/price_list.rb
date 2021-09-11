@@ -6,6 +6,23 @@ module Fmp
 
     attr_reader :flatten_list, :responses
 
+    CONVERSION_TABLE_OF_PRICE = {
+      date: :date,
+      open: :open,
+      high: :high,
+      low: :low,
+      close: :close,
+      adjusted_close: :adj_close,
+      volume: :volume,
+      unadjusted_volume: :unadjusted_volume,
+      change: :change,
+      change_percent: :change_percent,
+      vwap: :vwap,
+      label: :label,
+      change_over_time: :change_over_time,
+      symbol: :symbol,
+    }.freeze
+
     def initialize(responses = [])
       @responses = responses
     end
@@ -32,6 +49,10 @@ module Fmp
       return @flatten_list if @flatten_list
 
       assign_flatten_list
+    end
+
+    def to_prices_attributes
+      flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
     end
 
     private
