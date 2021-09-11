@@ -19,4 +19,17 @@ class Price
   attribute :label, :string
   attribute :change_over_time, :float
   attribute :symbol, :string
+
+  def for_the_week_of?(arg)
+    reference_date = to_date(arg)
+    date.between? reference_date.at_beginning_of_week, reference_date.at_end_of_week
+  end
+
+  private
+
+  def to_date(arg)
+    return arg if arg.is_a?(DateAndTime)
+
+    Date.parse(arg)
+  end
 end
