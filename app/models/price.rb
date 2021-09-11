@@ -5,18 +5,18 @@ class Price
   include ActiveModel::Attributes
 
   attribute :date, :date
-  attribute :open, :decimal
-  attribute :high, :decimal
-  attribute :low, :decimal
-  attribute :close, :decimal
-  attribute :adjusted_close, :decimal
+  attribute :open, :float
+  attribute :high, :float
+  attribute :low, :float
+  attribute :close, :float
+  attribute :adjusted_close, :float
 
-  attribute :volume, :decimal
-  attribute :unadjusted_volume, :decimal
-  attribute :change, :decimal
-  attribute :change_percent, :decimal
-  attribute :vwap, :decimal # volume-weighted average price
+  attribute :volume, :float
+  attribute :unadjusted_volume, :float
+  attribute :change, :float
+  attribute :change_percent, :float
+  attribute :vwap, :float # volume-weighted average price
   attribute :label, :string
-  attribute :change_over_time, :decimal
+  attribute :change_over_time, :float
   attribute :symbol, :string
 end
