@@ -40,6 +40,7 @@ RSpec.describe Tweet::AssembledContent::Dividend, type: :model do
       let!(:content) { Tweet::AssembledContent::Dividend.new(dividends: dividends) }
 
       it "残ったシンボルを順次書き出しする" do
+        skip "TODO: 現在使っていないメソッドなので、元メソッドの移管もしくは削除に併せてテストも変更する"
         # 一度書き出す
         content.ex_dividend_previous_date
 

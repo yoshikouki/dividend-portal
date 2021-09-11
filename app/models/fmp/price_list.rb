@@ -6,13 +6,22 @@ module Fmp
 
     attr_reader :flatten_list, :responses
 
-    def initialize(responses = [])
-      @responses = responses
-    end
-
-    def prices
-      @dividend_calendar
-    end
+    CONVERSION_TABLE_OF_PRICE = {
+      date: :date,
+      open: :open,
+      high: :high,
+      low: :low,
+      close: :close,
+      adjusted_close: :adj_close,
+      volume: :volume,
+      unadjusted_volume: :unadjusted_volume,
+      change: :change,
+      change_percent: :change_percent,
+      vwap: :vwap,
+      label: :label,
+      change_over_time: :change_over_time,
+      symbol: :symbol,
+    }.freeze
 
     def self.historical(*symbols, from: nil, to: nil, timeseries: nil, serietype: nil)
       price_list = new
@@ -20,6 +29,14 @@ module Fmp
         price_list.responses << Fmp.historical_prices(up_to_5_symbols, from: from, to: to, timeseries: timeseries, serietype: serietype)
       end
       price_list
+    end
+
+    def initialize(responses = [])
+      @responses = responses
+    end
+
+    def prices
+      @dividend_calendar
     end
 
     def list
@@ -32,6 +49,14 @@ module Fmp
       return @flatten_list if @flatten_list
 
       assign_flatten_list
+    end
+
+    def to_prices_attributes
+      flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
+    end
+
+    def to_price_history
+      ::Price::History.new(prices: to_prices_attributes)
     end
 
     private
