@@ -55,6 +55,10 @@ module Fmp
       flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
     end
 
+    def to_price_history
+      ::Price::History.new(prices: to_prices_attributes)
+    end
+
     private
 
     def assign_list

@@ -115,4 +115,18 @@ describe "Fmp::PriceList" do
       end
     end
   end
+
+  describe "#to_price_history" do
+    context "シンボルが一つの場合" do
+      it "Price::History のインスタンスを返す" do
+        VCR.use_cassette("models/fmp/price_list/flatten") do
+          price_history = Fmp::PriceList.historical("KO", from: "2021-09-01", to: "2021-09-03")
+                                        .to_price_history
+          expect(price_history).to be_instance_of Price::History
+          expect(price_history.prices.first).to be_instance_of Price
+          expect(price_history.prices.count).to eq 3
+        end
+      end
+    end
+  end
 end
