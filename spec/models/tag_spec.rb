@@ -5,8 +5,8 @@ require "rails_helper"
 RSpec.describe Tag, type: :model do
   describe "validation" do
     context "正常系" do
-      it "一文字の識別子" do
-        expect(Tag.new(name: :dividend_aristocrats, display_name: "配当貴族").valid?).to be true
+      it "英数字とアンダースコアの識別子" do
+        expect(Tag.new(name: :test_tag, display_name: "テスト用").valid?).to be true
       end
 
       it "一文字の識別子" do
