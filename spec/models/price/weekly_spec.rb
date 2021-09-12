@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Price::Weekly" do
   describe ".dividend_aristocrats_in_order_of_change_percent" do
     before do
-      Rails.application.load_seed
+      Company::DividendAristocrat.setup
     end
 
     it "true を返す" do
