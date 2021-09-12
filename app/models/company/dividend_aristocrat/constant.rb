@@ -849,7 +849,7 @@ class Company
           image: "https://financialmodelingprep.com/image-stock/XOM.png",
           years_of_dividend_growth: 37,
         },
-      ]
+      ].freeze
     end
   end
 end
