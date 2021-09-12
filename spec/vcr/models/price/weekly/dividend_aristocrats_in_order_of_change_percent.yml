@@ -1,0 +1,4475 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/ABBV,ABT,ADM,ADP,AFL?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:27 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "ABT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 128.0,
+              "high" : 129.44,
+              "low" : 128.0,
+              "close" : 128.8,
+              "adjClose" : 128.8,
+              "volume" : 4142936.0,
+              "unadjustedVolume" : 4142936.0,
+              "change" : 0.8,
+              "changePercent" : 0.625,
+              "vwap" : 128.74667,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.00625
+            }, {
+              "date" : "2021-09-09",
+              "open" : 129.15,
+              "high" : 129.15,
+              "low" : 127.33,
+              "close" : 127.98,
+              "adjClose" : 127.98,
+              "volume" : 4457823.0,
+              "unadjustedVolume" : 4457823.0,
+              "change" : -1.17,
+              "changePercent" : -0.906,
+              "vwap" : 128.15333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00906
+            }, {
+              "date" : "2021-09-08",
+              "open" : 128.56,
+              "high" : 129.52,
+              "low" : 128.0,
+              "close" : 129.06,
+              "adjClose" : 129.06,
+              "volume" : 2525939.0,
+              "unadjustedVolume" : 2525939.0,
+              "change" : 0.5,
+              "changePercent" : 0.389,
+              "vwap" : 128.86,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00389
+            }, {
+              "date" : "2021-09-07",
+              "open" : 128.12,
+              "high" : 128.49,
+              "low" : 127.05,
+              "close" : 128.39,
+              "adjClose" : 128.39,
+              "volume" : 2628912.0,
+              "unadjustedVolume" : 2628912.0,
+              "change" : 0.27,
+              "changePercent" : 0.211,
+              "vwap" : 127.97667,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00211
+            } ]
+          }, {
+            "symbol" : "AFL",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 55.5,
+              "high" : 55.54,
+              "low" : 54.65,
+              "close" : 54.66,
+              "adjClose" : 54.66,
+              "volume" : 2139954.0,
+              "unadjustedVolume" : 2139954.0,
+              "change" : -0.84,
+              "changePercent" : -1.514,
+              "vwap" : 54.95,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01514
+            }, {
+              "date" : "2021-09-09",
+              "open" : 55.14,
+              "high" : 55.93,
+              "low" : 55.02,
+              "close" : 55.14,
+              "adjClose" : 55.14,
+              "volume" : 2525512.0,
+              "unadjustedVolume" : 2525512.0,
+              "change" : 0.0,
+              "changePercent" : 0.0,
+              "vwap" : 55.36333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.0
+            }, {
+              "date" : "2021-09-08",
+              "open" : 55.11,
+              "high" : 55.34,
+              "low" : 54.81,
+              "close" : 55.17,
+              "adjClose" : 55.17,
+              "volume" : 2491817.0,
+              "unadjustedVolume" : 2491817.0,
+              "change" : 0.06,
+              "changePercent" : 0.109,
+              "vwap" : 55.10667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00109
+            }, {
+              "date" : "2021-09-07",
+              "open" : 55.7,
+              "high" : 55.9,
+              "low" : 55.22,
+              "close" : 55.25,
+              "adjClose" : 55.25,
+              "volume" : 2462332.0,
+              "unadjustedVolume" : 2462332.0,
+              "change" : -0.45,
+              "changePercent" : -0.808,
+              "vwap" : 55.45667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00808
+            } ]
+          }, {
+            "symbol" : "ADM",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 59.85,
+              "high" : 60.33,
+              "low" : 59.6,
+              "close" : 59.89,
+              "adjClose" : 59.89,
+              "volume" : 2048489.0,
+              "unadjustedVolume" : 2048489.0,
+              "change" : 0.04,
+              "changePercent" : 0.067,
+              "vwap" : 59.94,
+              "label" : "September 10, 21",
+              "changeOverTime" : 6.7E-4
+            }, {
+              "date" : "2021-09-09",
+              "open" : 59.65,
+              "high" : 60.6,
+              "low" : 59.56,
+              "close" : 59.66,
+              "adjClose" : 59.66,
+              "volume" : 2122941.0,
+              "unadjustedVolume" : 2122941.0,
+              "change" : 0.01,
+              "changePercent" : 0.017,
+              "vwap" : 59.94,
+              "label" : "September 09, 21",
+              "changeOverTime" : 1.7E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 59.19,
+              "high" : 59.97,
+              "low" : 58.44,
+              "close" : 59.87,
+              "adjClose" : 59.87,
+              "volume" : 2625304.0,
+              "unadjustedVolume" : 2625304.0,
+              "change" : 0.68,
+              "changePercent" : 1.149,
+              "vwap" : 59.42667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01149
+            }, {
+              "date" : "2021-09-07",
+              "open" : 59.96,
+              "high" : 60.22,
+              "low" : 59.21,
+              "close" : 59.35,
+              "adjClose" : 59.35,
+              "volume" : 2405571.0,
+              "unadjustedVolume" : 2405571.0,
+              "change" : -0.61,
+              "changePercent" : -1.017,
+              "vwap" : 59.59333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01017
+            } ]
+          }, {
+            "symbol" : "ABBV",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 107.48,
+              "high" : 108.31,
+              "low" : 106.36,
+              "close" : 106.68,
+              "adjClose" : 106.68,
+              "volume" : 7653336.0,
+              "unadjustedVolume" : 7653336.0,
+              "change" : -0.8,
+              "changePercent" : -0.744,
+              "vwap" : 107.11667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00744
+            }, {
+              "date" : "2021-09-09",
+              "open" : 109.44,
+              "high" : 109.74,
+              "low" : 107.2,
+              "close" : 107.27,
+              "adjClose" : 107.27,
+              "volume" : 1.0360232E7,
+              "unadjustedVolume" : 1.0360232E7,
+              "change" : -2.17,
+              "changePercent" : -1.983,
+              "vwap" : 108.07,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01983
+            }, {
+              "date" : "2021-09-08",
+              "open" : 108.06,
+              "high" : 110.9,
+              "low" : 107.72,
+              "close" : 110.36,
+              "adjClose" : 110.36,
+              "volume" : 1.061072E7,
+              "unadjustedVolume" : 1.061072E7,
+              "change" : 2.3,
+              "changePercent" : 2.128,
+              "vwap" : 109.66,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.02128
+            }, {
+              "date" : "2021-09-07",
+              "open" : 110.45,
+              "high" : 111.57,
+              "low" : 108.36,
+              "close" : 109.03,
+              "adjClose" : 109.03,
+              "volume" : 1.2802865E7,
+              "unadjustedVolume" : 1.2802865E7,
+              "change" : -1.42,
+              "changePercent" : -1.286,
+              "vwap" : 109.65333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01286
+            } ]
+          }, {
+            "symbol" : "ADP",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 204.399994,
+              "high" : 204.429993,
+              "low" : 200.649994,
+              "close" : 200.830002,
+              "adjClose" : 200.830002,
+              "volume" : 1843800.0,
+              "unadjustedVolume" : 1843800.0,
+              "change" : -3.56999,
+              "changePercent" : -1.747,
+              "vwap" : 201.97,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01747
+            }, {
+              "date" : "2021-09-09",
+              "open" : 204.759995,
+              "high" : 206.490005,
+              "low" : 203.050003,
+              "close" : 203.160004,
+              "adjClose" : 203.160004,
+              "volume" : 1295700.0,
+              "unadjustedVolume" : 1295700.0,
+              "change" : -1.59999,
+              "changePercent" : -0.781,
+              "vwap" : 204.23334,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00781
+            }, {
+              "date" : "2021-09-08",
+              "open" : 202.669998,
+              "high" : 205.270004,
+              "low" : 202.350006,
+              "close" : 205.130005,
+              "adjClose" : 204.200012,
+              "volume" : 1259200.0,
+              "unadjustedVolume" : 1259200.0,
+              "change" : 2.46001,
+              "changePercent" : 1.214,
+              "vwap" : 204.25001,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01214
+            }, {
+              "date" : "2021-09-07",
+              "open" : 206.860001,
+              "high" : 207.330002,
+              "low" : 201.839996,
+              "close" : 202.229996,
+              "adjClose" : 201.313141,
+              "volume" : 1342300.0,
+              "unadjustedVolume" : 1342300.0,
+              "change" : -4.63001,
+              "changePercent" : -2.238,
+              "vwap" : 203.8,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.02238
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:27 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/ALB,AMCR,AOS,APD,ATO?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:28 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "APD",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 267.67,
+              "high" : 269.32,
+              "low" : 266.82,
+              "close" : 268.0,
+              "adjClose" : 268.0,
+              "volume" : 652808.0,
+              "unadjustedVolume" : 652808.0,
+              "change" : 0.33,
+              "changePercent" : 0.123,
+              "vwap" : 268.04667,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.00123
+            }, {
+              "date" : "2021-09-09",
+              "open" : 267.36,
+              "high" : 269.47,
+              "low" : 266.64,
+              "close" : 267.12,
+              "adjClose" : 267.12,
+              "volume" : 751480.0,
+              "unadjustedVolume" : 751480.0,
+              "change" : -0.24,
+              "changePercent" : -0.09,
+              "vwap" : 267.74333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -9.0E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 267.5,
+              "high" : 268.63,
+              "low" : 266.2,
+              "close" : 267.73,
+              "adjClose" : 267.73,
+              "volume" : 866169.0,
+              "unadjustedVolume" : 866169.0,
+              "change" : 0.23,
+              "changePercent" : 0.086,
+              "vwap" : 267.52,
+              "label" : "September 08, 21",
+              "changeOverTime" : 8.6E-4
+            }, {
+              "date" : "2021-09-07",
+              "open" : 267.85,
+              "high" : 268.55,
+              "low" : 266.11,
+              "close" : 267.1,
+              "adjClose" : 267.1,
+              "volume" : 669696.0,
+              "unadjustedVolume" : 669696.0,
+              "change" : -0.75,
+              "changePercent" : -0.28,
+              "vwap" : 267.25333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.0028
+            } ]
+          }, {
+            "symbol" : "AMCR",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 12.22,
+              "high" : 12.44,
+              "low" : 12.22,
+              "close" : 12.3,
+              "adjClose" : 12.3,
+              "volume" : 7218289.0,
+              "unadjustedVolume" : 7218289.0,
+              "change" : 0.08,
+              "changePercent" : 0.655,
+              "vwap" : 12.32,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.00655
+            }, {
+              "date" : "2021-09-09",
+              "open" : 12.34,
+              "high" : 12.38,
+              "low" : 12.12,
+              "close" : 12.13,
+              "adjClose" : 12.13,
+              "volume" : 7562385.0,
+              "unadjustedVolume" : 7562385.0,
+              "change" : -0.21,
+              "changePercent" : -1.702,
+              "vwap" : 12.21,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01702
+            }, {
+              "date" : "2021-09-08",
+              "open" : 12.25,
+              "high" : 12.4,
+              "low" : 12.22,
+              "close" : 12.32,
+              "adjClose" : 12.32,
+              "volume" : 5307254.0,
+              "unadjustedVolume" : 5307254.0,
+              "change" : 0.07,
+              "changePercent" : 0.571,
+              "vwap" : 12.31333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00571
+            }, {
+              "date" : "2021-09-07",
+              "open" : 12.3,
+              "high" : 12.43,
+              "low" : 12.21,
+              "close" : 12.22,
+              "adjClose" : 12.22,
+              "volume" : 5521100.0,
+              "unadjustedVolume" : 5521100.0,
+              "change" : -0.08,
+              "changePercent" : -0.65,
+              "vwap" : 12.28667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.0065
+            } ]
+          }, {
+            "symbol" : "AOS",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 71.45,
+              "high" : 71.53,
+              "low" : 70.04,
+              "close" : 70.11,
+              "adjClose" : 70.11,
+              "volume" : 726317.0,
+              "unadjustedVolume" : 726317.0,
+              "change" : -1.34,
+              "changePercent" : -1.875,
+              "vwap" : 70.56,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01875
+            }, {
+              "date" : "2021-09-09",
+              "open" : 72.2,
+              "high" : 72.39,
+              "low" : 70.93,
+              "close" : 70.96,
+              "adjClose" : 70.96,
+              "volume" : 595538.0,
+              "unadjustedVolume" : 595538.0,
+              "change" : -1.24,
+              "changePercent" : -1.717,
+              "vwap" : 71.42667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01717
+            }, {
+              "date" : "2021-09-08",
+              "open" : 71.46,
+              "high" : 72.21,
+              "low" : 70.83,
+              "close" : 72.08,
+              "adjClose" : 72.08,
+              "volume" : 638835.0,
+              "unadjustedVolume" : 638835.0,
+              "change" : 0.62,
+              "changePercent" : 0.868,
+              "vwap" : 71.70667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00868
+            }, {
+              "date" : "2021-09-07",
+              "open" : 73.13,
+              "high" : 73.17,
+              "low" : 71.75,
+              "close" : 71.87,
+              "adjClose" : 71.87,
+              "volume" : 741875.0,
+              "unadjustedVolume" : 741875.0,
+              "change" : -1.26,
+              "changePercent" : -1.723,
+              "vwap" : 72.26333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01723
+            } ]
+          }, {
+            "symbol" : "ALB",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 249.84,
+              "high" : 253.1,
+              "low" : 240.97,
+              "close" : 241.17,
+              "adjClose" : 241.17,
+              "volume" : 1547831.0,
+              "unadjustedVolume" : 1547831.0,
+              "change" : -8.67,
+              "changePercent" : -3.47,
+              "vwap" : 245.08,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0347
+            }, {
+              "date" : "2021-09-09",
+              "open" : 238.0,
+              "high" : 247.89,
+              "low" : 237.73,
+              "close" : 243.41,
+              "adjClose" : 243.41,
+              "volume" : 1173061.0,
+              "unadjustedVolume" : 1173061.0,
+              "change" : 5.41,
+              "changePercent" : 2.273,
+              "vwap" : 243.01,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.02273
+            }, {
+              "date" : "2021-09-08",
+              "open" : 243.75,
+              "high" : 243.75,
+              "low" : 235.34,
+              "close" : 239.28,
+              "adjClose" : 239.28,
+              "volume" : 1204380.0,
+              "unadjustedVolume" : 1204380.0,
+              "change" : -4.47,
+              "changePercent" : -1.834,
+              "vwap" : 239.45667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.01834
+            }, {
+              "date" : "2021-09-07",
+              "open" : 241.0,
+              "high" : 241.87,
+              "low" : 238.14,
+              "close" : 238.78,
+              "adjClose" : 238.78,
+              "volume" : 989244.0,
+              "unadjustedVolume" : 989244.0,
+              "change" : -2.22,
+              "changePercent" : -0.921,
+              "vwap" : 239.59667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00921
+            } ]
+          }, {
+            "symbol" : "ATO",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 96.15,
+              "high" : 96.35,
+              "low" : 93.04,
+              "close" : 93.12,
+              "adjClose" : 93.12,
+              "volume" : 904386.0,
+              "unadjustedVolume" : 904386.0,
+              "change" : -3.03,
+              "changePercent" : -3.151,
+              "vwap" : 94.17,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.03151
+            }, {
+              "date" : "2021-09-09",
+              "open" : 97.53,
+              "high" : 97.53,
+              "low" : 96.16,
+              "close" : 96.19,
+              "adjClose" : 96.19,
+              "volume" : 843098.0,
+              "unadjustedVolume" : 843098.0,
+              "change" : -1.34,
+              "changePercent" : -1.374,
+              "vwap" : 96.62667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01374
+            }, {
+              "date" : "2021-09-08",
+              "open" : 96.03,
+              "high" : 98.24,
+              "low" : 95.66,
+              "close" : 97.65,
+              "adjClose" : 97.65,
+              "volume" : 593201.0,
+              "unadjustedVolume" : 593201.0,
+              "change" : 1.62,
+              "changePercent" : 1.687,
+              "vwap" : 97.18333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01687
+            }, {
+              "date" : "2021-09-07",
+              "open" : 97.22,
+              "high" : 97.41,
+              "low" : 95.83,
+              "close" : 96.13,
+              "adjClose" : 96.13,
+              "volume" : 616365.0,
+              "unadjustedVolume" : 616365.0,
+              "change" : -1.09,
+              "changePercent" : -1.121,
+              "vwap" : 96.45667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01121
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:28 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/BDX,BEN,BF-B,CAH,CAT?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:29 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "BF-B",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 71.48,
+              "high" : 72.24,
+              "low" : 70.9,
+              "close" : 71.55,
+              "adjClose" : 71.55,
+              "volume" : 1321858.0,
+              "unadjustedVolume" : 1321858.0,
+              "change" : 0.07,
+              "changePercent" : 0.098,
+              "vwap" : 71.56333,
+              "label" : "September 10, 21",
+              "changeOverTime" : 9.8E-4
+            }, {
+              "date" : "2021-09-09",
+              "open" : 72.06,
+              "high" : 72.22,
+              "low" : 71.04,
+              "close" : 71.2,
+              "adjClose" : 71.2,
+              "volume" : 1175096.0,
+              "unadjustedVolume" : 1175096.0,
+              "change" : -0.86,
+              "changePercent" : -1.193,
+              "vwap" : 71.48667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01193
+            }, {
+              "date" : "2021-09-08",
+              "open" : 70.28,
+              "high" : 72.5,
+              "low" : 70.11,
+              "close" : 72.46,
+              "adjClose" : 72.46,
+              "volume" : 1271410.0,
+              "unadjustedVolume" : 1271410.0,
+              "change" : 2.18,
+              "changePercent" : 3.102,
+              "vwap" : 71.69,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.03102
+            }, {
+              "date" : "2021-09-07",
+              "open" : 70.61,
+              "high" : 70.73,
+              "low" : 69.29,
+              "close" : 70.17,
+              "adjClose" : 70.17,
+              "volume" : 1996737.0,
+              "unadjustedVolume" : 1996737.0,
+              "change" : -0.44,
+              "changePercent" : -0.623,
+              "vwap" : 70.06333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00623
+            } ]
+          }, {
+            "symbol" : "BDX",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 260.64,
+              "high" : 261.35,
+              "low" : 256.92,
+              "close" : 258.33,
+              "adjClose" : 258.33,
+              "volume" : 1209402.0,
+              "unadjustedVolume" : 1209402.0,
+              "change" : -2.31,
+              "changePercent" : -0.886,
+              "vwap" : 258.86667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00886
+            }, {
+              "date" : "2021-09-09",
+              "open" : 261.48,
+              "high" : 263.27,
+              "low" : 259.87,
+              "close" : 260.15,
+              "adjClose" : 260.15,
+              "volume" : 1469673.0,
+              "unadjustedVolume" : 1469673.0,
+              "change" : -1.33,
+              "changePercent" : -0.509,
+              "vwap" : 261.09667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00509
+            }, {
+              "date" : "2021-09-08",
+              "open" : 257.73999,
+              "high" : 264.0,
+              "low" : 257.390015,
+              "close" : 262.880005,
+              "adjClose" : 262.880005,
+              "volume" : 1864200.0,
+              "unadjustedVolume" : 1864200.0,
+              "change" : 5.14002,
+              "changePercent" : 1.994,
+              "vwap" : 261.42334,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01994
+            }, {
+              "date" : "2021-09-07",
+              "open" : 257.829987,
+              "high" : 258.839996,
+              "low" : 254.910004,
+              "close" : 257.829987,
+              "adjClose" : 256.999969,
+              "volume" : 1601000.0,
+              "unadjustedVolume" : 1601000.0,
+              "change" : 0.0,
+              "changePercent" : 0.0,
+              "vwap" : 257.19333,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.0
+            } ]
+          }, {
+            "symbol" : "CAT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 207.1,
+              "high" : 207.86,
+              "low" : 204.82,
+              "close" : 205.01,
+              "adjClose" : 205.01,
+              "volume" : 2571608.0,
+              "unadjustedVolume" : 2571608.0,
+              "change" : -2.09,
+              "changePercent" : -1.009,
+              "vwap" : 205.89667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01009
+            }, {
+              "date" : "2021-09-09",
+              "open" : 206.5,
+              "high" : 208.12,
+              "low" : 204.9,
+              "close" : 205.42,
+              "adjClose" : 205.42,
+              "volume" : 2779166.0,
+              "unadjustedVolume" : 2779166.0,
+              "change" : -1.08,
+              "changePercent" : -0.523,
+              "vwap" : 206.14667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00523
+            }, {
+              "date" : "2021-09-08",
+              "open" : 207.12,
+              "high" : 208.12,
+              "low" : 204.78,
+              "close" : 206.77,
+              "adjClose" : 206.77,
+              "volume" : 2589116.0,
+              "unadjustedVolume" : 2589116.0,
+              "change" : -0.35,
+              "changePercent" : -0.169,
+              "vwap" : 206.55667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00169
+            }, {
+              "date" : "2021-09-07",
+              "open" : 210.04,
+              "high" : 210.34,
+              "low" : 207.85,
+              "close" : 208.23,
+              "adjClose" : 208.23,
+              "volume" : 2565625.0,
+              "unadjustedVolume" : 2565625.0,
+              "change" : -1.81,
+              "changePercent" : -0.862,
+              "vwap" : 208.80667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00862
+            } ]
+          }, {
+            "symbol" : "BEN",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 31.65,
+              "high" : 31.91,
+              "low" : 31.2,
+              "close" : 31.32,
+              "adjClose" : 31.32,
+              "volume" : 2727380.0,
+              "unadjustedVolume" : 2727380.0,
+              "change" : -0.33,
+              "changePercent" : -1.043,
+              "vwap" : 31.47667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01043
+            }, {
+              "date" : "2021-09-09",
+              "open" : 31.23,
+              "high" : 31.83,
+              "low" : 31.17,
+              "close" : 31.36,
+              "adjClose" : 31.36,
+              "volume" : 1763150.0,
+              "unadjustedVolume" : 1763150.0,
+              "change" : 0.13,
+              "changePercent" : 0.416,
+              "vwap" : 31.45333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00416
+            }, {
+              "date" : "2021-09-08",
+              "open" : 31.18,
+              "high" : 31.5,
+              "low" : 31.09,
+              "close" : 31.3,
+              "adjClose" : 31.3,
+              "volume" : 1894065.0,
+              "unadjustedVolume" : 1894065.0,
+              "change" : 0.12,
+              "changePercent" : 0.385,
+              "vwap" : 31.29667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00385
+            }, {
+              "date" : "2021-09-07",
+              "open" : 31.94,
+              "high" : 31.95,
+              "low" : 31.16,
+              "close" : 31.23,
+              "adjClose" : 31.23,
+              "volume" : 2360804.0,
+              "unadjustedVolume" : 2360804.0,
+              "change" : -0.71,
+              "changePercent" : -2.223,
+              "vwap" : 31.44667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.02223
+            } ]
+          }, {
+            "symbol" : "CAH",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 53.4,
+              "high" : 53.53,
+              "low" : 52.54,
+              "close" : 52.82,
+              "adjClose" : 52.82,
+              "volume" : 2213796.0,
+              "unadjustedVolume" : 2213796.0,
+              "change" : -0.58,
+              "changePercent" : -1.086,
+              "vwap" : 52.96333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01086
+            }, {
+              "date" : "2021-09-09",
+              "open" : 53.47,
+              "high" : 53.73,
+              "low" : 53.13,
+              "close" : 53.29,
+              "adjClose" : 53.29,
+              "volume" : 1628248.0,
+              "unadjustedVolume" : 1628248.0,
+              "change" : -0.18,
+              "changePercent" : -0.337,
+              "vwap" : 53.38333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00337
+            }, {
+              "date" : "2021-09-08",
+              "open" : 53.55,
+              "high" : 53.88,
+              "low" : 53.21,
+              "close" : 53.49,
+              "adjClose" : 53.49,
+              "volume" : 1671167.0,
+              "unadjustedVolume" : 1671167.0,
+              "change" : -0.06,
+              "changePercent" : -0.112,
+              "vwap" : 53.52667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00112
+            }, {
+              "date" : "2021-09-07",
+              "open" : 53.6,
+              "high" : 53.95,
+              "low" : 53.14,
+              "close" : 53.72,
+              "adjClose" : 53.72,
+              "volume" : 2145225.0,
+              "unadjustedVolume" : 2145225.0,
+              "change" : 0.12,
+              "changePercent" : 0.224,
+              "vwap" : 53.60333,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00224
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:29 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/CB,CINF,CL,CLX,CTAS?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:30 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "CINF",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 119.64,
+              "high" : 120.24,
+              "low" : 117.34,
+              "close" : 117.38,
+              "adjClose" : 117.38,
+              "volume" : 351504.0,
+              "unadjustedVolume" : 351504.0,
+              "change" : -2.26,
+              "changePercent" : -1.889,
+              "vwap" : 118.32,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01889
+            }, {
+              "date" : "2021-09-09",
+              "open" : 120.27,
+              "high" : 121.87,
+              "low" : 119.18,
+              "close" : 119.25,
+              "adjClose" : 119.25,
+              "volume" : 369311.0,
+              "unadjustedVolume" : 369311.0,
+              "change" : -1.02,
+              "changePercent" : -0.848,
+              "vwap" : 120.1,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00848
+            }, {
+              "date" : "2021-09-08",
+              "open" : 119.14,
+              "high" : 121.17,
+              "low" : 118.78,
+              "close" : 120.24,
+              "adjClose" : 120.24,
+              "volume" : 357864.0,
+              "unadjustedVolume" : 357864.0,
+              "change" : 1.1,
+              "changePercent" : 0.923,
+              "vwap" : 120.06333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00923
+            }, {
+              "date" : "2021-09-07",
+              "open" : 121.37,
+              "high" : 121.37,
+              "low" : 119.35,
+              "close" : 119.43,
+              "adjClose" : 119.43,
+              "volume" : 338736.0,
+              "unadjustedVolume" : 338736.0,
+              "change" : -1.94,
+              "changePercent" : -1.598,
+              "vwap" : 120.05,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01598
+            } ]
+          }, {
+            "symbol" : "CL",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 77.47,
+              "high" : 77.47,
+              "low" : 76.79,
+              "close" : 77.04,
+              "adjClose" : 77.04,
+              "volume" : 3367957.0,
+              "unadjustedVolume" : 3367957.0,
+              "change" : -0.43,
+              "changePercent" : -0.555,
+              "vwap" : 77.1,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00555
+            }, {
+              "date" : "2021-09-09",
+              "open" : 78.07,
+              "high" : 78.22,
+              "low" : 77.23,
+              "close" : 77.3,
+              "adjClose" : 77.3,
+              "volume" : 3940632.0,
+              "unadjustedVolume" : 3940632.0,
+              "change" : -0.77,
+              "changePercent" : -0.986,
+              "vwap" : 77.58333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00986
+            }, {
+              "date" : "2021-09-08",
+              "open" : 76.61,
+              "high" : 77.86,
+              "low" : 76.6,
+              "close" : 77.78,
+              "adjClose" : 77.78,
+              "volume" : 3868147.0,
+              "unadjustedVolume" : 3868147.0,
+              "change" : 1.17,
+              "changePercent" : 1.527,
+              "vwap" : 77.41333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01527
+            }, {
+              "date" : "2021-09-07",
+              "open" : 77.9,
+              "high" : 77.93,
+              "low" : 76.83,
+              "close" : 76.9,
+              "adjClose" : 76.9,
+              "volume" : 3260441.0,
+              "unadjustedVolume" : 3260441.0,
+              "change" : -1.0,
+              "changePercent" : -1.284,
+              "vwap" : 77.22,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01284
+            } ]
+          }, {
+            "symbol" : "CTAS",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 401.7,
+              "high" : 409.26,
+              "low" : 400.97,
+              "close" : 403.71,
+              "adjClose" : 403.71,
+              "volume" : 421200.0,
+              "unadjustedVolume" : 421200.0,
+              "change" : 2.01,
+              "changePercent" : 0.5,
+              "vwap" : 404.64667,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.005
+            }, {
+              "date" : "2021-09-09",
+              "open" : 399.15,
+              "high" : 401.47,
+              "low" : 397.58,
+              "close" : 400.06,
+              "adjClose" : 400.06,
+              "volume" : 300479.0,
+              "unadjustedVolume" : 300479.0,
+              "change" : 0.91,
+              "changePercent" : 0.228,
+              "vwap" : 399.70333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00228
+            }, {
+              "date" : "2021-09-08",
+              "open" : 391.36,
+              "high" : 398.43,
+              "low" : 390.26,
+              "close" : 398.3,
+              "adjClose" : 398.3,
+              "volume" : 219425.0,
+              "unadjustedVolume" : 219425.0,
+              "change" : 6.94,
+              "changePercent" : 1.773,
+              "vwap" : 395.66333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01773
+            }, {
+              "date" : "2021-09-07",
+              "open" : 394.23,
+              "high" : 396.01,
+              "low" : 391.18,
+              "close" : 391.46,
+              "adjClose" : 391.46,
+              "volume" : 223697.0,
+              "unadjustedVolume" : 223697.0,
+              "change" : -2.77,
+              "changePercent" : -0.703,
+              "vwap" : 392.88333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00703
+            } ]
+          }, {
+            "symbol" : "CLX",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 168.52,
+              "high" : 170.13,
+              "low" : 168.0,
+              "close" : 169.68,
+              "adjClose" : 169.68,
+              "volume" : 886042.0,
+              "unadjustedVolume" : 886042.0,
+              "change" : 1.16,
+              "changePercent" : 0.688,
+              "vwap" : 169.27,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.00688
+            }, {
+              "date" : "2021-09-09",
+              "open" : 169.54,
+              "high" : 169.95,
+              "low" : 168.07,
+              "close" : 168.93,
+              "adjClose" : 168.93,
+              "volume" : 935804.0,
+              "unadjustedVolume" : 935804.0,
+              "change" : -0.61,
+              "changePercent" : -0.36,
+              "vwap" : 168.98333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.0036
+            }, {
+              "date" : "2021-09-08",
+              "open" : 168.41,
+              "high" : 171.72,
+              "low" : 168.05,
+              "close" : 169.75,
+              "adjClose" : 169.75,
+              "volume" : 1023445.0,
+              "unadjustedVolume" : 1023445.0,
+              "change" : 1.34,
+              "changePercent" : 0.796,
+              "vwap" : 169.84,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00796
+            }, {
+              "date" : "2021-09-07",
+              "open" : 169.7,
+              "high" : 169.7,
+              "low" : 166.72,
+              "close" : 168.13,
+              "adjClose" : 168.13,
+              "volume" : 1154676.0,
+              "unadjustedVolume" : 1154676.0,
+              "change" : -1.57,
+              "changePercent" : -0.925,
+              "vwap" : 168.18333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00925
+            } ]
+          }, {
+            "symbol" : "CB",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 182.3,
+              "high" : 182.9,
+              "low" : 179.94,
+              "close" : 180.24,
+              "adjClose" : 180.24,
+              "volume" : 1131341.0,
+              "unadjustedVolume" : 1131341.0,
+              "change" : -2.06,
+              "changePercent" : -1.13,
+              "vwap" : 181.02667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0113
+            }, {
+              "date" : "2021-09-09",
+              "open" : 182.43,
+              "high" : 184.07,
+              "low" : 180.9,
+              "close" : 181.08,
+              "adjClose" : 181.08,
+              "volume" : 1586229.0,
+              "unadjustedVolume" : 1586229.0,
+              "change" : -1.35,
+              "changePercent" : -0.74,
+              "vwap" : 182.01667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.0074
+            }, {
+              "date" : "2021-09-08",
+              "open" : 181.1,
+              "high" : 182.8,
+              "low" : 180.63,
+              "close" : 182.43,
+              "adjClose" : 182.43,
+              "volume" : 1447984.0,
+              "unadjustedVolume" : 1447984.0,
+              "change" : 1.33,
+              "changePercent" : 0.734,
+              "vwap" : 181.95333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00734
+            }, {
+              "date" : "2021-09-07",
+              "open" : 182.97,
+              "high" : 183.04,
+              "low" : 180.14,
+              "close" : 181.77,
+              "adjClose" : 181.77,
+              "volume" : 1680667.0,
+              "unadjustedVolume" : 1680667.0,
+              "change" : -1.2,
+              "changePercent" : -0.656,
+              "vwap" : 181.65,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00656
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:30 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/CVX,DOV,ECL,ED,EMR?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:30 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "CVX",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 97.6,
+              "high" : 97.7,
+              "low" : 95.89,
+              "close" : 96.07,
+              "adjClose" : 96.07,
+              "volume" : 1.101628E7,
+              "unadjustedVolume" : 1.101628E7,
+              "change" : -1.53,
+              "changePercent" : -1.568,
+              "vwap" : 96.55333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01568
+            }, {
+              "date" : "2021-09-09",
+              "open" : 95.89,
+              "high" : 97.62,
+              "low" : 95.37,
+              "close" : 96.0,
+              "adjClose" : 96.0,
+              "volume" : 1.0301039E7,
+              "unadjustedVolume" : 1.0301039E7,
+              "change" : 0.11,
+              "changePercent" : 0.115,
+              "vwap" : 96.33,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00115
+            }, {
+              "date" : "2021-09-08",
+              "open" : 97.5,
+              "high" : 98.47,
+              "low" : 96.36,
+              "close" : 96.39,
+              "adjClose" : 96.39,
+              "volume" : 1.0804663E7,
+              "unadjustedVolume" : 1.0804663E7,
+              "change" : -1.11,
+              "changePercent" : -1.138,
+              "vwap" : 97.07333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.01138
+            }, {
+              "date" : "2021-09-07",
+              "open" : 97.02,
+              "high" : 97.97,
+              "low" : 96.74,
+              "close" : 97.06,
+              "adjClose" : 97.06,
+              "volume" : 9240303.0,
+              "unadjustedVolume" : 9240303.0,
+              "change" : 0.04,
+              "changePercent" : 0.041,
+              "vwap" : 97.25667,
+              "label" : "September 07, 21",
+              "changeOverTime" : 4.1E-4
+            } ]
+          }, {
+            "symbol" : "DOV",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 175.85,
+              "high" : 176.19,
+              "low" : 173.48,
+              "close" : 173.56,
+              "adjClose" : 173.56,
+              "volume" : 545737.0,
+              "unadjustedVolume" : 545737.0,
+              "change" : -2.29,
+              "changePercent" : -1.302,
+              "vwap" : 174.41,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01302
+            }, {
+              "date" : "2021-09-09",
+              "open" : 175.0,
+              "high" : 176.46,
+              "low" : 174.63,
+              "close" : 174.84,
+              "adjClose" : 174.84,
+              "volume" : 685049.0,
+              "unadjustedVolume" : 685049.0,
+              "change" : -0.16,
+              "changePercent" : -0.091,
+              "vwap" : 175.31,
+              "label" : "September 09, 21",
+              "changeOverTime" : -9.1E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 172.67,
+              "high" : 175.46,
+              "low" : 171.96,
+              "close" : 174.85,
+              "adjClose" : 174.85,
+              "volume" : 647835.0,
+              "unadjustedVolume" : 647835.0,
+              "change" : 2.18,
+              "changePercent" : 1.263,
+              "vwap" : 174.09,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01263
+            }, {
+              "date" : "2021-09-07",
+              "open" : 174.23,
+              "high" : 174.39,
+              "low" : 172.57,
+              "close" : 172.77,
+              "adjClose" : 172.77,
+              "volume" : 530867.0,
+              "unadjustedVolume" : 530867.0,
+              "change" : -1.46,
+              "changePercent" : -0.838,
+              "vwap" : 173.24333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00838
+            } ]
+          }, {
+            "symbol" : "EMR",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 101.03,
+              "high" : 101.48,
+              "low" : 99.92,
+              "close" : 100.09,
+              "adjClose" : 100.09,
+              "volume" : 2428648.0,
+              "unadjustedVolume" : 2428648.0,
+              "change" : -0.94,
+              "changePercent" : -0.93,
+              "vwap" : 100.49667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0093
+            }, {
+              "date" : "2021-09-09",
+              "open" : 103.32,
+              "high" : 103.32,
+              "low" : 99.91,
+              "close" : 100.08,
+              "adjClose" : 100.08,
+              "volume" : 4204310.0,
+              "unadjustedVolume" : 4204310.0,
+              "change" : -3.24,
+              "changePercent" : -3.136,
+              "vwap" : 101.10333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.03136
+            }, {
+              "date" : "2021-09-08",
+              "open" : 103.2,
+              "high" : 103.68,
+              "low" : 102.5,
+              "close" : 103.1,
+              "adjClose" : 103.1,
+              "volume" : 2009934.0,
+              "unadjustedVolume" : 2009934.0,
+              "change" : -0.1,
+              "changePercent" : -0.097,
+              "vwap" : 103.09333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -9.7E-4
+            }, {
+              "date" : "2021-09-07",
+              "open" : 105.06,
+              "high" : 105.09,
+              "low" : 103.64,
+              "close" : 103.67,
+              "adjClose" : 103.67,
+              "volume" : 1671039.0,
+              "unadjustedVolume" : 1671039.0,
+              "change" : -1.39,
+              "changePercent" : -1.323,
+              "vwap" : 104.13333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01323
+            } ]
+          }, {
+            "symbol" : "ED",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 76.08,
+              "high" : 76.27,
+              "low" : 74.66,
+              "close" : 74.69,
+              "adjClose" : 74.69,
+              "volume" : 2117643.0,
+              "unadjustedVolume" : 2117643.0,
+              "change" : -1.39,
+              "changePercent" : -1.827,
+              "vwap" : 75.20667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01827
+            }, {
+              "date" : "2021-09-09",
+              "open" : 76.8,
+              "high" : 76.94,
+              "low" : 76.3,
+              "close" : 76.38,
+              "adjClose" : 76.38,
+              "volume" : 1798122.0,
+              "unadjustedVolume" : 1798122.0,
+              "change" : -0.42,
+              "changePercent" : -0.547,
+              "vwap" : 76.54,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00547
+            }, {
+              "date" : "2021-09-08",
+              "open" : 74.96,
+              "high" : 77.05,
+              "low" : 74.77,
+              "close" : 76.92,
+              "adjClose" : 76.92,
+              "volume" : 2449445.0,
+              "unadjustedVolume" : 2449445.0,
+              "change" : 1.96,
+              "changePercent" : 2.615,
+              "vwap" : 76.24667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.02615
+            }, {
+              "date" : "2021-09-07",
+              "open" : 76.33,
+              "high" : 76.46,
+              "low" : 74.82,
+              "close" : 74.88,
+              "adjClose" : 74.88,
+              "volume" : 1736155.0,
+              "unadjustedVolume" : 1736155.0,
+              "change" : -1.45,
+              "changePercent" : -1.9,
+              "vwap" : 75.38667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.019
+            } ]
+          }, {
+            "symbol" : "ECL",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 226.95,
+              "high" : 228.9,
+              "low" : 224.99,
+              "close" : 225.84,
+              "adjClose" : 225.84,
+              "volume" : 848509.0,
+              "unadjustedVolume" : 848509.0,
+              "change" : -1.11,
+              "changePercent" : -0.489,
+              "vwap" : 226.57667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00489
+            }, {
+              "date" : "2021-09-09",
+              "open" : 229.5,
+              "high" : 231.25,
+              "low" : 227.35,
+              "close" : 227.51,
+              "adjClose" : 227.51,
+              "volume" : 894138.0,
+              "unadjustedVolume" : 894138.0,
+              "change" : -1.99,
+              "changePercent" : -0.867,
+              "vwap" : 228.70333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00867
+            }, {
+              "date" : "2021-09-08",
+              "open" : 227.0,
+              "high" : 229.99,
+              "low" : 226.61,
+              "close" : 229.6,
+              "adjClose" : 229.6,
+              "volume" : 935248.0,
+              "unadjustedVolume" : 935248.0,
+              "change" : 2.6,
+              "changePercent" : 1.145,
+              "vwap" : 228.73333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01145
+            }, {
+              "date" : "2021-09-07",
+              "open" : 225.01,
+              "high" : 228.17,
+              "low" : 224.77,
+              "close" : 227.14,
+              "adjClose" : 227.14,
+              "volume" : 1021235.0,
+              "unadjustedVolume" : 1021235.0,
+              "change" : 2.13,
+              "changePercent" : 0.947,
+              "vwap" : 226.69333,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00947
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:30 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/ESS,EXPD,FRT,GD,GPC?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "ESS",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 329.95,
+              "high" : 331.43,
+              "low" : 321.56,
+              "close" : 321.94,
+              "adjClose" : 321.94,
+              "volume" : 233886.0,
+              "unadjustedVolume" : 233886.0,
+              "change" : -8.01,
+              "changePercent" : -2.428,
+              "vwap" : 324.97667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02428
+            }, {
+              "date" : "2021-09-09",
+              "open" : 330.05,
+              "high" : 331.69,
+              "low" : 327.21,
+              "close" : 328.3,
+              "adjClose" : 328.3,
+              "volume" : 301315.0,
+              "unadjustedVolume" : 301315.0,
+              "change" : -1.75,
+              "changePercent" : -0.53,
+              "vwap" : 329.06667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.0053
+            }, {
+              "date" : "2021-09-08",
+              "open" : 326.99,
+              "high" : 333.39,
+              "low" : 325.2,
+              "close" : 331.7,
+              "adjClose" : 331.7,
+              "volume" : 154215.0,
+              "unadjustedVolume" : 154215.0,
+              "change" : 4.71,
+              "changePercent" : 1.44,
+              "vwap" : 330.09667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.0144
+            }, {
+              "date" : "2021-09-07",
+              "open" : 334.52,
+              "high" : 334.52,
+              "low" : 324.6,
+              "close" : 327.52,
+              "adjClose" : 327.52,
+              "volume" : 273679.0,
+              "unadjustedVolume" : 273679.0,
+              "change" : -7.0,
+              "changePercent" : -2.093,
+              "vwap" : 328.88,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.02093
+            } ]
+          }, {
+            "symbol" : "EXPD",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 124.23,
+              "high" : 126.25,
+              "low" : 123.7,
+              "close" : 125.76,
+              "adjClose" : 125.76,
+              "volume" : 893582.0,
+              "unadjustedVolume" : 893582.0,
+              "change" : 1.53,
+              "changePercent" : 1.232,
+              "vwap" : 125.23667,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.01232
+            }, {
+              "date" : "2021-09-09",
+              "open" : 123.9,
+              "high" : 125.88,
+              "low" : 122.97,
+              "close" : 123.45,
+              "adjClose" : 123.45,
+              "volume" : 1369755.0,
+              "unadjustedVolume" : 1369755.0,
+              "change" : -0.45,
+              "changePercent" : -0.363,
+              "vwap" : 124.1,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00363
+            }, {
+              "date" : "2021-09-08",
+              "open" : 122.43,
+              "high" : 123.85,
+              "low" : 122.43,
+              "close" : 123.77,
+              "adjClose" : 123.77,
+              "volume" : 597665.0,
+              "unadjustedVolume" : 597665.0,
+              "change" : 1.34,
+              "changePercent" : 1.095,
+              "vwap" : 123.35,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01095
+            }, {
+              "date" : "2021-09-07",
+              "open" : 123.81,
+              "high" : 123.98,
+              "low" : 122.33,
+              "close" : 122.88,
+              "adjClose" : 122.88,
+              "volume" : 739528.0,
+              "unadjustedVolume" : 739528.0,
+              "change" : -0.93,
+              "changePercent" : -0.751,
+              "vwap" : 123.06333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00751
+            } ]
+          }, {
+            "symbol" : "FRT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 120.72,
+              "high" : 120.72,
+              "low" : 117.67,
+              "close" : 117.76,
+              "adjClose" : 117.76,
+              "volume" : 414583.0,
+              "unadjustedVolume" : 414583.0,
+              "change" : -2.96,
+              "changePercent" : -2.452,
+              "vwap" : 118.71667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02452
+            }, {
+              "date" : "2021-09-09",
+              "open" : 121.01,
+              "high" : 121.47,
+              "low" : 120.11,
+              "close" : 120.31,
+              "adjClose" : 120.31,
+              "volume" : 481133.0,
+              "unadjustedVolume" : 481133.0,
+              "change" : -0.7,
+              "changePercent" : -0.578,
+              "vwap" : 120.63,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00578
+            }, {
+              "date" : "2021-09-08",
+              "open" : 121.7,
+              "high" : 122.96,
+              "low" : 121.18,
+              "close" : 121.75,
+              "adjClose" : 121.75,
+              "volume" : 221621.0,
+              "unadjustedVolume" : 221621.0,
+              "change" : 0.05,
+              "changePercent" : 0.041,
+              "vwap" : 121.96333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 4.1E-4
+            }, {
+              "date" : "2021-09-07",
+              "open" : 122.57,
+              "high" : 122.7,
+              "low" : 121.11,
+              "close" : 122.0,
+              "adjClose" : 122.0,
+              "volume" : 432614.0,
+              "unadjustedVolume" : 432614.0,
+              "change" : -0.57,
+              "changePercent" : -0.465,
+              "vwap" : 121.93667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00465
+            } ]
+          }, {
+            "symbol" : "GPC",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 119.86,
+              "high" : 120.01,
+              "low" : 118.18,
+              "close" : 118.38,
+              "adjClose" : 118.38,
+              "volume" : 808405.0,
+              "unadjustedVolume" : 808405.0,
+              "change" : -1.48,
+              "changePercent" : -1.235,
+              "vwap" : 118.85667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01235
+            }, {
+              "date" : "2021-09-09",
+              "open" : 119.4,
+              "high" : 120.92,
+              "low" : 119.01,
+              "close" : 119.19,
+              "adjClose" : 119.19,
+              "volume" : 723866.0,
+              "unadjustedVolume" : 723866.0,
+              "change" : -0.21,
+              "changePercent" : -0.176,
+              "vwap" : 119.70667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00176
+            }, {
+              "date" : "2021-09-08",
+              "open" : 120.05,
+              "high" : 120.79,
+              "low" : 119.27,
+              "close" : 119.82,
+              "adjClose" : 119.82,
+              "volume" : 496002.0,
+              "unadjustedVolume" : 496002.0,
+              "change" : -0.23,
+              "changePercent" : -0.192,
+              "vwap" : 119.96,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00192
+            }, {
+              "date" : "2021-09-07",
+              "open" : 121.89,
+              "high" : 121.97,
+              "low" : 120.05,
+              "close" : 120.12,
+              "adjClose" : 120.12,
+              "volume" : 444081.0,
+              "unadjustedVolume" : 444081.0,
+              "change" : -1.77,
+              "changePercent" : -1.452,
+              "vwap" : 120.71333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01452
+            } ]
+          }, {
+            "symbol" : "GD",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 204.95,
+              "high" : 205.14,
+              "low" : 201.49,
+              "close" : 201.6,
+              "adjClose" : 201.6,
+              "volume" : 983551.0,
+              "unadjustedVolume" : 983551.0,
+              "change" : -3.35,
+              "changePercent" : -1.635,
+              "vwap" : 202.74333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01635
+            }, {
+              "date" : "2021-09-09",
+              "open" : 205.0,
+              "high" : 206.42,
+              "low" : 203.71,
+              "close" : 203.81,
+              "adjClose" : 203.81,
+              "volume" : 1247570.0,
+              "unadjustedVolume" : 1247570.0,
+              "change" : -1.19,
+              "changePercent" : -0.58,
+              "vwap" : 204.64667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.0058
+            }, {
+              "date" : "2021-09-08",
+              "open" : 202.18,
+              "high" : 205.0,
+              "low" : 201.57,
+              "close" : 204.4,
+              "adjClose" : 204.4,
+              "volume" : 1096788.0,
+              "unadjustedVolume" : 1096788.0,
+              "change" : 2.22,
+              "changePercent" : 1.098,
+              "vwap" : 203.65667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01098
+            }, {
+              "date" : "2021-09-07",
+              "open" : 201.67,
+              "high" : 203.25,
+              "low" : 200.75,
+              "close" : 202.39,
+              "adjClose" : 202.39,
+              "volume" : 1397276.0,
+              "unadjustedVolume" : 1397276.0,
+              "change" : 0.72,
+              "changePercent" : 0.357,
+              "vwap" : 202.13,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00357
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:31 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/GWW,HRL,IBM,ITW,JNJ?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:32 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "HRL",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 42.2,
+              "high" : 42.53,
+              "low" : 41.91,
+              "close" : 42.31,
+              "adjClose" : 42.31,
+              "volume" : 2619998.0,
+              "unadjustedVolume" : 2619998.0,
+              "change" : 0.11,
+              "changePercent" : 0.261,
+              "vwap" : 42.25,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.00261
+            }, {
+              "date" : "2021-09-09",
+              "open" : 42.37,
+              "high" : 42.59,
+              "low" : 42.04,
+              "close" : 42.2,
+              "adjClose" : 42.2,
+              "volume" : 2822484.0,
+              "unadjustedVolume" : 2822484.0,
+              "change" : -0.17,
+              "changePercent" : -0.401,
+              "vwap" : 42.27667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00401
+            }, {
+              "date" : "2021-09-08",
+              "open" : 42.25,
+              "high" : 42.84,
+              "low" : 42.08,
+              "close" : 42.6,
+              "adjClose" : 42.6,
+              "volume" : 2871715.0,
+              "unadjustedVolume" : 2871715.0,
+              "change" : 0.35,
+              "changePercent" : 0.828,
+              "vwap" : 42.50667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00828
+            }, {
+              "date" : "2021-09-07",
+              "open" : 42.69,
+              "high" : 43.0,
+              "low" : 42.2,
+              "close" : 42.22,
+              "adjClose" : 42.22,
+              "volume" : 3764934.0,
+              "unadjustedVolume" : 3764934.0,
+              "change" : -0.47,
+              "changePercent" : -1.101,
+              "vwap" : 42.47333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01101
+            } ]
+          }, {
+            "symbol" : "IBM",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 138.82,
+              "high" : 139.37,
+              "low" : 137.0,
+              "close" : 137.02,
+              "adjClose" : 137.02,
+              "volume" : 3995109.0,
+              "unadjustedVolume" : 3995109.0,
+              "change" : -1.8,
+              "changePercent" : -1.297,
+              "vwap" : 137.79667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01297
+            }, {
+              "date" : "2021-09-09",
+              "open" : 137.85,
+              "high" : 138.96,
+              "low" : 137.56,
+              "close" : 137.74,
+              "adjClose" : 137.74,
+              "volume" : 3487960.0,
+              "unadjustedVolume" : 3487960.0,
+              "change" : -0.11,
+              "changePercent" : -0.08,
+              "vwap" : 138.08667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -8.0E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 138.14,
+              "high" : 139.08,
+              "low" : 137.6,
+              "close" : 138.67,
+              "adjClose" : 138.67,
+              "volume" : 2994388.0,
+              "unadjustedVolume" : 2994388.0,
+              "change" : 0.53,
+              "changePercent" : 0.384,
+              "vwap" : 138.45,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00384
+            }, {
+              "date" : "2021-09-07",
+              "open" : 139.65,
+              "high" : 139.79,
+              "low" : 137.76,
+              "close" : 138.06,
+              "adjClose" : 138.06,
+              "volume" : 3293733.0,
+              "unadjustedVolume" : 3293733.0,
+              "change" : -1.59,
+              "changePercent" : -1.139,
+              "vwap" : 138.53667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01139
+            } ]
+          }, {
+            "symbol" : "GWW",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 417.85,
+              "high" : 418.73,
+              "low" : 414.46,
+              "close" : 415.23,
+              "adjClose" : 415.23,
+              "volume" : 217830.0,
+              "unadjustedVolume" : 217830.0,
+              "change" : -2.62,
+              "changePercent" : -0.627,
+              "vwap" : 416.14,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00627
+            }, {
+              "date" : "2021-09-09",
+              "open" : 418.53,
+              "high" : 420.73,
+              "low" : 415.62,
+              "close" : 416.54,
+              "adjClose" : 416.54,
+              "volume" : 278244.0,
+              "unadjustedVolume" : 278244.0,
+              "change" : -1.99,
+              "changePercent" : -0.475,
+              "vwap" : 417.63,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00475
+            }, {
+              "date" : "2021-09-08",
+              "open" : 419.9,
+              "high" : 421.73,
+              "low" : 414.19,
+              "close" : 418.15,
+              "adjClose" : 418.15,
+              "volume" : 360109.0,
+              "unadjustedVolume" : 360109.0,
+              "change" : -1.75,
+              "changePercent" : -0.417,
+              "vwap" : 418.02333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00417
+            }, {
+              "date" : "2021-09-07",
+              "open" : 429.5,
+              "high" : 429.5,
+              "low" : 421.4,
+              "close" : 421.45,
+              "adjClose" : 421.45,
+              "volume" : 320207.0,
+              "unadjustedVolume" : 320207.0,
+              "change" : -8.05,
+              "changePercent" : -1.874,
+              "vwap" : 424.11667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01874
+            } ]
+          }, {
+            "symbol" : "JNJ",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 168.55,
+              "high" : 169.09,
+              "low" : 166.87,
+              "close" : 166.97,
+              "adjClose" : 166.97,
+              "volume" : 6443941.0,
+              "unadjustedVolume" : 6443941.0,
+              "change" : -1.58,
+              "changePercent" : -0.937,
+              "vwap" : 167.64333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00937
+            }, {
+              "date" : "2021-09-09",
+              "open" : 171.19,
+              "high" : 171.48,
+              "low" : 167.7,
+              "close" : 168.07,
+              "adjClose" : 168.07,
+              "volume" : 7179995.0,
+              "unadjustedVolume" : 7179995.0,
+              "change" : -3.12,
+              "changePercent" : -1.823,
+              "vwap" : 169.08333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01823
+            }, {
+              "date" : "2021-09-08",
+              "open" : 171.62,
+              "high" : 172.98,
+              "low" : 171.08,
+              "close" : 171.9,
+              "adjClose" : 171.9,
+              "volume" : 4688518.0,
+              "unadjustedVolume" : 4688518.0,
+              "change" : 0.28,
+              "changePercent" : 0.163,
+              "vwap" : 171.98667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00163
+            }, {
+              "date" : "2021-09-07",
+              "open" : 174.35,
+              "high" : 175.03,
+              "low" : 171.67,
+              "close" : 172.32,
+              "adjClose" : 172.32,
+              "volume" : 6425113.0,
+              "unadjustedVolume" : 6425113.0,
+              "change" : -2.03,
+              "changePercent" : -1.164,
+              "vwap" : 173.00667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01164
+            } ]
+          }, {
+            "symbol" : "ITW",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 220.86,
+              "high" : 221.15,
+              "low" : 218.65,
+              "close" : 218.78,
+              "adjClose" : 218.78,
+              "volume" : 614979.0,
+              "unadjustedVolume" : 614979.0,
+              "change" : -2.08,
+              "changePercent" : -0.942,
+              "vwap" : 219.52667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00942
+            }, {
+              "date" : "2021-09-09",
+              "open" : 222.0,
+              "high" : 222.58,
+              "low" : 219.69,
+              "close" : 219.99,
+              "adjClose" : 219.99,
+              "volume" : 865624.0,
+              "unadjustedVolume" : 865624.0,
+              "change" : -2.01,
+              "changePercent" : -0.905,
+              "vwap" : 220.75333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00905
+            }, {
+              "date" : "2021-09-08",
+              "open" : 221.18,
+              "high" : 222.84,
+              "low" : 220.15,
+              "close" : 221.81,
+              "adjClose" : 221.81,
+              "volume" : 975411.0,
+              "unadjustedVolume" : 975411.0,
+              "change" : 0.63,
+              "changePercent" : 0.285,
+              "vwap" : 221.6,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00285
+            }, {
+              "date" : "2021-09-07",
+              "open" : 226.6,
+              "high" : 227.14,
+              "low" : 221.14,
+              "close" : 221.58,
+              "adjClose" : 221.58,
+              "volume" : 1719532.0,
+              "unadjustedVolume" : 1719532.0,
+              "change" : -5.02,
+              "changePercent" : -2.215,
+              "vwap" : 223.28667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.02215
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:32 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/KMB,KO,LEG,LIN,LOW?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:33 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "LIN",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 313.15,
+              "high" : 314.19,
+              "low" : 310.11,
+              "close" : 310.44,
+              "adjClose" : 310.44,
+              "volume" : 956378.0,
+              "unadjustedVolume" : 956378.0,
+              "change" : -2.71,
+              "changePercent" : -0.865,
+              "vwap" : 311.58,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00865
+            }, {
+              "date" : "2021-09-09",
+              "open" : 312.93,
+              "high" : 315.51,
+              "low" : 312.18,
+              "close" : 312.7,
+              "adjClose" : 312.7,
+              "volume" : 1222341.0,
+              "unadjustedVolume" : 1222341.0,
+              "change" : -0.23,
+              "changePercent" : -0.073,
+              "vwap" : 313.46333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -7.3E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 314.05,
+              "high" : 315.82,
+              "low" : 310.35,
+              "close" : 311.59,
+              "adjClose" : 311.59,
+              "volume" : 1381570.0,
+              "unadjustedVolume" : 1381570.0,
+              "change" : -2.46,
+              "changePercent" : -0.783,
+              "vwap" : 312.58667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00783
+            }, {
+              "date" : "2021-09-07",
+              "open" : 316.28,
+              "high" : 317.01,
+              "low" : 312.85,
+              "close" : 315.64,
+              "adjClose" : 315.64,
+              "volume" : 1388474.0,
+              "unadjustedVolume" : 1388474.0,
+              "change" : -0.64,
+              "changePercent" : -0.202,
+              "vwap" : 315.16667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00202
+            } ]
+          }, {
+            "symbol" : "KMB",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 137.539993,
+              "high" : 137.889999,
+              "low" : 136.020004,
+              "close" : 137.050003,
+              "adjClose" : 137.050003,
+              "volume" : 2133372.0,
+              "unadjustedVolume" : 2133372.0,
+              "change" : -0.48999,
+              "changePercent" : -0.356,
+              "vwap" : 136.98667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00356
+            }, {
+              "date" : "2021-09-09",
+              "open" : 139.770004,
+              "high" : 140.199997,
+              "low" : 137.410004,
+              "close" : 137.800003,
+              "adjClose" : 137.800003,
+              "volume" : 2923800.0,
+              "unadjustedVolume" : 2923800.0,
+              "change" : -1.97,
+              "changePercent" : -1.409,
+              "vwap" : 138.47,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01409
+            }, {
+              "date" : "2021-09-08",
+              "open" : 139.449997,
+              "high" : 141.830002,
+              "low" : 139.399994,
+              "close" : 141.490005,
+              "adjClose" : 140.350006,
+              "volume" : 2390700.0,
+              "unadjustedVolume" : 2390700.0,
+              "change" : 2.04001,
+              "changePercent" : 1.463,
+              "vwap" : 140.90667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01463
+            }, {
+              "date" : "2021-09-07",
+              "open" : 140.339996,
+              "high" : 140.630005,
+              "low" : 138.770004,
+              "close" : 139.860001,
+              "adjClose" : 138.733139,
+              "volume" : 2707000.0,
+              "unadjustedVolume" : 2707000.0,
+              "change" : -0.48,
+              "changePercent" : -0.342,
+              "vwap" : 139.75334,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00342
+            } ]
+          }, {
+            "symbol" : "KO",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 56.01,
+              "high" : 56.13,
+              "low" : 55.52,
+              "close" : 55.61,
+              "adjClose" : 55.61,
+              "volume" : 1.0301372E7,
+              "unadjustedVolume" : 1.0301372E7,
+              "change" : -0.4,
+              "changePercent" : -0.714,
+              "vwap" : 55.75333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00714
+            }, {
+              "date" : "2021-09-09",
+              "open" : 56.18,
+              "high" : 56.42,
+              "low" : 55.8,
+              "close" : 55.86,
+              "adjClose" : 55.86,
+              "volume" : 1.2609948E7,
+              "unadjustedVolume" : 1.2609948E7,
+              "change" : -0.32,
+              "changePercent" : -0.57,
+              "vwap" : 56.02667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.0057
+            }, {
+              "date" : "2021-09-08",
+              "open" : 55.61,
+              "high" : 56.48,
+              "low" : 55.61,
+              "close" : 56.42,
+              "adjClose" : 56.42,
+              "volume" : 1.1186507E7,
+              "unadjustedVolume" : 1.1186507E7,
+              "change" : 0.81,
+              "changePercent" : 1.457,
+              "vwap" : 56.17,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01457
+            }, {
+              "date" : "2021-09-07",
+              "open" : 56.6,
+              "high" : 56.69,
+              "low" : 55.51,
+              "close" : 55.67,
+              "adjClose" : 55.67,
+              "volume" : 1.5349798E7,
+              "unadjustedVolume" : 1.5349798E7,
+              "change" : -0.93,
+              "changePercent" : -1.643,
+              "vwap" : 55.95667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01643
+            } ]
+          }, {
+            "symbol" : "LOW",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 204.78,
+              "high" : 206.58,
+              "low" : 204.16,
+              "close" : 204.33,
+              "adjClose" : 204.33,
+              "volume" : 2506620.0,
+              "unadjustedVolume" : 2506620.0,
+              "change" : -0.45,
+              "changePercent" : -0.22,
+              "vwap" : 205.02333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0022
+            }, {
+              "date" : "2021-09-09",
+              "open" : 204.47,
+              "high" : 204.72,
+              "low" : 202.49,
+              "close" : 203.01,
+              "adjClose" : 203.01,
+              "volume" : 2465542.0,
+              "unadjustedVolume" : 2465542.0,
+              "change" : -1.46,
+              "changePercent" : -0.714,
+              "vwap" : 203.40667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00714
+            }, {
+              "date" : "2021-09-08",
+              "open" : 204.35,
+              "high" : 204.42,
+              "low" : 201.5,
+              "close" : 204.09,
+              "adjClose" : 204.09,
+              "volume" : 3311923.0,
+              "unadjustedVolume" : 3311923.0,
+              "change" : -0.26,
+              "changePercent" : -0.127,
+              "vwap" : 203.33667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00127
+            }, {
+              "date" : "2021-09-07",
+              "open" : 205.7,
+              "high" : 207.24,
+              "low" : 204.92,
+              "close" : 205.15,
+              "adjClose" : 205.15,
+              "volume" : 2350604.0,
+              "unadjustedVolume" : 2350604.0,
+              "change" : -0.55,
+              "changePercent" : -0.267,
+              "vwap" : 205.77,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00267
+            } ]
+          }, {
+            "symbol" : "LEG",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 47.31,
+              "high" : 47.69,
+              "low" : 46.65,
+              "close" : 46.68,
+              "adjClose" : 46.68,
+              "volume" : 719572.0,
+              "unadjustedVolume" : 719572.0,
+              "change" : -0.63,
+              "changePercent" : -1.332,
+              "vwap" : 47.00667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01332
+            }, {
+              "date" : "2021-09-09",
+              "open" : 46.2,
+              "high" : 47.46,
+              "low" : 46.2,
+              "close" : 47.14,
+              "adjClose" : 47.14,
+              "volume" : 811836.0,
+              "unadjustedVolume" : 811836.0,
+              "change" : 0.94,
+              "changePercent" : 2.035,
+              "vwap" : 46.93333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.02035
+            }, {
+              "date" : "2021-09-08",
+              "open" : 46.87,
+              "high" : 47.03,
+              "low" : 46.2,
+              "close" : 46.29,
+              "adjClose" : 46.29,
+              "volume" : 501690.0,
+              "unadjustedVolume" : 501690.0,
+              "change" : -0.58,
+              "changePercent" : -1.237,
+              "vwap" : 46.50667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.01237
+            }, {
+              "date" : "2021-09-07",
+              "open" : 47.64,
+              "high" : 47.76,
+              "low" : 46.78,
+              "close" : 47.07,
+              "adjClose" : 47.07,
+              "volume" : 659595.0,
+              "unadjustedVolume" : 659595.0,
+              "change" : -0.57,
+              "changePercent" : -1.196,
+              "vwap" : 47.20333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01196
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:33 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/MCD,MDT,MKC,MMM,NEE?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:34 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "MKC",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 86.65,
+              "high" : 86.91,
+              "low" : 85.47,
+              "close" : 85.55,
+              "adjClose" : 85.55,
+              "volume" : 1950647.0,
+              "unadjustedVolume" : 1950647.0,
+              "change" : -1.1,
+              "changePercent" : -1.269,
+              "vwap" : 85.97667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01269
+            }, {
+              "date" : "2021-09-09",
+              "open" : 88.29,
+              "high" : 88.34,
+              "low" : 86.74,
+              "close" : 86.76,
+              "adjClose" : 86.76,
+              "volume" : 988642.0,
+              "unadjustedVolume" : 988642.0,
+              "change" : -1.53,
+              "changePercent" : -1.733,
+              "vwap" : 87.28,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01733
+            }, {
+              "date" : "2021-09-08",
+              "open" : 87.1,
+              "high" : 88.51,
+              "low" : 87.1,
+              "close" : 88.35,
+              "adjClose" : 88.35,
+              "volume" : 949824.0,
+              "unadjustedVolume" : 949824.0,
+              "change" : 1.25,
+              "changePercent" : 1.435,
+              "vwap" : 87.98667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01435
+            }, {
+              "date" : "2021-09-07",
+              "open" : 87.99,
+              "high" : 87.99,
+              "low" : 86.54,
+              "close" : 86.97,
+              "adjClose" : 86.97,
+              "volume" : 782932.0,
+              "unadjustedVolume" : 782932.0,
+              "change" : -1.02,
+              "changePercent" : -1.159,
+              "vwap" : 87.16667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01159
+            } ]
+          }, {
+            "symbol" : "MMM",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 186.86,
+              "high" : 187.23,
+              "low" : 184.5,
+              "close" : 184.55,
+              "adjClose" : 184.55,
+              "volume" : 1789914.0,
+              "unadjustedVolume" : 1789914.0,
+              "change" : -2.31,
+              "changePercent" : -1.236,
+              "vwap" : 185.42667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01236
+            }, {
+              "date" : "2021-09-09",
+              "open" : 187.54,
+              "high" : 188.51,
+              "low" : 185.06,
+              "close" : 185.75,
+              "adjClose" : 185.75,
+              "volume" : 2862578.0,
+              "unadjustedVolume" : 2862578.0,
+              "change" : -1.79,
+              "changePercent" : -0.954,
+              "vwap" : 186.44,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00954
+            }, {
+              "date" : "2021-09-08",
+              "open" : 185.64,
+              "high" : 188.4,
+              "low" : 185.02,
+              "close" : 187.89,
+              "adjClose" : 187.89,
+              "volume" : 3643856.0,
+              "unadjustedVolume" : 3643856.0,
+              "change" : 2.25,
+              "changePercent" : 1.212,
+              "vwap" : 187.10333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01212
+            }, {
+              "date" : "2021-09-07",
+              "open" : 192.92,
+              "high" : 194.57,
+              "low" : 185.56,
+              "close" : 185.58,
+              "adjClose" : 185.58,
+              "volume" : 5740512.0,
+              "unadjustedVolume" : 5740512.0,
+              "change" : -7.34,
+              "changePercent" : -3.805,
+              "vwap" : 188.57,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.03805
+            } ]
+          }, {
+            "symbol" : "MDT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 133.77,
+              "high" : 133.97,
+              "low" : 130.62,
+              "close" : 131.14,
+              "adjClose" : 131.14,
+              "volume" : 4295436.0,
+              "unadjustedVolume" : 4295436.0,
+              "change" : -2.63,
+              "changePercent" : -1.966,
+              "vwap" : 131.91,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01966
+            }, {
+              "date" : "2021-09-09",
+              "open" : 135.18,
+              "high" : 135.89,
+              "low" : 133.37,
+              "close" : 133.43,
+              "adjClose" : 133.43,
+              "volume" : 3458218.0,
+              "unadjustedVolume" : 3458218.0,
+              "change" : -1.75,
+              "changePercent" : -1.295,
+              "vwap" : 134.23,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01295
+            }, {
+              "date" : "2021-09-08",
+              "open" : 134.42,
+              "high" : 135.67,
+              "low" : 133.85,
+              "close" : 135.17,
+              "adjClose" : 135.17,
+              "volume" : 2196627.0,
+              "unadjustedVolume" : 2196627.0,
+              "change" : 0.75,
+              "changePercent" : 0.558,
+              "vwap" : 134.89667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00558
+            }, {
+              "date" : "2021-09-07",
+              "open" : 133.87,
+              "high" : 134.66,
+              "low" : 132.95,
+              "close" : 134.57,
+              "adjClose" : 134.57,
+              "volume" : 3223878.0,
+              "unadjustedVolume" : 3223878.0,
+              "change" : 0.7,
+              "changePercent" : 0.523,
+              "vwap" : 134.06,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00523
+            } ]
+          }, {
+            "symbol" : "MCD",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 240.32,
+              "high" : 241.32,
+              "low" : 239.04,
+              "close" : 239.18,
+              "adjClose" : 239.18,
+              "volume" : 2024808.0,
+              "unadjustedVolume" : 2024808.0,
+              "change" : -1.14,
+              "changePercent" : -0.474,
+              "vwap" : 239.84667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00474
+            }, {
+              "date" : "2021-09-09",
+              "open" : 238.42,
+              "high" : 241.43,
+              "low" : 237.79,
+              "close" : 238.61,
+              "adjClose" : 238.61,
+              "volume" : 3006274.0,
+              "unadjustedVolume" : 3006274.0,
+              "change" : 0.19,
+              "changePercent" : 0.08,
+              "vwap" : 239.27667,
+              "label" : "September 09, 21",
+              "changeOverTime" : 8.0E-4
+            }, {
+              "date" : "2021-09-08",
+              "open" : 236.8,
+              "high" : 239.41,
+              "low" : 236.0,
+              "close" : 238.62,
+              "adjClose" : 238.62,
+              "volume" : 2063972.0,
+              "unadjustedVolume" : 2063972.0,
+              "change" : 1.82,
+              "changePercent" : 0.769,
+              "vwap" : 238.01,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00769
+            }, {
+              "date" : "2021-09-07",
+              "open" : 238.61,
+              "high" : 238.61,
+              "low" : 235.98,
+              "close" : 236.19,
+              "adjClose" : 236.19,
+              "volume" : 1722240.0,
+              "unadjustedVolume" : 1722240.0,
+              "change" : -2.42,
+              "changePercent" : -1.014,
+              "vwap" : 236.92667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01014
+            } ]
+          }, {
+            "symbol" : "NEE",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 85.97,
+              "high" : 85.97,
+              "low" : 84.6,
+              "close" : 84.93,
+              "adjClose" : 84.93,
+              "volume" : 5522162.0,
+              "unadjustedVolume" : 5522162.0,
+              "change" : -1.04,
+              "changePercent" : -1.21,
+              "vwap" : 85.16667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0121
+            }, {
+              "date" : "2021-09-09",
+              "open" : 86.29,
+              "high" : 86.66,
+              "low" : 85.75,
+              "close" : 85.84,
+              "adjClose" : 85.84,
+              "volume" : 4113527.0,
+              "unadjustedVolume" : 4113527.0,
+              "change" : -0.45,
+              "changePercent" : -0.521,
+              "vwap" : 86.08333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00521
+            }, {
+              "date" : "2021-09-08",
+              "open" : 85.12,
+              "high" : 86.97,
+              "low" : 84.8,
+              "close" : 86.44,
+              "adjClose" : 86.44,
+              "volume" : 6267628.0,
+              "unadjustedVolume" : 6267628.0,
+              "change" : 1.32,
+              "changePercent" : 1.551,
+              "vwap" : 86.07,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01551
+            }, {
+              "date" : "2021-09-07",
+              "open" : 85.44,
+              "high" : 85.49,
+              "low" : 84.47,
+              "close" : 85.03,
+              "adjClose" : 85.03,
+              "volume" : 6831167.0,
+              "unadjustedVolume" : 6831167.0,
+              "change" : -0.41,
+              "changePercent" : -0.48,
+              "vwap" : 84.99667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.0048
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:34 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/NUE,O,PBCT,PEP,PG?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:34 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "PBCT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 16.25,
+              "high" : 16.31,
+              "low" : 15.97,
+              "close" : 15.99,
+              "adjClose" : 15.99,
+              "volume" : 2030573.0,
+              "unadjustedVolume" : 2030573.0,
+              "change" : -0.26,
+              "changePercent" : -1.6,
+              "vwap" : 16.09,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.016
+            }, {
+              "date" : "2021-09-09",
+              "open" : 16.11,
+              "high" : 16.39,
+              "low" : 16.04,
+              "close" : 16.16,
+              "adjClose" : 16.16,
+              "volume" : 1985773.0,
+              "unadjustedVolume" : 1985773.0,
+              "change" : 0.05,
+              "changePercent" : 0.31,
+              "vwap" : 16.19667,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.0031
+            }, {
+              "date" : "2021-09-08",
+              "open" : 16.24,
+              "high" : 16.32,
+              "low" : 16.06,
+              "close" : 16.15,
+              "adjClose" : 16.15,
+              "volume" : 4076911.0,
+              "unadjustedVolume" : 4076911.0,
+              "change" : -0.09,
+              "changePercent" : -0.554,
+              "vwap" : 16.17667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00554
+            }, {
+              "date" : "2021-09-07",
+              "open" : 16.33,
+              "high" : 16.55,
+              "low" : 16.16,
+              "close" : 16.27,
+              "adjClose" : 16.27,
+              "volume" : 4754836.0,
+              "unadjustedVolume" : 4754836.0,
+              "change" : -0.06,
+              "changePercent" : -0.367,
+              "vwap" : 16.32667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00367
+            } ]
+          }, {
+            "symbol" : "PG",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 144.06,
+              "high" : 144.46,
+              "low" : 143.38,
+              "close" : 144.13,
+              "adjClose" : 144.13,
+              "volume" : 4847428.0,
+              "unadjustedVolume" : 4847428.0,
+              "change" : 0.07,
+              "changePercent" : 0.049,
+              "vwap" : 143.99,
+              "label" : "September 10, 21",
+              "changeOverTime" : 4.9E-4
+            }, {
+              "date" : "2021-09-09",
+              "open" : 144.57,
+              "high" : 144.88,
+              "low" : 143.65,
+              "close" : 143.99,
+              "adjClose" : 143.99,
+              "volume" : 6359210.0,
+              "unadjustedVolume" : 6359210.0,
+              "change" : -0.58,
+              "changePercent" : -0.401,
+              "vwap" : 144.17333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00401
+            }, {
+              "date" : "2021-09-08",
+              "open" : 143.08,
+              "high" : 144.94,
+              "low" : 143.02,
+              "close" : 144.6,
+              "adjClose" : 144.6,
+              "volume" : 6753626.0,
+              "unadjustedVolume" : 6753626.0,
+              "change" : 1.52,
+              "changePercent" : 1.062,
+              "vwap" : 144.18667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01062
+            }, {
+              "date" : "2021-09-07",
+              "open" : 144.32,
+              "high" : 144.5,
+              "low" : 143.29,
+              "close" : 143.51,
+              "adjClose" : 143.51,
+              "volume" : 6581697.0,
+              "unadjustedVolume" : 6581697.0,
+              "change" : -0.81,
+              "changePercent" : -0.561,
+              "vwap" : 143.76667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00561
+            } ]
+          }, {
+            "symbol" : "PEP",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 155.98,
+              "high" : 156.25,
+              "low" : 155.01,
+              "close" : 155.46,
+              "adjClose" : 155.46,
+              "volume" : 3887637.0,
+              "unadjustedVolume" : 3887637.0,
+              "change" : -0.52,
+              "changePercent" : -0.333,
+              "vwap" : 155.57333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00333
+            }, {
+              "date" : "2021-09-09",
+              "open" : 156.88,
+              "high" : 156.97,
+              "low" : 155.4,
+              "close" : 155.73,
+              "adjClose" : 155.73,
+              "volume" : 3419637.0,
+              "unadjustedVolume" : 3419637.0,
+              "change" : -1.15,
+              "changePercent" : -0.733,
+              "vwap" : 156.03333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00733
+            }, {
+              "date" : "2021-09-08",
+              "open" : 154.66,
+              "high" : 156.74,
+              "low" : 154.3,
+              "close" : 156.72,
+              "adjClose" : 156.72,
+              "volume" : 3222355.0,
+              "unadjustedVolume" : 3222355.0,
+              "change" : 2.06,
+              "changePercent" : 1.332,
+              "vwap" : 155.92,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01332
+            }, {
+              "date" : "2021-09-07",
+              "open" : 156.48,
+              "high" : 156.71,
+              "low" : 153.68,
+              "close" : 154.53,
+              "adjClose" : 154.53,
+              "volume" : 4641906.0,
+              "unadjustedVolume" : 4641906.0,
+              "change" : -1.95,
+              "changePercent" : -1.246,
+              "vwap" : 154.97333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01246
+            } ]
+          }, {
+            "symbol" : "NUE",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 113.51,
+              "high" : 116.22,
+              "low" : 112.1,
+              "close" : 112.25,
+              "adjClose" : 112.25,
+              "volume" : 2185502.0,
+              "unadjustedVolume" : 2185502.0,
+              "change" : -1.26,
+              "changePercent" : -1.11,
+              "vwap" : 113.52333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0111
+            }, {
+              "date" : "2021-09-09",
+              "open" : 112.33,
+              "high" : 113.4,
+              "low" : 111.33,
+              "close" : 112.57,
+              "adjClose" : 112.57,
+              "volume" : 1713727.0,
+              "unadjustedVolume" : 1713727.0,
+              "change" : 0.24,
+              "changePercent" : 0.214,
+              "vwap" : 112.43333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00214
+            }, {
+              "date" : "2021-09-08",
+              "open" : 114.12,
+              "high" : 114.17,
+              "low" : 111.63,
+              "close" : 112.18,
+              "adjClose" : 112.18,
+              "volume" : 2247607.0,
+              "unadjustedVolume" : 2247607.0,
+              "change" : -1.94,
+              "changePercent" : -1.7,
+              "vwap" : 112.66,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.017
+            }, {
+              "date" : "2021-09-07",
+              "open" : 114.0,
+              "high" : 116.26,
+              "low" : 113.82,
+              "close" : 114.76,
+              "adjClose" : 114.76,
+              "volume" : 2887755.0,
+              "unadjustedVolume" : 2887755.0,
+              "change" : 0.76,
+              "changePercent" : 0.667,
+              "vwap" : 114.94667,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00667
+            } ]
+          }, {
+            "symbol" : "O",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 69.81,
+              "high" : 69.88,
+              "low" : 67.91,
+              "close" : 67.92,
+              "adjClose" : 67.92,
+              "volume" : 4848227.0,
+              "unadjustedVolume" : 4848227.0,
+              "change" : -1.89,
+              "changePercent" : -2.707,
+              "vwap" : 68.57,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02707
+            }, {
+              "date" : "2021-09-09",
+              "open" : 71.35,
+              "high" : 71.36,
+              "low" : 69.64,
+              "close" : 69.67,
+              "adjClose" : 69.67,
+              "volume" : 4649851.0,
+              "unadjustedVolume" : 4649851.0,
+              "change" : -1.68,
+              "changePercent" : -2.355,
+              "vwap" : 70.22333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.02355
+            }, {
+              "date" : "2021-09-08",
+              "open" : 71.04,
+              "high" : 71.9,
+              "low" : 70.9,
+              "close" : 71.7,
+              "adjClose" : 71.7,
+              "volume" : 2735816.0,
+              "unadjustedVolume" : 2735816.0,
+              "change" : 0.66,
+              "changePercent" : 0.929,
+              "vwap" : 71.5,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00929
+            }, {
+              "date" : "2021-09-07",
+              "open" : 72.3,
+              "high" : 72.3,
+              "low" : 70.74,
+              "close" : 71.21,
+              "adjClose" : 71.21,
+              "volume" : 3057725.0,
+              "unadjustedVolume" : 3057725.0,
+              "change" : -1.09,
+              "changePercent" : -1.508,
+              "vwap" : 71.41667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01508
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:34 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/PNR,PPG,ROP,SHW,SPGI?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:36 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "ROP",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 480.86,
+              "high" : 481.76,
+              "low" : 473.59,
+              "close" : 473.96,
+              "adjClose" : 473.96,
+              "volume" : 254947.0,
+              "unadjustedVolume" : 254947.0,
+              "change" : -6.9,
+              "changePercent" : -1.435,
+              "vwap" : 476.43667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01435
+            }, {
+              "date" : "2021-09-09",
+              "open" : 482.21,
+              "high" : 486.48,
+              "low" : 478.01,
+              "close" : 478.91,
+              "adjClose" : 478.91,
+              "volume" : 283153.0,
+              "unadjustedVolume" : 283153.0,
+              "change" : -3.3,
+              "changePercent" : -0.684,
+              "vwap" : 481.13333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00684
+            }, {
+              "date" : "2021-09-08",
+              "open" : 476.0,
+              "high" : 483.37,
+              "low" : 476.0,
+              "close" : 482.46,
+              "adjClose" : 482.46,
+              "volume" : 299776.0,
+              "unadjustedVolume" : 299776.0,
+              "change" : 6.46,
+              "changePercent" : 1.357,
+              "vwap" : 480.61,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01357
+            }, {
+              "date" : "2021-09-07",
+              "open" : 486.55,
+              "high" : 487.15,
+              "low" : 476.74,
+              "close" : 476.74,
+              "adjClose" : 476.74,
+              "volume" : 306664.0,
+              "unadjustedVolume" : 306664.0,
+              "change" : -9.81,
+              "changePercent" : -2.016,
+              "vwap" : 480.21,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.02016
+            } ]
+          }, {
+            "symbol" : "SHW",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 297.26,
+              "high" : 304.08,
+              "low" : 296.01,
+              "close" : 300.64,
+              "adjClose" : 300.64,
+              "volume" : 1181147.0,
+              "unadjustedVolume" : 1181147.0,
+              "change" : 3.38,
+              "changePercent" : 1.137,
+              "vwap" : 300.24333,
+              "label" : "September 10, 21",
+              "changeOverTime" : 0.01137
+            }, {
+              "date" : "2021-09-09",
+              "open" : 294.19,
+              "high" : 299.32,
+              "low" : 293.36,
+              "close" : 297.3,
+              "adjClose" : 297.3,
+              "volume" : 1718200.0,
+              "unadjustedVolume" : 1718200.0,
+              "change" : 3.11,
+              "changePercent" : 1.057,
+              "vwap" : 296.66,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.01057
+            }, {
+              "date" : "2021-09-08",
+              "open" : 298.68,
+              "high" : 299.17,
+              "low" : 294.1,
+              "close" : 296.69,
+              "adjClose" : 296.69,
+              "volume" : 1672329.0,
+              "unadjustedVolume" : 1672329.0,
+              "change" : -1.99,
+              "changePercent" : -0.666,
+              "vwap" : 296.65333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00666
+            }, {
+              "date" : "2021-09-07",
+              "open" : 302.35,
+              "high" : 305.02,
+              "low" : 300.1,
+              "close" : 302.84,
+              "adjClose" : 302.84,
+              "volume" : 939705.0,
+              "unadjustedVolume" : 939705.0,
+              "change" : 0.49,
+              "changePercent" : 0.162,
+              "vwap" : 302.65333,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00162
+            } ]
+          }, {
+            "symbol" : "PNR",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 76.8,
+              "high" : 77.16,
+              "low" : 76.2,
+              "close" : 76.53,
+              "adjClose" : 76.53,
+              "volume" : 696540.0,
+              "unadjustedVolume" : 696540.0,
+              "change" : -0.27,
+              "changePercent" : -0.352,
+              "vwap" : 76.63,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00352
+            }, {
+              "date" : "2021-09-09",
+              "open" : 77.28,
+              "high" : 77.54,
+              "low" : 75.93,
+              "close" : 76.2,
+              "adjClose" : 76.2,
+              "volume" : 829815.0,
+              "unadjustedVolume" : 829815.0,
+              "change" : -1.08,
+              "changePercent" : -1.398,
+              "vwap" : 76.55667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.01398
+            }, {
+              "date" : "2021-09-08",
+              "open" : 76.14,
+              "high" : 77.42,
+              "low" : 75.98,
+              "close" : 77.18,
+              "adjClose" : 77.18,
+              "volume" : 1024359.0,
+              "unadjustedVolume" : 1024359.0,
+              "change" : 1.04,
+              "changePercent" : 1.366,
+              "vwap" : 76.86,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01366
+            }, {
+              "date" : "2021-09-07",
+              "open" : 77.71,
+              "high" : 77.71,
+              "low" : 76.43,
+              "close" : 76.48,
+              "adjClose" : 76.48,
+              "volume" : 1187657.0,
+              "unadjustedVolume" : 1187657.0,
+              "change" : -1.23,
+              "changePercent" : -1.583,
+              "vwap" : 76.87333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01583
+            } ]
+          }, {
+            "symbol" : "PPG",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 154.89,
+              "high" : 155.88,
+              "low" : 152.98,
+              "close" : 153.03,
+              "adjClose" : 153.03,
+              "volume" : 1288094.0,
+              "unadjustedVolume" : 1288094.0,
+              "change" : -1.86,
+              "changePercent" : -1.201,
+              "vwap" : 153.96333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01201
+            }, {
+              "date" : "2021-09-09",
+              "open" : 148.92,
+              "high" : 155.61,
+              "low" : 148.92,
+              "close" : 154.56,
+              "adjClose" : 154.56,
+              "volume" : 2384412.0,
+              "unadjustedVolume" : 2384412.0,
+              "change" : 5.64,
+              "changePercent" : 3.787,
+              "vwap" : 153.03,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.03787
+            }, {
+              "date" : "2021-09-08",
+              "open" : 149.45,
+              "high" : 151.37,
+              "low" : 148.61,
+              "close" : 151.02,
+              "adjClose" : 151.02,
+              "volume" : 2757788.0,
+              "unadjustedVolume" : 2757788.0,
+              "change" : 1.57,
+              "changePercent" : 1.051,
+              "vwap" : 150.33333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01051
+            }, {
+              "date" : "2021-09-07",
+              "open" : 149.49,
+              "high" : 153.65,
+              "low" : 149.0,
+              "close" : 150.4,
+              "adjClose" : 150.4,
+              "volume" : 2017172.0,
+              "unadjustedVolume" : 2017172.0,
+              "change" : 0.91,
+              "changePercent" : 0.609,
+              "vwap" : 151.01667,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00609
+            } ]
+          }, {
+            "symbol" : "SPGI",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 452.21,
+              "high" : 455.03,
+              "low" : 449.34,
+              "close" : 450.24,
+              "adjClose" : 450.24,
+              "volume" : 973198.0,
+              "unadjustedVolume" : 973198.0,
+              "change" : -1.97,
+              "changePercent" : -0.436,
+              "vwap" : 451.53667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.00436
+            }, {
+              "date" : "2021-09-09",
+              "open" : 454.02,
+              "high" : 456.63,
+              "low" : 450.09,
+              "close" : 451.39,
+              "adjClose" : 451.39,
+              "volume" : 1084602.0,
+              "unadjustedVolume" : 1084602.0,
+              "change" : -2.63,
+              "changePercent" : -0.579,
+              "vwap" : 452.70333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00579
+            }, {
+              "date" : "2021-09-08",
+              "open" : 447.52,
+              "high" : 451.9,
+              "low" : 446.1,
+              "close" : 450.61,
+              "adjClose" : 450.61,
+              "volume" : 1015905.0,
+              "unadjustedVolume" : 1015905.0,
+              "change" : 3.09,
+              "changePercent" : 0.69,
+              "vwap" : 449.53667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.0069
+            }, {
+              "date" : "2021-09-07",
+              "open" : 451.77,
+              "high" : 452.3,
+              "low" : 443.06,
+              "close" : 446.72,
+              "adjClose" : 446.72,
+              "volume" : 965889.0,
+              "unadjustedVolume" : 965889.0,
+              "change" : -5.05,
+              "changePercent" : -1.118,
+              "vwap" : 447.36,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01118
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:36 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/SWK,SYY,T,TGT,TROW?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:36 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "TGT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 247.21,
+              "high" : 247.7,
+              "low" : 244.19,
+              "close" : 244.54,
+              "adjClose" : 244.54,
+              "volume" : 1943960.0,
+              "unadjustedVolume" : 1943960.0,
+              "change" : -2.67,
+              "changePercent" : -1.08,
+              "vwap" : 245.47667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0108
+            }, {
+              "date" : "2021-09-09",
+              "open" : 245.97,
+              "high" : 247.32,
+              "low" : 244.62,
+              "close" : 245.44,
+              "adjClose" : 245.44,
+              "volume" : 2195963.0,
+              "unadjustedVolume" : 2195963.0,
+              "change" : -0.53,
+              "changePercent" : -0.215,
+              "vwap" : 245.79333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00215
+            }, {
+              "date" : "2021-09-08",
+              "open" : 242.73,
+              "high" : 246.19,
+              "low" : 242.39,
+              "close" : 246.11,
+              "adjClose" : 246.11,
+              "volume" : 2560067.0,
+              "unadjustedVolume" : 2560067.0,
+              "change" : 3.38,
+              "changePercent" : 1.392,
+              "vwap" : 244.89667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01392
+            }, {
+              "date" : "2021-09-07",
+              "open" : 243.92,
+              "high" : 244.59,
+              "low" : 241.59,
+              "close" : 242.72,
+              "adjClose" : 242.72,
+              "volume" : 2612263.0,
+              "unadjustedVolume" : 2612263.0,
+              "change" : -1.2,
+              "changePercent" : -0.492,
+              "vwap" : 242.96667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00492
+            } ]
+          }, {
+            "symbol" : "TROW",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 219.0,
+              "high" : 219.57,
+              "low" : 216.14,
+              "close" : 216.6,
+              "adjClose" : 216.6,
+              "volume" : 874405.0,
+              "unadjustedVolume" : 874405.0,
+              "change" : -2.4,
+              "changePercent" : -1.096,
+              "vwap" : 217.43667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01096
+            }, {
+              "date" : "2021-09-09",
+              "open" : 216.57,
+              "high" : 218.95,
+              "low" : 215.83,
+              "close" : 217.21,
+              "adjClose" : 217.21,
+              "volume" : 526480.0,
+              "unadjustedVolume" : 526480.0,
+              "change" : 0.64,
+              "changePercent" : 0.296,
+              "vwap" : 217.33,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00296
+            }, {
+              "date" : "2021-09-08",
+              "open" : 214.93,
+              "high" : 217.21,
+              "low" : 213.74,
+              "close" : 217.1,
+              "adjClose" : 217.1,
+              "volume" : 584479.0,
+              "unadjustedVolume" : 584479.0,
+              "change" : 2.17,
+              "changePercent" : 1.01,
+              "vwap" : 216.01667,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.0101
+            }, {
+              "date" : "2021-09-07",
+              "open" : 218.5,
+              "high" : 218.55,
+              "low" : 213.57,
+              "close" : 215.04,
+              "adjClose" : 215.04,
+              "volume" : 801921.0,
+              "unadjustedVolume" : 801921.0,
+              "change" : -3.46,
+              "changePercent" : -1.584,
+              "vwap" : 215.72,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01584
+            } ]
+          }, {
+            "symbol" : "SYY",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 78.31,
+              "high" : 78.42,
+              "low" : 76.53,
+              "close" : 76.56,
+              "adjClose" : 76.56,
+              "volume" : 1967571.0,
+              "unadjustedVolume" : 1967571.0,
+              "change" : -1.75,
+              "changePercent" : -2.235,
+              "vwap" : 77.17,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02235
+            }, {
+              "date" : "2021-09-09",
+              "open" : 76.08,
+              "high" : 78.25,
+              "low" : 75.73,
+              "close" : 77.97,
+              "adjClose" : 77.97,
+              "volume" : 3137812.0,
+              "unadjustedVolume" : 3137812.0,
+              "change" : 1.89,
+              "changePercent" : 2.484,
+              "vwap" : 77.31667,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.02484
+            }, {
+              "date" : "2021-09-08",
+              "open" : 77.2,
+              "high" : 77.5,
+              "low" : 76.0,
+              "close" : 76.41,
+              "adjClose" : 76.41,
+              "volume" : 1932142.0,
+              "unadjustedVolume" : 1932142.0,
+              "change" : -0.79,
+              "changePercent" : -1.023,
+              "vwap" : 76.63667,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.01023
+            }, {
+              "date" : "2021-09-07",
+              "open" : 77.01,
+              "high" : 77.43,
+              "low" : 76.29,
+              "close" : 77.14,
+              "adjClose" : 77.14,
+              "volume" : 1667719.0,
+              "unadjustedVolume" : 1667719.0,
+              "change" : 0.13,
+              "changePercent" : 0.169,
+              "vwap" : 76.95333,
+              "label" : "September 07, 21",
+              "changeOverTime" : 0.00169
+            } ]
+          }, {
+            "symbol" : "T",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 27.48,
+              "high" : 27.49,
+              "low" : 27.16,
+              "close" : 27.18,
+              "adjClose" : 27.18,
+              "volume" : 2.8949753E7,
+              "unadjustedVolume" : 2.8949753E7,
+              "change" : -0.3,
+              "changePercent" : -1.092,
+              "vwap" : 27.27667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01092
+            }, {
+              "date" : "2021-09-09",
+              "open" : 27.57,
+              "high" : 27.67,
+              "low" : 27.41,
+              "close" : 27.42,
+              "adjClose" : 27.42,
+              "volume" : 3.028099E7,
+              "unadjustedVolume" : 3.028099E7,
+              "change" : -0.15,
+              "changePercent" : -0.544,
+              "vwap" : 27.5,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00544
+            }, {
+              "date" : "2021-09-08",
+              "open" : 27.46,
+              "high" : 27.74,
+              "low" : 27.46,
+              "close" : 27.6,
+              "adjClose" : 27.6,
+              "volume" : 2.874208E7,
+              "unadjustedVolume" : 2.874208E7,
+              "change" : 0.14,
+              "changePercent" : 0.51,
+              "vwap" : 27.6,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.0051
+            }, {
+              "date" : "2021-09-07",
+              "open" : 27.47,
+              "high" : 27.55,
+              "low" : 27.37,
+              "close" : 27.42,
+              "adjClose" : 27.42,
+              "volume" : 2.2042042E7,
+              "unadjustedVolume" : 2.2042042E7,
+              "change" : -0.05,
+              "changePercent" : -0.182,
+              "vwap" : 27.44667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00182
+            } ]
+          }, {
+            "symbol" : "SWK",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 188.95,
+              "high" : 189.72,
+              "low" : 186.3,
+              "close" : 186.42,
+              "adjClose" : 186.42,
+              "volume" : 985396.0,
+              "unadjustedVolume" : 985396.0,
+              "change" : -2.53,
+              "changePercent" : -1.339,
+              "vwap" : 187.48,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01339
+            }, {
+              "date" : "2021-09-09",
+              "open" : 188.18,
+              "high" : 192.84,
+              "low" : 187.41,
+              "close" : 188.55,
+              "adjClose" : 188.55,
+              "volume" : 1145611.0,
+              "unadjustedVolume" : 1145611.0,
+              "change" : 0.37,
+              "changePercent" : 0.197,
+              "vwap" : 189.6,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00197
+            }, {
+              "date" : "2021-09-08",
+              "open" : 183.29,
+              "high" : 189.01,
+              "low" : 183.06,
+              "close" : 188.31,
+              "adjClose" : 188.31,
+              "volume" : 1992227.0,
+              "unadjustedVolume" : 1992227.0,
+              "change" : 5.02,
+              "changePercent" : 2.739,
+              "vwap" : 186.79333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.02739
+            }, {
+              "date" : "2021-09-07",
+              "open" : 189.37,
+              "high" : 190.3,
+              "low" : 183.16,
+              "close" : 183.23,
+              "adjClose" : 183.23,
+              "volume" : 2129076.0,
+              "unadjustedVolume" : 2129076.0,
+              "change" : -6.14,
+              "changePercent" : -3.242,
+              "vwap" : 185.56333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.03242
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:36 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/VFC,WBA,WMT,WST,XOM?apikey=<FMP_API_KEY>&from=2021-09-06
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 12 Sep 2021 13:10:37 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "VFC",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 72.470001,
+              "high" : 72.93,
+              "low" : 70.894997,
+              "close" : 70.949997,
+              "adjClose" : 70.949997,
+              "volume" : 2628122.0,
+              "unadjustedVolume" : 2628122.0,
+              "change" : -1.52,
+              "changePercent" : -2.097,
+              "vwap" : 71.59166,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02097
+            }, {
+              "date" : "2021-09-09",
+              "open" : 71.01,
+              "high" : 72.55,
+              "low" : 71.01,
+              "close" : 72.15,
+              "adjClose" : 72.15,
+              "volume" : 2409587.0,
+              "unadjustedVolume" : 2409587.0,
+              "change" : 1.14,
+              "changePercent" : 1.605,
+              "vwap" : 71.90333,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.01605
+            }, {
+              "date" : "2021-09-08",
+              "open" : 71.910004,
+              "high" : 72.739998,
+              "low" : 70.800003,
+              "close" : 71.209999,
+              "adjClose" : 71.209999,
+              "volume" : 2761400.0,
+              "unadjustedVolume" : 2761400.0,
+              "change" : -0.70001,
+              "changePercent" : -0.973,
+              "vwap" : 71.58333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00973
+            }, {
+              "date" : "2021-09-07",
+              "open" : 75.919998,
+              "high" : 76.190002,
+              "low" : 71.68,
+              "close" : 71.860001,
+              "adjClose" : 71.860001,
+              "volume" : 5225400.0,
+              "unadjustedVolume" : 5225400.0,
+              "change" : -4.06,
+              "changePercent" : -5.348,
+              "vwap" : 73.24333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.05348
+            } ]
+          }, {
+            "symbol" : "WBA",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 50.81,
+              "high" : 50.85,
+              "low" : 49.44,
+              "close" : 49.45,
+              "adjClose" : 49.45,
+              "volume" : 5560958.0,
+              "unadjustedVolume" : 5560958.0,
+              "change" : -1.36,
+              "changePercent" : -2.677,
+              "vwap" : 49.91333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02677
+            }, {
+              "date" : "2021-09-09",
+              "open" : 50.91,
+              "high" : 50.95,
+              "low" : 50.11,
+              "close" : 50.57,
+              "adjClose" : 50.57,
+              "volume" : 4369097.0,
+              "unadjustedVolume" : 4369097.0,
+              "change" : -0.34,
+              "changePercent" : -0.668,
+              "vwap" : 50.54333,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00668
+            }, {
+              "date" : "2021-09-08",
+              "open" : 51.25,
+              "high" : 51.41,
+              "low" : 50.89,
+              "close" : 51.09,
+              "adjClose" : 51.09,
+              "volume" : 2775822.0,
+              "unadjustedVolume" : 2775822.0,
+              "change" : -0.16,
+              "changePercent" : -0.312,
+              "vwap" : 51.13,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.00312
+            }, {
+              "date" : "2021-09-07",
+              "open" : 51.11,
+              "high" : 51.35,
+              "low" : 50.7,
+              "close" : 51.0,
+              "adjClose" : 51.0,
+              "volume" : 3366832.0,
+              "unadjustedVolume" : 3366832.0,
+              "change" : -0.11,
+              "changePercent" : -0.215,
+              "vwap" : 51.01667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00215
+            } ]
+          }, {
+            "symbol" : "XOM",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 55.19,
+              "high" : 55.23,
+              "low" : 53.95,
+              "close" : 53.98,
+              "adjClose" : 53.98,
+              "volume" : 1.5134846E7,
+              "unadjustedVolume" : 1.5134846E7,
+              "change" : -1.21,
+              "changePercent" : -2.192,
+              "vwap" : 54.38667,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.02192
+            }, {
+              "date" : "2021-09-09",
+              "open" : 53.62,
+              "high" : 55.0,
+              "low" : 53.3,
+              "close" : 54.09,
+              "adjClose" : 54.09,
+              "volume" : 1.9246422E7,
+              "unadjustedVolume" : 1.9246422E7,
+              "change" : 0.47,
+              "changePercent" : 0.877,
+              "vwap" : 54.13,
+              "label" : "September 09, 21",
+              "changeOverTime" : 0.00877
+            }, {
+              "date" : "2021-09-08",
+              "open" : 54.79,
+              "high" : 55.18,
+              "low" : 54.01,
+              "close" : 54.05,
+              "adjClose" : 54.05,
+              "volume" : 1.788609E7,
+              "unadjustedVolume" : 1.788609E7,
+              "change" : -0.74,
+              "changePercent" : -1.351,
+              "vwap" : 54.41333,
+              "label" : "September 08, 21",
+              "changeOverTime" : -0.01351
+            }, {
+              "date" : "2021-09-07",
+              "open" : 54.67,
+              "high" : 55.27,
+              "low" : 54.47,
+              "close" : 54.55,
+              "adjClose" : 54.55,
+              "volume" : 1.385264E7,
+              "unadjustedVolume" : 1.385264E7,
+              "change" : -0.12,
+              "changePercent" : -0.219,
+              "vwap" : 54.76333,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00219
+            } ]
+          }, {
+            "symbol" : "WST",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 464.69,
+              "high" : 467.05,
+              "low" : 459.0,
+              "close" : 459.03,
+              "adjClose" : 459.03,
+              "volume" : 311477.0,
+              "unadjustedVolume" : 311477.0,
+              "change" : -5.66,
+              "changePercent" : -1.218,
+              "vwap" : 461.69333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.01218
+            }, {
+              "date" : "2021-09-09",
+              "open" : 471.12,
+              "high" : 475.35,
+              "low" : 461.07,
+              "close" : 461.24,
+              "adjClose" : 461.24,
+              "volume" : 329151.0,
+              "unadjustedVolume" : 329151.0,
+              "change" : -9.88,
+              "changePercent" : -2.097,
+              "vwap" : 465.88667,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.02097
+            }, {
+              "date" : "2021-09-08",
+              "open" : 460.95,
+              "high" : 470.42,
+              "low" : 460.01,
+              "close" : 468.47,
+              "adjClose" : 468.47,
+              "volume" : 269565.0,
+              "unadjustedVolume" : 269565.0,
+              "change" : 7.52,
+              "changePercent" : 1.631,
+              "vwap" : 466.3,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.01631
+            }, {
+              "date" : "2021-09-07",
+              "open" : 463.46,
+              "high" : 463.69,
+              "low" : 457.0,
+              "close" : 461.86,
+              "adjClose" : 461.86,
+              "volume" : 202495.0,
+              "unadjustedVolume" : 202495.0,
+              "change" : -1.6,
+              "changePercent" : -0.345,
+              "vwap" : 460.85,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.00345
+            } ]
+          }, {
+            "symbol" : "WMT",
+            "historical" : [ {
+              "date" : "2021-09-10",
+              "open" : 147.2,
+              "high" : 147.2,
+              "low" : 145.43,
+              "close" : 145.89,
+              "adjClose" : 145.89,
+              "volume" : 5281352.0,
+              "unadjustedVolume" : 5281352.0,
+              "change" : -1.31,
+              "changePercent" : -0.89,
+              "vwap" : 146.17333,
+              "label" : "September 10, 21",
+              "changeOverTime" : -0.0089
+            }, {
+              "date" : "2021-09-09",
+              "open" : 147.46,
+              "high" : 147.6,
+              "low" : 145.84,
+              "close" : 146.42,
+              "adjClose" : 146.42,
+              "volume" : 7228302.0,
+              "unadjustedVolume" : 7228302.0,
+              "change" : -1.04,
+              "changePercent" : -0.705,
+              "vwap" : 146.62,
+              "label" : "September 09, 21",
+              "changeOverTime" : -0.00705
+            }, {
+              "date" : "2021-09-08",
+              "open" : 146.95,
+              "high" : 148.32,
+              "low" : 146.73,
+              "close" : 147.46,
+              "adjClose" : 147.46,
+              "volume" : 6469816.0,
+              "unadjustedVolume" : 6469816.0,
+              "change" : 0.51,
+              "changePercent" : 0.347,
+              "vwap" : 147.50333,
+              "label" : "September 08, 21",
+              "changeOverTime" : 0.00347
+            }, {
+              "date" : "2021-09-07",
+              "open" : 148.97,
+              "high" : 149.15,
+              "low" : 147.06,
+              "close" : 147.27,
+              "adjClose" : 147.27,
+              "volume" : 7902678.0,
+              "unadjustedVolume" : 7902678.0,
+              "change" : -1.7,
+              "changePercent" : -1.141,
+              "vwap" : 147.82667,
+              "label" : "September 07, 21",
+              "changeOverTime" : -0.01141
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 12 Sep 2021 13:10:37 GMT
+recorded_with: VCR 6.0.0
