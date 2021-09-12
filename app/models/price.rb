@@ -21,19 +21,8 @@ class Price
   attribute :symbol, :string
 
   def self.retrieve_by_api(symbols: nil, from:)
-    [
-      Price.new(
-        date: "2021-09-01",
-        open: 56.38,
-        high: 56.8,
-        low: 56.28,
-        close: 56.69,
-        volume: 9404637.0,
-        change: 0.31,
-        change_percent: 0.55,
-        symbol: symbols,
-      ),
-    ]
+    Fmp::PriceList.historical(symbols, from: from)
+                  .to_price_history
   end
 
   def for_the_week_of?(arg)
