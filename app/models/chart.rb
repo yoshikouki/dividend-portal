@@ -14,4 +14,8 @@ class Chart
     y_right = { label: "一株当たり配当", data: dividends.pluck(:adjusted_dividend) }
     quick_chart_client.new_dividend_of_dividend_aristocrats(title: title, x_axes: x, left_y_axes: y_left, right_y_axes: y_right)
   end
+
+  def line_chart_of_price(prices)
+    title = "$#{prices.first.symbol} 株価"
+  end
 end

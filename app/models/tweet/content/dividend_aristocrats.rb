@@ -4,8 +4,8 @@ class Tweet
   class Content
     class DividendAristocrats < Tweet::Content
       def ranking_of_weekly_price_drop_rate(reference_date: Date.current)
-        ranking_of_weekly_price_drop = Price::Weekly.dividend_aristocrats_in_order_of_change_percent
-        prices_for_one_year = Price.retrieve_by_api(symbol: ranking_of_weekly_price_drop.first, from: Date.current.last_year)
+        ranking_of_weekly_price_drop = Price::Weekly.dividend_aristocrats_in_order_of_change_percent(from: reference_date.beginning_of_week)
+        prices_for_one_year = Price.retrieve_by_api(symbols: ranking_of_weekly_price_drop.first, from: Date.current.last_year)
         assigns = {
           ranking: ranking_of_weekly_price_drop[0..4],
         }
