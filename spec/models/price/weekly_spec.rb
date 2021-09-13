@@ -18,7 +18,7 @@ describe "Price::Weekly" do
   end
 
   describe ".calculate_from_daily_prices" do
-    context "" do
+    context "Price::History クラスが渡された場合" do
       let!(:raw_prices) do
         [{ date: "2021-09-10", open: 56.01, high: 56.13, low: 55.52, close: 55.61, adjusted_close: 55.61, volume: 10_301_372.0, unadjusted_volume: 10_301_372.0,
            change: -0.4, change_percent: -0.714, vwap: 55.75333, label: "September 10, 21", change_over_time: -0.00714, symbol: "KO" },
@@ -31,7 +31,7 @@ describe "Price::Weekly" do
       end
       let!(:prices) { Price::History.new(prices: raw_prices) }
 
-      it "" do
+      it "週足で計算し直した Price::Weekly インスタンスを返す" do
         weekly_prices = Price::Weekly.calculate_from_daily_prices(prices)
         expected = Price::Weekly.new
         expected_hash = [
