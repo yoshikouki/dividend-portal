@@ -20,7 +20,7 @@ class Price
   attribute :change_over_time, :float
   attribute :symbol, :string
 
-  def self.retrieve_by_api(symbols: nil, from:)
+  def self.retrieve_by_api(from:, symbols: nil)
     Fmp::PriceList.historical(symbols, from: from)
                   .to_price_history
   end
