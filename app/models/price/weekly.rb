@@ -2,7 +2,7 @@
 
 class Price
   class Weekly
-    attr_reader :daily_prices
+    attr_reader :daily_prices, :prices
 
     def self.dividend_aristocrats_in_order_of_change_percent(from: Date.current.beginning_of_week)
       symbols = Company.dividend_aristocrats.pluck(:symbol)
@@ -22,6 +22,9 @@ class Price
     def ascending_order_of_change_percent
       self
     end
+
+    def all
+      @prices
+    end
   end
 end
-
