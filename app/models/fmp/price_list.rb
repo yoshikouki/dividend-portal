@@ -18,7 +18,6 @@ module Fmp
       change: :change,
       change_percent: :change_percent,
       vwap: :vwap,
-      label: :label,
       change_over_time: :change_over_time,
       symbol: :symbol,
     }.freeze
