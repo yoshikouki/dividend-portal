@@ -68,7 +68,7 @@ test:
 #
 production:
   <<: *default
-  host: <%= ENV['PRODUCTION_DATABASE_HOST'] || ENV['DATABASE_URL'] %>
+  host: <%= ENV['PRODUCTION_DATABASE_HOST'] %>
   database: dividend_portal_production
   username: <%= ENV['PRODUCTION_DATABASE_USERNAME'] %>
   password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
