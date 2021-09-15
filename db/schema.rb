@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_05_073751) do
+ActiveRecord::Schema.define(version: 2021_09_15_140052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,24 @@ ActiveRecord::Schema.define(version: 2021_09_05_073751) do
     t.index ["company_id"], name: "index_dividends_on_company_id"
     t.index ["ex_dividend_date", "symbol"], name: "index_dividends_on_ex_dividend_date_and_symbol", unique: true
     t.index ["symbol"], name: "index_dividends_on_symbol"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.date "date"
+    t.float "open"
+    t.float "high"
+    t.float "low"
+    t.float "close"
+    t.float "adjusted_close"
+    t.float "volume"
+    t.float "unadjusted_volume"
+    t.float "change"
+    t.float "change_percent"
+    t.float "vwap"
+    t.float "change_over_time"
+    t.string "symbol"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "report_queues", force: :cascade do |t|
