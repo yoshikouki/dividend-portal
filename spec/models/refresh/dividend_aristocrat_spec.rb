@@ -13,4 +13,12 @@ describe "Refresh::DividendAristocrat 配当貴族の情報を更新する" do
       end
     end
   end
+
+  describe ".prices 配当貴族の株価を更新する" do
+    it "情報がなかった場合、新しく作られる" do
+      VCR.use_cassette("models/refresh/dividend_aristocrat/prices") do
+        expect { Refresh::DividendAristocrat.prices }.to change { Price.count }.by(325)
+      end
+    end
+  end
 end
