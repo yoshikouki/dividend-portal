@@ -15,11 +15,6 @@ class Company < ApplicationRecord
   validates :exchange,
             presence: true
 
-  DIVIDEND_ARISTOCRATS = %w[
-    MMM AOS ABT ABBV AFL APD ALB AMCR ADM T ATO ADP BDX BF-B CAH CAT CVX CB CINF CTAS CLX KO CL ED DOV ECL EMR ESS EXPD XOM FRT BEN GD
-    GPC HRL ITW IBM JNJ KMB LEG LIN LOW MKC MCD MDT NEE NUE PNR PBCT PEP PPG PG O ROP SPGI SHW SWK SYY TROW TGT VFC GWW WBA WMT WST
-  ].freeze
-
   # exchange の表記揺れがあるため、正規表現を定義する
   REGEXP_NASDAQ = /NASDAQ/i
   REGEXP_NYSE = /(New York|NYSE)/i
@@ -71,7 +66,7 @@ class Company < ApplicationRecord
       Company.upsert_all(needs_updating) if needs_updating.count.positive?
     end
 
-    def update_dividend_aristocrats(dividend_aristocrats_symbols: DIVIDEND_ARISTOCRATS)
+    def update_dividend_aristocrats(dividend_aristocrats_symbols: DividendAristocrat.symbols)
       profiles = Api.profiles(dividend_aristocrats_symbols)
       profiles.map do |profile|
         # TODO: N+1 なので速度に問題があるようなら修正する (多くとも2000〜3000件かつ毎日の実行くらいなので様子見)

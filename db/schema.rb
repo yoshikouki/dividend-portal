@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_140052) do
+ActiveRecord::Schema.define(version: 2021_09_19_021026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,8 +72,9 @@ ActiveRecord::Schema.define(version: 2021_09_15_140052) do
     t.float "vwap"
     t.float "change_over_time"
     t.string "symbol"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["date", "symbol"], name: "index_prices_on_date_and_symbol", unique: true
   end
 
   create_table "report_queues", force: :cascade do |t|
