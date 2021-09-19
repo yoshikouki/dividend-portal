@@ -18,9 +18,13 @@ module Refresh
       end
 
       def weekly_prices(reference_date: Date.current)
-        start_and_end_of_target_week = { from: reference_date.beginning_of_week, to: reference_date.end_of_week }
-        fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols, **start_and_end_of_target_week)
-        Price.insert_all!(fpl.to_prices_attributes)
+        from = reference_date.beginning_of_week
+        to = reference_date.end_of_week
+        fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols, from: from, to: to)
+        # APIレスポンスと prices テーブルに重複があったら消す
+        latest_prices = fpl.to_prices_attributes.delete_if { |latest| Price.new(latest).invalid? }
+        # TODO: API からのレスポンスを日付順にソートする
+        Price.insert_all!(latest_prices) if latest_prices.present?
       end
     end
   end
