@@ -3,6 +3,11 @@
 class Company
   module DividendAristocrat
     module Constant
+      DIVIDEND_ARISTOCRATS = %w[
+        MMM AOS ABT ABBV AFL APD ALB AMCR ADM T ATO ADP BDX BF-B CAH CAT CVX CB CINF CTAS CLX KO CL ED DOV ECL EMR ESS EXPD XOM FRT BEN GD
+        GPC HRL ITW IBM JNJ KMB LEG LIN LOW MKC MCD MDT NEE NUE PNR PBCT PEP PPG PG O ROP SPGI SHW SWK SYY TROW TGT VFC GWW WBA WMT WST
+      ].freeze
+
       ATTRIBUTES = [
         {
           symbol: "ABBV",

@@ -2,6 +2,10 @@
 
 class Company
   module DividendAristocrat
+    def self.symbols
+      Company::DividendAristocrat::Constant::DIVIDEND_ARISTOCRATS
+    end
+
     def self.setup
       dividend_aristocrat_tag = Tag.find_or_create_by(name: :dividend_aristocrats, display_name: "配当貴族")
       Company::DividendAristocrat::Constant::ATTRIBUTES.each do |attr|
