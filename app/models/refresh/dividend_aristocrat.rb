@@ -19,4 +19,3 @@ module Refresh
     end
   end
 end
-
