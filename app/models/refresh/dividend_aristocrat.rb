@@ -17,9 +17,9 @@ module Refresh
         ::StockSplit.insert_all_from_stock_split_calendar!(stock_split_calendar.to_stock_splits_attributes)
       end
 
-      def prices(init: false, reference_date: Date.current)
-        option = init ? { from: reference_date.last_year } : { from: reference_date.days_ago(6) }
-        fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols, **option)
+      def weekly_prices(reference_date: Date.current)
+        start_and_end_of_target_week = { from: reference_date.beginning_of_week, to: reference_date.end_of_week }
+        fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols, **start_and_end_of_target_week)
         Price.insert_all!(fpl.to_prices_attributes)
       end
     end

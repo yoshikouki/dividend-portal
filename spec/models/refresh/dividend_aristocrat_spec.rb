@@ -14,11 +14,13 @@ describe "Refresh::DividendAristocrat 配当貴族の情報を更新する" do
     end
   end
 
-  describe ".prices 配当貴族の株価を更新する" do
-    it "情報がなかった場合、新しく作られる" do
+  describe ".weekly_prices 配当貴族の株価を一週間単位で更新する" do
+    it "基準日 (実行日がデフォルト) が属する週の月曜から金曜までの株価を prices テーブルに追加する" do
       VCR.use_cassette("models/refresh/dividend_aristocrat/prices") do
-        expect { Refresh::DividendAristocrat.prices(reference_date: Date.new(2021, 9 ,19)) }.to change { Price.count }.by(325)
-        expect { Refresh::DividendAristocrat.prices(reference_date: Date.new(2021, 9 ,19)) }.to change { Price.count }.by(0)
+        expect { Refresh::DividendAristocrat.weekly_prices(reference_date: Date.new(2021, 9 , 1)) }.to change { Price.count }.by(325)
+        expect(Price.order(:date).first.date).to eq Date.new(2021, 8 , 30)
+        expect(Price.order(:date).last.date).to eq Date.new(2021, 9 , 3)
+        expect { Refresh::DividendAristocrat.weekly_prices(reference_date: Date.new(2021, 9 , 1)) }.to change { Price.count }.by(0)
       end
     end
   end
