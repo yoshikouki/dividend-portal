@@ -4,7 +4,7 @@ module Fmp
   class PriceList
     extend Fmp::Converter
 
-    attr_reader :flatten_list, :responses
+    attr_reader :flatten_list, :responses, :attributes
 
     CONVERSION_TABLE_OF_PRICE = {
       date: :date,
@@ -53,21 +53,21 @@ module Fmp
 
     def to_prices_attributes
       flatten.map do |price|
-        price_attributes = transform_keys_to_price_attributes(price)
-        fix_rounding_error(price_attributes)
+        price_attributes_list = transform_keys_to_price_attributes(price)
+        @attributes = fix_rounding_error(price_attributes_list)
       end
     end
 
     def unstored_price_attributes
-      return [] if flatten.empty?
+      return [] if to_prices_attributes.empty?
 
-      stored_prices = Price.where(date: flatten.first[:date].to_date..flatten.last[:date].to_date)
+      attr = to_prices_attributes
+      stored_prices = Price.where(date: attr.first[:date].to_date..attr.last[:date].to_date)
                            .pluck(:date, :symbol)
-      flatten.filter_map do |price|
-        next if stored_prices.delete([price[:date].to_date, price[:symbol]])
+      attr.flatten.filter_map do |price_attributes|
+        next if stored_prices.delete([price_attributes[:date].to_date, price_attributes[:symbol]])
 
-        price_attributes = transform_keys_to_price_attributes(price)
-        fix_rounding_error(price_attributes)
+        price_attributes
       end
     end
 
