@@ -16,6 +16,14 @@ module Refresh
         stock_split_calendar = Fmp::StockSplitCalendar.historical_for_bulk_symbols(dividend_aristocrats_symbols, from: target_start_date)
         ::StockSplit.insert_all_from_stock_split_calendar!(stock_split_calendar.to_stock_splits_attributes)
       end
+
+      def weekly_prices(reference_date: Date.current)
+        fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols,
+                                        from: reference_date.beginning_of_week,
+                                        to: reference_date.end_of_week)
+        latest_prices = fpl.unstored_price_attributes
+        Price.insert_all!(latest_prices) if latest_prices.present?
+      end
     end
   end
 end

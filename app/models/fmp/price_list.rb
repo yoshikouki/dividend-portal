@@ -4,7 +4,7 @@ module Fmp
   class PriceList
     extend Fmp::Converter
 
-    attr_reader :flatten_list, :responses
+    attr_reader :flatten_list, :responses, :attributes
 
     CONVERSION_TABLE_OF_PRICE = {
       date: :date,
@@ -34,10 +34,6 @@ module Fmp
       @responses = responses
     end
 
-    def prices
-      @dividend_calendar
-    end
-
     def list
       return @list if @list
 
@@ -48,10 +44,27 @@ module Fmp
       return @flatten_list if @flatten_list
 
       assign_flatten_list
+      sort_by_date!(@flatten_list)
     end
 
     def to_prices_attributes
-      flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
+      flatten.map do |price|
+        price_attributes_list = transform_keys_to_price_attributes(price)
+        @attributes = fix_rounding_error(price_attributes_list)
+      end
+    end
+
+    def unstored_price_attributes
+      return [] if to_prices_attributes.empty?
+
+      attr = to_prices_attributes
+      stored_prices = Price.where(date: attr.first[:date].to_date..attr.last[:date].to_date)
+                           .pluck(:date, :symbol)
+      attr.flatten.filter_map do |price_attributes|
+        next if stored_prices.delete([price_attributes[:date].to_date, price_attributes[:symbol]])
+
+        price_attributes
+      end
     end
 
     def to_price_history
@@ -100,6 +113,22 @@ module Fmp
 
     def merged_symbol(flatten_list, response)
       response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
+    end
+
+    def transform_keys_to_price_attributes(price)
+      CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h
+    end
+
+    def fix_rounding_error(price_attributes)
+      target_columns = %i[open high low close adjusted_close change]
+      target_columns.each do |column|
+        price_attributes[column] = price_attributes[column].round(2) if price_attributes[column]
+      end
+      price_attributes
+    end
+
+    def sort_by_date!(instance_variable)
+      instance_variable.sort_by! { |price| price[:date].to_date }
     end
   end
 end
