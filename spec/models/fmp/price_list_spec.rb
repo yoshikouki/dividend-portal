@@ -70,12 +70,12 @@ describe "Fmp::PriceList" do
       it "シンボルを key として過去の株価の配列を value に持つハッシュを返す" do
         VCR.use_cassette("models/fmp/price_list/flatten") do
           expected = [
-            { symbol: "KO", adj_close: 56.73, change: 0.27, change_over_time: 0.00478, change_percent: 0.478, close: 56.73, date: "2021-09-03", high: 56.77,
-              label: "September 03, 21", low: 56.25, open: 56.46, unadjusted_volume: 9_578_609.0, volume: 9_578_609.0, vwap: 56.58333 },
-            { symbol: "KO", adj_close: 56.77, change: 0.0, change_over_time: 0.0, change_percent: 0.0, close: 56.77, date: "2021-09-02", high: 57.03,
-              label: "September 02, 21", low: 56.41, open: 56.77, unadjusted_volume: 11_398_661.0, volume: 11_398_661.0, vwap: 56.73667 },
             { symbol: "KO", adj_close: 56.69, change: 0.31, change_over_time: 0.0055, change_percent: 0.55, close: 56.69, date: "2021-09-01", high: 56.8,
               label: "September 01, 21", low: 56.28, open: 56.38, unadjusted_volume: 9_404_637.0, volume: 9_404_637.0, vwap: 56.59 },
+            { symbol: "KO", adj_close: 56.77, change: 0.0, change_over_time: 0.0, change_percent: 0.0, close: 56.77, date: "2021-09-02", high: 57.03,
+              label: "September 02, 21", low: 56.41, open: 56.77, unadjusted_volume: 11_398_661.0, volume: 11_398_661.0, vwap: 56.73667 },
+            { symbol: "KO", adj_close: 56.73, change: 0.27, change_over_time: 0.00478, change_percent: 0.478, close: 56.73, date: "2021-09-03", high: 56.77,
+              label: "September 03, 21", low: 56.25, open: 56.46, unadjusted_volume: 9_578_609.0, volume: 9_578_609.0, vwap: 56.58333 },
           ]
           price_list = Fmp::PriceList.historical("KO", from: "2021-09-01", to: "2021-09-03")
           expect(price_list.flatten.count).to eq 3
@@ -109,12 +109,12 @@ describe "Fmp::PriceList" do
       it "Price::History の引数に変換する" do
         VCR.use_cassette("models/fmp/price_list/flatten") do
           expected = [
-            { symbol: "KO", adjusted_close: 56.73, change: 0.27, change_over_time: 0.00478, change_percent: 0.478, close: 56.73, date: "2021-09-03",
-              high: 56.77, low: 56.25, open: 56.46, unadjusted_volume: 9_578_609.0, volume: 9_578_609.0, vwap: 56.58333 },
-            { symbol: "KO", adjusted_close: 56.77, change: 0.0, change_over_time: 0.0, change_percent: 0.0, close: 56.77, date: "2021-09-02",
-              high: 57.03, low: 56.41, open: 56.77, unadjusted_volume: 11_398_661.0, volume: 11_398_661.0, vwap: 56.73667 },
             { symbol: "KO", adjusted_close: 56.69, change: 0.31, change_over_time: 0.0055, change_percent: 0.55, close: 56.69, date: "2021-09-01",
               high: 56.8, low: 56.28, open: 56.38, unadjusted_volume: 9_404_637.0, volume: 9_404_637.0, vwap: 56.59 },
+            { symbol: "KO", adjusted_close: 56.77, change: 0.0, change_over_time: 0.0, change_percent: 0.0, close: 56.77, date: "2021-09-02",
+              high: 57.03, low: 56.41, open: 56.77, unadjusted_volume: 11_398_661.0, volume: 11_398_661.0, vwap: 56.73667 },
+            { symbol: "KO", adjusted_close: 56.73, change: 0.27, change_over_time: 0.00478, change_percent: 0.478, close: 56.73, date: "2021-09-03",
+              high: 56.77, low: 56.25, open: 56.46, unadjusted_volume: 9_578_609.0, volume: 9_578_609.0, vwap: 56.58333 },
           ]
           price_list = Fmp::PriceList.historical("KO", from: "2021-09-01", to: "2021-09-03")
           expect(price_list.to_prices_attributes.count).to eq 3
