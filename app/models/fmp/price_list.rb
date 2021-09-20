@@ -55,6 +55,17 @@ module Fmp
       flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
     end
 
+    def unstored_price_attributes
+      from = flatten.first[:date].to_date
+      to = flatten.last[:date].to_date
+      stored_prices = Price.where(date: from..to).select(:date, :symbol).pluck(:date, :symbol)
+      flatten.filter_map do |price|
+        next if stored_prices.include?([Date.parse(price[:date]), price[:symbol]])
+
+        CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h
+      end
+    end
+
     def to_price_history
       ::Price::History.new(prices: to_prices_attributes)
     end
