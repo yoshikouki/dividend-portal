@@ -59,6 +59,8 @@ module Fmp
     end
 
     def unstored_price_attributes
+      return [] if flatten.empty?
+
       stored_prices = Price.where(date: flatten.first[:date].to_date..flatten.last[:date].to_date)
                            .pluck(:date, :symbol)
       flatten.filter_map do |price|
