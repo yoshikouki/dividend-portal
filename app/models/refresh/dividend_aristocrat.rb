@@ -23,7 +23,6 @@ module Refresh
         fpl = Fmp::PriceList.historical(::Company::DividendAristocrat.symbols, from: from, to: to)
         # APIレスポンスと prices テーブルに重複があったら消す
         latest_prices = fpl.to_prices_attributes.delete_if { |latest| Price.new(latest).invalid? }
-        # TODO: API からのレスポンスを日付順にソートする
         Price.insert_all!(latest_prices) if latest_prices.present?
       end
     end

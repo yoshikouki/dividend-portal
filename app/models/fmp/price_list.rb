@@ -48,6 +48,7 @@ module Fmp
       return @flatten_list if @flatten_list
 
       assign_flatten_list
+      sort_by_date!(@flatten_list)
     end
 
     def to_prices_attributes
@@ -100,6 +101,10 @@ module Fmp
 
     def merged_symbol(flatten_list, response)
       response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
+    end
+
+    def sort_by_date!(instance_variable)
+      instance_variable.sort_by! { |price| price[:date].to_date }
     end
   end
 end

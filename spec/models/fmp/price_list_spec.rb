@@ -93,6 +93,14 @@ describe "Fmp::PriceList" do
           expect(price_list.flatten.pluck(:symbol).uniq.sort).to eq(symbols)
         end
       end
+
+      it "戻り値は日付順にソートされている" do
+        VCR.use_cassette("models/fmp/price_list/flatten_for_multiple_symbols") do
+          symbols = %w[KO JNJ PG XOM T IBM].sort
+          price_list = Fmp::PriceList.historical(symbols, from: "2021-09-01", to: "2021-09-03")
+          expect(price_list.flatten[-6..-1].pluck(:symbol).uniq.sort).to eq(symbols)
+        end
+      end
     end
   end
 
