@@ -52,7 +52,7 @@ module Fmp
     end
 
     def to_prices_attributes
-      flatten.map { |price| CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h }
+      flatten.map { |price| transform_keys_to_price_attributes(price) }
     end
 
     def unstored_price_attributes
@@ -61,7 +61,7 @@ module Fmp
       flatten.filter_map do |price|
         next if stored_prices.delete([price[:date].to_date, price[:symbol]])
 
-        CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h
+        transform_keys_to_price_attributes(price)
       end
     end
 
@@ -111,6 +111,10 @@ module Fmp
 
     def merged_symbol(flatten_list, response)
       response[:historical].each { |price| flatten_list.push price.merge(symbol: response[:symbol]) }
+    end
+
+    def transform_keys_to_price_attributes(price)
+      CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h
     end
 
     def sort_by_date!(instance_variable)
