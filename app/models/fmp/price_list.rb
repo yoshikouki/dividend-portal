@@ -52,7 +52,10 @@ module Fmp
     end
 
     def to_prices_attributes
-      flatten.map { |price| transform_keys_to_price_attributes(price) }
+      flatten.map do |price|
+        price_attributes = transform_keys_to_price_attributes(price)
+        fix_rounding_error(price_attributes)
+      end
     end
 
     def unstored_price_attributes
@@ -61,7 +64,8 @@ module Fmp
       flatten.filter_map do |price|
         next if stored_prices.delete([price[:date].to_date, price[:symbol]])
 
-        transform_keys_to_price_attributes(price)
+        price_attributes = transform_keys_to_price_attributes(price)
+        fix_rounding_error(price_attributes)
       end
     end
 
@@ -115,6 +119,14 @@ module Fmp
 
     def transform_keys_to_price_attributes(price)
       CONVERSION_TABLE_OF_PRICE.filter_map { |after, before| [after, price[before]] }.to_h
+    end
+
+    def fix_rounding_error(price_attributes)
+      target_columns = %i[open high low close adjusted_close change]
+      target_columns.each do |column|
+        price_attributes[column] = price_attributes[column].round(2) if price_attributes[column]
+      end
+      price_attributes
     end
 
     def sort_by_date!(instance_variable)

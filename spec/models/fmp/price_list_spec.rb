@@ -121,6 +121,45 @@ describe "Fmp::PriceList" do
           expect(price_list.to_prices_attributes).to eq(expected)
         end
       end
+
+      it "丸め誤差は修正されている" do
+        VCR.use_cassette("models/fmp/price_list/to_prices_attributes_for_rounding_error") do
+          price_list = Fmp::PriceList.historical("ALB", from: "2021-09-13", to: "2021-09-14")
+          expected = [
+            {
+              date: "2021-09-13",
+              open: 242.93,
+              high: 243.25,
+              low: 222.45,
+              close: 229.13,
+              adjusted_close: 228.75,
+              volume: 2522900.0,
+              unadjusted_volume: 2522900.0,
+              change: -13.8,
+              change_percent: -5.681,
+              vwap: 231.61,
+              change_over_time: -0.05681,
+              symbol: "ALB",
+            },
+            {
+              date: "2021-09-14",
+              open: 232.2,
+              high: 235.0,
+              low: 228.74,
+              close: 230.47,
+              adjusted_close: 230.09,
+              volume: 1322400.0,
+              unadjusted_volume: 1322400.0,
+              change: -1.73,
+              change_percent: -0.745,
+              vwap: 231.40334,
+              change_over_time: -0.00745,
+              symbol: "ALB",
+            },
+          ]
+          expect(price_list.to_prices_attributes).to eq(expected)
+        end
+      end
     end
   end
 
