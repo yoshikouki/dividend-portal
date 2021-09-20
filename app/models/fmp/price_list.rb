@@ -34,10 +34,6 @@ module Fmp
       @responses = responses
     end
 
-    def prices
-      @dividend_calendar
-    end
-
     def list
       return @list if @list
 
