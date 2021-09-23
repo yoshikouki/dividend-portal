@@ -4,8 +4,6 @@ class WeeklyPrice
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attr_reader :daily_prices
-
   attribute :symbol, :string
   attribute :date, :date
   attribute :open, :float
@@ -33,8 +31,8 @@ class WeeklyPrice
     self.high = daily_prices.pluck(:high).max
     self.low = daily_prices.pluck(:low).min
     self.volume = daily_prices.pluck(:volume).sum
-    self.change = (self.close.to_d - self.open.to_d).to_f
-    self.change_percent = (self.close.to_d / self.open.to_d * 100 - 100).to_f
+    self.change = (close.to_d - open.to_d).to_f
+    self.change_percent = (close.to_d / open.to_d * 100 - 100).to_f
     self
   end
 end
