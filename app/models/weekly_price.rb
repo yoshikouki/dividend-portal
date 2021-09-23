@@ -22,6 +22,12 @@ class WeeklyPrice
     new(symbol: symbol).calculate_from_daily_prices(daily_prices)
   end
 
+  def self.dividend_aristocrats(date = Date.current)
+    Company::DividendAristocrat.symbols.map do |symbol|
+      find_by_symbol_and_date(symbol, date)
+    end
+  end
+
   def calculate_from_daily_prices(daily_prices)
     self.daily_prices = daily_prices
     daily_prices = daily_prices.to_a
