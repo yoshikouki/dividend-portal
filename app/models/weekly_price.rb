@@ -21,19 +21,20 @@ class WeeklyPrice
 
   def self.find_by_symbol_and_date(symbol, date = Date.current)
     daily_prices = Price.where(symbol: symbol).on_calendar_week(date).order(:date)
-    weekly_price = new
+    new(symbol: symbol).calculate_from_daily_prices(daily_prices)
+  end
 
-    weekly_price.daily_prices = daily_prices
-    weekly_price.symbol = symbol
-    weekly_price.date = weekly_price.daily_prices.first.date
-    weekly_price.open = weekly_price.daily_prices.first.open
-    weekly_price.close = weekly_price.daily_prices.last.close
-    weekly_price.adjusted_close = weekly_price.daily_prices.last.adjusted_close
-    weekly_price.high = weekly_price.daily_prices.pluck(:high).max
-    weekly_price.low = weekly_price.daily_prices.pluck(:low).min
-    weekly_price.volume = weekly_price.daily_prices.pluck(:volume).sum
-    weekly_price.change = (weekly_price.close.to_d - weekly_price.open.to_d).to_f
-    weekly_price.change_percent = (weekly_price.close.to_d / weekly_price.open.to_d * 100 - 100).to_f
-    weekly_price
+  def calculate_from_daily_prices(daily_prices)
+    self.daily_prices = daily_prices
+    self.date = daily_prices.first.date
+    self.open = daily_prices.first.open
+    self.close = daily_prices.last.close
+    self.adjusted_close = daily_prices.last.adjusted_close
+    self.high = daily_prices.pluck(:high).max
+    self.low = daily_prices.pluck(:low).min
+    self.volume = daily_prices.pluck(:volume).sum
+    self.change = (self.close.to_d - self.open.to_d).to_f
+    self.change_percent = (self.close.to_d / self.open.to_d * 100 - 100).to_f
+    self
   end
 end
