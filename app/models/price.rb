@@ -3,6 +3,8 @@
 class Price < ApplicationRecord
   validates :date, uniqueness: { scope: :symbol }, presence: true
 
+  scope :on_calendar_week, ->(date = Date.current) { where(date: date.at_beginning_of_week..date.at_end_of_week) }
+
   def for_the_week_of?(arg)
     reference_date = to_date(arg)
     date.between? reference_date.at_beginning_of_week, reference_date.at_end_of_week

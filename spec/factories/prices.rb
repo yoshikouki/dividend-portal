@@ -3,17 +3,17 @@
 FactoryBot.define do
   factory :price do
     date { "2021-09-15" }
-    open { 1.5 }
-    high { 1.5 }
-    low { 1.5 }
-    close { 1.5 }
-    adjusted_close { 1.5 }
-    volume { 1.5 }
-    unadjusted_volume { 1.5 }
-    change { 1.5 }
-    change_percent { 1.5 }
-    vwap { 1.5 }
-    change_over_time { 1.5 }
-    symbol { "MyString" }
+    open { 10 }
+    high { 20 }
+    low { 1 }
+    close { 20 }
+    adjusted_close { 20 }
+    volume { 100 }
+    unadjusted_volume { 100 }
+    change { 10 }
+    change_percent { 100 }
+    vwap { 15 }
+    change_over_time { 100 }
+    symbol { "TEST" }
   end
 end
