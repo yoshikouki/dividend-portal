@@ -62,12 +62,12 @@ class Dividend
 
       def self.calculate_total_split_number(historical_stock_splits)
         total_split_number = 1
-        stock_splits = historical_stock_splits.map do |split|
+        stock_splits = historical_stock_splits&.map do |split|
           split_date = Date.parse(split[:date])
           total_split_number *= split[:numerator]
           [split_date, total_split_number]
         end
-        stock_splits.to_h
+        stock_splits&.to_h
       end
 
       # total_split_number_by_span の配列は、最新情報を先頭に時系昇順で並んでいる想定 (必要があれば改修)
@@ -96,6 +96,8 @@ class Dividend
         private
 
         def total_stock_split_number(total_split_number_by_span, ex_dividend_date)
+          return 1 unless total_split_number_by_span
+
           # 現在から権利落ち日まで間の最も古い株式分割
           oldest_stock_splits = total_split_number_by_span.keys.reverse.find { |split_date| split_date.after?(ex_dividend_date) }
           # 株式分割がなければ合計株式分割数は 1
