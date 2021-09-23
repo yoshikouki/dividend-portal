@@ -24,6 +24,7 @@ class WeeklyPrice
 
   def calculate_from_daily_prices(daily_prices)
     self.daily_prices = daily_prices
+    daily_prices = daily_prices.to_a
     self.date = daily_prices.first.date
     self.open = daily_prices.first.open
     self.close = daily_prices.last.close
