@@ -46,7 +46,7 @@ class Tweet
 
   def ranking_of_weekly_price_drop_rate
     content = Tweet::Content::DividendAristocrats.new
-    text= content.ranking_of_weekly_price_drop_rate
+    text = content.ranking_of_weekly_price_drop_rate
     client.tweet(text)
   end
 end
