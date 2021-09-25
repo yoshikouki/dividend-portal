@@ -16,6 +16,10 @@ class Chart
   end
 
   def line_chart_of_price(prices)
-    "prices_chart_path"
+    title = "$#{prices[0].symbol} 株価"
+    x = { labels: prices.pluck(:date).map { |d| d.strftime("%Y-%m-%d") } }
+    y_left = { label: "株価", data: prices.pluck(:close) }
+    y_right = { label: "変動率", data: prices.pluck(:change_percent) }
+    quick_chart_client.line_chart_of_price(title: title, x_axes: x, left_y_axes: y_left, right_y_axes: y_right)
   end
 end
