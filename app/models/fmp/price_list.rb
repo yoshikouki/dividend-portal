@@ -22,7 +22,8 @@ module Fmp
       symbol: :symbol,
     }.freeze
 
-    def self.historical(*symbols, from: nil, to: nil, timeseries: nil, serietype: nil)
+    def self.historical(*symbols, from: nil, to: nil, timeseries: nil, serietype: nil, date: nil)
+      from, to = date.minmax if date
       price_list = new
       symbols.flatten.each_slice(5) do |up_to_5_symbols|
         price_list.responses << Fmp.historical_prices(up_to_5_symbols, from: from, to: to, timeseries: timeseries, serietype: serietype)

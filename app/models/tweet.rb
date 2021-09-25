@@ -40,11 +40,13 @@ class Tweet
     end
   end
 
-  def initialize(env = nil)
+  def initialize(env = :production)
     @client = Client.new(env)
   end
 
-  def ranking_of_weekly_drop_rate
-    client.tweet("test")
+  def ranking_of_weekly_price_drop_rate
+    content = Tweet::Content::DividendAristocrats.new
+    text = content.ranking_of_weekly_price_drop_rate
+    client.tweet(text)
   end
 end

@@ -5,6 +5,12 @@ class Price < ApplicationRecord
 
   scope :on_calendar_week, ->(date = Date.current) { where(date: date.at_beginning_of_week..date.at_end_of_week) }
 
+  def self.where_from_api(symbol:, date: nil)
+    fpl = Fmp::PriceList.historical(symbol, date: date)
+    attributes = fpl.to_prices_attributes
+    attributes.map { |attr| new(attr) }
+  end
+
   def for_the_week_of?(arg)
     reference_date = to_date(arg)
     date.between? reference_date.at_beginning_of_week, reference_date.at_end_of_week

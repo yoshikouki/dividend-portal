@@ -8,6 +8,7 @@ module Refresh
       remove_for_saving_storage
       new_dividend_ids = update_dividends
       enqueue(dividend_ids: new_dividend_ids) if new_dividend_ids.present?
+      update_prices
     end
 
     def remove_for_saving_storage
@@ -17,6 +18,10 @@ module Refresh
     def update_dividends
       result = self::Dividend.update_us
       filter_id(result)
+    end
+
+    def update_prices
+      Refresh::DividendAristocrat.weekly_prices
     end
 
     def enqueue(dividend_ids: nil)
