@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "Tweet::Content::DividendAristocrats" do
   describe "#ranking_of_weekly_price_drop_rate" do
-    let!(:reference_date) { Date.new(2021, 9, 25) }
+    let!(:reference_date) { Date.new(2021, 9, 4) } # 土曜日
 
     before do
       VCR.use_cassette "models/tweet/content/dividend_aristocrats/ranking_of_weekly_price_drop_rate" do
@@ -15,7 +15,7 @@ describe "Tweet::Content::DividendAristocrats" do
     context "正常系" do
       let!(:expected_content) do
         <<~TWEET
-          【配当貴族の週足値下がりランキング #米国株】
+          【配当貴族の週足値下がりランキング 2021-09-04 #米国株】
 
           1. HRL (-2.83%)
           2. BDX (-2.40%)
