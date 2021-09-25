@@ -10,9 +10,7 @@ class Tweet
           reference_date: reference_date,
           ranking: ranking_of_weekly_price_drop,
         }
-        text = render(file_name: __method__, assigns: assigns)
-        image = Chart.new.line_chart_of_price(prices_for_one_year)
-        [text, image]
+        render(file_name: __method__, assigns: assigns)
       end
     end
   end
