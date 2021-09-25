@@ -22,8 +22,6 @@ describe "Tweet::Content::DividendAristocrats" do
           3. HRL (-4.55%)
           4. PPG (-4.43%)
           5. LEG (-3.83%)
-
-          ↓ 今週最も値下がりした銘柄の週足ラインチャート
         TWEET
       end
 
@@ -31,7 +29,7 @@ describe "Tweet::Content::DividendAristocrats" do
         VCR.use_cassette "models/tweet/content/dividend_aristocrats/ranking_of_weekly_price_drop_rate" do
           text, chart_path = Tweet::Content::DividendAristocrats.new.ranking_of_weekly_price_drop_rate(reference_date: reference_date)
           expect(text).to eq expected_content
-          expect(chart_path).to eq "prices_chart_path"
+          expect(chart_path).to eq nil
         end
       end
     end
