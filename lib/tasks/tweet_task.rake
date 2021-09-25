@@ -23,6 +23,6 @@ namespace :tweet do
 
   desc "配当貴族の週足値下がりランキングを配信する"
   task ranking_of_weekly_price_drop_rate: :environment do
-    Tweet.new_dividend_of_dividend_aristocrats
+    Tweet.new.ranking_of_weekly_price_drop_rate
   end
 end

@@ -40,7 +40,7 @@ class Tweet
     end
   end
 
-  def initialize(env = nil)
+  def initialize(env = :production)
     @client = Client.new(env)
   end
 
