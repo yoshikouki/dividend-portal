@@ -89,6 +89,20 @@ class QuickChartWrapper
           },
         )
       end
+
+      def line_chart_of_price(**arg)
+        format(
+          NEW_DIVIDEND_OF_DIVIDEND_ARISTOCRATS,
+          {
+            title: arg[:title],
+            labels: arg[:labels],
+            line_label: arg[:y_left_label],
+            line_data: arg[:y_left_data],
+            bar_label: arg[:y_right_label],
+            bar_data: arg[:y_right_data],
+          },
+        )
+      end
     end
   end
 end

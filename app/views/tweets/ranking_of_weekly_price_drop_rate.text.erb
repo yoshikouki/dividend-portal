@@ -3,3 +3,5 @@
 <% @ranking.each.with_index(1) do |price, n| %>
 <%= n %>. <%= price.symbol %> (<%= number_to_percentage(price.change_percent, precision: 2) %>)
 <% end %>
+
+↓ 今週最も値下がりした銘柄の週足ラインチャート
