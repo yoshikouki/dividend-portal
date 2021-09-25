@@ -10,6 +10,11 @@ describe "Tweet::Content::DividendAristocrats" do
       VCR.use_cassette("models/refresh/dividend_aristocrat/prices") do
         Refresh::DividendAristocrat.weekly_prices(reference_date: reference_date)
       end
+      FactoryBot.create(:dividend, symbol: "ABBV", dividend: 5.08, ex_dividend_date: reference_date)
+      FactoryBot.create(:dividend, symbol: "NUE", dividend: 1.618, ex_dividend_date: reference_date)
+      FactoryBot.create(:dividend, symbol: "HRL", dividend: 0.9675, ex_dividend_date: reference_date)
+      FactoryBot.create(:dividend, symbol: "PPG", dividend: 2.21, ex_dividend_date: reference_date)
+      FactoryBot.create(:dividend, symbol: "LEG", dividend: 1.64, ex_dividend_date: reference_date)
     end
 
     context "正常系" do
@@ -17,11 +22,11 @@ describe "Tweet::Content::DividendAristocrats" do
         <<~TWEET
           【配当貴族の週足値下がりランキング 2021-09-04 #米国株】
 
-          1. $ABBV (-6.86%)
-          2. $NUE (-5.83%)
-          3. $HRL (-4.55%)
-          4. $PPG (-4.43%)
-          5. $LEG (-3.83%)
+          1. $ABBV (変動率 -6.86%, 配当利回り 4.55%)
+          2. $NUE (変動率 -5.83%, 配当利回り 1.42%)
+          3. $HRL (変動率 -4.55%, 配当利回り 2.26%)
+          4. $PPG (変動率 -4.43%, 配当利回り 1.42%)
+          5. $LEG (変動率 -3.83%, 配当利回り 3.44%)
 
           ↓ 今週最も値下がりした銘柄の週足ラインチャート
         TWEET

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class WeeklyPrice
+  include Price::Calculator
   include ActiveModel::Model
   include ActiveModel::Attributes
 
@@ -30,6 +31,10 @@ class WeeklyPrice
 
   def self.dividend_aristocrats_sorted_by_change_percent(date = Date.current)
     dividend_aristocrats(date).sort_by(&:change_percent)
+  end
+
+  def dividend_yield
+    super(date.end_of_week)
   end
 
   def calculate_from_daily_prices(daily_prices)
