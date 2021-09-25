@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/KO?apikey=<FMP_API_KEY>&from=2021-09-21&to=2021-09-24
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sat, 25 Sep 2021 01:15:50 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "symbol" : "KO",
+          "historical" : [ {
+            "date" : "2021-09-24",
+            "open" : 54.0,
+            "high" : 54.24,
+            "low" : 53.86,
+            "close" : 53.89,
+            "adjClose" : 53.89,
+            "volume" : 9555773.0,
+            "unadjustedVolume" : 9555773.0,
+            "change" : -0.11,
+            "changePercent" : -0.204,
+            "vwap" : 53.99667,
+            "label" : "September 24, 21",
+            "changeOverTime" : -0.00204
+          }, {
+            "date" : "2021-09-23",
+            "open" : 54.26,
+            "high" : 54.62,
+            "low" : 54.0,
+            "close" : 54.04,
+            "adjClose" : 54.04,
+            "volume" : 1.3914453E7,
+            "unadjustedVolume" : 1.3914453E7,
+            "change" : -0.22,
+            "changePercent" : -0.405,
+            "vwap" : 54.22,
+            "label" : "September 23, 21",
+            "changeOverTime" : -0.00405
+          }, {
+            "date" : "2021-09-22",
+            "open" : 54.51,
+            "high" : 54.58,
+            "low" : 54.07,
+            "close" : 54.13,
+            "adjClose" : 54.13,
+            "volume" : 8653731.0,
+            "unadjustedVolume" : 8653731.0,
+            "change" : -0.38,
+            "changePercent" : -0.697,
+            "vwap" : 54.26,
+            "label" : "September 22, 21",
+            "changeOverTime" : -0.00697
+          }, {
+            "date" : "2021-09-21",
+            "open" : 54.39,
+            "high" : 54.82,
+            "low" : 53.94,
+            "close" : 54.05,
+            "adjClose" : 54.05,
+            "volume" : 1.6514632E7,
+            "unadjustedVolume" : 1.6514632E7,
+            "change" : -0.34,
+            "changePercent" : -0.625,
+            "vwap" : 54.27,
+            "label" : "September 21, 21",
+            "changeOverTime" : -0.00625
+          } ]
+        }
+  recorded_at: Sat, 25 Sep 2021 01:15:50 GMT
+recorded_with: VCR 6.0.0
