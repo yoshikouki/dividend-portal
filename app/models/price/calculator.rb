@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Price
   module Calculator
     def dividend_yield(reference_date)
