@@ -26,18 +26,6 @@ class QuickChartWrapper
     render config
   end
 
-  def line_chart_of_price(title: "", x_axes: {}, left_y_axes: {}, right_y_axes: {})
-    config = Config.line_chart_of_price(
-      title: title,
-      labels: x_axes[:labels],
-      y_left_label: left_y_axes[:label],
-      y_left_data: left_y_axes[:data],
-      y_right_label: right_y_axes[:label],
-      y_right_data: right_y_axes[:data],
-    )
-    render config
-  end
-
   private
 
   def render(config, path: TEMP_IMAGE_PATH)
