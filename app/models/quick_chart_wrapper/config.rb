@@ -86,9 +86,9 @@ class QuickChartWrapper
                 label: "%<line_label>s",
                 data: %<line_data>s,
                 borderColor: "rgba(75, 192, 192, 0.3)",
-                backgroundColor: getGradientFillHelper("vertical", [ 
-                  "#a336eb", 
-                  "#36a2eb", 
+                backgroundColor: getGradientFillHelper("vertical", [
+                  "#a336eb",
+                  "#36a2eb",
                 ]),
                 pointRadius: 0,
                 yAxisID: "left",
