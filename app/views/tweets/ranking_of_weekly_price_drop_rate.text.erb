@@ -1,5 +1,7 @@
 【配当貴族の週足値下がりランキング <%= @reference_date.strftime("%Y-%m-%d") %> #米国株】
 
 <% @ranking.each.with_index(1) do |price, n| %>
-<%= n %>. <%= price.symbol %> (<%= number_to_percentage(price.change_percent, precision: 2) %>)
+<%= n %>. $<%= price.symbol %> (<%= number_to_percentage(price.change_percent, precision: 2) %>)
 <% end %>
+
+↓ 今週最も値下がりした銘柄の週足ラインチャート

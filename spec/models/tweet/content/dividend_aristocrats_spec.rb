@@ -17,19 +17,21 @@ describe "Tweet::Content::DividendAristocrats" do
         <<~TWEET
           【配当貴族の週足値下がりランキング 2021-09-04 #米国株】
 
-          1. ABBV (-6.86%)
-          2. NUE (-5.83%)
-          3. HRL (-4.55%)
-          4. PPG (-4.43%)
-          5. LEG (-3.83%)
+          1. $ABBV (-6.86%)
+          2. $NUE (-5.83%)
+          3. $HRL (-4.55%)
+          4. $PPG (-4.43%)
+          5. $LEG (-3.83%)
+
+          ↓ 今週最も値下がりした銘柄の週足ラインチャート
         TWEET
       end
 
       it "週足値下がりランキングのコンテンツとチャート画像のパスを配列で返す" do
         VCR.use_cassette "models/tweet/content/dividend_aristocrats/ranking_of_weekly_price_drop_rate" do
-          text, chart_path = Tweet::Content::DividendAristocrats.new.ranking_of_weekly_price_drop_rate(reference_date: reference_date)
+          text, chart = Tweet::Content::DividendAristocrats.new.ranking_of_weekly_price_drop_rate(reference_date: reference_date)
           expect(text).to eq expected_content
-          expect(chart_path).to eq nil
+          expect(chart).to be_an_instance_of File
         end
       end
     end
