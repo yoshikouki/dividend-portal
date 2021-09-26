@@ -17,7 +17,7 @@ module Refresh
 
       def refresh(symbols:, target_start_date:)
         dividend_calendar = Fmp::DividendCalendar.historical(symbols, from: target_start_date)
-        ::Dividend.insert_all_from_dividend_calendar!(dividend_calendar.to_dividends_attributes, associate_company: false)
+        ::Dividend.insert_all_from_dividend_calendar!(dividend_calendar.unstored_dividend_attributes, associate_company: false)
       end
     end
   end

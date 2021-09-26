@@ -29,6 +29,8 @@ class Dividend < ApplicationRecord
     end
 
     def insert_all_from_dividend_calendar!(dividend_calendar, associate_company: true)
+      return unless dividend_calendar.present?
+
       dividend_calendar = associate_with_us_companies(dividend_calendar) if associate_company
       dividend_calendar = merge_timestamp(dividend_calendar)
       insert_all!(dividend_calendar)
