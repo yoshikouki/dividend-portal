@@ -6,13 +6,18 @@ module Refresh
   class << self
     def daily
       remove_for_saving_storage
+      # TODO: 米国企業全ての配当金が保存されているので配当貴族のみに限定する
       new_dividend_ids = update_dividends
       enqueue(dividend_ids: new_dividend_ids) if new_dividend_ids.present?
       update_prices
     end
 
+    def init
+      Refresh::DividendAristocrat.general(target_start_date: Date.current.last_year)
+    end
+
     def remove_for_saving_storage
-      self::Dividend.remove_outdated
+      # TODO: 株価の保存期間を決めて超過した株価は削除する
     end
 
     def update_dividends

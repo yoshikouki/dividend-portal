@@ -14,6 +14,11 @@ module Refresh
       def enqueue_dividend_report(dividend_ids)
         ReportQueueOfDividendAristocratsDividend.enqueue(dividend_ids: dividend_ids)
       end
+
+      def refresh(symbols:, target_start_date:)
+        dividend_calendar = Fmp::DividendCalendar.historical(symbols, from: target_start_date)
+        ::Dividend.insert_all_from_dividend_calendar!(dividend_calendar.unstored_dividend_attributes, associate_company: false)
+      end
     end
   end
 end
