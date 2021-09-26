@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/CB,ALB,CINF,TROW,LEG?apikey=<FMP_API_KEY>&from=2021-09-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 26 Sep 2021 08:11:54 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "TROW",
+            "historical" : [ {
+              "date" : "2021-09-14",
+              "label" : "September 14, 21",
+              "adjDividend" : 1.0800000000,
+              "dividend" : 1.08,
+              "recordDate" : "2021-09-15",
+              "paymentDate" : "2021-09-29",
+              "declarationDate" : "2021-08-02"
+            } ]
+          }, {
+            "symbol" : "CINF",
+            "historical" : [ {
+              "date" : "2021-09-15",
+              "label" : "September 15, 21",
+              "adjDividend" : 0.6300000000,
+              "dividend" : 0.63,
+              "recordDate" : "2021-09-16",
+              "paymentDate" : "2021-10-15",
+              "declarationDate" : "2021-08-20"
+            } ]
+          }, {
+            "symbol" : "ALB",
+            "historical" : [ {
+              "date" : "2021-09-16",
+              "label" : "September 16, 21",
+              "adjDividend" : 0.3900000000,
+              "dividend" : 0.39,
+              "recordDate" : "2021-09-17",
+              "paymentDate" : "2021-10-01",
+              "declarationDate" : "2021-07-20"
+            } ]
+          }, {
+            "symbol" : "LEG",
+            "historical" : [ {
+              "date" : "2021-09-14",
+              "label" : "September 14, 21",
+              "adjDividend" : 0.4200000000,
+              "dividend" : 0.42,
+              "recordDate" : "2021-09-15",
+              "paymentDate" : "2021-10-15",
+              "declarationDate" : "2021-08-11"
+            } ]
+          }, {
+            "symbol" : "CB",
+            "historical" : [ {
+              "date" : "2021-09-16",
+              "label" : "September 16, 21",
+              "adjDividend" : 0.8000000000,
+              "dividend" : 0.8,
+              "recordDate" : "2021-09-17",
+              "paymentDate" : "2021-10-08",
+              "declarationDate" : "2021-08-12"
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 26 Sep 2021 08:11:54 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/KO?apikey=<FMP_API_KEY>&from=2021-09-01
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 26 Sep 2021 08:11:55 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "symbol" : "KO",
+          "historical" : [ {
+            "date" : "2021-09-14",
+            "label" : "September 14, 21",
+            "adjDividend" : 0.4200000000,
+            "dividend" : 0.42,
+            "recordDate" : "2021-09-15",
+            "paymentDate" : "2021-10-01",
+            "declarationDate" : "2021-07-14"
+          } ]
+        }
+  recorded_at: Sun, 26 Sep 2021 08:11:55 GMT
+recorded_with: VCR 6.0.0
