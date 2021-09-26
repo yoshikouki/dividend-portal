@@ -15,14 +15,14 @@ module Fmp
       dividend_calendar
     end
 
-    def to_dividends_attributes
-      @dividends_attributes ||= dividends.map(&:to_dividend_attributes)
+    def list_of_dividend_attributes
+      @list_of_dividend_attributes ||= dividends.map(&:to_dividend_attributes)
     end
 
     def unstored_dividend_attributes
-      return [] if to_dividends_attributes.empty?
+      return [] if list_of_dividend_attributes.empty?
 
-      dividends = to_dividends_attributes
+      dividends = list_of_dividend_attributes
       stored_dividends = ::Dividend.where(ex_dividend_date: from..to, symbol: symbols)
                                    .pluck(:ex_dividend_date, :symbol)
       dividends.flatten.filter_map do |attributes|
