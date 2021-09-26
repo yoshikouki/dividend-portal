@@ -16,7 +16,7 @@ module Fmp
     end
 
     def to_dividends_attributes
-      dividends.map(&:to_dividend_attributes)
+      @dividends_attributes ||= dividends.map(&:to_dividend_attributes)
     end
 
     def unstored_dividend_attributes
