@@ -1,0 +1,173 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/IBM,JNJ,KO,PG,T?apikey=<FMP_API_KEY>&from=2021-06-01&to=2021-09-26
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 26 Sep 2021 09:09:12 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "historicalStockList" : [ {
+            "symbol" : "T",
+            "historical" : [ {
+              "date" : "2021-07-08",
+              "label" : "July 08, 21",
+              "adjDividend" : 0.5200000000,
+              "dividend" : 0.52,
+              "recordDate" : "2021-07-09",
+              "paymentDate" : "2021-08-02",
+              "declarationDate" : "2021-06-25"
+            } ]
+          }, {
+            "symbol" : "KO",
+            "historical" : [ {
+              "date" : "2021-09-14",
+              "label" : "September 14, 21",
+              "adjDividend" : 0.4200000000,
+              "dividend" : 0.42,
+              "recordDate" : "2021-09-15",
+              "paymentDate" : "2021-10-01",
+              "declarationDate" : "2021-07-14"
+            }, {
+              "date" : "2021-06-14",
+              "label" : "June 14, 21",
+              "adjDividend" : 0.4200000000,
+              "dividend" : 0.42,
+              "recordDate" : "2021-06-15",
+              "paymentDate" : "2021-07-01",
+              "declarationDate" : "2021-04-21"
+            } ]
+          }, {
+            "symbol" : "IBM",
+            "historical" : [ {
+              "date" : "2021-08-09",
+              "label" : "August 09, 21",
+              "adjDividend" : 1.6400000000,
+              "dividend" : 1.64,
+              "recordDate" : "2021-08-10",
+              "paymentDate" : "2021-09-10",
+              "declarationDate" : "2021-07-27"
+            } ]
+          }, {
+            "symbol" : "PG",
+            "historical" : [ {
+              "date" : "2021-07-22",
+              "label" : "July 22, 21",
+              "adjDividend" : 0.8700000000,
+              "dividend" : 0.87,
+              "recordDate" : "2021-07-23",
+              "paymentDate" : "2021-08-16",
+              "declarationDate" : "2021-07-13"
+            } ]
+          }, {
+            "symbol" : "JNJ",
+            "historical" : [ {
+              "date" : "2021-08-23",
+              "label" : "August 23, 21",
+              "adjDividend" : 1.0600000000,
+              "dividend" : 1.06,
+              "recordDate" : "2021-08-24",
+              "paymentDate" : "2021-09-07",
+              "declarationDate" : "2021-07-19"
+            } ]
+          } ]
+        }
+  recorded_at: Sun, 26 Sep 2021 09:09:12 GMT
+- request:
+    method: get
+    uri: https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/XOM?apikey=<FMP_API_KEY>&from=2021-06-01&to=2021-09-26
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - financialmodelingprep.com
+      Upgrade-Insecure-Requests:
+      - '1'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Sun, 26 Sep 2021 09:09:13 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '3600'
+      Access-Control-Allow-Headers:
+      - origin, content-type, accept, Authorization, authorization
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "symbol" : "XOM",
+          "historical" : [ {
+            "date" : "2021-08-12",
+            "label" : "August 12, 21",
+            "adjDividend" : 0.8700000000,
+            "dividend" : 0.87,
+            "recordDate" : "2021-08-13",
+            "paymentDate" : "2021-09-10",
+            "declarationDate" : "2021-07-28"
+          } ]
+        }
+  recorded_at: Sun, 26 Sep 2021 09:09:13 GMT
+recorded_with: VCR 6.0.0

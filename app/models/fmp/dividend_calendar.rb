@@ -20,19 +20,12 @@ module Fmp
     end
 
     def self.historical(*symbols, from: nil, to: nil)
-      warn "[WARNING] use up to 5 symbols" if symbols.count > 5
-      historical_dividends = Fmp.historical_dividends(symbols, from: from, to: to)
-      dividend_calendar = flatten_from_historical_hash(historical_dividends)
-      new(dividend_calendar)
-    end
-
-    def self.historical_for_bulk_symbols(*symbols, from: nil, to: nil)
-      dividend_calendar = []
+      dividend_calendar = new
       symbols.flatten.each_slice(5) do |up_to_5_symbols|
         historical_dividends = Fmp.historical_dividends(up_to_5_symbols, from: from, to: to)
-        dividend_calendar += flatten_from_historical_hash(historical_dividends)
+        dividend_calendar.dividend_calendar += flatten_from_historical_hash(historical_dividends)
       end
-      new(dividend_calendar)
+      dividend_calendar
     end
   end
 end
