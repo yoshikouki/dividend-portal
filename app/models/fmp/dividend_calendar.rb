@@ -24,7 +24,7 @@ module Fmp
 
       dividends = to_dividends_attributes
       stored_dividends = ::Dividend.where(ex_dividend_date: from..to, symbol: symbols)
-                              .pluck(:ex_dividend_date, :symbol)
+                                   .pluck(:ex_dividend_date, :symbol)
       dividends.flatten.filter_map do |attributes|
         next if stored_dividends.delete([attributes[:ex_dividend_date].to_date, attributes[:symbol]])
 

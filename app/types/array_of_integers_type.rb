@@ -7,6 +7,7 @@ class ArrayOfIntegersType < ActiveModel::Type::Value
 
   def cast(values)
     return if values.blank?
+
     values.map(&:to_i)
   end
 end

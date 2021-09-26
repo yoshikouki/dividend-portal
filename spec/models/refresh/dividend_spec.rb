@@ -36,13 +36,13 @@ describe "Refresh::Dividend 配当情報を新規追加・削除する処理を�
 
       it "シンボルと更新日以降の配当金情報が更新される。重複は無視する" do
         VCR.use_cassette("models/refresh/dividend/refresh") do
-          expect { Refresh::Dividend.refresh(symbols: symbols, target_start_date: target_start_date) }.
-            to change { Dividend.count }.by(6)
+          expect { Refresh::Dividend.refresh(symbols: symbols, target_start_date: target_start_date) }
+            .to change { Dividend.count }.by(6)
         end
         expect(Dividend.pluck(:symbol).uniq.sort).to eq symbols.sort
         VCR.use_cassette("models/refresh/dividend/refresh") do
-          expect { Refresh::Dividend.refresh(symbols: symbols, target_start_date: target_start_date) }.
-            to change { Dividend.count }.by(0)
+          expect { Refresh::Dividend.refresh(symbols: symbols, target_start_date: target_start_date) }
+            .to change { Dividend.count }.by(0)
         end
       end
     end
