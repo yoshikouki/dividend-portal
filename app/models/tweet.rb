@@ -49,4 +49,10 @@ class Tweet
     text, image = content.ranking_of_weekly_price_drop_rate
     client.tweet_with_image(text, image)
   end
+
+  def ranking_of_daily_price_changing_rate
+    content = Tweet::Content::DividendAristocrats.new
+    text, image = content.ranking_of_daily_price_changing_rate
+    client.tweet_with_image(text, image)
+  end
 end

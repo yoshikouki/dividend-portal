@@ -16,6 +16,15 @@ class Tweet
         image = Chart.new.line_chart_of_price(prices_for_one_year)
         [text, image]
       end
+
+      def ranking_of_daily_price_changing_rate(reference_date: Date.current)
+        prices_for_one_year = Price.where_from_api(symbol: "KO", date: reference_date.last_year..reference_date)
+        text = render(file_name: __method__, assigns: {
+          reference_date: reference_date,
+        })
+        image = Chart.new.line_chart_of_price(prices_for_one_year)
+        [text, image]
+      end
     end
   end
 end

@@ -41,4 +41,30 @@ describe "Tweet::Content::DividendAristocrats" do
       end
     end
   end
+
+  describe "#ranking_of_daily_price_changing_rate" do
+    let!(:reference_date) { Date.new(2021, 9, 3) } # 土曜日
+
+    before do
+      VCR.use_cassette("models/refresh/dividend_aristocrat/prices") do
+        Refresh::DividendAristocrat.weekly_prices(reference_date: reference_date)
+      end
+    end
+
+    context "正常系" do
+      let!(:expected_content) do
+        <<~TWEET
+          【配当貴族の日足値下がりランキング 2021-09-03 #米国株】
+        TWEET
+      end
+
+      it "日足の値下がりランキングのテキストコンテンツとチャート画像のパスを配列で返す" do
+        VCR.use_cassette "models/tweet/content/dividend_aristocrats/ranking_of_daily_price_changing_rate" do
+          text, chart = Tweet::Content::DividendAristocrats.new.ranking_of_daily_price_changing_rate(reference_date: reference_date)
+          expect(text).to eq expected_content
+          expect(chart).to be_an_instance_of File
+        end
+      end
+    end
+  end
 end
