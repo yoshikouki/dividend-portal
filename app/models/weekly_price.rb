@@ -24,13 +24,15 @@ class WeeklyPrice
   end
 
   def self.dividend_aristocrats(date = Date.current)
-    Company::DividendAristocrat.symbols.map do |symbol|
+    Company::DividendAristocrat.symbols.filter_map do |symbol|
       find_by_symbol_and_date(symbol, date)
     end
   end
 
   def self.dividend_aristocrats_sorted_by_change_percent(date = Date.current)
-    dividend_aristocrats(date).sort_by(&:change_percent)
+    weekly_prices = dividend_aristocrats(date)
+    return [] if weekly_prices.length.zero?
+    weekly_prices.sort_by(&:change_percent)
   end
 
   def dividend_yield
@@ -38,6 +40,8 @@ class WeeklyPrice
   end
 
   def calculate_from_daily_prices(daily_prices)
+    return if daily_prices.length.zero?
+
     self.daily_prices = daily_prices
     daily_prices = daily_prices.to_a
     self.date = daily_prices.first.date

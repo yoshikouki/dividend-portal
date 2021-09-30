@@ -16,6 +16,7 @@ class Chart
   end
 
   def line_chart_of_price(prices)
+    prices = prices[-250..] if prices.length > 250 # 時系列順に並んでいることを前提とする
     title = "$#{prices[0].symbol} 株価 & 変動率"
     x = { labels: prices.pluck(:date).map { |d| d.strftime("%Y-%m-%d") } }
     y_left = { label: "株価", data: prices.pluck(:close) }
