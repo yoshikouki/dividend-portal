@@ -25,4 +25,11 @@ namespace :tweet do
   task ranking_of_weekly_price_drop_rate: :environment do
     Tweet.new.ranking_of_weekly_price_drop_rate if Date.current.saturday?
   end
+
+  desc "配当貴族の日足変動率ランキングを配信する"
+  task ranking_of_daily_price_changing_rate: :environment do
+    return unless Workday.today.yesterday.workday?(:us)
+
+    Tweet.new.ranking_of_daily_price_changing_rate
+  end
 end
