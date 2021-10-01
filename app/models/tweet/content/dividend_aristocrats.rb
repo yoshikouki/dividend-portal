@@ -24,7 +24,7 @@ class Tweet
         text = render(file_name: __method__, assigns: {
                         reference_date: reference_date.yesterday,
                         worst_three_of_change_percent: daily_prices_sorted_by_change_rate[..2],
-                        best_three_of_change_percent: daily_prices_sorted_by_change_rate[-3..],
+                        best_three_of_change_percent: daily_prices_sorted_by_change_rate[-3..].reverse,
                       })
         image = Chart.new.line_chart_of_price(prices_of_worst_symbol_for_one_year)
         [text, image]
