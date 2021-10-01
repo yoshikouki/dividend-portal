@@ -48,6 +48,12 @@ describe "Tweet::Content::DividendAristocrats" do
     before do
       VCR.use_cassette("models/refresh/dividend_aristocrat/prices") do
         Refresh::DividendAristocrat.weekly_prices(reference_date: reference_date)
+        FactoryBot.create(:dividend, symbol: "BF-B", dividend: 0.18, ex_dividend_date: reference_date.yesterday)
+        FactoryBot.create(:dividend, symbol: "ABBV", dividend: 5.08, ex_dividend_date: reference_date.yesterday)
+        FactoryBot.create(:dividend, symbol: "HRL", dividend: 0.9675, ex_dividend_date: reference_date.yesterday)
+        FactoryBot.create(:dividend, symbol: "T", dividend: 2.08, ex_dividend_date: reference_date.yesterday)
+        FactoryBot.create(:dividend, symbol: "CAH", dividend: 1.4628, ex_dividend_date: reference_date.yesterday)
+        FactoryBot.create(:dividend, symbol: "WBA", dividend: 1.8795000000000002, ex_dividend_date: reference_date.yesterday)
       end
     end
 
@@ -57,15 +63,15 @@ describe "Tweet::Content::DividendAristocrats" do
           【配当貴族の日足変化率ランキング 2021-09-03 #米国株】
           
           ⏬下位⏫
-          1. $BF-B (変動率 -2.03%, 配当利回り 0.00%)
-          2. $ABBV (変動率 -1.35%, 配当利回り 0.00%)
-          3. $HRL (変動率 -1.25%, 配当利回り 0.00%)
-        
+          1. $BF-B (変動率 -2.03%, 配当利回り 0.25%)
+          2. $ABBV (変動率 -1.35%, 配当利回り 4.53%)
+          3. $HRL (変動率 -1.25%, 配当利回り 2.22%)
+          
           ⏫上位⏫
-          1. $T (変動率 1.69%, 配当利回り 0.00%)
-          2. $CAH (変動率 2.23%, 配当利回り 0.00%)
-          3. $WBA (変動率 2.54%, 配当利回り 0.00%)
-        
+          1. $T (変動率 1.69%, 配当利回り 7.53%)
+          2. $CAH (変動率 2.23%, 配当利回り 2.73%)
+          3. $WBA (変動率 2.54%, 配当利回り 3.63%)
+          
           ↓最下位の値動き↓
         TWEET
       end
