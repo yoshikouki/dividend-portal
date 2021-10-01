@@ -19,12 +19,13 @@ class Tweet
 
       def ranking_of_daily_price_changing_rate(reference_date: Date.current)
         daily_prices_sorted_by_change_rate = Price.where(date: reference_date.yesterday, symbol: Company::DividendAristocrat.symbols).order(:change_percent)
-        prices_of_worst_symbol_for_one_year = Price.where_from_api(symbol: daily_prices_sorted_by_change_rate.first.symbol, date: reference_date.last_year..reference_date)
+        prices_of_worst_symbol_for_one_year = Price.where_from_api(symbol: daily_prices_sorted_by_change_rate.first.symbol,
+                                                                   date: reference_date.last_year..reference_date)
         text = render(file_name: __method__, assigns: {
-          reference_date: reference_date,
-          worst_three_of_change_percent: daily_prices_sorted_by_change_rate[..2],
-          best_three_of_change_percent: daily_prices_sorted_by_change_rate[-3..],
-        })
+                        reference_date: reference_date,
+                        worst_three_of_change_percent: daily_prices_sorted_by_change_rate[..2],
+                        best_three_of_change_percent: daily_prices_sorted_by_change_rate[-3..],
+                      })
         image = Chart.new.line_chart_of_price(prices_of_worst_symbol_for_one_year)
         [text, image]
       end

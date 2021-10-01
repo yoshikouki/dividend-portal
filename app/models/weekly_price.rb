@@ -32,6 +32,7 @@ class WeeklyPrice
   def self.dividend_aristocrats_sorted_by_change_percent(date = Date.current)
     weekly_prices = dividend_aristocrats(date)
     return [] if weekly_prices.length.zero?
+
     weekly_prices.sort_by(&:change_percent)
   end
 

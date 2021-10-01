@@ -29,6 +29,7 @@ namespace :tweet do
   desc "配当貴族の日足変動率ランキングを配信する"
   task ranking_of_daily_price_changing_rate: :environment do
     return unless Workday.yesterday.workday?(:us)
+
     Tweet.new(:dev).ranking_of_daily_price_changing_rate
   end
 end
