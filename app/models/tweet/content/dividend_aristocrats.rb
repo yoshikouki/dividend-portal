@@ -22,7 +22,7 @@ class Tweet
         prices_of_worst_symbol_for_one_year = Price.where_from_api(symbol: daily_prices_sorted_by_change_rate.first.symbol,
                                                                    date: reference_date.last_year..reference_date)
         text = render(file_name: __method__, assigns: {
-                        reference_date: reference_date,
+                        reference_date: reference_date.yesterday,
                         worst_three_of_change_percent: daily_prices_sorted_by_change_rate[..2],
                         best_three_of_change_percent: daily_prices_sorted_by_change_rate[-3..],
                       })

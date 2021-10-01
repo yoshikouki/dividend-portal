@@ -1,13 +1,13 @@
-【配当貴族の日足変化率ランキング <%= @reference_date.strftime("%Y-%m-%d") %> #米国株】
+【配当貴族の日足変化率ランキング <%= "#{@reference_date.month}/#{@reference_date.day}" %> #米国株】
 
-⏬下位⏫
+⏬下位
 <% @worst_three_of_change_percent.each.with_index(1) do |price, n| %>
-<%= n %>. $<%= price.symbol %> (変動率 <%= number_to_percentage(price.change_percent, precision: 2) %><%= ", 配当利回り #{number_to_percentage(price.dividend_yield, precision: 2)}" if price.dividend_yield %>)
+<%= n %>. $<%= price.symbol %> (<%= number_to_percentage(price.change_percent, precision: 1) %><%= ", 配当利回 #{number_to_percentage(price.dividend_yield, precision: 1)}" if price.dividend_yield %>)
 <% end %>
 
-⏫上位⏫
+⏫上位
 <% @best_three_of_change_percent.each.with_index(1) do |price, n| %>
-<%= n %>. $<%= price.symbol %> (変動率 <%= number_to_percentage(price.change_percent, precision: 2) %><%= ", 配当利回り #{number_to_percentage(price.dividend_yield, precision: 2)}" if price.dividend_yield %>)
+<%= n %>. $<%= price.symbol %> (<%= number_to_percentage(price.change_percent, precision: 1) %><%= ", 配当利回 #{number_to_percentage(price.dividend_yield, precision: 1)}" if price.dividend_yield %>)
 <% end %>
 
-↓最下位の値動き↓
+↓最下位チャート↓
