@@ -30,6 +30,6 @@ namespace :tweet do
   task ranking_of_daily_price_changing_rate: :environment do
     return unless Workday.today.yesterday.workday?(:us)
 
-    Tweet.new(:dev).ranking_of_daily_price_changing_rate
+    Tweet.new.ranking_of_daily_price_changing_rate
   end
 end
