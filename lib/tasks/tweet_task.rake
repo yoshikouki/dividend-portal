@@ -23,7 +23,7 @@ namespace :tweet do
 
   desc "配当貴族の週足値下がりランキングを配信する"
   task ranking_of_weekly_price_drop_rate: :environment do
-    Tweet.new.ranking_of_weekly_price_drop_rate if Date.current.saturday?
+    Tweet.new.ranking_of_weekly_price_drop_rate if Date.current.sunday?
   end
 
   desc "配当貴族の日足変動率ランキングを配信する"
