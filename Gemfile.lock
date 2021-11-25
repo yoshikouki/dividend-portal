@@ -64,7 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     bindex (0.8.1)
-    bootsnap (1.7.5)
+    bootsnap (1.9.3)
       msgpack (~> 1.0)
     buftok (0.2.0)
     builder (3.2.4)
@@ -344,7 +344,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.22
+   2.2.32
